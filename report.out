@@ -1,0 +1,34 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Methods}{}% 2
+\BOOKMARK [1][-]{section.3}{Results}{}% 3
+\BOOKMARK [1][-]{section.4}{Discussion}{}% 4
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 5
+\BOOKMARK [1][-]{section.6}{Block diagram}{}% 6
+\BOOKMARK [1][-]{section.7}{Specifications}{}% 7
+\BOOKMARK [1][-]{section.8}{pres1}{}% 8
+\BOOKMARK [2][-]{subsection.8.1}{Motivation}{section.8}% 9
+\BOOKMARK [2][-]{subsection.8.2}{State of the Art}{section.8}% 10
+\BOOKMARK [2][-]{subsection.8.3}{Objectives - Synthesizer goals}{section.8}% 11
+\BOOKMARK [2][-]{subsection.8.4}{Architecture - concepts}{section.8}% 12
+\BOOKMARK [2][-]{subsection.8.5}{State of Art - Sub-1 mW PLLS}{section.8}% 13
+\BOOKMARK [2][-]{subsection.8.6}{Physical limits}{section.8}% 14
+\BOOKMARK [1][-]{section.9}{pres2}{}% 15
+\BOOKMARK [2][-]{subsection.9.1}{Initial simulation/modeling approach}{section.9}% 16
+\BOOKMARK [2][-]{subsection.9.2}{Implementation in Cadence}{section.9}% 17
+\BOOKMARK [1][-]{section.10}{pres4}{}% 18
+\BOOKMARK [2][-]{subsection.10.1}{Simulation approach}{section.10}% 19
+\BOOKMARK [2][-]{subsection.10.2}{DCO performance criteria}{section.10}% 20
+\BOOKMARK [2][-]{subsection.10.3}{DCO - reference spur requirements}{section.10}% 21
+\BOOKMARK [2][-]{subsection.10.4}{DCO - steady state cap noise}{section.10}% 22
+\BOOKMARK [2][-]{subsection.10.5}{DCO - linearity and accuracy}{section.10}% 23
+\BOOKMARK [2][-]{subsection.10.6}{TDC - phase noise model}{section.10}% 24
+\BOOKMARK [1][-]{section.11}{pres5}{}% 25
+\BOOKMARK [2][-]{subsection.11.1}{This week}{section.11}% 26
+\BOOKMARK [2][-]{subsection.11.2}{Next week}{section.11}% 27
+\BOOKMARK [2][-]{subsection.11.3}{Loop filter original attempt}{section.11}% 28
+\BOOKMARK [2][-]{subsection.11.4}{Loop filter new approach}{section.11}% 29
+\BOOKMARK [2][-]{subsection.11.5}{Coarse frequency estimation}{section.11}% 30
+\BOOKMARK [2][-]{subsection.11.6}{Loop filter Gain Coefficients}{section.11}% 31
+\BOOKMARK [2][-]{subsection.11.7}{Coarse frequency calibration}{section.11}% 32
+\BOOKMARK [1][-]{appendix.A}{Appendix - Schedule}{}% 33
+\BOOKMARK [1][-]{appendix.B}{Appendix - Code}{}% 34
