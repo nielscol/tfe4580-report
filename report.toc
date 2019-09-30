@@ -1,34 +1,39 @@
-\contentsline {section}{\numberline {1}Introduction}{10}{section.1}
-\contentsline {section}{\numberline {2}Methods}{10}{section.2}
-\contentsline {section}{\numberline {3}Results}{10}{section.3}
-\contentsline {section}{\numberline {4}Discussion}{10}{section.4}
-\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}
+\contentsline {section}{\numberline {1}Introduction}{11}{section.1}
+\contentsline {section}{\numberline {2}Methods}{11}{section.2}
+\contentsline {section}{\numberline {3}Results}{11}{section.3}
+\contentsline {section}{\numberline {4}Discussion}{11}{section.4}
+\contentsline {section}{\numberline {5}Conclusion}{11}{section.5}
 \contentsline {section}{\numberline {6}Block diagram}{11}{section.6}
 \contentsline {section}{\numberline {7}Specifications}{11}{section.7}
-\contentsline {section}{\numberline {8}pres1}{11}{section.8}
-\contentsline {subsection}{\numberline {8.1}Motivation}{11}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}State of the Art}{12}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Objectives - Synthesizer goals}{12}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}Architecture - concepts}{12}{subsection.8.4}
-\contentsline {subsection}{\numberline {8.5}State of Art - Sub-1 mW PLLS}{13}{subsection.8.5}
-\contentsline {subsection}{\numberline {8.6}Physical limits}{13}{subsection.8.6}
-\contentsline {section}{\numberline {9}pres2}{13}{section.9}
-\contentsline {subsection}{\numberline {9.1}Initial simulation/modeling approach}{13}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Implementation in Cadence}{14}{subsection.9.2}
-\contentsline {section}{\numberline {10}pres4}{14}{section.10}
-\contentsline {subsection}{\numberline {10.1}Simulation approach}{14}{subsection.10.1}
-\contentsline {subsection}{\numberline {10.2}DCO performance criteria}{14}{subsection.10.2}
-\contentsline {subsection}{\numberline {10.3}DCO - reference spur requirements}{14}{subsection.10.3}
-\contentsline {subsection}{\numberline {10.4}DCO - steady state cap noise}{15}{subsection.10.4}
-\contentsline {subsection}{\numberline {10.5}DCO - linearity and accuracy}{15}{subsection.10.5}
-\contentsline {subsection}{\numberline {10.6}TDC - phase noise model}{15}{subsection.10.6}
-\contentsline {section}{\numberline {11}pres5}{16}{section.11}
-\contentsline {subsection}{\numberline {11.1}This week}{16}{subsection.11.1}
-\contentsline {subsection}{\numberline {11.2}Next week}{16}{subsection.11.2}
-\contentsline {subsection}{\numberline {11.3}Loop filter original attempt}{16}{subsection.11.3}
-\contentsline {subsection}{\numberline {11.4}Loop filter new approach}{16}{subsection.11.4}
-\contentsline {subsection}{\numberline {11.5}Coarse frequency estimation}{17}{subsection.11.5}
-\contentsline {subsection}{\numberline {11.6}Loop filter Gain Coefficients}{17}{subsection.11.6}
-\contentsline {subsection}{\numberline {11.7}Coarse frequency calibration}{18}{subsection.11.7}
-\contentsline {section}{\numberline {A}Appendix - Schedule}{20}{appendix.A}
-\contentsline {section}{\numberline {B}Appendix - Code}{20}{appendix.B}
+\contentsline {section}{\numberline {8}DCO tuning}{12}{section.8}
+\contentsline {subsection}{\numberline {8.1}Backgate tuning}{12}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Ring oscillator frequency derivation}{12}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Ring oscillator backgate tuning derivation}{14}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}DCO Gain Uncertainty}{15}{subsection.8.4}
+\contentsline {section}{\numberline {9}pres1}{15}{section.9}
+\contentsline {subsection}{\numberline {9.1}Motivation}{15}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}State of the Art}{16}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Objectives - Synthesizer goals}{16}{subsection.9.3}
+\contentsline {subsection}{\numberline {9.4}Architecture - concepts}{16}{subsection.9.4}
+\contentsline {subsection}{\numberline {9.5}State of Art - Sub-1 mW PLLS}{16}{subsection.9.5}
+\contentsline {subsection}{\numberline {9.6}Physical limits}{17}{subsection.9.6}
+\contentsline {section}{\numberline {10}pres2}{17}{section.10}
+\contentsline {subsection}{\numberline {10.1}Initial simulation/modeling approach}{17}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Implementation in Cadence}{18}{subsection.10.2}
+\contentsline {section}{\numberline {11}pres4}{18}{section.11}
+\contentsline {subsection}{\numberline {11.1}Simulation approach}{18}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}DCO performance criteria}{18}{subsection.11.2}
+\contentsline {subsection}{\numberline {11.3}DCO - reference spur requirements}{18}{subsection.11.3}
+\contentsline {subsection}{\numberline {11.4}DCO - steady state cap noise}{19}{subsection.11.4}
+\contentsline {subsection}{\numberline {11.5}DCO - linearity and accuracy}{19}{subsection.11.5}
+\contentsline {subsection}{\numberline {11.6}TDC - phase noise model}{19}{subsection.11.6}
+\contentsline {section}{\numberline {12}pres5}{20}{section.12}
+\contentsline {subsection}{\numberline {12.1}This week}{20}{subsection.12.1}
+\contentsline {subsection}{\numberline {12.2}Next week}{20}{subsection.12.2}
+\contentsline {subsection}{\numberline {12.3}Loop filter original attempt}{20}{subsection.12.3}
+\contentsline {subsection}{\numberline {12.4}Loop filter new approach}{20}{subsection.12.4}
+\contentsline {subsection}{\numberline {12.5}Coarse frequency estimation}{21}{subsection.12.5}
+\contentsline {subsection}{\numberline {12.6}Loop filter Gain Coefficients}{21}{subsection.12.6}
+\contentsline {subsection}{\numberline {12.7}Coarse frequency calibration}{22}{subsection.12.7}
+\contentsline {section}{\numberline {A}Appendix - Schedule}{24}{appendix.A}
+\contentsline {section}{\numberline {B}Appendix - Code}{24}{appendix.B}
