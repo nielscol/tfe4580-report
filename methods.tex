@@ -1,0 +1,47 @@
+\section{Methods}\label{methods}
+Talk about how simulator is implemented:
+Discrete simulation models of phase noise, dco etc
+Filter optimization
+-phase noise and lock time estimate in frequency domain
+
+Design recommendations:
+High sampling rate
+Minimum choice of TDC tesolution, constraints for divider jitter, 
+\subsection{Behavioral, discrete event PLL simulation}
+\subsubsection{Phase noise modeling}
+\subsubsection{Measurement of phase noise, spurs}
+\subsubsection{Monte-carlo sampling}
+Used to verify stability
+
+\subsection{Loop filter optimization}
+Reference phase noise does not matter, is always fixed.
+DCO and TDC phase noise should be highest. Will simulate with other noise sources, but framework will optimize loop filter design and provide recommendations for other parameters (max divider jitter) so DCO and TDC phase noise are dominant.
+\subsubsection{Estimation of settling time}
+
+	Based on a continuous model of the PLL dynamics, an overall closed loop phase noise transfer funvtion G(f) is defined in the following form, where M $<$ N. The transfer function is defined as a rational function of two polynomial functions of s. 
+	\begin{equation}
+	G(f) = \frac{\Sigma_0^M b_ms^m}{\Sigma_0^N a_ns^n}
+	\end{equation}
+	An estimate of the settling time of G(f) can be made from the eigenvalues of its  representation in state space. This can be easily solved computation with available signal processing packages such as \texttt{scipy.signal}. Suppose the state transition matrix corresponding to G(f) is $\mathbf{\Phi}$, the set of k eigenvalues $\{\lambda_1, ... , \lambda_{N}\}$ for the system is found by first puting the system in the following state space representation form:
+	% https://lpsa.swarthmore.edu/Representations/SysRepTransformations/TF2SS.html
+	\begin{equation}
+	s\mathbf{Y}(s) = \mathbf{AY}(s) +\mathbf{B}X(s)
+	\end{equation}
+	Then the state transition matrix is computed, and the eigenvalues of the aforementioned are found.
+	\begin{equation}
+	\mathbf{\Phi} = (s\mathbf{I}-A)^{-1}
+	\end{equation}
+	\begin{equation}
+	|\mathbf{\Phi} - \lambda \mathbf{I}| = 0
+	\end{equation}
+	The step response of this system will take the form as a sum of complex exponentials, weighted by the eigenvectors $\{\mathbf{v}_1, ... , \mathbf{v}_N\}$ of $\mathbf{A}$.
+	\begin{equation}
+	\mathbf{y}(t) = \mathbf{v_1}e^{\lambda_1t} + ... + \mathbf{v_k}e^{\lambda_kt}, \hspace{1em} \mathbf{y(t)} = [ y(t) \hspace{0.5em}y^{'}(t)\hspace{0.5em} ...\hspace{0.5em} y^{(k)}(t)]^T
+	\end{equation}
+	The dynamics of the step response are governed by the exponential components of y(t). If  $\{\lambda_1, ... , \lambda_N\} \in \mathds{C}$ where $\lambda_k=\sigma_k+j\omega_K$, the real portion of each $\lambda_k$ will describe the transient behavior. The long term settling of y(t) will be dominated by the $\lambda_k$ with the smallest valued real component. This value is approximately the time constant for the system. Settling time $t_s$ can be considered as the interval required for the signal to drop within a tolerance band $\pm \delta_{tol} \textnormal{y}(\infty)$ about the final value $\textnormal{y}(\infty)$. 
+	\begin{equation}
+	t_s = \tau\ln(\delta_{tol}) = \frac{\ln(\delta_{tol})}{\min(|\Re(\{\lambda_1, ... , \lambda_k\})|)}
+	\end{equation}
+\subsubsection{Estimation of PLL phase noise}
+\subsubsection{Optimization algorithm}
+Utilize BFGS optimization with constraints on settling time

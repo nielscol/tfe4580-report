@@ -1,3 +1,21 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Model for ring oscillator.\relax }}{12}{figure.caption.4}
-\contentsline {figure}{\numberline {2}{\ignorespaces Approximate model for ring oscillator inverter delay cell.\relax }}{13}{figure.caption.5}
-\contentsline {figure}{\numberline {3}{\ignorespaces Backgate-tuned ring oscillator with coarse tuning capacitor bank.\relax }}{14}{figure.caption.6}
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Basic phase feedback network.\relax }}{11}{figure.caption.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2}{\ignorespaces Basic PLL.\relax }}{12}{figure.caption.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3}{\ignorespaces PI-controller PLL pole-zero locations.\relax }}{14}{figure.caption.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4}{\ignorespaces Example PI-PLL responses with varied $\zeta $.\relax }}{15}{figure.caption.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5}{\ignorespaces Basic ADPLL.\relax }}{16}{figure.caption.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6}{\ignorespaces TDC model.\relax }}{17}{figure.caption.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7}{\ignorespaces Implementation of filter.\relax }}{18}{figure.caption.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {8}{\ignorespaces Model for ring oscillator.\relax }}{24}{figure.caption.11}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {9}{\ignorespaces Approximate model for ring oscillator inverter delay cell.\relax }}{24}{figure.caption.12}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10}{\ignorespaces Backgate-tuned ring oscillator with coarse tuning capacitor bank.\relax }}{26}{figure.caption.13}

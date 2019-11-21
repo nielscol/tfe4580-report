@@ -1,48 +1,17 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: report.aux
-The style file: plain.bst
-I found no \citation commands---while reading file report.aux
-Database file #1: mybib.bib
-You've used 0 entries,
-            2118 wiz_defined-function locations,
-            497 strings with 3990 characters,
-and the built_in function-call counts, 18 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
-int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 1
-purify$ -- 0
-quote$ -- 0
-skip$ -- 1
-stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
-(There was 1 error message)
+[0] Config.pm:302> INFO - This is Biber 2.9
+[0] Config.pm:305> INFO - Logfile is 'report.blg'
+[20] biber:313> INFO - === to. nov. 21, 2019, 21:19:54
+[36] Biber.pm:371> INFO - Reading 'report.bcf'
+[83] Biber.pm:857> INFO - Found 3 citekeys in bib section 0
+[92] Biber.pm:3981> INFO - Processing section 0
+[100] Biber.pm:4154> INFO - Looking for bibtex format file 'mybib.bib' for section 0
+[101] bibtex.pm:1468> INFO - LaTeX decoding ...
+[105] bibtex.pm:1294> INFO - Found BibTeX data source 'mybib.bib'
+[113] Utils.pm:169> WARN - month field 'Nov' in entry 'gardner_1980' is not an integer - this will probably not sort properly.
+[121] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[121] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[121] Biber.pm:3809> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[121] Biber.pm:3815> INFO - No sort tailoring available for locale 'en-US'
+[124] bbl.pm:617> INFO - Writing 'report.bbl' with encoding 'latin1'
+[125] bbl.pm:720> INFO - Output to report.bbl
+[125] Biber.pm:110> INFO - WARNINGS: 1

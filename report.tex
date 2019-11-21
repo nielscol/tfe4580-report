@@ -1,8 +1,9 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage[latin1]{inputenc}
-\usepackage{amsmath}
+% \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{amssymb}
+% \usepackage{amssymb}
+\usepackage{amsmath,amsthm,amssymb}
 \usepackage{graphicx}
 \usepackage{hyperref}
 % \usepackage{courier}
@@ -15,10 +16,15 @@
 \usepackage{tabularx}
 \usepackage[table]{colortbl}
 \usepackage{placeins}
-\usepackage{cite}
+% \usepackage{cite}
 \usepackage{subcaption}
 \usepackage{lipsum}
 \usepackage{titlesec}
+\usepackage{dsfont}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{mybib.bib}
 \usepackage[skip=8pt,labelfont=bf, font=sf]{caption}
 	\DeclareCaptionFont{myfont}{\fontfamily{\sfdefault}\selectfont}
 
@@ -139,22 +145,24 @@
 \rfoot{\fontfamily{\sfdefault}\selectfont \textbf{Page \thepage}}
 \lfoot{\fontfamily{\sfdefault}\selectfont \textbf{Cole Nielsen}} % \today
 
+% \fontfamily{\sfdefault}\selectfont
+	% \large\fontfamily{\rmdefault}\selectfont 
 
-
-
-\title{\textbf{Simulation, Design and Measurement of Branchline \\ Microstrip Directional Coupler\\}}
+\title{\textbf{}}
 \date{}
 
 % \date{}
 \sloppy\raggedright
 \begin{document}	
+	\setlength{\parskip}{12pt} % 1ex plus 0.5ex minus 0.2ex}
+	\setlength{\parindent}{0pt}
 	% \maketitle 
 	% \renewcommand{\familydefault}{\sfdefault}
 	\thispagestyle{firstpage}
 	\fontfamily{\sfdefault}\selectfont 
 	\includegraphics[width=0.5\linewidth]{logo_ntnu_eng_black.png} \\
 	\vspace{8em}
-	\huge Ultra-low power PLL frequency sythesizer for Wake-Up Receiver applications\\	
+	\huge Python Framework for Design and Simulation of Integer-N ADPLLs\\	
 	\vspace{3em}
 	\huge \textbf{Cole Nielsen}\\
 	\vspace{14em}
@@ -197,7 +205,7 @@
 	\thispagestyle{nohdr}
 	\begin{abstract}
 		\large\fontfamily{\rmdefault}\selectfont 
-		\noindent\lipsum[1]
+		A pure-Python simulation and design automation framework for the design of integer-N all digital phase locked loop (ADPLL) frequency synthesizers is presented in this paper. The framework enables (a) automatic design of optimized discrete-time and quantized digital PLL loop filters, and (b) discrete-time simulation to verify filter and PLL designs for phase noise performance, lock-time and stability subject to variation using Monte-Carlo sampling. Simulation is performed with a discrete-event time domain simulator utilizing behavioral PLL component models, which permit accurate modeling effects of time-discretization and quantization in a ADPLL. Filter design automation is achieved via optimization of a prototype loop filter in a PLL for minimum total phase noise power and lock time, where lock time is maximally constrained. The optimizer utilizes continuous phase transfer function approximations of discrete PLL loop, allowing computationally fast estimates of phase noise and lock time. Thus continuous-to-discrete time conversion and coefficient quantization of the optimal filter is applied to yield a end loop-filter design. Second order optimization is utilized to minimize loop filter design error due to quantization effects.
 	\end{abstract}
 	% \section*{Abstract}
 	% fjdsfkajjlkf
@@ -211,24 +219,28 @@
 	\Huge\textbf{Problem description.}\\
 	\vspace{1em}
 	\large\fontfamily{\rmdefault}\selectfont 
-	\lipsum[1]
+	
+	To develop a standalone PLL simulation framework to aid and facilitate a later master's thesis project regarding the design of an all-digital, ultra-low power PLL (ULPPLL) frequency synthesizer. This framework is intended to address and ease all-digital PLL design and simulation challenges at a high level. Specifically it should allow for speedy PLL simulation defined with system and component- level specifications (e.g. desired frequency, gain of digitally contolled oscillator, phase detector resolution, divider modulus). This is to allow for development of component level specifications and validation of ideal PLL performance (phase noise, lock time, stability) before transistor level implementation. Furthermore, the framework should automate design of any pure-digital PLL components, namely loop-filter design, to accelerate overall time of PLL implementation.
 
 	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-	% Preface
-	\pagebreak
+	% % Preface
+	% \pagebreak
+	% \thispagestyle{nohdr}
+	% \null\pagebreak
+	% \thispagestyle{nohdr}
+	% \large\fontfamily{\sfdefault}\selectfont 
+	% \Huge\textbf{Preface.}\\
+	% \vspace{1em}
+	% \large\fontfamily{\rmdefault}\selectfont 
+	% \lipsum[1]
+
+	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+	% Contents, list of tables and figures
+	\fontfamily{\sfdefault}\selectfont 
 	\thispagestyle{nohdr}
 	\null\pagebreak
 	\thispagestyle{nohdr}
-	\large\fontfamily{\sfdefault}\selectfont 
-	\Huge\textbf{Preface.}\\
-	\vspace{1em}
-	\large\fontfamily{\rmdefault}\selectfont 
-	\lipsum[1]
-
-	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-	% Contents	
-	\fontfamily{\sfdefault}\selectfont 
-	\pagebreak
+	\null\pagebreak
 	\tableofcontents
 	\pagebreak
 	\listoffigures
@@ -239,46 +251,28 @@
 	\fontfamily{\rmdefault}\selectfont 
 	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 	% Abbreviations
-	\pagebreak
-	% \thispagestyle{nohdr}
-	\null\pagebreak
-	\section*{Abbreviations.}
-
-	\begin{tabular}{@{}ll}
-		\textbf{\textsf{DAC}}& 	Digital-to-analog converter\\
-		\textbf{\textsf{DCO}}& 	Digitally controlled oscillator\\
-		\textbf{\textsf{FDSOI}} &  Fully-depleted silicon on insulator	\\
-		\textbf{\textsf{FET}} &  Field effect transistor	\\
-		\textbf{\textsf{FSK}} &  Frequency-shift keying	\\
-		\textbf{\textsf{PLL}} &  Phase locked loop	\\
-		\textbf{\textsf{RO}}& 	Ring-oscillator\\
-		\textbf{\textsf{RX}}& 	Receiver\\
-		\textbf{\textsf{SSB}}& 	Single side band\\
-		\textbf{\textsf{TDC}}& 	Time-to-digital converter \\
-		\textbf{\textsf{TSPC}}& 	True single-phase circuit\\
-		\textbf{\textsf{VCO}}& 	Voltage controlled oscillator\\
-		\textbf{\textsf{WURX}}& 	Wake-up receiver\\
-		& 	\\
-		& 	\\
-	\end{tabular}
-
+	\input{abbrev.tex}
 
 	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 	% WAVEGUIDE MEASUREMENTS LAB
 	\pagebreak
 	\FloatBarrier
-    \section{Introduction}
+	\input{intro.tex}
+	\pagebreak
+	\FloatBarrier
+	\input{theory.tex}
+	\input{theory2.tex}
 
-    \section{Methods}
+	\input{methods.tex}
 
-    \section{Results}
+    % \section{Results}
 
-    \section{Discussion}
+    \input{disco.tex}
 
 	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
     \FloatBarrier
-    \section{Conclusion}
-    \lipsum[1]
+    \section{Conclusion} \label{conclusion}
+    Extend to fractional-N. Loop filter design will be the same, difference is divider model.
 
 
 	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -346,7 +340,7 @@
 				\hline 
 				\rule[-1ex]{0pt}{2.5ex} \textbf{DCO LSB Resolution}  & $\leq$ 50  & kHz & Determined from quantization noise.\\ 
 				\hline 
-				\rule[-1ex]{0pt}{2.5ex} \textbf{DCO DNL} & < 1 & LSB & Ensures monotonicity \\ 
+				\rule[-1ex]{0pt}{2.5ex} \textbf{DCO DNL} & $<$ 1 & LSB & Ensures monotonicity \\ 
 				\hline 
 				\rule[-1ex]{0pt}{2.5ex} \textbf{TDC Resolution} & $\leq$ 3.8  & ns & \\ 
 				\hline 
@@ -358,6 +352,52 @@
 			% \label{asgn_specs}
 		\end{table}   
 
+	\FloatBarrier
+	\normalsize
+	\flushleft
+	\section{Baseband phase noise}
+	\subsection{Modulated Signal}
+	A generalized FSK/PSK modulated signal $x_s(t)$ can be written in the following with phase trajectory $\phi_s(t)$. $\phi_s(t)$ is composed of a modulation component $\phi_m(t)$ and carrier component $\omega_ct$.
+	\begin{equation}
+	x_s(t) = A_s\cos(\phi_s(t)) = A_s\cos(\phi_m(t)+\omega_ct)
+	\end{equation} 
+	\subsection{Local oscillator - noisy PLL}
+	A noisy PLL can be realized as $x_{lo}(t)$ with phase trajectory $\phi_{lo}(t)$. $\phi_{lo}(t)$ is comprised of a phase noise component $\phi_{n}(t)$ and an oscillation $\omega_{lo}t$. 
+	\begin{equation}
+	x_{lo}(t)  = A_{lo}\cos(\phi_{lo}(t)) = A_{lo}\cos(\phi_n(t)+\omega_{lo}t)
+	\end{equation} 
+	\subsection{Baseband phase noise}
+	The signal in the baseband, $x_{bb}(t)$, is given by mixing $x_{s}(t)$ with the LO $x_{lo}(t)$. For analysis of the baseband phase noise, zero-IF ($\omega_{c}=\omega_{lo}$) is considered. Thus:
+	\begin{align}
+	x_{bb}(t) = A_s\cos(\phi_m(t)+\omega_ct)\cdot A_{lo}\cos(\phi_n(t)+\omega_{lo}t) = \\
+	\frac{1}{2}A_sA_{lo}\left[\cos(2\omega_{lo}t + \phi_m(t) + \phi_n(t)) +  \cos(\phi_m(t) - \phi_n(t))\right] 
+	\end{align} 
+	The $2\omega_{lo}t$ component is assumed to be rejected due to limited mixer bandwidth. Thus the baseband signal is now:
+	\begin{align}
+	x_{bb}(t) = A_s\cos(\phi_m(t)+\omega_ct)\cdot A_{lo}\cos(\phi_n(t)+\omega_{lo}t) = \\
+	\frac{1}{2}A_sA_{lo}\left[\cos(\phi_m(t) - \phi_n(t))\right] = \frac{1}{4}A_sA_{lo}\left[e^{j\phi_m(t)} e^{-j\phi_n(t)} + e^{-j\phi_m(t)} e^{j\phi_n(t)}\right] 
+	\end{align} 
+	The phase noise is presumed to be comprised of random phase and frequency walk, such that $\langle\phi_n(t)\rangle = 0$. Also, the phase noise is presumed to be small in amplitude, such that $\phi_n(t) << 1$, so a Taylor polynomial-based approximation of $e^{-j\phi_n(t)} = 1 -j\phi_n(t)$ can be made. Accordingly :
+	\begin{align}
+	x_{bb}(t) \approx \frac{1}{4}A_sA_{lo}\left[e^{j\phi_m(t)}(1 -j\phi_n(t))+ e^{-j\phi_m(t)}(1+j\phi_n(t))\right] \\
+	\frac{1}{4}A_sA_{lo}\left[\cos(\phi_m(t)) + \phi_n(t)\sin(\phi_m(t))\right]
+	\end{align} 
+	The above can be treated as a signal component $m(t) = \cos(\phi_m(t))$, and a noise component $n(t) = \phi_n(t)\sin(\phi_m(t))$. The Fourier transform of the noise component can be considered:
+	\begin{align}
+	N(f) = \mathcal{F}\{\phi_n(t)\sin(\phi_m(t))\} = \Phi_n(f)*\mathcal{F}\{-\cos(\phi_m(t)+\pi/2)\}\\
+	=-j\Phi_n(f)*\mathcal{F}\{\cos(\phi_m(t))\}
+	\end{align}
+
+	The signal and noise power spectral densities are therefore approximately:
+		\begin{align}
+	S_{MM} = |M(f)|^2 = |\mathcal{F}\{\cos(\phi_m(t))\}|^2\\
+	S_{NN} = |N(f)|^2 = |\Phi_n(f)*\mathcal{F}\{\cos(\phi_m(t))\}|^2
+	\end{align}
+	The inband noise and signal power of these components can be easily computed via integration:
+	\begin{equation}
+	P_x = \int^{+\Delta f/2}_{-\Delta f/2}S_{XX}df
+	\end{equation}
+	SNR is therefore the ratio of $P_M/P_N$ within a bandwidth of interest $\Delta f$, which is straightforward to determine computationally for arbitrary PLL phase noise and modulation spectral densities.
 	\FloatBarrier
 	\flushleft
 	\section{DCO tuning}
@@ -396,15 +436,16 @@
 		\item The switching point $V_M$ of the inverters is $V_{DD}/2$, based on the assumption that the NMOS and PMOS are of equal strength.
 		\item The output of an inverter will have a decaying exponential which starts coincident with the passing of $V_M$ at the input.
 		\item The propagation delay $t_{pd}$ for an inverter will be the time differential between the $V_M$ crossing points on the input and output.
-		\item The oscillator frequency will be $f_{osc}$ = $1/2Nt_{pd}$, where N is the number of stages.
+		\item The oscillator frequency will be $f_{osc}$ = $1/2Nt_{pd}$, where N is the number of stages (i.e. defined by 2N propagation delays).
 	\end{itemize}
 	Following the definition of $V_M$, it is trivial to find that $t_{pd}$ = $\tau\ln2$. It is therefore known that:
 	\begin{equation}
-	f_{osc} = \frac{1}{2Nt_{pd}} = \frac{\langle g_{ch}\rangle}{2\ln(2)NC}
+	f_{osc}^{-1} = 2Nt_{pd} = \frac{2\ln(2)NC}{\langle g_{ch}\rangle}
 	\end{equation}
-	The node capacitance C is trivial to find based on the inverter gate capacitance:
+	\subsubsection{Finding $\langle g_{ch}\rangle$ and C}
+	The node capacitance C is trivial to find based on the inverter gate capacitance and a lumped load capacitance term $C_L$:
 	\begin{equation}
-		C = C_{ox}\left ( W_N L_N + W_P L_N \right)
+		C = C_{ox}\left ( W_N L_N + W_P L_N \right) + C_L
 	\end{equation}
 	The average channel conductance $\langle g_{ch} \rangle$ is more involved to find. To do so, several assumptions are made:
 	\begin{itemize}
@@ -431,19 +472,42 @@
 	\begin{equation}
 		\langle g_{ch} \rangle = \frac{1}{2}\mu_nC_{ox}\left(\frac{W}{L}\right)_n\left[V_{DD}\left(\frac{7}{8\ln2}-1\right)-V_t\left(\frac{1}{\ln2}-1\right) \right]
 	\end{equation}
+	As a simplification, $\alpha$ is defined as:
+	\begin{equation}
+		\alpha = \left[V_{DD}\left(\frac{7}{8\ln2}-1\right)-V_t\left(\frac{1}{\ln2}-1\right) \right]
+	\end{equation}	
+	\subsubsection{Handling unequal NMOS/PMOS}
+	In the case of different threshold voltages for NMOS and PMOS:
+	\begin{equation}
+	f_{osc}^{-1} = N(t_{pdn} + t_{pdp}) = \ln(2)NC\left(\frac{1}{\langle g_{ch}\rangle_n} + \frac{1}{\langle g_{ch}\rangle_p}\right) = \frac{2\ln(2)NC}{\langle g_{ch}\rangle'}
+	\end{equation}	
+	A modified $\langle g_{ch}\rangle'$ is defined:
+	\begin{align}
+	\langle g_{ch}\rangle' = 2\left(\frac{1}{\langle g_{ch}\rangle_n} + \frac{1}{\langle g_{ch}\rangle_p}\right)^{-1} = 2\frac{\langle g_{ch}\rangle_n \langle g_{ch}\rangle_p}{\langle g_{ch}\rangle_n + \langle g_{ch}\rangle_p}
+	= 2\frac{\frac{1}{2}\mu_nC_{ox}\left(\frac{W}{L}\right)_n \alpha_n\frac{1}{2}\mu_pC_{ox}\left(\frac{W}{L}\right)_p \alpha_p}{\frac{1}{2}\mu_nC_{ox}\left(\frac{W}{L}\right)_n\alpha_n + \frac{1}{2}\mu_pC_{ox}\left(\frac{W}{L}\right)_p\alpha_p}
+	\end{align}	
+	This is somewhat unmanagable, hovever enforcing $\mu_nC_{ox}\left(\frac{W}{L}\right)_n = \mu_pC_{ox}\left(\frac{W}{L}\right)_p$ for $V_M$ to equal $V_{DD}/2$ gives:
+	\begin{align}
+	\langle g_{ch}\rangle' = \frac{1}{2}\mu_nC_{ox}\left(\frac{W}{L}\right)_n\frac{2 \alpha_n\alpha_p}{\alpha_n + \alpha_p} = \frac{1}{2}\mu_nC_{ox}\left(\frac{W}{L}\right)_n \alpha'
+	\end{align}	
+	Thus $\alpha_n$ and $\alpha_p$ are found for the according threshold voltages and then $\langle g_{ch}\rangle$ can be found.
+	\begin{equation}
+	\alpha' =  \frac{2 \alpha_n\alpha_p}{\alpha_n + \alpha_p}
+	\end{equation}
+	\subsubsection{Solving for oscillator frequency and power}
 	Solving for oscillator frequency:
 	\begin{equation}
 		f_{osc} = \frac{\mu_nC_{ox}}{4\ln2NC}\left(\frac{W}{L}\right)_n\left[V_{DD}\left(\frac{7}{8\ln2}-1\right)-V_t\left(\frac{1}{\ln2}-1\right) \right]
 	\end{equation}
-	If gate capacitance is the dominant load component:
+	If gate capacitance is the dominant load component, and PMOS/NMOS are equal sized such that $C=2WLC_{ox}$:
 	\begin{equation}
 		f_{osc} = \frac{\mu_n}{8\ln2N}\cdot\frac{1}{L^2}\left[V_{DD}\left(\frac{7}{8\ln2}-1\right)-V_t\left(\frac{1}{\ln2}-1\right) \right]
 	\end{equation}
-	Power can also be calculated, knowing in digital circuits $P = fCV_{DD}^2$, thus:
+	Power can also be calculated, knowing in digital circuits $P = fC_{\Sigma}V_{DD}^2$, where $C_{\Sigma}$ is the total active capacitance. Thus:
 	\begin{equation}
 		P_{osc} = Nf_{osc}CV_{DD}^2 = \frac{\mu_nC_{ox}}{4\ln2}\left(\frac{W}{L}\right)_n\left[V_{DD}\left(\frac{7}{8\ln2}-1\right)-V_t\left(\frac{1}{\ln2}-1\right) \right]
 	\end{equation}
-	It should be noted that the most significant factor for power consumption is FET aspect ratio (W/L).
+	It should be noted that the power consumption is proportional to FET aspect ratio (W/L).
 
 	\subsection{Ring oscillator backgate tuning derivation}
 	Using the basic expressions for ring oscillator frequency, the operature under backgate biasing can be found. In UTBB-FDSOI processes, the threshold voltage of a FET varies with linear dependence on the applied back gate bias $V_{BG}$ (relative to source). Given the body effect coefficient of a process, $\gamma$, $V_t$ is:
@@ -500,13 +564,109 @@
 	\begin{multline}
 		\sigma_{KDCO} = \frac{1}{\gamma V_{DD} \left[ V_{DD}\left(\frac{7}{8}-\ln2+\frac{\gamma}{2}-\frac{\gamma}{2}\ln2\right)-V_{t0}\left(1-\ln2\right) \right]}\cdot\\ \sqrt{\left(\gamma V_{t0} (1-\ln2)\sigma_{VDD} \right)^2 + \left(\gamma V_{DD} (1-\ln2)\sigma_{Vt0} \right)^2 + \left( V_{DD}\left[ V_{DD}\left(\frac{7}{8}-\ln2\right)-V_{t0}\left(1-\ln2\right) \right]\sigma_{\gamma} \right)^2 }
 	\end{multline}		
+	\textbf{TODO} - extract $\gamma$, $V_{t0}$ variance for FETs in process kit.
+
+
+
+	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+	% References
+    \pagebreak
+
+	% \bibliographystyle{plain}
+	% \bibliography{mybib}{}
+	\printbibliography
+
+
+	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+	% Appendix
+	\pagebreak
+	\appendix
+
+	\section{Appendix - Schedule}
+	\begin{table}
+		\footnotesize
+		\def\arraystretch{1.5}		
+		\setlength\arrayrulewidth{0.75pt}
+		\setlength{\tabcolsep}{1em} % for the horizontal padding
+		\begin{tabular}{|l|l|l|l|}
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \cellcolor{gray!40}\textbf{Week Number} & \cellcolor{gray!40}\textbf{Dates} &\cellcolor{gray!40}\textbf{Tasks} & \cellcolor{gray!40}\textbf{Outcomes}\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \cellcolor{red!20}\textbf{36}& \cellcolor{red!20}2.9 - 8.9 & \cellcolor{red!20}Review PLL Design & \cellcolor{red!20}Refreshed Knowledge\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \cellcolor{red!20}\textbf{37}& \cellcolor{red!20}9.9 - 15.9 & \cellcolor{red!20}Modeling/simulation (set up) & \cellcolor{red!20}--\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \cellcolor{red!20}\textbf{38}& \cellcolor{red!20}16.9 - 22.9 & \cellcolor{red!20}Modeling/simulation &\cellcolor{red!20} TDC/DCO Requirements\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \cellcolor{green!20}\textbf{39}& \cellcolor{green!20}23.9 - 29.9& \cellcolor{green!20}Modeling/simulation& \cellcolor{green!20}Loop Filter/Digital Algorithms\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \cellcolor{blue!20}\textbf{40}& \cellcolor{blue!20}30.9 - 6.10& \cellcolor{blue!20}Modeling/simulation& \cellcolor{blue!20}\color{red}{\textbf{Loop filter,}} \color{black}{Ideal implementation in Cadence}\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \textbf{41}& 7.10 - 13.10& Circuit Research & DCO/Divider topologies\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \textbf{42}& 14.10 - 20.10& Circuit Research & TDC/other topologies\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \textbf{43}& 21.10 - 27.10& Circuit Implementation& Digital logic (schematic)\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \textbf{44}& 28.10 - 3.11& Circuit Implementation& DCO (schematic)\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \textbf{45}& 4.11 - 10.11& Circuit Implementation& Divider/other (schematic)\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \textbf{46}& 11.11 - 17.11& Circuit Implementation (TDC)& \\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \textbf{47}& 18.11 - 24.11& Circuit Implementation (TDC)& TDC (schematic)\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \textbf{48}& 25.11 - 1.12& Full Circuit testing & Testbenches, find bugs, design fixes\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \textbf{49}& 2.12 - 8.12& Full Circuit testing& Design Fixes/iteration\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} \textbf{50}& 9.12 - 15.12& --& --\\ 
+			\hline 
+		\end{tabular}
+		\begin{flushleft}\textbf{Legend:} \colorbox{red!20}{\textbf{Done}} \colorbox{green!20}{\textbf{Current}}  \colorbox{blue!20}{\textbf{Revised}}
+		% *I will write the report simultaneously with the work.
+		\end{flushleft}
+		% \caption{Assigned specifications for branch line hybrid design.}
+		% \label{asgn_specs}
+	\end{table}  
+
+	\section{Appendix - Code}
+
+
+    \begin{lstlisting}[language={Python}, caption={excode}, label={Blabla}]
+#################################################################
+# Simulation loop
+#################################################################
+
+t0 = time.clock()
+for n in range(SAMPLES)[1:]:
+    clk_out[n] = clk.update()
+    tdc_out[n] = TDC_SCALE*((TDC_OFFSET+tdc.update(clk=clk_out[n-1], xin=div_out[n-1]))%TDC_STEPS)
+    lf_out[n]  = lf.update(xin=tdc_out[n-1], clk=clk_out[n-1])
+    osc_out[n] = dco.update(lf_out[n-1])
+    div_out[n] = div.update(osc_out[n-1], DIV_N)
+tdelta = time.clock() - t0
+print("\nSimulation completed in%f s"%tdelta)
+    \end{lstlisting}
+
+
+
+
+
+
+
+
+
+
+
+
 
 	\FloatBarrier
 	\section{pres1}
 		\subsection{Motivation}
 		\begin{itemize}
 			\footnotesize
-			\item WSNs require ultra-low power circuits. A sensor should last for many years (>5) on a coin cell battery.
+			\item WSNs require ultra-low power circuits. A sensor should last for many years ($>$5) on a coin cell battery.
 			\item With the below $P_{avg}$ values, a CR2032 cell with 0.6 Wh capacity will last:
 			\begin{itemize}
 				\scriptsize
@@ -517,7 +677,7 @@
 			\item To save power, run devices with low duty cycle; activate remotely using wake up receiver (WuRx).
 			\begin{itemize}
 				\scriptsize
-				\item For 5 years of life, using 10\% of battery energy for the WuRx, \textbf{$P_{WURX}$ < 1.4 $\mu$W} on average is required.
+				\item For 5 years of life, using 10\% of battery energy for the WuRx, \textbf{$\textnormal{P}_{\textnormal{WURX}} <$ 1.4 $\mu$W} on average is required.
 			\end{itemize} 
 			\item Main challenge for receiver is low power LO synthesis.
 			\begin{itemize}
@@ -1130,85 +1290,14 @@
 			\end{enumerate}
  
 
-	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-	% References
-    \pagebreak
-
-	\bibliographystyle{plain}
-	\bibliography{mybib}{}
 
 
-	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-	% Appendix
-	\pagebreak
-	\appendix
-
-	\section{Appendix - Schedule}
-	\begin{table}
-		\footnotesize
-		\def\arraystretch{1.5}		
-		\setlength\arrayrulewidth{0.75pt}
-		\setlength{\tabcolsep}{1em} % for the horizontal padding
-		\begin{tabular}{|l|l|l|l|}
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \cellcolor{gray!40}\textbf{Week Number} & \cellcolor{gray!40}\textbf{Dates} &\cellcolor{gray!40}\textbf{Tasks} & \cellcolor{gray!40}\textbf{Outcomes}\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \cellcolor{red!20}\textbf{36}& \cellcolor{red!20}2.9 - 8.9 & \cellcolor{red!20}Review PLL Design & \cellcolor{red!20}Refreshed Knowledge\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \cellcolor{red!20}\textbf{37}& \cellcolor{red!20}9.9 - 15.9 & \cellcolor{red!20}Modeling/simulation (set up) & \cellcolor{red!20}--\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \cellcolor{red!20}\textbf{38}& \cellcolor{red!20}16.9 - 22.9 & \cellcolor{red!20}Modeling/simulation &\cellcolor{red!20} TDC/DCO Requirements\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \cellcolor{green!20}\textbf{39}& \cellcolor{green!20}23.9 - 29.9& \cellcolor{green!20}Modeling/simulation& \cellcolor{green!20}Loop Filter/Digital Algorithms\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \cellcolor{blue!20}\textbf{40}& \cellcolor{blue!20}30.9 - 6.10& \cellcolor{blue!20}Modeling/simulation& \cellcolor{blue!20}\color{red}{\textbf{Loop filter,}} \color{black}{Ideal implementation in Cadence}\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \textbf{41}& 7.10 - 13.10& Circuit Research & DCO/Divider topologies\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \textbf{42}& 14.10 - 20.10& Circuit Research & TDC/other topologies\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \textbf{43}& 21.10 - 27.10& Circuit Implementation& Digital logic (schematic)\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \textbf{44}& 28.10 - 3.11& Circuit Implementation& DCO (schematic)\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \textbf{45}& 4.11 - 10.11& Circuit Implementation& Divider/other (schematic)\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \textbf{46}& 11.11 - 17.11& Circuit Implementation (TDC)& \\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \textbf{47}& 18.11 - 24.11& Circuit Implementation (TDC)& TDC (schematic)\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \textbf{48}& 25.11 - 1.12& Full Circuit testing & Testbenches, find bugs, design fixes\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \textbf{49}& 2.12 - 8.12& Full Circuit testing& Design Fixes/iteration\\ 
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex} \textbf{50}& 9.12 - 15.12& --& --\\ 
-			\hline 
-		\end{tabular}
-		\begin{flushleft}\textbf{Legend:} \colorbox{red!20}{\textbf{Done}} \colorbox{green!20}{\textbf{Current}}  \colorbox{blue!20}{\textbf{Revised}}
-		% *I will write the report simultaneously with the work.
-		\end{flushleft}
-		% \caption{Assigned specifications for branch line hybrid design.}
-		% \label{asgn_specs}
-	\end{table}  
-
-	\section{Appendix - Code}
 
 
-    \begin{lstlisting}[language={Python}, caption={excode}, label={Blabla}]
-#################################################################
-# Simulation loop
-#################################################################
 
-t0 = time.clock()
-for n in range(SAMPLES)[1:]:
-    clk_out[n] = clk.update()
-    tdc_out[n] = TDC_SCALE*((TDC_OFFSET+tdc.update(clk=clk_out[n-1], xin=div_out[n-1]))%TDC_STEPS)
-    lf_out[n]  = lf.update(xin=tdc_out[n-1], clk=clk_out[n-1])
-    osc_out[n] = dco.update(lf_out[n-1])
-    div_out[n] = div.update(osc_out[n-1], DIV_N)
-tdelta = time.clock() - t0
-print("\nSimulation completed in%f s"%tdelta)
-    \end{lstlisting}
+
+
+
 
 
 \end{document}

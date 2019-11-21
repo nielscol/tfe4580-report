@@ -1,0 +1,23 @@
+# Fdb version 3
+["pdflatex"] 1574372531 "theory2.tex" "/home/cole/Documents/pll/report/theory2.pdf" "theory2" 1574372532
+  "./figs/basic_adpll.tex" 1574353249 1267 43b2ae8d6e20069e7dff98f1bb2c19f5 ""
+  "./figs/filter_arch_tex.tex" 1574371780 1652 3a4886d9c085146a426d278f231dc387 ""
+  "./figs/tdc.tex" 1574362284 1185 7dfe11603b3b96d4d449e03699a34396 ""
+  "/etc/texmf/web2c/texmf.cnf" 1547987446 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/cole/Documents/pll/report/theory2.aux" 1574362394 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1480098701 1316 b636689f1933f24d1294acdf6041daaa ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1547987491 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1547987520 4128328 fdce742b0ea170930dab83e47e0b22ad ""
+  "theory2.tex" 1574372531 6530 f209392b382b58b4ccefc5d2d1faeb6e ""
+  (generated)
+  "./figs/basic_adpll.aux"
+  "theory2.pdf"
+  "/home/cole/Documents/pll/report/theory2.pdf"
+  "./figs/filter_arch_tex.aux"
+  "/home/cole/Documents/pll/report/theory2.log"
+  "theory2.log"
+  "./figs/tdc.aux"

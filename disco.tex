@@ -1,0 +1,11 @@
+\section{Discussion}\label{disco}
+Discuss choices for loop filter optimizer (loop filter type)
+	how was loop filter transfer function prototype arrived at?
+	ie what is the best loop filter design
+
+Compare to state of art (perrot)
+Perrot's pre-existing work: general purpuse simulation architecture, doesn't directly handle optimization for integer-N
+
+Talk about why DCO flicker noise doesn't matter (i.e. Reference flicker is much greater)
+	Also, we don't optimize for reference flicker, it will be constant no matter what,
+	reference is separate from PLL and PLL reponse is flat N multiplier from ref to output.

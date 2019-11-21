@@ -1,3 +1,100 @@
-\begin{thebibliography}{}
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
-\end{thebibliography}
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{gardner_1980}{article}{}
+      \name{author}{1}{}{%
+        {{hash=89f8acc357a52f941eeea0000d1fa10d}{%
+           family={Gardner},
+           familyi={G\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{89f8acc357a52f941eeea0000d1fa10d}
+      \strng{fullhash}{89f8acc357a52f941eeea0000d1fa10d}
+      \strng{bibnamehash}{89f8acc357a52f941eeea0000d1fa10d}
+      \strng{authorbibnamehash}{89f8acc357a52f941eeea0000d1fa10d}
+      \strng{authornamehash}{89f8acc357a52f941eeea0000d1fa10d}
+      \strng{authorfullhash}{89f8acc357a52f941eeea0000d1fa10d}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Communications}
+      \field{month}{11}
+      \field{number}{11}
+      \field{title}{Charge-Pump Phase-Lock Loops}
+      \field{volume}{28}
+      \field{year}{1980}
+      \field{pages}{1849\bibrangedash 1858}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/tcom.1980.1094619
+      \endverb
+    \endentry
+    \entry{razavi_2017}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c7a8cbdc611fb566c84f257674d0a44f}{%
+           family={Razavi},
+           familyi={R\bibinitperiod},
+           given={Behzad},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill Education}%
+      }
+      \strng{namehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{fullhash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{bibnamehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authorbibnamehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authornamehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authorfullhash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Design of analog CMOS integrated circuits}
+      \field{year}{2017}
+    \endentry
+    \entry{Razavi1996DesignOM}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=c7a8cbdc611fb566c84f257674d0a44f}{%
+           family={Razavi},
+           familyi={R\bibinitperiod},
+           given={Behzad},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{fullhash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{bibnamehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authorbibnamehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authornamehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authorfullhash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Design of monolithic phase-locked loops and clock recovery circuitsDa tutorial}
+      \field{year}{1996}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
