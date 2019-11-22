@@ -18,7 +18,7 @@ def scale(s, loc, factor):
 		num = float(s[loc-n:loc])*factor
 		return (s[:loc-n] + "%.5f"%num + s[loc:], len("%.5f"%num)-len(s[loc-n:loc]))
 
-fname_save = fname = "filter_arch_tex.tex"
+fname_save = fname = "dco_noise.tex"
 # fname_save = "basic_pll.tex"
 factor = 0.7
 
