@@ -13,7 +13,7 @@ A digital divider behaves nearly identical to the continuous case:
 \begin{equation}
 	\Phi_{div}[n] = \frac{\Phi_{out}[n]}{\mathrm{N}}
 \end{equation}
-Application of the z-transfrom:
+Application of the z-transform:
 \begin{equation}
 	\frac{\Phi_{div}(z)}{\Phi_{out}(z)} = \frac{1}{\mathrm{N}}
 \end{equation}
@@ -106,7 +106,7 @@ And in closed loop configuration the PLL phase transfer function is:
 \begin{align}
 \frac{\Phi_{out}(z)}{\Phi_{ref}(z)} = \frac{\mathrm{H}_{DIV}(z)^{-1}\mathrm{OL}(z)}{1+\mathrm{OL}(z)} = \frac{\mathrm{M}K_{DCO}K_i\left(\frac{s}{\omega_z} + 1\right)}{s^3\frac{1}{\omega_z} + s^2 + \frac{\mathrm{M}}{\mathrm{N}}K_{DCO}K_i\left(\frac{s}{\omega_z} + 1\right)}
 \end{align}
-Incidentally, the s-domain approximation is significantly simpler and will is prefered in this paper for purposes of analysis.
+Incidentally, the s-domain approximation is significantly simpler and will is preferred in this paper for purposes of analysis.
 
 
 \subsection{PLL Noise} \label{pn_theory}
@@ -152,14 +152,61 @@ S_{q_{TDC}} = \frac{P_{q_{TDC}}}{\Delta f} = \frac{\sigma_{q_{TDC}}^2}{f_{ref}} 
 \subsubsection{DCO noise}
 \begin{figure}[htb!]
 	\center\include{./figs/dco_noise}
-	\caption{DCO addative noise model.}
+	\caption{DCO additive noise model.}
 	\label{fig:quantization}
 \end{figure}
 \FloatBarrier
 Noise in the DCO is from quantization of the oscillator tuning word (OTW), and from thermal and stochastic sources. In the digital PLL, the OTW is quantized in loop filter, so this source of noise will be analyzed in the loop filter section. Thus oscillator thermal noise will be considered.
+\begin{figure}[htb!]
+	\center\include{./figs/aperture_noise}
+	\caption{Thermal to phase noise conversion.}
+	\label{fig:quantization}
+\end{figure}
+\FloatBarrier
+ Noise from circuit and supply noise can be realized as an additive voltage component to the oscillator waveform $V_{osc}(t)$, with variance $\sigma_{V_n}^2$. As $V_{osc}(t)$ will have a finite derivative, a small additive noise signal $v_{n}(t)$ will be coupled into the time domain as a phase noise disturbance $\delta\Phi_{n}$ in the oscillator phase. At any point in time, assuming Gaussian white noise, $\delta\Phi_{n}$ is sampled from the following distribution:
+ \begin{equation}
+ \delta\Phi_{n} \sim \left.\text{Norm}\left(\mu=0, \sigma=\left(\frac{dV(\Phi)}{d\Phi}\right)^{-1}\sigma_{v_n}\right)\right\vert_{\Phi=\omega_{osc}t}
+ \end{equation} 
+The phase disturbance $\delta\Phi_{n}(t)$ at t is independent of all other points in time. If the phase of the oscillator is analyzed with discrete step $T$:
+\begin{equation}
+\Phi_{out}[n] = \Phi_{out}[n-1] + \omega_{osc}T + \delta\Phi_n[\Phi=n\omega_{osc} T]
+\end{equation}
+The contribution only due to phase disturbance, i.e. phase noise $\Phi_n$[n]:
+\begin{equation}
+\Phi_{n}[n] = \Phi_{out}[n] - \omega_{osc}T = \Phi_{out}[n-1] + \delta\Phi_n[n|\Phi=n\omega_{osc}T]
+\end{equation}
+Notice this takes the form of a random walk signal. Computing the z-transform
+\begin{equation}
+\Phi_{n}(z) = \frac{\delta\Phi_n(z)}{1-z^{-1}}
+\end{equation}
+Application of the bilinear transform can be used to approximate the continuous noise spectrum:
+\begin{equation}
+\left.\Phi_{n}(z)\right\vert_{z=1-sT} = \left.\frac{\delta\Phi_n(z)}{1-z^{-1}}\right\vert_{z=1-sT} = \frac{\delta\Phi_n(z=1-sT)}{sT}
+\end{equation}
+The phase noise PSD is therefore:
+\begin{equation}
+S_{\Phi n_{DCO}}(\omega)= \left|\frac{\delta\Phi_n(z=1-j\omega T)}{j\omega T}\right|^2 = \frac{1}{\omega^2}\left|\frac{\delta\Phi_n(z=1-j\omega T)}{T}\right|^2
+\end{equation}
+Following that the phase disturbance signal $\delta\Phi_{n}(t)$ is white spectrum, a value for its power $S_{0\Phi n_{DCO}}$ can be defined as such:
+\begin{equation}
+S_{0\Phi n_{DCO}} = \lim_{T\to0} \mathrm{Var}\left( \left|\frac{\delta\Phi_n(z=1-j\omega T)}{T}\right|^2 \right)
+\end{equation}
+The value for $S_{0\Phi n_{DCO}}$ is highly dependent on implementation and is best extracted via simulation or physical measurement by fitting the following:
+\begin{equation}
+S_{\Phi n_{DCO}}(\omega)= \frac{S_{0\Phi n_{DCO}}}{\omega^2}
+\end{equation}
 \subsubsection{Divider noise}
+Divider noise is manifested as jitter on the the output signal, due to thermal noise coupling from voltage to phase. If the divider is a digital circuit, with edge rate $dV/dt$, and subject to thermal noise in the form of a  voltage $v_n$, with noise power of $\sigma_{v_n}^2$, the phase noise (jitter) conferred is:
+\begin{equation}
+\sigma_{\Phi n_{DIV}} = \omega_{ref}\sigma_{t n_{DIV}}  =\omega_{ref}\left(\frac{dV}{dt}\right)^{-1}\sigma_{v_n}
+\end{equation}
+Thus the power is:
+\begin{equation}
+S_{\Phi n_{DIV}} = \omega^2_{ref}\sigma^2_{t n_{DIV}}  =\omega^2_{ref}\left(\frac{dV}{dt}\right)^{-2}\sigma_{v_n}^2
+\end{equation}
 
 \subsubsection{Loop filter noise}
+Loop filter noise is principally from quantization in the digital case. In the digital loop filter, the mathematical operations are carried out with finite precision, and thus rounding errors occur. Here, an architecture with B bits in each fixed point word throughout the loop filter is assumed for analysis. 
 
 \subsubsection{PLL output-referred noise}\label{pn_noise_psd}
 In terms of analysis, PLL noise referred to the PLL output is of most interest. In this case, the noise is defined in terms of phase noise $\Phi_{n}$, or an unwanted added component to the oscillator phase signal $\Phi_{osc}=\omega_{osc}t$. The PLL output phase signal $\Phi_{out}$ is therefore:

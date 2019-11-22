@@ -183,6 +183,8 @@ INPUT /home/cole/Documents/pll/report/./figs/quantization.aux
 INPUT /home/cole/Documents/pll/report/./figs/quantization.aux
 INPUT /home/cole/Documents/pll/report/./figs/dco_noise.aux
 INPUT /home/cole/Documents/pll/report/./figs/dco_noise.aux
+INPUT /home/cole/Documents/pll/report/./figs/aperture_noise.aux
+INPUT /home/cole/Documents/pll/report/./figs/aperture_noise.aux
 OUTPUT /home/cole/Documents/pll/report/report.aux
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
@@ -380,6 +382,12 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvr7t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvr7t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+OUTPUT /home/cole/Documents/pll/report/./figs/aperture_noise.aux
+INPUT /home/cole/Documents/pll/report/./figs/aperture_noise.tex
+INPUT /home/cole/Documents/pll/report/./figs/aperture_noise.tex
+INPUT /home/cole/Documents/pll/report/./figs/aperture_noise.pdf
+INPUT ./figs/aperture_noise.pdf
+INPUT ./figs/aperture_noise.pdf
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /home/cole/Documents/pll/report/methods.tex
@@ -412,10 +420,10 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /home/cole/Documents/pll/report/figs/inv_waves3.pdf
 INPUT /home/cole/Documents/pll/report/figs/inv_waves3.pdf
 INPUT /home/cole/Documents/pll/report/figs/inv_waves3.pdf
@@ -509,6 +517,8 @@ INPUT /home/cole/Documents/pll/report/./figs/quantization.aux
 INPUT /home/cole/Documents/pll/report/./figs/quantization.aux
 INPUT /home/cole/Documents/pll/report/./figs/dco_noise.aux
 INPUT /home/cole/Documents/pll/report/./figs/dco_noise.aux
+INPUT /home/cole/Documents/pll/report/./figs/aperture_noise.aux
+INPUT /home/cole/Documents/pll/report/./figs/aperture_noise.aux
 INPUT /home/cole/Documents/pll/report/report.out
 INPUT /home/cole/Documents/pll/report/report.out
 INPUT /home/cole/Documents/pll/report/report.run.xml

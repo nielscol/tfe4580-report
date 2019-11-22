@@ -18,10 +18,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {10}{\ignorespaces Quantization as via additive error signal.\relax }}{21}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {11}{\ignorespaces DCO addative noise model.\relax }}{21}{figure.caption.11}
+\contentsline {figure}{\numberline {11}{\ignorespaces DCO additive noise model.\relax }}{21}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {12}{\ignorespaces Model for ring oscillator.\relax }}{27}{figure.caption.15}
+\contentsline {figure}{\numberline {12}{\ignorespaces Thermal to phase noise conversion.\relax }}{21}{figure.caption.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {13}{\ignorespaces Approximate model for ring oscillator inverter delay cell.\relax }}{28}{figure.caption.16}
+\contentsline {figure}{\numberline {13}{\ignorespaces Model for ring oscillator.\relax }}{29}{figure.caption.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {14}{\ignorespaces Backgate-tuned ring oscillator with coarse tuning capacitor bank.\relax }}{30}{figure.caption.17}
+\contentsline {figure}{\numberline {14}{\ignorespaces Approximate model for ring oscillator inverter delay cell.\relax }}{29}{figure.caption.17}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {15}{\ignorespaces Backgate-tuned ring oscillator with coarse tuning capacitor bank.\relax }}{31}{figure.caption.18}

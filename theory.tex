@@ -1,5 +1,5 @@
 \section{Theory}\label{theory}
-In its most basic form, a phase locked loop is a phase-based feedback system whose output tracks or mantains a fixed phase relationship to an input signal. Such a system is uniquely suited to the task of frequency synthesis, which is the process of generating derivative frequencies from some reference frequency. Given reference and output phase signals $\Phi_{ref}$ and $\Phi_{out}$, a PLL can be modeled as in figure \ref{fig:basic_fb}, with feedforward and feedback networks A(s) and B(s). 
+In its most basic form, a phase locked loop is a phase-based feedback system whose output tracks or maintains a fixed phase relationship to an input signal. Such a system is uniquely suited to the task of frequency synthesis, which is the process of generating derivative frequencies from some reference frequency. Given reference and output phase signals $\Phi_{ref}$ and $\Phi_{out}$, a PLL can be modeled as in figure \ref{fig:basic_fb}, with feedforward and feedback networks A(s) and B(s). 
 \begin{figure}[htb!]
 	\center\include{./figs/basic_feedback}
 	\caption{Basic phase feedback network.}
@@ -37,7 +37,7 @@ The phase divider is used as the feedback path in the PLL, where the division mo
 	\frac{\Phi_{div}}{\Phi_{out}} = \frac{1}{\mathrm{N}}
 \end{equation}
 \subsubsection{Phase detector}
-The phase detector is used to measure the phase of the feedback signal (i.e. divider output) in relation to the reference phase, in order to estable a phase error signal $\Phi_e$ used to control the tuning of the PLL.
+The phase detector is used to measure the phase of the feedback signal (i.e. divider output) in relation to the reference phase, in order to establish a phase error signal $\Phi_e$ used to control the tuning of the PLL.
 \begin{equation}
 \Phi_e = \Phi_{ref} - \Phi_{div}
 \end{equation}
@@ -69,7 +69,7 @@ With the phase detector as the feedback summation point, the closed loop respons
 \begin{align} \label{eq:pid_pll_tf}
 	\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{\mathrm{H_{DIV}^{-1}OL}(s)}{1 + \mathrm{OL}(s)} = \frac{2\pi K_{VCO}\left(s^2K_d + sK_p + K_i\right)}{s^2\left(1 + \frac{2\pi K_{VCO}K_d}{\mathrm{N}}\right) + \frac{2\pi K_{VCO}}{\mathrm{N}}\left(sK_p + K_i\right)}
 \end{align}
-It should be noted that in the closed loop configuration, this PLL phase transfer function contains two poles and two zeros. This is not a low pass response as desired for a satisfactory PLL phase noise power spectum, as will later be discussed. In order achieve low pass operation, the derivative term $K_d$ must be set to zero, yielding a PI controller for the loop filter (with one zero and two poles):
+It should be noted that in the closed loop configuration, this PLL phase transfer function contains two poles and two zeros. This is not a low pass response as desired for a satisfactory PLL phase noise power spectrum, as will later be discussed. In order achieve low pass operation, the derivative term $K_d$ must be set to zero, yielding a PI controller for the loop filter (with one zero and two poles):
 \begin{align} \label{eq:full_pi_pll_tf}
 	\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{\mathrm{H_{DIV}^{-1}OL}(s)}{1 + \mathrm{OL}(s)} = \frac{2\pi K_{VCO}\left(sK_p + K_i\right)}{s^2 + \frac{2\pi K_{VCO}}{\mathrm{N}}\left(sK_p + K_i\right)}
 \end{align}
@@ -82,7 +82,7 @@ Given a PI-controller loop filter, which can be optionally represented using a p
 \begin{equation} \label{eq:pi_pll_tf}
 	\textnormal{H}_{LF}(s) = K_p + \frac{K_i}{s}  = \frac{K_i}{s}\left(\frac{s}{\omega_z} + 1\right) 
 \end{equation}
-Selection of (not-necessarily optimal) PI controller gains can be easily derived from overall PLL settling time requirements. Suppose that settling time $t_s$ is defined such that the PLL settles within $\pm \delta$ of the final value for a step input. If the inital and final PLL output frequencies are $f_i$ and $Nf_{ref}$, and settling with $\pm f_{tol}$ is desired,  $\delta = f_{tol}/|f_i - Nf_{ref}|$. Setting time is therefore:
+Selection of (not-necessarily optimal) PI controller gains can be easily derived from overall PLL settling time requirements. Suppose that settling time $t_s$ is defined such that the PLL settles within $\pm \delta$ of the final value for a step input. If the initial and final PLL output frequencies are $f_i$ and $Nf_{ref}$, and settling with $\pm f_{tol}$ is desired,  $\delta = f_{tol}/|f_i - Nf_{ref}|$. Setting time is therefore:
 \begin{equation}
 t_s = -\tau\ln(\delta)
 \end{equation}
@@ -95,7 +95,7 @@ If the second order denominator can be redefined in terms of a natural frequency
 	s^2 + s\frac{K}{\omega_z} + K = s^2 + s2\zeta\omega_n + \omega_n^2
 \end{equation}
 It is then found that $\omega_n = \sqrt{K}$, and $\omega_z = \sqrt{K}/2\zeta$. The poles of equation \ref{eq:simp_pi_pll_tf} are then located at s = $\zeta\sqrt{K} \pm \sqrt{K}\sqrt{1-\zeta^2}$.
-The settling time of the PLL will be determined by the real portion of dominant pole of equation \ref{eq:simp_pi_pll_tf}, specifically $\tau = 1/|\min(\Re(\{s_{p1}, s_{p2}\}))|$. Based on the pole-zero plot of figure \ref{fig:pi_pll_pz}, it can be observed that the dominant pole locaiton is maximized with $\zeta=1$. The pole-zero loci orientations are based on increasing $\zeta$ values. According to Razavi \cite{razavi_2017}, $\zeta$ is usually 
+The settling time of the PLL will be determined by the real portion of dominant pole of equation \ref{eq:simp_pi_pll_tf}, specifically $\tau = 1/|\min(\Re(\{s_{p1}, s_{p2}\}))|$. Based on the pole-zero plot of figure \ref{fig:pi_pll_pz}, it can be observed that the dominant pole location is maximized with $\zeta=1$. The pole-zero loci orientations are based on increasing $\zeta$ values. According to Razavi \cite{razavi_2017}, $\zeta$ is usually 
 "chosen to be $>\sqrt{2}/2$ or even 1 to avoid excessive ringing."
 \begin{figure}[htb!]
 	\center\include{./figs/pi_pz_plot}
@@ -126,7 +126,7 @@ Based on specification for settling time and damping $\zeta$, the values for K a
 K = \frac{\ln^2(\delta)}{\zeta^2t_s^2} =  \frac{\ln^2\left(\frac{f_{tol}}{|f_i - Nf_{ref}|}\right)}{\zeta^2t_s^2}
 \end{equation}
 
-\subsubsection{PI-controller peaking compenstation}
+\subsubsection{PI-controller peaking compensation}
  To compensate for closed loop peaking, the original PI-controller loop filter of equation \ref{eq:pi_pll_tf} can be modified with the addition of a single tunable pole at $\omega_p$. The closed loop response becomes third order, which complicates direct analysis and design of the loop filter. However, utilizing the automated filter optimization approach described later in this paper resolved issues regarding filter design in this case.
 \begin{equation} \label{eq:pi_compensated_tf}
 	\textnormal{H}_{LF}(s) = \frac{K_i}{s}\frac{\left(\frac{s}{\omega_z} + 1\right)}{\left(\frac{s}{\omega_p} + 1\right)}

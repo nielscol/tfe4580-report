@@ -34,3 +34,6 @@ INPUT /home/cole/Documents/pll/report/./figs/quantization.tex
 OUTPUT /home/cole/Documents/pll/report/./figs/dco_noise.aux
 INPUT /home/cole/Documents/pll/report/./figs/dco_noise.tex
 INPUT /home/cole/Documents/pll/report/./figs/dco_noise.tex
+OUTPUT /home/cole/Documents/pll/report/./figs/aperture_noise.aux
+INPUT /home/cole/Documents/pll/report/./figs/aperture_noise.tex
+INPUT /home/cole/Documents/pll/report/./figs/aperture_noise.tex
