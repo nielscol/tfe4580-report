@@ -10,20 +10,30 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {5}{\ignorespaces Basic ADPLL.\relax }}{16}{figure.caption.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6}{\ignorespaces TDC model.\relax }}{17}{figure.caption.6}
+\contentsline {figure}{\numberline {6}{\ignorespaces Digital divider signals.\relax }}{17}{figure.caption.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7}{\ignorespaces Implementation of filter.\relax }}{18}{figure.caption.7}
+\contentsline {figure}{\numberline {7}{\ignorespaces TDC model.\relax }}{17}{figure.caption.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {8}{\ignorespaces Discrete time PLL model.\relax }}{19}{figure.caption.8}
+\contentsline {figure}{\numberline {8}{\ignorespaces Implementation of filter.\relax }}{19}{figure.caption.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {10}{\ignorespaces Quantization as via additive error signal.\relax }}{21}{figure.caption.10}
+\contentsline {figure}{\numberline {9}{\ignorespaces Discrete time PLL model.\relax }}{20}{figure.caption.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {11}{\ignorespaces DCO additive noise model.\relax }}{21}{figure.caption.11}
+\contentsline {figure}{\numberline {10}{\ignorespaces TDC quantization noise models.\relax }}{21}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {12}{\ignorespaces Thermal to phase noise conversion.\relax }}{21}{figure.caption.12}
+\contentsline {figure}{\numberline {11}{\ignorespaces Quantization as via additive error signal.\relax }}{21}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {13}{\ignorespaces Model for ring oscillator.\relax }}{29}{figure.caption.16}
+\contentsline {figure}{\numberline {12}{\ignorespaces DCO additive noise model.\relax }}{22}{figure.caption.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {14}{\ignorespaces Approximate model for ring oscillator inverter delay cell.\relax }}{29}{figure.caption.17}
+\contentsline {figure}{\numberline {13}{\ignorespaces Voltage to phase noise conversion.\relax }}{22}{figure.caption.13}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {15}{\ignorespaces Backgate-tuned ring oscillator with coarse tuning capacitor bank.\relax }}{31}{figure.caption.18}
+\contentsline {figure}{\numberline {14}{\ignorespaces Divider phase noise.\relax }}{23}{figure.caption.14}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {15}{\ignorespaces Direct type I filter implementation with quantization.\relax }}{24}{figure.caption.15}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {16}{\ignorespaces Full PLL additive noise model.\relax }}{25}{figure.caption.16}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {17}{\ignorespaces Model for ring oscillator.\relax }}{34}{figure.caption.20}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {18}{\ignorespaces Approximate model for ring oscillator inverter delay cell.\relax }}{34}{figure.caption.21}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {19}{\ignorespaces Backgate-tuned ring oscillator with coarse tuning capacitor bank.\relax }}{37}{figure.caption.22}

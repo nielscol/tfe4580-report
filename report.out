@@ -10,68 +10,44 @@
 \BOOKMARK [3][-]{subsubsection.2.1.7}{PI-loop filter design}{subsection.2.1}% 10
 \BOOKMARK [3][-]{subsubsection.2.1.8}{PI-controller peaking compensation}{subsection.2.1}% 11
 \BOOKMARK [3][-]{subsubsection.2.1.9}{Regarding other PID controller permutations}{subsection.2.1}% 12
-\BOOKMARK [2][-]{subsection.2.2}{Digital, discretized PLL Model}{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.2}{ADPLL - digital, discretized PLL Model}{section.2}% 13
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Divider}{subsection.2.2}% 14
 \BOOKMARK [3][-]{subsubsection.2.2.2}{TDC}{subsection.2.2}% 15
 \BOOKMARK [3][-]{subsubsection.2.2.3}{Loop Filter}{subsection.2.2}% 16
 \BOOKMARK [3][-]{subsubsection.2.2.4}{DCO}{subsection.2.2}% 17
 \BOOKMARK [3][-]{subsubsection.2.2.5}{Discrete-time PLL transfer function}{subsection.2.2}% 18
-\BOOKMARK [2][-]{subsection.2.3}{PLL Noise}{section.2}% 19
+\BOOKMARK [2][-]{subsection.2.3}{ADPLL Noise Model}{section.2}% 19
 \BOOKMARK [3][-]{subsubsection.2.3.1}{TDC noise}{subsection.2.3}% 20
 \BOOKMARK [3][-]{subsubsection.2.3.2}{DCO noise}{subsection.2.3}% 21
 \BOOKMARK [3][-]{subsubsection.2.3.3}{Divider noise}{subsection.2.3}% 22
-\BOOKMARK [3][-]{subsubsection.2.3.4}{Loop filter noise}{subsection.2.3}% 23
-\BOOKMARK [3][-]{subsubsection.2.3.5}{PLL output-referred noise}{subsection.2.3}% 24
-\BOOKMARK [3][-]{subsubsection.2.3.6}{PLL noise sensitivity transfer functions}{subsection.2.3}% 25
-\BOOKMARK [1][-]{section.3}{Methods}{}% 26
-\BOOKMARK [2][-]{subsection.3.1}{Behavioral, discrete event PLL simulation}{section.3}% 27
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Phase noise modeling}{subsection.3.1}% 28
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Measurement of phase noise, spurs}{subsection.3.1}% 29
-\BOOKMARK [3][-]{subsubsection.3.1.3}{Monte-carlo sampling}{subsection.3.1}% 30
-\BOOKMARK [2][-]{subsection.3.2}{Loop filter optimization}{section.3}% 31
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Estimation of settling time}{subsection.3.2}% 32
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Estimation of PLL phase noise}{subsection.3.2}% 33
-\BOOKMARK [3][-]{subsubsection.3.2.3}{Optimization algorithm}{subsection.3.2}% 34
-\BOOKMARK [1][-]{section.4}{Discussion}{}% 35
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 36
-\BOOKMARK [1][-]{section.6}{Block diagram}{}% 37
-\BOOKMARK [1][-]{section.7}{Specifications}{}% 38
-\BOOKMARK [1][-]{section.8}{Baseband phase noise}{}% 39
-\BOOKMARK [2][-]{subsection.8.1}{Modulated Signal}{section.8}% 40
-\BOOKMARK [2][-]{subsection.8.2}{Local oscillator - noisy PLL}{section.8}% 41
-\BOOKMARK [2][-]{subsection.8.3}{Baseband phase noise}{section.8}% 42
-\BOOKMARK [1][-]{section.9}{DCO tuning}{}% 43
-\BOOKMARK [2][-]{subsection.9.1}{Backgate tuning}{section.9}% 44
-\BOOKMARK [2][-]{subsection.9.2}{Ring oscillator frequency derivation}{section.9}% 45
-\BOOKMARK [3][-]{subsubsection.9.2.1}{Finding "426830A gch"526930B \040and C}{subsection.9.2}% 46
-\BOOKMARK [3][-]{subsubsection.9.2.2}{Handling unequal NMOS/PMOS}{subsection.9.2}% 47
-\BOOKMARK [3][-]{subsubsection.9.2.3}{Solving for oscillator frequency and power}{subsection.9.2}% 48
-\BOOKMARK [2][-]{subsection.9.3}{Ring oscillator backgate tuning derivation}{section.9}% 49
-\BOOKMARK [2][-]{subsection.9.4}{DCO Gain Uncertainty}{section.9}% 50
-\BOOKMARK [1][-]{appendix.A}{Appendix - Schedule}{}% 51
-\BOOKMARK [1][-]{appendix.B}{Appendix - Code}{}% 52
-\BOOKMARK [1][-]{appendix.C}{pres1}{}% 53
-\BOOKMARK [2][-]{subsection.C.1}{Motivation}{appendix.C}% 54
-\BOOKMARK [2][-]{subsection.C.2}{State of the Art}{appendix.C}% 55
-\BOOKMARK [2][-]{subsection.C.3}{Objectives - Synthesizer goals}{appendix.C}% 56
-\BOOKMARK [2][-]{subsection.C.4}{Architecture - concepts}{appendix.C}% 57
-\BOOKMARK [2][-]{subsection.C.5}{State of Art - Sub-1 mW PLLS}{appendix.C}% 58
-\BOOKMARK [2][-]{subsection.C.6}{Physical limits}{appendix.C}% 59
-\BOOKMARK [1][-]{appendix.D}{pres2}{}% 60
-\BOOKMARK [2][-]{subsection.D.1}{Initial simulation/modeling approach}{appendix.D}% 61
-\BOOKMARK [2][-]{subsection.D.2}{Implementation in Cadence}{appendix.D}% 62
-\BOOKMARK [1][-]{appendix.E}{pres4}{}% 63
-\BOOKMARK [2][-]{subsection.E.1}{Simulation approach}{appendix.E}% 64
-\BOOKMARK [2][-]{subsection.E.2}{DCO performance criteria}{appendix.E}% 65
-\BOOKMARK [2][-]{subsection.E.3}{DCO - reference spur requirements}{appendix.E}% 66
-\BOOKMARK [2][-]{subsection.E.4}{DCO - steady state cap noise}{appendix.E}% 67
-\BOOKMARK [2][-]{subsection.E.5}{DCO - linearity and accuracy}{appendix.E}% 68
-\BOOKMARK [2][-]{subsection.E.6}{TDC - phase noise model}{appendix.E}% 69
-\BOOKMARK [1][-]{appendix.F}{pres5}{}% 70
-\BOOKMARK [2][-]{subsection.F.1}{This week}{appendix.F}% 71
-\BOOKMARK [2][-]{subsection.F.2}{Next week}{appendix.F}% 72
-\BOOKMARK [2][-]{subsection.F.3}{Loop filter original attempt}{appendix.F}% 73
-\BOOKMARK [2][-]{subsection.F.4}{Loop filter new approach}{appendix.F}% 74
-\BOOKMARK [2][-]{subsection.F.5}{Coarse frequency estimation}{appendix.F}% 75
-\BOOKMARK [2][-]{subsection.F.6}{Loop filter Gain Coefficients}{appendix.F}% 76
-\BOOKMARK [2][-]{subsection.F.7}{Coarse frequency calibration}{appendix.F}% 77
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Loop filter noise - direct type I}{subsection.2.3}% 23
+\BOOKMARK [3][-]{subsubsection.2.3.5}{PLL noise sensitivity transfer functions}{subsection.2.3}% 24
+\BOOKMARK [3][-]{subsubsection.2.3.6}{PLL phase noise and output PSD relationship}{subsection.2.3}% 25
+\BOOKMARK [3][-]{subsubsection.2.3.7}{PLL output-referred noise PSD}{subsection.2.3}% 26
+\BOOKMARK [1][-]{section.3}{Methods}{}% 27
+\BOOKMARK [2][-]{subsection.3.1}{Behavioral, discrete event PLL simulation}{section.3}% 28
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Phase noise modeling}{subsection.3.1}% 29
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Measurement of phase noise, spurs}{subsection.3.1}% 30
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Monte-carlo sampling}{subsection.3.1}% 31
+\BOOKMARK [2][-]{subsection.3.2}{Loop filter optimization}{section.3}% 32
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Estimation of settling time}{subsection.3.2}% 33
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Estimation of PLL phase noise}{subsection.3.2}% 34
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Optimization algorithm}{subsection.3.2}% 35
+\BOOKMARK [1][-]{section.4}{Discussion}{}% 36
+\BOOKMARK [2][-]{subsection.4.1}{Divider noise constraint}{section.4}% 37
+\BOOKMARK [2][-]{subsection.4.2}{Example exercise}{section.4}% 38
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 39
+\BOOKMARK [1][-]{section.6}{Baseband phase noise in radio with PLL}{}% 40
+\BOOKMARK [2][-]{subsection.6.1}{Modulated Signal}{section.6}% 41
+\BOOKMARK [2][-]{subsection.6.2}{Local oscillator - noisy PLL}{section.6}% 42
+\BOOKMARK [2][-]{subsection.6.3}{Baseband phase noise}{section.6}% 43
+\BOOKMARK [1][-]{appendix.A}{Appendix - Schedule}{}% 44
+\BOOKMARK [1][-]{appendix.B}{Appendix - Code}{}% 45
+\BOOKMARK [1][-]{appendix.C}{DCO tuning}{}% 46
+\BOOKMARK [2][-]{subsection.C.1}{Backgate tuning}{appendix.C}% 47
+\BOOKMARK [2][-]{subsection.C.2}{Ring oscillator frequency derivation}{appendix.C}% 48
+\BOOKMARK [3][-]{subsubsection.C.2.1}{Finding "426830A gch"526930B \040and C}{subsection.C.2}% 49
+\BOOKMARK [3][-]{subsubsection.C.2.2}{Handling unequal NMOS/PMOS}{subsection.C.2}% 50
+\BOOKMARK [3][-]{subsubsection.C.2.3}{Solving for oscillator frequency and power}{subsection.C.2}% 51
+\BOOKMARK [2][-]{subsection.C.3}{Ring oscillator backgate tuning derivation}{appendix.C}% 52
+\BOOKMARK [2][-]{subsection.C.4}{DCO Gain Uncertainty}{appendix.C}% 53

@@ -1,0 +1,19 @@
+\fontfamily{\sfdefault}\selectfont
+% XCircuit output "div_jitter.tex" for LaTeX input from div_jitter.ps
+\def\putbox#1#2#3#4{\makebox[0.00000in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0.00000in][0.00000in]{\raisebox{#2}[0.00000in][0.00000in]{\scalebox{#3}{#4}}}}}
+\def\rightbox#1{\makebox[0.00000in][r]{#1}}
+\def\centbox#1{\makebox[0.00000in]{#1}}
+\def\topbox#1{\raisebox{-0.60\baselineskip}[0.00000in][0.00000in]{#1}}
+\def\midbox#1{\raisebox{-0.20\baselineskip}[0.00000in][0.00000in]{#1}}
+   \scalebox{1}{
+   \normalsize
+   \parbox{2.61563in}{
+   \includegraphics[scale=0.90000]{./figs/div_jitter.pdf}\\
+   % translate x=-116 y=432 scale 0.38
+   \putbox{0.80100in}{0.07200in}{1.20}{$\mathrm{N}/f_{osc}$}%
+   \putbox{0.05400in}{0.61200in}{1.20}{$\sigma_{\Phi n_{div}}$}%
+   \putbox{1.28700in}{0.59400in}{1.20}{$\frac{dV}{dt}$}%
+   } % close 'parbox'
+   } % close 'scalebox'
+   \vspace{-\baselineskip} % this is not necessary, but looks better
+\fontfamily{\rmdefault}\selectfont

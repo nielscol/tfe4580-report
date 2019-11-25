@@ -1,0 +1,147 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+% \usepackage{amsmath}
+\usepackage{amsfonts}
+% \usepackage{amssymb}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+% \usepackage{courier}
+\usepackage{placeins}
+\usepackage{fancyhdr}
+\usepackage{color}
+% \usepackage{xcolor}
+\usepackage{listings}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage[table]{colortbl}
+\usepackage{placeins}
+% \usepackage{cite}
+\usepackage{subcaption}
+\usepackage{lipsum}
+\usepackage{titlesec}
+\usepackage{dsfont}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{mybib.bib}
+\usepackage[skip=8pt,labelfont=bf, font=sf]{caption}
+	\DeclareCaptionFont{myfont}{\fontfamily{\sfdefault}\selectfont}
+
+\hypersetup{
+	colorlinks   = True,
+	citecolor    = blue,
+	linkcolor	 = blue,
+}
+
+% \geometry{letterpaper, portrait, margin=1in}
+% \geometry{a4paper,margin=15mm,bindingoffset=25mm,heightrounded,}
+\geometry{a4paper,margin=25mm}
+
+\usepackage[dvipsnames]{xcolor}
+\definecolor{lightgray}{rgb}{.93,.93,.93}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\usepackage{helvet}
+\usepackage{times}
+
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\huge\bfseries} % \color{blue}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\sffamily\huge\bfseries} % \color{cyan}
+  {\thesection}{1em}{}
+ \titleformat{\subsection}
+  {\normalfont\sffamily\Large\bfseries} % \color{cyan}
+  {\thesubsection}{1em}{}
+ \titleformat{\subsubsection}
+  {\normalfont\sffamily\large\bfseries} % \color{cyan}
+  {\thesubsubsection}{1em}{}
+\renewenvironment{abstract}
+ {\par\noindent\Huge\textbf{\abstractname.}\\\vspace{1em}\ignorespaces}
+ {\par\medskip} 
+
+% \renewcommand*\abstractname{Abstract\hfill}
+% \renewcommand{\familydefault}{\sfdefault}
+
+
+\def \lineheight {1.5pt}
+
+\makeatletter
+   \def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
+\makeatother
+
+\usepackage{caption}
+    \DeclareCaptionType{mycapequ}[][List of equations]
+    \captionsetup[mycapequ]{labelformat=empty}
+
+\usepackage{inconsolata}
+
+\lstset{
+	language=Matlab,
+	backgroundcolor=\color{lightgray},
+	keywordstyle=\color{blue}\bfseries,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{ForestGreen}\ttfamily,
+	identifierstyle=\color{black},
+	extendedchars=true,
+	% basicstyle=\footnotesize\ttfamily,
+	basicstyle=\normalsize\fontencoding{T1}\ttfamily,
+	showstringspaces=false,
+	showspaces=false,
+	numbers=left,
+	numberstyle=\footnotesize,
+	numbersep=9pt,
+	tabsize=2,
+	breaklines=true,
+	showtabs=false,
+	captionpos=b
+}
+
+\lstset{
+	language=Python,
+	backgroundcolor=\color{lightgray},
+	keywordstyle=\color{blue}\bfseries,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{ForestGreen}\ttfamily,
+	identifierstyle=\color{black},
+	extendedchars=true,
+	% basicstyle=\footnotesize\ttfamily,
+	basicstyle=\normalsize\fontencoding{T1}\ttfamily,
+	showstringspaces=false,
+	showspaces=false,
+	numbers=left,
+	numberstyle=\footnotesize,
+	numbersep=9pt,
+	tabsize=2,
+	breaklines=true,
+	showtabs=false,
+	captionpos=b
+}
+
+\fancypagestyle{firstpage}{%
+  \fancyhf{}% clear default for head and foot
+  % \rfoot{\textbf{Page \thepage}}
+  % \lfoot{\textbf{\today}}
+  \renewcommand{\headrulewidth}{0pt}
+}
+\fancypagestyle{blank}{%
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+\fancypagestyle{nohdr}{%
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+	\rfoot{\fontfamily{\sfdefault}\selectfont\textbf{Page \thepage}}
+}
+
+\renewcommand{\headrulewidth}{1pt}% 2pt header rule
+
+
+% \fontfamily{\sfdefault}\selectfont
+	% \large\fontfamily{\rmdefault}\selectfont 
+
+\setlength{\parskip}{12pt} % 1ex plus 0.5ex minus 0.2ex}
+\setlength{\parindent}{0pt}

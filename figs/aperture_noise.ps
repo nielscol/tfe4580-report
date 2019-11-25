@@ -1,9 +1,9 @@
 %!PS-Adobe-3.0 EPSF-3.0
 %%Title: aperture_noise.ps
 %%Creator: XCircuit v3.8 rev78
-%%CreationDate: Fri Nov 22 11:29:29 2019
+%%CreationDate: Sun Nov 24 14:30:36 2019
 %%Pages: 1
-%%BoundingBox: 68 68 255 196
+%%BoundingBox: 68 68 401 208
 %%DocumentNeededResources: font Helvetica 
 %%EndComments
 %%BeginProlog
@@ -194,18 +194,18 @@ endgate
 /pgsave save def bop
 % 32.00 4.00 gridspace
 1.0000 inchscale
-2.6000 setlinewidth -108 240 translate
+2.6000 setlinewidth 96 256 translate
 
 0.400 0.400 0.400 scb
 1.000 0 672 0 generic::tap
 1.000 270 384 256 generic::tap
 0.000 0.000 1.000 scb
 ($\\Phi$) {/Helvetica cf} 2 144 360 0.800 688 -24 label
-1 2.000 400 176 416 224 448 224 384 128 spline
-1 2.000 480 224 496 176 512 128 448 224 spline
-1 2.000 544 32 528 64 512 128 576 32 spline
-1 2.000 608 32 624 80 640 128 576 32 spline
-(V$_{out}$) {/Helvetica cf} 2 144 0 0.800 304 240 label
+1 1.500 400 192 416 224 448 224 384 128 spline
+1 1.500 480 224 496 192 512 128 448 224 spline
+1 1.500 544 32 528 64 512 128 576 32 spline
+1 1.500 608 32 624 64 640 128 576 32 spline
+(V) {/Helvetica cf} 2 144 0 0.800 340 240 label
 sce
 1 1.000 512 128 368 128 2 polygon
 0.400 0.400 0.400 scb
@@ -256,6 +256,17 @@ sce
 5 1.000 640 128 640 8 2 polygon
 0.000 0.000 0.000 scb
 ($0$) {/Helvetica cf} 2 144 0 0.500 376 -28 label
+sce
+($\\delta_{v_n}$) {/Helvetica cf} 2 144 0 0.800 280 124 label
+($\\delta_{\\Phi_n}$) {/Helvetica cf} 2 144 0 0.800 524 -56 label
+1.000 0.000 0.000 scb
+1 2.000 500 180 524 76 2 polygon
+sce
+($\\frac{dV_{osc}\(\\Phi\)}{d\\Phi}$) {/Helvetica cf} 2 144 0 0.800 520 120 
+label
+($V_{osc}$) {/Helvetica cf} 2 144 360 0.500 432 236 label
+1.000 1.000 1.000 scb
+0 1.000 964 -64 964 288 96 288 96 -64 4 polygon
 pgsave restore showpage
 
 %%Trailer

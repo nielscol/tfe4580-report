@@ -1,61 +1,62 @@
 \section{Methods}\label{methods}
-Talk about how simulator is implemented:
-Discrete simulation models of phase noise, dco etc
-Filter optimization
--phase noise and lock time estimate in frequency domain
+\hl{Talk about how simulator is implemented:}
+\hl{Discrete simulation models of phase noise, dco etc}
+\hl{Filter optimization}
+\hl{-phase noise and lock time estimate in frequency domain}
 
-Design recommendations:
-High sampling rate
-Minimum choice of TDC tesolution, constraints for divider jitter, 
+\hl{Design recommendations:}
+\hl{High sampling rate}
+\hl{Minimum choice of TDC tesolution, constraints for divider jitter,}
 \subsection{Behavioral, discrete event PLL simulation}
 \subsubsection{Phase noise modeling}
 \subsubsection{Measurement of phase noise, spurs}
 \subsubsection{Monte-carlo sampling}
-Used to verify stability
+	\hl{Used to verify stability}
 
 \subsection{Loop filter optimization}
-Reference phase noise does not matter, is always fixed.
-DCO and TDC phase noise should be highest. Will simulate with other noise sources, but framework will optimize loop filter design and provide recommendations for other parameters (max divider jitter) so DCO and TDC phase noise are dominant.
+	Reference phase noise does not matter, is always fixed.
+	DCO and TDC phase noise should be highest. Will simulate with other noise sources, but framework will optimize loop filter design and provide recommendations for other parameters (max divider jitter) so DCO and TDC phase noise are dominant.
 \subsubsection{Estimation of settling time}
 
 	Based on a continuous model of the PLL dynamics, an overall closed loop phase noise transfer funvtion G(f) is defined in the following form, where M $<$ N. The transfer function is defined as a rational function of two polynomial functions of s. 
 	\begin{equation}
 	G(f) = \frac{\Sigma_0^M b_ms^m}{\Sigma_0^N a_ns^n}
 	\end{equation}
-	An estimate of the settling time of G(f) can be made from the eigenvalues of its  representation in state space. This can be easily solved computation with available signal processing packages such as \texttt{scipy.signal}. Suppose the state transition matrix corresponding to G(f) is $\mathbf{\Phi}$, the set of k eigenvalues $\{\lambda_1, ... , \lambda_{N}\}$ for the system is found by first puting the system in the following state space representation form:
+		An estimate of the settling time of G(f) can be made from the eigenvalues of its  representation in state space. This can be easily solved computation with available signal processing packages such as \texttt{scipy.signal}. Suppose the state transition matrix corresponding to G(f) is $\mathbf{\Phi}$, the set of k eigenvalues $\{\lambda_1, ... , \lambda_{N}\}$ for the system is found by first puting the system in the following state space representation form:
 	% https://lpsa.swarthmore.edu/Representations/SysRepTransformations/TF2SS.html
 	\begin{equation}
-	s\mathbf{Y}(s) = \mathbf{AY}(s) +\mathbf{B}X(s)
+		s\mathbf{Y}(s) = \mathbf{AY}(s) +\mathbf{B}X(s)
 	\end{equation}
-	Then the state transition matrix is computed, and the eigenvalues of the aforementioned are found.
+		Then the state transition matrix is computed, and the eigenvalues of the aforementioned are found.
 	\begin{equation}
-	\mathbf{\Phi} = (s\mathbf{I}-A)^{-1}
+		\mathbf{\Phi} = (s\mathbf{I}-A)^{-1}
 	\end{equation}
 	\begin{equation}
-	|\mathbf{\Phi} - \lambda \mathbf{I}| = 0
+		|\mathbf{\Phi} - \lambda \mathbf{I}| = 0
 	\end{equation}
-	The step response of this system will take the form as a sum of complex exponentials, weighted by the eigenvectors $\{\mathbf{v}_1, ... , \mathbf{v}_N\}$ of $\mathbf{A}$.
+		The step response of this system will take the form as a sum of complex exponentials, weighted by the eigenvectors $\{\mathbf{v}_1, ... , \mathbf{v}_N\}$ of $\mathbf{A}$.
 	\begin{equation}
-	\mathbf{y}(t) = \mathbf{v_1}e^{\lambda_1t} + ... + \mathbf{v_k}e^{\lambda_kt}, \hspace{1em} \mathbf{y(t)} = [ y(t) \hspace{0.5em}y^{'}(t)\hspace{0.5em} ...\hspace{0.5em} y^{(k)}(t)]^T
+		\mathbf{y}(t) = \mathbf{v_1}e^{\lambda_1t} + ... + \mathbf{v_k}e^{\lambda_kt}, \hspace{1em} \mathbf{y(t)} = [ y(t) \hspace{0.5em}y^{'}(t)\hspace{0.5em} ...\hspace{0.5em} y^{(k)}(t)]^T
 	\end{equation}
+
 	The dynamics of the step response are governed by the exponential components of y(t). If  $\{\lambda_1, ... , \lambda_N\} \in \mathds{C}$ where $\lambda_k=\sigma_k+j\omega_K$, the real portion of each $\lambda_k$ will describe the transient behavior. The long term settling of y(t) will be dominated by the $\lambda_k$ with the smallest valued real component. This value is approximately the time constant for the system. Settling time $t_s$ can be considered as the interval required for the signal to drop within a tolerance band $\pm \delta_{tol} \textnormal{y}(\infty)$ about the final value $\textnormal{y}(\infty)$. 
 	\begin{equation}
-	t_s = \tau\ln(\delta_{tol}) = \frac{\ln(\delta_{tol})}{\min(|\Re(\{\lambda_1, ... , \lambda_k\})|)}
+		t_s = \tau\ln(\delta_{tol}) = \frac{\ln(\delta_{tol})}{\min(|\Re(\{\lambda_1, ... , \lambda_k\})|)}
 	\end{equation}
 \subsubsection{Estimation of PLL phase noise}
-It is assumed that the dominant output-referred phase noise contributions are due to the DCO thermal noise and the TDC quantization. If such is the case, total output integrated noise power is at a minimimum when the TDC and DCO contributions are approximately equal. Thus $S_{TDC}$ and $S_{DCO}$ are the PLL output-referred noise PSD respectively for the TDC and DCO noise sources. The total PLL output noise PSD $S_{\Sigma}(f)$ is (N is the PLL divider modulus):
-\begin{equation}
-S_{\Sigma}(f) = f_{clk}\cdot|2\pi N\cdot G(f)|^2S_{TDC} + |1-G(f)|^2S_{DCO}
-\end{equation}
+	It is assumed that the dominant output-referred phase noise contributions are due to the DCO thermal noise and the TDC quantization. If such is the case, total output integrated noise power is at a minimimum when the TDC and DCO contributions are approximately equal. Thus $S_{TDC}$ and $S_{DCO}$ are the PLL output-referred noise PSD respectively for the TDC and DCO noise sources. The total PLL output noise PSD $S_{\Sigma}(f)$ is (N is the PLL divider modulus):
+	\begin{equation}
+		S_{\Sigma}(f) = f_{clk}\cdot|2\pi N\cdot G(f)|^2S_{TDC} + |1-G(f)|^2S_{DCO}
+	\end{equation}
 
-Given a bandwidth of interest $\Delta f$ (i.e. baseband bandwidth for radio applications), the total integrated phase noise power is:
-\begin{equation}
-P_{\phi noise} = 2\int_0^{\Delta f} S_{\Sigma}(f)df
-\end{equation}
-This can be computation solved for a grid of K values in the interval $\Delta f$, where each point represents a frequency bin $f_{bin}$ = $\Delta f$/K. Therefore this estimate is implemented as such:
-\begin{equation}
-\hat{P}_{\phi noise} = 2\sum_{k=0}^{K-1} S_{\Sigma}(kf_{bin})f_{bin}
-\end{equation}
+	Given a bandwidth of interest $\Delta f$ (i.e. baseband bandwidth for radio applications), the total integrated phase noise power is:
+	\begin{equation}
+		P_{\phi noise} = 2\int_0^{\Delta f} S_{\Sigma}(f)df
+	\end{equation}
+	This can be computation solved for a grid of K values in the interval $\Delta f$, where each point represents a frequency bin $f_{bin}$ = $\Delta f$/K. Therefore this estimate is implemented as such:
+	\begin{equation}
+		\hat{P}_{\phi noise} = 2\sum_{k=0}^{K-1} S_{\Sigma}(kf_{bin})f_{bin}
+	\end{equation}
 
 \subsubsection{Optimization algorithm}
-Utilize BFGS optimization with constraints on settling time
+	Utilize BFGS optimization with constraints on settling time

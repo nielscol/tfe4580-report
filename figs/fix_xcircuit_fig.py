@@ -18,9 +18,9 @@ def scale(s, loc, factor):
 		num = float(s[loc-n:loc])*factor
 		return (s[:loc-n] + "%.5f"%num + s[loc:], len("%.5f"%num)-len(s[loc-n:loc]))
 
-fname_save = fname = "aperture_noise.tex"
+fname_save = fname = "discrete_pll_full_noise.tex"
 # fname_save = "basic_pll.tex"
-factor = 0.7
+factor = 0.6
 
 os.system("cp ~/%s ./"%fname)
 os.system("cp ~/%s.ps ./"%fname.split(".")[0])
