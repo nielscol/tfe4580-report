@@ -6,13 +6,13 @@
 		\label{fig:basic_fb}
 	\end{figure}
 	\FloatBarrier
-	The phase relationship for $\Phi_{ref}$ and $\Phi_{out}$ is therefore:
+	The closed loop phase response T(s) for $\Phi_{ref}$ to $\Phi_{out}$ is therefore:
 	\begin{equation}
-		\frac{\Phi_{out}}{\Phi_{ref}} = \frac{A(s)}{1+A(s)B(s)}
+		\mathrm{T}(s) = \frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{A(s)}{1+A(s)B(s)}
 	\end{equation}
-	A particular case of interest is when B(s) = 1/N, where N is a constant, and the loop gain A(s)B(s) $>>$ 1:
+	A particular case of interest is when B(s) = 1/N, where N is a constant, and the loop gain A(s)B(s) $>>$ 1, the closed loop response is:
 	\begin{equation}\label{mult_by_n}
-		\frac{\Phi_{out}}{\Phi_{ref}} \approx \frac{A(s)}{A(s)B(s)} = \frac{1}{B(s)} = N
+		\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} \approx \frac{A(s)}{A(s)B(s)} = \frac{1}{B(s)} = N
 	\end{equation}
 	We see that the phase through the PLL is multiplied by a factor of N. If the input phase signal is a sinusoid with frequency $\omega_{ref}$, and likewise the output with $\omega_{out}$, then $\phi_{ref}(t)=\omega_{ref}t$ and $\phi_{out}(t)=\omega_{out}t$. Thus:
 	\begin{equation}\label{mult_by_n}
@@ -35,18 +35,19 @@
 		\subsubsection{Divider}
 			The phase divider is used as the feedback path in the PLL, where the division modulus N controls the frequency multiplication of the PLL. The tranfer function of the divider is:
 			\begin{equation}
-				\frac{\Phi_{div}}{\Phi_{out}} = \frac{1}{\mathrm{N}}
+				\mathrm{H}_{div}(s) = \frac{\Phi_{div}(s)}{\Phi_{out}(s)} = \frac{1}{\mathrm{N}}
 			\end{equation}
+
 			\subsubsection{Phase detector}
 			The phase detector is used to measure the phase of the feedback signal (i.e. divider output) in relation to the reference phase, in order to establish a phase error signal $\Phi_e$ used to control the tuning of the PLL.
 			\begin{equation}
-				\Phi_e = \Phi_{ref} - \Phi_{div}
+				\Phi_e(s) = \Phi_{ref}(s) - \Phi_{div}(s)
 			\end{equation}
 
 		\subsubsection{Loop Filter}
-			The PLL loop filter is used to control the phase-frequency response of PLL, which affects transient PLL behavior, as well as phase noise performance (see section \ref{pn_theory}). As will later be seen, low pass response is desired in a PLL, so the loop filter must be designed accordingly. Generally, this can be designed arbitrarily to have N poles and M zeros, as such:
+			The PLL loop filter is used to control the phase-frequency response of PLL, which affects transient PLL behavior, as well as phase noise performance (see section \ref{pn_theory}). As will later be seen, low pass response is desired in a PLL, so the loop filter must be designed accordingly. Generally, this can be designed arbitrarily to have P poles and Z zeros, as such:
 			\begin{equation}
-				\textnormal{H}_{LF}(s) = \frac{\Sigma_0^M b_ms^m}{\Sigma_0^N a_ns^n}
+				\textnormal{H}_{LF}(s) = \frac{\Sigma_0^Z b_js^j}{\Sigma_0^P a_ks^k}
 			\end{equation}
 			Rational choice of the loop filter will ensure that the PLL will be stable and minimize steady state phase error. In order to achieve zero steady state error, the loop filter must contain a pole at zero, in other words an integrator. A PLL containing such a pole is classified as a Type II PLL, and a PLL omitting the pole is considered Type I. A logical approach to loop filter design for zero-phase error is to treat it as a PID controller, where:
 			\begin{equation}
@@ -57,29 +58,29 @@
 		\subsubsection{VCO}
 			The voltage controlled oscillator is an oscillator with frequency controlled by an input signal V$_{ctrl}$. The VCO is characterized by its gain $K_{DCO} = \partial f/\partial \textnormal{V}_{ctrl}$, and the nominal oscillation frequency $f_0$. Analyzed in terms of phase, an oscillator can be seen as a time-phase integrator:
 			\begin{equation}
-				\Phi_{VCO} = \Phi_{out} = \int2\pi(K_{DCO}\textnormal{V}_{ctrl}(t) + f_0)\mathrm{dt}
+				\Phi_{VCO}(t) = \Phi_{out}(t) = \int2\pi(K_{DCO}\textnormal{V}_{ctrl}(t) + f_0)\mathrm{dt}
 			\end{equation}
 			In s-domain, where frequency offsets will be represented via initial conditions for modeling purposes, the VCO transfer function is therefore:
 			\begin{equation}
-				\frac{\Phi_{VCO}}{\textnormal{V}_{ctrl}} = \frac{\Phi_{out}}{\textnormal{V}_{ctrl}} = \frac{2\pi K_{DCO}}{s}
+				\mathrm{H}_{VCO}(s) = \frac{\Phi_{VCO}(s)}{\textnormal{V}_{ctrl}(s)} = \frac{\Phi_{out}(s)}{\textnormal{V}_{ctrl}(s)} = \frac{2\pi K_{DCO}}{s}
 			\end{equation}
 
 		\subsubsection{Continuous PLL Transfer function}\label{cont_pll_tf}
 			Now that the continuous PLL synthesizer is understood at a component level, the closed loop dynamics of the PLL can be analyzed. First the PLL loop gain is determined:
 			\begin{equation}
-				\mathrm{OL}(s) = \textnormal{H}_{LF}(s)\textnormal{H}_{VCO}(s)\textnormal{H}_{DIV}(s) = \frac{2\pi K_{VCO}K_d}{\mathrm{N}}\frac{1}{s^2}\left(s^2 + s\frac{K_p}{K_d} + \frac{K_i}{K_d}\right)
+				\mathrm{L}(s) = \textnormal{H}_{LF}(s)\textnormal{H}_{VCO}(s)\textnormal{H}_{div}(s) = \frac{2\pi K_{VCO}K_d}{\mathrm{N}}\frac{1}{s^2}\left(s^2 + s\frac{K_p}{K_d} + \frac{K_i}{K_d}\right)
 			\end{equation}
 			With the phase detector as the feedback summation point, the closed loop response of the PLL from reference to output is:
 			\begin{align} \label{eq:pid_pll_tf}
-				\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{\mathrm{H_{DIV}^{-1}OL}(s)}{1 + \mathrm{OL}(s)} = \frac{2\pi K_{VCO}\left(s^2K_d + sK_p + K_i\right)}{s^2\left(1 + \frac{2\pi K_{VCO}K_d}{\mathrm{N}}\right) + \frac{2\pi K_{VCO}}{\mathrm{N}}\left(sK_p + K_i\right)}
+				\mathrm{T}(s) = \frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{2\pi K_{VCO}\left(s^2K_d + sK_p + K_i\right)}{s^2\left(1 + \frac{2\pi K_{VCO}K_d}{\mathrm{N}}\right) + \frac{2\pi K_{VCO}}{\mathrm{N}}\left(sK_p + K_i\right)} = \mathrm{N}\frac{\mathrm{L}(s)}{1 + \mathrm{L}(s)}
 			\end{align}
 			It should be noted that in the closed loop configuration, this PLL phase transfer function contains two poles and two zeros. This is not a low pass response as desired for a satisfactory PLL phase noise power spectrum, as will later be discussed. In order achieve low pass operation, the derivative term $K_d$ must be set to zero, yielding a PI controller for the loop filter (with one zero and two poles):
 			\begin{align} \label{eq:full_pi_pll_tf}
-				\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{\mathrm{H_{DIV}^{-1}OL}(s)}{1 + \mathrm{OL}(s)} = \frac{2\pi K_{VCO}\left(sK_p + K_i\right)}{s^2 + \frac{2\pi K_{VCO}}{\mathrm{N}}\left(sK_p + K_i\right)}
+				\mathrm{T}(s) = \frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{2\pi K_{VCO}\left(sK_p + K_i\right)}{s^2 + \frac{2\pi K_{VCO}}{\mathrm{N}}\left(sK_p + K_i\right)} = \mathrm{N}\frac{\mathrm{L}(s)}{1 + \mathrm{L}(s)} 
 			\end{align}
-			Steady state zero phase error can be verified by setting s=0 in the PI-controller PLL transfer function:
+			Steady state zero phase error can be verified by solving the closed loop $\Phi_e(s)$ for s=0:
 			\begin{align}
-				\left.e_\Phi(s)\right\vert_{s=0} = \left.\left(\Phi_{ref}(s) - \frac{\Phi_{out}(s)}{\mathrm{N}}\right)\right\vert_{s=0} = \left.\Phi_{ref}(s)\left(1 - \frac{\Phi_{out}(s)}{\mathrm{N}\Phi_{ref}(s)}\right)\right\vert_{s=0} = \Phi_{ref}(s)\left(1 - \frac{\mathrm{N}}{\mathrm{N}}\right) = 0
+				\left.\Phi_e(s)\right\vert_{s=0} = \left(\Phi_{ref}(0) - \frac{\Phi_{out}(0)}{\mathrm{N}}\right) = \Phi_{ref}(0)\left(1 - \frac{\Phi_{out}(0)}{\mathrm{N}\Phi_{ref}(0)}\right)= \Phi_{ref}(0)\left(1 - \frac{\mathrm{N}}{\mathrm{N}}\right) = 0
 			\end{align}
 
 		\subsubsection{PI-loop filter design}
@@ -108,7 +109,7 @@
 				\label{fig:pi_pll_pz}
 			\end{figure}
 			\FloatBarrier
-			To illustrate the effect of damping, figure \ref{fig:pi_pll_response} illustrates the example frequency and step responses of a PI-controlled PLL with N=1. Notice excessive peaking and ringing for $\zeta<\sqrt{2}/2$. The peaking observed in the frequency response is unavoidable with the PI-PLL due to the inherent zero in the transfer function. Its effect can be reduced with large $\zeta$, however this will increase PLL settling time. 
+			To illustrate the effect of the damping coefficient $\zeta$, figure \ref{fig:pi_pll_response} illustrates the example frequency and step responses of a PI-controlled PLL with N=1. Notice excessive peaking and ringing for $\zeta<\sqrt{2}/2$. The peaking observed in the frequency response is unavoidable with the PI-PLL due to the inherent zero in the transfer function. Its effect can be reduced with large $\zeta$, however this will increase PLL settling time. 
 			\begin{figure}[htb!]
 				\center\includegraphics[width=1.0\textwidth, angle=0]{figs/pi_pll_response2.png}
 				\caption{Example PI-PLL responses with varied $\zeta$.}
@@ -123,13 +124,13 @@
 			\begin{equation}
 				t_s = \frac{-\ln(\delta)}{\zeta\sqrt{K}} = \frac{-\ln\left(\frac{f_{tol}}{|f_i - Nf_{ref}|}\right)}{\zeta\sqrt{K}} 
 			\end{equation}
-			Based on specification for settling time and damping $\zeta$, the values for K and $\omega_z$ can be determined. If $K_{VCO}$ and $\mathrm{N}$ are also specified, the PI gain coefficients can be solved using $\omega_z = K_i/K_p$ and $\mathrm{K} = 2\pi K_{VCO}K_i/\mathrm{N}$.
-			\begin{equation}
-				\omega_z = \frac{-\ln(\delta)}{2t_s} =  \frac{-\ln\left(\frac{f_{tol}}{|f_i - Nf_{ref}|}\right)}{2t_s}
-			\end{equation}
-			\begin{equation}
-				K = \frac{\ln^2(\delta)}{\zeta^2t_s^2} =  \frac{\ln^2\left(\frac{f_{tol}}{|f_i - Nf_{ref}|}\right)}{\zeta^2t_s^2}
-			\end{equation}
+			Based on specification for settling time and damping $\zeta$, the values for K and $\omega_z$ can be determined. If $K_{VCO}$ and $\mathrm{N}$ are also specified, the PI gain coefficients can be solved additionally.
+			\begin{align}
+				\omega_z &= \frac{-\ln(\delta)}{2t_s} =  \frac{-\ln\left(\frac{f_{tol}}{|f_i - Nf_{ref}|}\right)}{2t_s}\\
+				K &= \frac{\ln^2(\delta)}{\zeta^2t_s^2} =  \frac{\ln^2\left(\frac{f_{tol}}{|f_i - Nf_{ref}|}\right)}{\zeta^2t_s^2}\\
+				K_i & = \frac{\mathrm{N}\mathrm{K}}{2\pi K_{VCO}} \\
+				K_p & = \frac{K_i}{\omega_z}
+			\end{align}
 
 		\subsubsection{PI-controller peaking compensation}
 			 To compensate for closed loop peaking, the original PI-controller loop filter of equation \ref{eq:pi_pll_tf} can be modified with the addition of a single tunable pole at $\omega_p$. The closed loop response becomes third order, which complicates direct analysis and design of the loop filter. However, utilizing the automated filter optimization approach described later in this paper resolved issues regarding filter design in this case.
@@ -137,7 +138,7 @@
 				\textnormal{H}_{LF}(s) = \frac{K_i}{s}\frac{\left(\frac{s}{\omega_z} + 1\right)}{\left(\frac{s}{\omega_p} + 1\right)}
 			\end{equation}
 
-		\subsubsection{Regarding other PID controller permutations} \label{other_pid}
+		\subsubsection{Alternative PID controller permutations} \label{other_pid}
 			If individual terms within the PID-controller are dropped, different controller permutations (PD, ID, PI, P, I, D) can be achieved. As mentioned before, inclusion of an integral term is needed to ensure the desired zero steady state error for a PLL. This leaves ID and I-controllers as possible alternative solutions to PI for the loop filter. However, it can be easily found that neither of these controllers result in a stable PLL, which leaves a PI-controller as the only viable PID implementation.
 
 			\textbf{I-only controller}
@@ -154,4 +155,4 @@
 			\begin{equation}
 				\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{2\pi K_{VCO}\left(s^2K_d + K_i\right)}{s^2\left(1 + \frac{2\pi K_{VCO}K_d}{\mathrm{N}}\right) + \frac{2\pi K_{VCO}}{\mathrm{N}} K_i}
 			\end{equation}
-			The poles of this transfer have the same form as the I-only controller, and this PLL-controller configuration is unstable for the same reasons as the I-controller PLL.
+			The poles of this transfer have the same form as the I-only controller, and this PLL-controller configuration is unstable for the same reasons as the I-only controller PLL.

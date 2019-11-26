@@ -20,9 +20,9 @@
 		\begin{equation}
 			\Phi_{div}[n] = \frac{\Phi_{out}[n]}{\mathrm{N}}
 		\end{equation}
-		Application of the z-transform:
+		Application of the z- and s-domain transformations:
 		\begin{equation}
-			\frac{\Phi_{div}(z)}{\Phi_{out}(z)} = \frac{1}{\mathrm{N}}
+			\mathrm{H}_{div}(z) = \mathrm{H}_{div}(s) = \frac{\Phi_{div}(z)}{\Phi_{out}(z)} = \frac{1}{\mathrm{N}}
 		\end{equation}
 
 	\subsubsection{TDC}
@@ -37,35 +37,38 @@
 		\begin{equation}
 			e_\Phi[n] = \left\lfloor\frac{\mathrm{M}}{2\pi}(\Phi_{ref}[n] - \Phi_{div}[n])\right\rfloor
 		\end{equation}
-		For purposes of PLL transfer function calculation, the TDC z-domain representation is equation \ref{eq:tdc_tf}. Effects of quantization will be handled in section \ref{pn_theory}.
+		For purposes of PLL transfer function calculation, the TDC z- and s-domain representation is equation \ref{eq:tdc_tf}, which accounts for phase-to-digital domain conversion gain. Effects of quantization will be handled in section \ref{pn_theory}.
 		\begin{equation}\label{eq:tdc_tf}
 			e_\Phi(z) = \frac{\mathrm{M}}{2\pi}(\Phi_{ref}(z) - \Phi_{div}(z))
+		\end{equation}	
+		\begin{equation}\label{eq:tdc_tf}
+			\mathrm{H}_{TDC}(z) = \mathrm{H}_{TDC}(s) = \frac{\mathrm{M}}{2\pi}
 		\end{equation}	
 		\FloatBarrier
 
 	\subsubsection{Loop Filter}
-		The loop filter design will be derived from the continuous PI-controller loop filter with optional peaking compensation (equation \ref{eq:pi_compensated_tf}) via application of the bilinear transform. The bilinear transform specifically allows for the conversion of a continuous transfer function to discrete representation, and vice versa. This, however is conditioned on satisfaction of Nyquist sampling criteria, and in the case of PLLs it is recommended that $f_s > 10\cdot\mathrm{BW}_{loop}$ to ensure transformation accuracy \cite{gardner_1980}. A high level of oversampling allows for the following definition of the bilinear transform, where 1/T=$f_{ref}$:
+		The loop filter design will be derived from the continuous PI-controller loop filter with optional peaking compensation (equation \ref{eq:pi_compensated_tf}) via application of the bilinear transform. The bilinear transform specifically allows for the conversion of a continuous transfer function to discrete representation, and vice versa. This, however is conditioned on satisfaction of Nyquist sampling criteria, and in the case of PLLs it is recommended that $f_s > 10\cdot\mathrm{BW}_{loop}$ to ensure transformation accuracy \cite{gardner_1980}. A high level of oversampling allows for the following definition of the bilinear transform, where $1/\Delta T_s$=$f_{ref}$:
 		\begin{align*}
-			z^{-1} &= e^{-sT} && \text{(definition of z-space)} \\
-			&= \sum_{k=0}^\infty\frac{(-sT)^k}{k!} && \text{(exponential Taylor series)} \\
-			&\approx 1-sT &&\text{(if $|sT| = 2\pi\mathrm{BW}_{loop}\cdot T << 1$)} \\
+			z^{-1} &= e^{-s\Delta T_s} && \text{(definition of z-space)} \\
+			&= \sum_{k=0}^\infty\frac{(-s\Delta T_s)^k}{k!} && \text{(exponential Taylor series)} \\
+			&\approx 1-s\Delta T_s &&\text{(if $|s\Delta T_s| = 2\pi\mathrm{BW}_{loop}\cdot \Delta T_s << 1$)} \\
 		\end{align*}
 		Thus the bilinear transform identities are:
 		\begin{align}
-			z^{-1} &= 1-sT\\
-			s &= \frac{1}{T}(1-z^{-1}) \label{eq:s_to_z}
+			z^{-1} &= 1-s\Delta T_s\\
+			s &= \frac{1}{\Delta T_s}(1-z^{-1}) \label{eq:s_to_z}
 		\end{align}
 		Applying \ref{eq:s_to_z} to equation \ref{eq:pi_compensated_tf} yields the z-domain loop filter:
 		\begin{align}
-			\textnormal{H}_{LF}(z) &= \left.\textnormal{H}_{LF}(s)\right\vert_{s=\frac{1}{T}(1-z^{-1})} = \left.\frac{K_i}{s}\frac{\left(\frac{s}{\omega_z} + 1\right)}{\left(\frac{s}{\omega_p} + 1\right)}\right\vert_{s=\frac{1}{T}(1-z^{-1})}\\
-			&= \frac{\omega_p}{\omega_z}\frac{k_iT}{(1-z^{-1})}\frac{(1+\omega_zT)-z^{-1}}{(1+\omega_pT) - z^{-1}(2+\omega_pT) + z^{-2}}\label{eq:z_lf}
+			\textnormal{H}_{LF}(z) &= \left.\textnormal{H}_{LF}(s)\right\vert_{s=\frac{1}{\Delta T_s}(1-z^{-1})} = \left.\frac{K_i}{s}\frac{\left(\frac{s}{\omega_z} + 1\right)}{\left(\frac{s}{\omega_p} + 1\right)}\right\vert_{s=\frac{1}{\Delta T_s}(1-z^{-1})}\\
+			&= k_i\Delta T_s\frac{\omega_p}{\omega_z}\frac{(1+\omega_z\Delta T_s)-z^{-1}}{(1+\omega_p\Delta T_s) - z^{-1}(2+\omega_p\Delta T_s) + z^{-2}}\label{eq:z_lf}
 		\end{align}
 		Equation \ref{eq:z_lf} is transformed to a digitally implementable representation by converting into the canonical representation of \ref{eq:canonical_z}, which then determines the tap coefficients for the sampled-time difference equation \ref{eq:cananical_diff}. 
 		\begin{align}
 			\textnormal{H}_{LF}(z) &= \frac{\sum_{j=0}^M b_jz^{-j}}{1+\sum_{k=1}^N a_kz^{-k}}\label{eq:canonical_z} \\
 			y[n]&= -\sum_{k=1}^N a_ky[n-k] + \sum_{j=0}^M b_jx[n-j] \label{eq:cananical_diff}
 		\end{align}
-		Equation \ref{eq:cananical_diff} is directly implementable in digital hardware with a direct type 1 IIR filter shown in figure \ref{fig:filt_imple}, with the filter coefficients given by equations \ref{eq:a1}-\ref{eq:b1}. The filter coefficients must be quantized into finite resolution fixed point words for a complete digital implementation. Effects of quantization will be discussed in section \ref{pn_theory}.
+		The transformed \ref{eq:z_lf} is directly implementable in digital hardware with a direct type 1 IIR filter shown in figure \ref{fig:filt_imple}, with the filter coefficients given by equations \ref{eq:a1}-\ref{eq:b1}. The filter coefficients must be quantized into finite resolution fixed point words for a complete digital implementation. Effects of quantization will be discussed in section \ref{pn_theory}.
 		\begin{figure}[htb!]
 			\center\include{./figs/filter_arch_tex}
 			\caption{Implementation of filter.}
@@ -74,24 +77,24 @@
 					% y[n] = x[n]\frac{K_i\omega_pT}{\omega_z}\frac{1+\omega_zT}{1+\omega_pT} - x[n-1]\frac{K_i\omega_pT}{\omega_z}\frac{1}{1+\omega_pT} + y[n-1]\frac{2+\omega_pT}{1+\omega_pT} - y[n-2]\frac{1}{1+\omega_pT}\\
 					% = a_0x[n] + a_1x[n-1] - b_1y[n-1] - b_2x[n-2] 
 		\begin{align}
-			a_1 &= -\frac{2+\omega_pT}{1+\omega_pT}\label{eq:a1}\\
-			a_2 &= \frac{1}{1+\omega_pT} \\
-			b_0 &= \frac{K_i\omega_pT}{\omega_z}\frac{1+\omega_zT}{1+\omega_pT}\\
-			b_1 &= \frac{K_i\omega_pT}{\omega_z}\frac{1}{1+\omega_pT}\label{eq:b1}
+			a_1 &= -\frac{2+\omega_p\Delta T_s}{1+\omega_p\Delta T_s}\label{eq:a1}\\
+			a_2 &= \frac{1}{1+\omega_p\Delta T_s} \\
+			b_0 &= \frac{K_i\omega_p\Delta T_s}{\omega_z}\frac{1+\omega_z\Delta T_s}{1+\omega_p\Delta T_s}\\
+			b_1 &= \frac{K_i\omega_p\Delta T_s}{\omega_z}\frac{1}{1+\omega_p\Delta T_s}\label{eq:b1}
 		\end{align}
 
 	\subsubsection{DCO}
 		The digitally controlled oscillator varies from a VCO by only accepting a digital (quantized) frequency tuning signal, called the oscillator tuning word (OTW). A DCO modeled in discrete time as a recursive phase integrator, dependent on (a) the DCO gain $K_{DCO}$, equal to the frequency tuning of the oscillator per OTW LSB , (b) the digital OTW u[n], and (c) the sampling period T=$f_{ref}^{-1}$.
 		\begin{equation}
-			\Phi_{out}[n] = \Phi_{out}[n-1] + 2\pi K_{DCO}u[n]T
+			\Phi_{out}[n] = \Phi_{out}[n-1] + 2\pi K_{DCO}u[n]\Delta T_s
 		\end{equation}
 		Application of the z-transform yields:
 		\begin{equation}
-			\frac{\Phi_{out}(z)}{u(z)} = \frac{2\pi K_{DCO}T}{1-z^{-1}}
+			\mathrm{H}_{DCO}(z) = \frac{\Phi_{out}(z)}{u(z)} = \frac{2\pi K_{DCO}\Delta T_s}{1-z^{-1}}
 		\end{equation}
 		Application of the bilinear transform to the DCO transfer function yields:
 		\begin{equation}
-			\frac{\Phi_{out}(s)}{u(s)} = \frac{2\pi K_{DCO}T}{1-(1-sT)} = \frac{2\pi K_{DCO}}{s} 
+			\mathrm{H}_{DCO}(s) = \frac{\Phi_{out}(s)}{u(s)} = \frac{2\pi K_{DCO}\Delta T_s}{1-(1-s\Delta T_s)} = \frac{2\pi K_{DCO}}{s} 
 		\end{equation}
 
 	\subsubsection{Discrete-time PLL transfer function}
@@ -103,21 +106,21 @@
 		\FloatBarrier
 		The transfer function for the discrete-time PLL can be computed in the z-domain, and also approximated continuously. The open loop z-domain transfer function is:
 		\begin{align}
-			\mathrm{OL}(z) &= \mathrm{H}_{TDC}(z)\mathrm{H}_{LF}(z)\mathrm{H}_{DCO}(z)\mathrm{H}_{DIV}(z) \\
-			&= 2\pi K_{DCO}K_iT^2\frac{\mathrm{M}}{\mathrm{N}}\frac{\omega_p}{\omega_z}\frac{(1+\omega_zT)-z^{-1}}{(1+\omega_pT) - z^{-1}(3+2\omega_pT) + z^{-2}(3+\omega_pT) - z^{-3}}\label{eq:z_open_loop}
+			\mathrm{L}(z) &= \mathrm{H}_{TDC}(z)\mathrm{H}_{LF}(z)\mathrm{H}_{DCO}(z)\mathrm{H}_{DIV}(z) \\
+			&= 2\pi K_{DCO}K_i\Delta T_s^2\frac{\mathrm{M}}{\mathrm{N}}\frac{\omega_p}{\omega_z}\frac{(1+\omega_z\Delta T_s)-z^{-1}}{(1+\omega_p\Delta T_s) - z^{-1}(3+2\omega_p\Delta T_s) + z^{-2}(3+\omega_p\Delta T_s) - z^{-3}}\label{eq:z_open_loop}
 		\end{align}
 		The closed loop z-domain PLL phase transfer function is:
 		\begin{align}
-			\frac{\Phi_{out}(z)}{\Phi_{ref}(z)} = \frac{\mathrm{H}_{DIV}(z)^{-1}\mathrm{OL}(z)}{1+\mathrm{OL}(z)} = \\
-			\frac{2\pi K_{DCO}K_iT^2\mathrm{M}\frac{\omega_p}{\omega_z}(1+\omega_zT)-z^{-1}}{(1+\omega_pT + 2\pi K_{DCO}K_iT^2\frac{\mathrm{M}}{\mathrm{N}}\frac{\omega_p}{\omega_z}(1+\omega_zT))- z^{-1}(3+2\omega_pT+2\pi K_{DCO}K_iT^2\frac{\mathrm{M}}{\mathrm{N}}\frac{\omega_p}{\omega_z})+ z^{-2}(3+\omega_pT) - z^{-3}}
+			\mathrm{T}(z) = \frac{\Phi_{out}(z)}{\Phi_{ref}(z)} &= \frac{2\pi K_{DCO}K_i\Delta T_s^2\mathrm{M}\frac{\omega_p}{\omega_z}(1+\omega_z\Delta T_s)-z^{-1}}{\left(\parbox{4.2in}{$(1+\omega_p\Delta T_s + 2\pi K_{DCO}K_i\Delta T_s^2\frac{\mathrm{M}}{\mathrm{N}}\frac{\omega_p}{\omega_z}(1+\omega_z\Delta T_s))- z^{-1}(3+2\omega_p\Delta T_s+2\pi K_{DCO}K_i\Delta T_s^2\frac{\mathrm{M}}{\mathrm{N}}\frac{\omega_p}{\omega_z})+ z^{-2}(3+\omega_p\Delta T_s) - z^{-3}$}\right)}%\\
+			%&= \mathrm{N}\frac{\mathrm{L}(z)}{1+\mathrm{L}(z)}\\
 		\end{align}
 		The s-domain approximation of the transfer function is:
 		\begin{align}
-			\mathrm{OL}(s) = \mathrm{H}_{TDC}(s)\mathrm{H}_{LF}(s)\mathrm{H}_{DCO}(s)\mathrm{H}_{DIV}(s) = \frac{\mathrm{M}}{\mathrm{N}}\frac{K_{DCO}K_i}{s^2} \frac{\left(\frac{s}{\omega_z} + 1\right)}{\left(\frac{s}{\omega_p} + 1\right)}
+			\mathrm{L}(s) = \mathrm{H}_{TDC}(s)\mathrm{H}_{LF}(s)\mathrm{H}_{DCO}(s)\mathrm{H}_{DIV}(s) = \frac{\mathrm{M}}{\mathrm{N}}\frac{K_{DCO}K_i}{s^2} \frac{\left(\frac{s}{\omega_z} + 1\right)}{\left(\frac{s}{\omega_p} + 1\right)}
 		\end{align}
-		And in closed loop configuration the PLL phase transfer function is:
+		And in closed loop configuration the s-domain PLL phase transfer function is:
 		\begin{align}
-			\frac{\Phi_{out}(z)}{\Phi_{ref}(z)} = \frac{\mathrm{H}_{DIV}(z)^{-1}\mathrm{OL}(z)}{1+\mathrm{OL}(z)} = \frac{\mathrm{M}K_{DCO}K_i\left(\frac{s}{\omega_z} + 1\right)}{s^3\frac{1}{\omega_z} + s^2 + \frac{\mathrm{M}}{\mathrm{N}}K_{DCO}K_i\left(\frac{s}{\omega_z} + 1\right)}
+			\mathrm{T}(s)=\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{\mathrm{M}K_{DCO}K_i\left(\frac{s}{\omega_z} + 1\right)}{s^3\frac{1}{\omega_z} + s^2 + \frac{\mathrm{M}}{\mathrm{N}}K_{DCO}K_i\left(\frac{s}{\omega_z} + 1\right)} = \mathrm{N}\frac{\mathrm{L}(s)}{1+\mathrm{L}(s)}
 		\end{align}
 		Incidentally, the s-domain approximation is significantly simpler and will is preferred in this paper for purposes of analysis.
 
@@ -165,11 +168,11 @@
 		Since $e_\Phi$[n] is digital signal, the minimum step size is $\Delta$=1 LSB. The TDC quantization noise power is therefore $\sigma_{q_{TDC}}^2 = 1/12$ LSB$^2$. The po
 		If the quantization noise is assumed to be white, and the TDC is sampled at $f_{ref}$, the quantization PSD is:
 		\begin{equation}
-			S_{q_{TDC}} = \frac{P_{q_{TDC}}}{\Delta f} = \frac{\sigma_{q_{TDC}}^2}{f_{ref}} = \frac{\Delta^2}{12f_{ref}} = \frac{1}{12f_{ref}} \hspace{1em}\frac{[\text{LSB}]^2}{[\text{Hz}]}
+			S_{qn_{TDC}}(f) = \frac{P_{q_{TDC}}}{\Delta f} = \frac{\sigma_{q_{TDC}}^2}{f_{ref}} = \frac{\Delta^2}{12f_{ref}} = \frac{1}{12f_{ref}} \hspace{1em}\frac{[\text{LSB}]^2}{[\text{Hz}]}
 		\end{equation}
 
 	\subsubsection{DCO noise}
-		Noise in a DCO is resulting from (a) quantization of the oscillator tuning word u[n], and (b) from thermal and stochastic sources. In the digital PLL, the OTW quantization occurs in the loop filter, so this will be analyzed in the later loop filter section (\ref{lf_noise}). Thus oscillator thermal/stochastic noise will be considered, to develop a phase noise model where oscillator phase noise $\Phi_{n_{DCO}}$ is an additive process to the oscillator phase $\Phi_{osc}$, thus $\Phi_{out}$ = $\Phi_{osc} + \Phi_{n_{DCO}}$
+		Noise in a DCO is resulting from (a) quantization of the oscillator tuning word u[n], and (b) from thermal and stochastic sources. In the digital PLL, the OTW quantization occurs in the loop filter, so this will be analyzed in the later loop filter section (\ref{lf_noise}). Thus oscillator thermal/stochastic noise will be considered, to develop a phase noise model where oscillator phase noise $\Phi_{n_{DCO}}$ is an additive process to the oscillator phase $\Phi_{osc}$, thus $\Phi_{out}$ = $\Phi_{osc} + \Phi_{n_{DCO}}$.
 
 		\begin{figure}[htb!]
 			\center\include{./figs/dco_noise}
@@ -206,20 +209,13 @@
 		\end{equation}
 		Application of the bilinear transform to \ref{eq:z_osc_pn} can be used to approximate the continuous phase noise spectrum, if $s=j\omega$
 		\begin{equation}
-			\Phi_{n}(s) = \left.\Phi_{n}(z)\right\vert_{z=1-s\delta t} = \left.\frac{\delta\Phi_n(z)}{z-1}\right\vert_{z=1+s\delta t} = \frac{\delta\Phi_n(z=1+s\delta t)}{s\delta t}
+			\Phi_{n}(s) = \left.\Phi_{n}(z)\right\vert_{z=1-s\delta t} = \left.\frac{\delta\Phi_n(z)}{z-1}\right\vert_{z=1+s\delta t} = \frac{\delta\Phi_n(s)}{s\delta t}
 		\end{equation}
 		The phase noise PSD is therefore:
 		\begin{equation}
-			S_{\Phi n_{DCO}}(j\omega)= \left|\frac{\delta\Phi_n(z=1-j\omega \delta t)}{j\omega \delta t}\right|^2 = \frac{1}{\omega^2}\left|\frac{\delta\Phi_n(z=1-j\omega \delta t)}{\delta t}\right|^2 =  \frac{S_{0\Phi n_{DCO}}}{\omega^2}
+			S_{\Phi n_{DCO}}(f)= \lim_{\Delta T\rightarrow\infty}\frac{1}{\Delta T}\left|\frac{\delta\Phi_n(j2\pi f)}{j2\pi f \delta t}\right|^2  =  \frac{S_{0\Phi n_{DCO}}}{f^2}
 		\end{equation}
-		Following that the phase disturbance signal $\delta\Phi_{n}(t)$ is white spectrum, with infinitesimally small $\delta t$, a value for its power $S_{0\Phi n_{DCO}}$ will exist such that:
-		\begin{equation}
-			S_{0\Phi n_{DCO}} = \lim_{\delta t\to0} \mathrm{Var}\left( \left|\frac{\delta\Phi_n(z=1-j\omega \delta t)}{\delta t}\right|^2 \right)
-		\end{equation}
-		The value for $S_{0\Phi n_{DCO}}$ is highly dependent on implementation and is best extracted via simulation or physical measurement. The oscillator phase noise PSD is therefore:
-		\begin{equation}
-			S_{\Phi n_{DCO}}(\omega)= \frac{S_{0\Phi n_{DCO}}}{\omega^2} \hspace{1em}\frac{[\text{rad}]^2}{[\text{Hz}]}
-		\end{equation}
+		Following that the phase disturbance signal $\delta\Phi_{n}(t)$ is white spectrum, a constant value for its PSD $S_{0\Phi n_{DCO}}$ can be defined. The value for $S_{0\Phi n_{DCO}}$ is highly dependent on implementation and is best extracted by means of curve fitting simulation or physical measurement.
 	
 	\subsubsection{Divider noise}
 		\begin{figure}[htb!]
@@ -247,13 +243,13 @@
 		\end{equation}
 		At lock, the output of a digital divider will have an update rate $f_{{osc}}/\mathrm{N} \approx f_{ref}$, which can be treated as the sampling rate of the output phase signal $\Phi_{div}[n]$. Thus if the divider phase noise power is confined into a bandwidth equal to $f_{ref}$, the spectral density of divider noise is:
 		\begin{equation}
-			S_{\Phi n_{div}} = 2\pi\omega_{ref}\sigma^2_{t n_{div}}  =2\pi\omega_{ref}\left(\frac{dV}{dt}\right)^{-2}\sigma_{v_n}^2\hspace{1em}\frac{[\text{rad}]^2}{[\text{Hz}]}
+			S_{\Phi n_{div}}(f) = \frac{\sigma_{\Phi n_{div}}^2}{f_{ref}} = 2\pi\omega_{ref}\sigma^2_{t n_{div}}  =2\pi\omega_{ref}\left(\frac{dV}{dt}\right)^{-2}\sigma_{v_n}^2\hspace{1em}\frac{[\text{rad}]^2}{[\text{Hz}]}
 		\end{equation}
 
 	\subsubsection{Loop filter noise - direct type I}\label{lf_noise}
 		In a digital loop filter, quantization noise arises from rounding errors due to finite precision in the arithmetic circuits that implement the filter. Quantization noise power here will be derived under the assumption of a direct type-I filter implementation, with B bits in each fixed point word throughout the loop filter. In a digital implementation of the canonical z-domain transfer function \ref{eq:canon_z_tf} as the direct type-I structure of figure \ref{fig:direct_type_1_ideal}, delays are constructed using registers, adders with digital adders, and the filter coefficient gain terms $\{a_1, ... a_N; b_0, ..., b_M\}$ with digital multipliers. The registers and adders do not introduce extra round-off error beyond that already existing, however the multipliers will if the products of B bit words, yielding 2B bits, are mapped onto B bit words. 
 		\begin{equation}
-			\textnormal{H}_{LF}(z) = \frac{\sum_{j=0}^M b_jz^{-j}}{1+\sum_{k=1}^N a_kz^{-k}}\label{eq:canon_z_tf}
+			\textnormal{H}_{LF}(z) = \frac{\sum_{j=0}^Z b_jz^{-j}}{1+\sum_{k=1}^P a_kz^{-k}}\label{eq:canon_z_tf}
 		\end{equation}
 		\FloatBarrier
 		Quantization in this case can be represented by adding a quantization error signal $q_x$[n] to the result of each ideal multiplication, as shown in figure \ref{fig:direct_type_1_quant}. This is the same approach for TDC quantization noise in section \ref{eq:tdc_noise}. The noise power associated with each q$_x$[n] is identical, with $\sigma_{qx}^2 = 1/12$ LSB$^2$. 
@@ -280,19 +276,19 @@
 		\FloatBarrier
 		Assuming the quantization error signals of each multiplier are uncorrelated with all other multipliers, the output-referred noise power of the filter can be computed as the sum of the output-referred individual contributions. These contributions can be determined via solving for the transfer function from each source q$_x$[n] of each quantization noise to the output y[n]. In the case of the direct type I filter structure, all quantization sources q$_x$[n] have the same transfer characteristic to the output y[n]:
 		\begin{equation}
-			\frac{Y(z)}{Q_x(z)} = \frac{1}{1+\sum_{k=1}^N a_kz^{-k}}\label{eq:lf_quant_tf}
+			\frac{Y(z)}{Q_x(z)} = \frac{1}{1+\sum_{k=1}^P a_kz^{-k}}\label{eq:lf_quant_tf}
 		\end{equation}
 		Applying the bilinear transform to \ref{eq:lf_quant_tf}, with high oversampling where N$\cdot \text{BW}_{loop} 10 < f_{ref}$, and N is the number of poles in the system.
 		\begin{equation}
-			\left.\frac{Y(z)}{Q_x(z)}\right\vert_{z^{-1}=1-sT} \approx \frac{1}{1+\sum_{k=1}^N a_k - s\sum_{k=1}^N ka_k}\label{eq:lf_quant_tf_s}
+			\left.\frac{Y(z)}{Q_x(z)}\right\vert_{z^{-1}=1-sT} \approx \frac{1}{1+\sum_{k=1}^P a_k - s\sum_{k=1}^P ka_k}\label{eq:lf_quant_tf_s}
 		\end{equation}
 		The output power spectral density is then for one error source is, confined to a bandwidth defined by the (sampling) reference frequency $f_{ref}$:
 		\begin{equation}
-			S_{qx}(\omega) = \frac{\sigma_{qx}^2}{f_{ref}}\left|\frac{Y(s)}{Q_x(s)}\right|^2_{s=j\omega} \approx \frac{\sigma_{qx}^2}{f_{ref}}\left|\frac{1}{1+\sum_{k=1}^N a_k - j\omega\sum_{k=1}^N ka_k}\right|^2\label{eq:lf_quant_tf_s} \hspace{1em}\frac{[\text{LSB}]^2}{[\text{Hz}]}
+			S_{qx}(f) = \frac{\sigma_{qx}^2}{f_{ref}}\left|\frac{Y(s)}{Q_x(s)}\right|^2_{s=j2\pi f} \approx \frac{1}{12f_{ref}}\left|\frac{1}{1+\sum_{k=1}^P a_k - j2\pi f\sum_{k=1}^P ka_k}\right|^2\label{eq:lf_quant_tf_s} \hspace{1em}\frac{[\text{LSB}]^2}{[\text{Hz}]}
 		\end{equation}
-		Given $M_{poles}$ poles and $N_{zeros}$ zeros in the filter, the total output quantization PSD of the filter is \ref{eq:lf_noise}. The total loop filter noise PSD linearly scales with the number of multipliers in the direct type-I filter implementation.
+		Given P poles and Z zeros in the filter, the total output quantization PSD of the filter is \ref{eq:lf_noise}. The total loop filter noise PSD linearly scales with the number of multipliers in the direct type-I filter implementation.
 		\begin{equation}
-			S_{q_{LF}}(\omega) = (N_{poles}+M_{zeros}+1)S_{qx}(\omega) \hspace{1em}\frac{[\text{LSB}]^2}{[\text{Hz}]}\label{eq:lf_noise}
+			S_{qn_{LF}}(f) = (P+Z+1)S_{qx}(f) \hspace{1em}\frac{[\text{LSB}]^2}{[\text{Hz}]}\label{eq:lf_noise}
 		\end{equation}
 
 	\subsubsection{PLL noise sensitivity transfer functions}
@@ -303,11 +299,17 @@
 			\label{fig:full_pll_noise}
 		\end{figure}
 		\FloatBarrier
-		The transfer function G(f) is defined from the open loop response OL(f) as it allows for simplification of the closed loop transfer functions:
+		It is useful to define a transfer function $\hat{\mathrm{T}}(s)$ which characterizes the normalized closed loop response from reference to output of the PLL. $\hat{\mathrm{T}}(s)$ is defined in terms of the loop gain L(s).
 		\begin{equation}
-		G(f) = \frac{\mathrm{OL}(f)}{1+\mathrm{OL}(f)}
+		\hat{\mathrm{T}}(s) = \frac{\mathrm{L}(s)}{1+\mathrm{L}(s)}\hspace{1em} \text{s.t.} \hspace{1em} \mathrm{T}(s) = \frac{\Phi_{out}}{\Phi_{ref}} = \mathrm{N}\hat{\mathrm{T}}(s) 
 		\end{equation}
-		Solving for the closed transfer functions between each $q_{n_{TDC}}$, $q_{n_{LF}}$, $\Phi_{n_{DCO}}$ and $\Phi_{n_{div}}$ to the output $\Phi_{out}$ yields:
+		Solving for the closed transfer functions between each $q_{n_{TDC}}$, $q_{n_{LF}}$, $\Phi_{n_{DCO}}$ and $\Phi_{n_{div}}$ to the output $\Phi_{out}$ utilizing s-domain approximations yield:
+		\begin{align}
+			\frac{\Phi_{out}(s)}{q_{n_{TDC}}(s)} & = \frac{2\pi\frac{K_{DCO}}{s}\mathrm{H}_{LF}(s)}{1+\mathrm{L}(s)}= 2\pi\frac{\mathrm{N}}{\mathrm{M}}\frac{\mathrm{L}(s)}{1+\mathrm{L}(s)} = 2\pi\frac{\mathrm{N}}{\mathrm{M}}\hat{\mathrm{T}}(s)\\
+			\frac{\Phi_{out}(s)}{\Phi_{n_{DCO}}(s)} & = \frac{1}{1+\mathrm{L}(s)}= 1-\hat{\mathrm{T}}(s)\\
+			\frac{\Phi_{out}(s)}{q_{n_{LF}}(s)} & = \frac{2\pi\frac{K_{DCO}}{s}}{1+\mathrm{L}(s)} = 2\pi\frac{K_{DCO}}{s}(1-\hat{\mathrm{T}}(s))\\
+			\frac{\Phi_{out}(s)}{\Phi_{n_{div}}(s)} & = \frac{\mathrm{M}\frac{K_{DCO}}{s}\mathrm{H}_{LF}(s)}{1+\mathrm{L}(s)}= \mathrm{N}\frac{\mathrm{L}(s)}{1+\mathrm{L}(s)} = \mathrm{N}\hat{\mathrm{T}}(s)
+		\end{align}
 
 
 	\subsubsection{PLL phase noise and output PSD relationship}\label{pn_noise_psd}
@@ -326,23 +328,32 @@
 		\end{align}
 		The result is a carrier cosine signal, and an orthogonal sine signal modulated by the phase noise $\Phi_{n}$. From this, the spectral density of the phase noise relative to the carrier can be estimated. The power spectral density $S_{V_{out}}$ is computed in \ref{eq:pn_psd}. Due to orthogonality of the sine/cosine components of \ref{eq:pll_out_approx}, the cross terms that appear in the PSD are zero. 
 		\begin{align}
-			S_{V_{out}} &= \lim_{T\rightarrow\infty}\frac{1}{T}|\mathcal{F}\{V_{out}(t)\cdot\mathrm{rect}(t/T)\}|^2 \\
-			&=\lim_{T\rightarrow\infty}\frac{A_0^2}{T}|\mathcal{F}\{\cos(\omega_{osc}t)\}|^2 + \lim_{T\rightarrow\infty}\frac{A_0^2}{T}|\Phi_{n}(\omega)*\mathcal{F}\{\sin(\omega_{osc}t)\}|^2 \label{eq:pn_psd}
+			S_{V_{out}} &= \lim_{\Delta T\rightarrow\infty}\frac{1}{\Delta T}|\mathcal{F}\{V_{out}(t)\cdot\mathrm{rect}(t/T)\}|^2 \\
+			&=\lim_{\Delta T\rightarrow\infty}\frac{A_0^2}{\Delta T}|\mathcal{F}\{\cos(\omega_{osc}t)\}|^2 + \lim_{\Delta T\rightarrow\infty}\frac{A_0^2}{\Delta T}|\Phi_{n}(\omega)*\mathcal{F}\{\sin(\omega_{osc}t)\}|^2 \label{eq:pn_psd}
 		\end{align}
 		 If single side band (SSB) noise power spectral density $\mathcal{L}(\Delta f)$ is defined as the phase noise PSD at offset $\Delta f$ from the carrier frequency $f_{osc}$, normalized to the carrier power $P_0$:
 		\begin{equation}
-			\mathcal{L}(\Delta f) = \lim_{T\rightarrow\infty}\frac{1}{T}|\Phi_{n}(2\pi\Delta f)|^2 = \lim_{T\rightarrow\infty}\frac{1}{T}|\mathcal{F}\{\Phi_{n}(t)\}|^2= S_{\Phi_{n}}(\Delta f)
+			\mathcal{L}(\Delta f) = \lim_{\Delta T\rightarrow\infty}\frac{1}{\Delta T}|\Phi_{n}(2\pi\Delta f)|^2 = \lim_{\Delta T\rightarrow\infty}\frac{1}{\Delta T}|\mathcal{F}\{\Phi_{n}(t)\}|^2= S_{\Phi_{n}}(\Delta f)
 		\end{equation}
 		Thus, the PLL output noise PSD relative to the carrier is equal to the PSD of the phase noise signal $\Phi_{n}(t)$.
 
 	\subsubsection{PLL output-referred noise PSD}
-	In terms of analysis, PLL noise PSD referred to the PLL output is of most interest. Thus far the noise generated by the PLL components, the PLL phase noise sensitivity functions, and the relationship between PLL output noise PSD and phase noise have been established. Now these can be combined to provide a final result for full PLL output-referred noise PSD. An important assumption here is all noise sources are independent an uncorrelated, so their independent noise power contributions may be summed to find the total noise.
+	In terms of analysis, PLL noise PSD referred to the PLL output is of most interest. Thus far the following have been established: (a) noise spectrum generated by each individual PLL component, (b) the PLL phase noise sensitivity functions, and (c) the relationship between PLL output PSD and output phase noise. Now these can be combined to provide a final result for full PLL output-referred noise PSD. An important assumption here is all noise sources are uncorrelated, so their independent noise power contributions may be summed to find the total noise PSD. The PLL output phase noise PSD for each noise source is simply found by multiplying magnitude squared of the respective noise sensitivity function with the noise source PSD. Thus:
+	\begin{align}
+		S_{\Phi n_{TDC,out}}(f) &= S_{qn_{TDC}}(f)\left|\frac{\Phi_{out}(f)}{q_{n_{TDC}}(f)}\right|^2 = \frac{1}{12f_{ref}}\left|2\pi\frac{\mathrm{N}}{\mathrm{M}}\hat{\mathrm{T}}(f)\right|^2\\
+		S_{\Phi n_{DCO,out}}(f) &= S_{\Phi n_{DCO}}(f)\left|\frac{\Phi_{out}(f)}{\Phi_{n_{DCO}}(f)}\right|^2  = \frac{S_{0\Phi n_{DCO}}}{f^2}\left|1-\hat{\mathrm{T}}(f)\right|^2\\		
+		S_{\Phi n_{LF,out}}(f) &= S_{q n_{LF}}(f)\left|\frac{\Phi_{out}(f)}{q_{n_{LF}}(f)}\right|^2 \approx \frac{K_{DCO}^2}{12f_{ref}f^2}\left|\frac{1-\hat{\mathrm{T}}(f)}{1+\sum_{k=1}^P a_k - j2\pi f\sum_{k=1}^P ka_k}\right|^2\\
+		S_{\Phi n_{div,out}}(f) &= S_{\Phi n_{div}}(f)\left|\frac{\Phi_{out}(f)}{\Phi_{n_{div}}(f)}\right|^2 = f_{ref}\left|2\pi\sigma_{tn_{div}}\mathrm{N}\hat{\mathrm{T}}(f)\right|^2
+	\end{align}
+	The output SSB noise PSD at offset $\Delta f$ relative to the carrier normalized to carrier power of PLL will be:
+	\begin{equation}
+		\mathcal{L}(\Delta f) = S_{\Phi n_{TDC,out}}(\Delta f) + S_{\Phi n_{DCO,out}}(\Delta f) + S_{\Phi n_{LF,out}}(\Delta f) + S_{\Phi n_{div,out}}(\Delta f)
+	\end{equation}
 
 	% Out PSD = Noise PSD * |(TF from source to output)|^2
 
 	% out PSD = sum of individual PSDs
 
-	\hl{All noise uncorrelated.}
 	\hl{Hypothetical ex. plot of all components? (in disco?)}
 
 

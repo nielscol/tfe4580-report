@@ -1,12 +1,17 @@
 # Fdb version 3
-["pdflatex"] 1574188983 "methods.tex" "/home/cole/Documents/pll/report/methods.pdf" "methods" 1574188983
+["pdflatex"] 1574778506 "methods.tex" "/home/cole/Documents/pll/report/methods.pdf" "methods" 1574778506
   "/etc/texmf/web2c/texmf.cnf" 1547987446 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/cole/Documents/pll/report/methods.aux" 1574188983 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm" 1480098701 1332 f817c21a1ba54560425663374f1b651a ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm" 1480098701 1336 3125ccb448c1a09074e3aa4a9832f130 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1480098701 768 1321e9409b4137d6fb428ac9dc956269 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1547987520 4128328 fdce742b0ea170930dab83e47e0b22ad ""
-  "methods.tex" 1574188983 186 48d842a65d3d384bd9e184231c6579a0 ""
+  "methods.tex" 1574778505 4695 9b2a9c021b7c32e97b1e2376c8c37f3e ""
   (generated)
   "/home/cole/Documents/pll/report/methods.log"
-  "/home/cole/Documents/pll/report/methods.pdf"
   "methods.log"
+  "/home/cole/Documents/pll/report/methods.pdf"

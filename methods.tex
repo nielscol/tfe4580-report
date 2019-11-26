@@ -18,31 +18,40 @@
 	DCO and TDC phase noise should be highest. Will simulate with other noise sources, but framework will optimize loop filter design and provide recommendations for other parameters (max divider jitter) so DCO and TDC phase noise are dominant.
 \subsubsection{Estimation of settling time}
 
-	Based on a continuous model of the PLL dynamics, an overall closed loop phase noise transfer funvtion G(f) is defined in the following form, where M $<$ N. The transfer function is defined as a rational function of two polynomial functions of s. 
-	\begin{equation}
-	G(f) = \frac{\Sigma_0^M b_ms^m}{\Sigma_0^N a_ns^n}
+	Based on a continuous model of the PLL dynamics, the PLL closed loop phase transfer function $\mathrm{T}(s)$ is defined in the following form, where number of poles P $>$ number of zeros Z. The transfer function is defined as a rational function of two polynomial functions of s. 
+	\begin{equation}\label{eq:pll_cl_tf}
+	\mathrm{T}(s) = \frac{\sum_{j=0}^Z b_js^j}{\sum_{k=0}^P a_ns^n}
 	\end{equation}
-		An estimate of the settling time of G(f) can be made from the eigenvalues of its  representation in state space. This can be easily solved computation with available signal processing packages such as \texttt{scipy.signal}. Suppose the state transition matrix corresponding to G(f) is $\mathbf{\Phi}$, the set of k eigenvalues $\{\lambda_1, ... , \lambda_{N}\}$ for the system is found by first puting the system in the following state space representation form:
+	An estimate of the step response settling time of $\mathrm{T}(s)$ can by utilizing its representation in state space. This is given in \ref{eq:ss_rep}, with input vector $\mathrm{U}(s)$, state vector $\mathbf{X}(s)$,  and output $\mathbf{Y}(s)$. The state-space representation from a s-domain transfer function can be quickly solved computationally with available signal processing packages such as \texttt{scipy.signal}.
 	% https://lpsa.swarthmore.edu/Representations/SysRepTransformations/TF2SS.html
+	\begin{align} \label{eq:ss_rep}
+		s\mathbf{X}(s) &= \mathbf{AX}(s) +\mathbf{B}\mathrm{U}(s)\\
+		Y(s) &= \mathbf{CX}(s) +\mathbf{D}\mathrm{U}(s)
+	\end{align}
+	The set of k eigenvalues $\{\lambda_1, ... , \lambda_{N}\}$ corresponding to poles for the system are found as the roots of \ref{eq:ss_eigenvals}.% The associated eigenvectors are found with \ref{eq:ss_eigenvecs}.
+	\begin{align}
+		|\mathbf{A} - \lambda \mathbf{I}| = 0\label{eq:ss_eigenvals}%\\
+		%\mathbf{A} \mathbf{v}_k = \lambda_k\mathbf{v}_k \label{eq:ss_eigenvecs}
+	\end{align}
+	With the constraint of number of poles $>$ number of zeros, the system $\mathrm{T}(s)$ may be represented via partial fraction decomposition using the poles from the eigenvalues of state matrix $\mathbf{A}$ $\{\lambda_1, ... , \lambda_{N}\}$:
 	\begin{equation}
-		s\mathbf{Y}(s) = \mathbf{AY}(s) +\mathbf{B}X(s)
+		T(s) = \sum_{k=1}^{P} \frac{c_k}{s-\lambda_k}
 	\end{equation}
-		Then the state transition matrix is computed, and the eigenvalues of the aforementioned are found.
+	The step response of this system will take the form as a sum of complex exponentials:
 	\begin{equation}
-		\mathbf{\Phi} = (s\mathbf{I}-A)^{-1}
-	\end{equation}
-	\begin{equation}
-		|\mathbf{\Phi} - \lambda \mathbf{I}| = 0
-	\end{equation}
-		The step response of this system will take the form as a sum of complex exponentials, weighted by the eigenvectors $\{\mathbf{v}_1, ... , \mathbf{v}_N\}$ of $\mathbf{A}$.
-	\begin{equation}
-		\mathbf{y}(t) = \mathbf{v_1}e^{\lambda_1t} + ... + \mathbf{v_k}e^{\lambda_kt}, \hspace{1em} \mathbf{y(t)} = [ y(t) \hspace{0.5em}y^{'}(t)\hspace{0.5em} ...\hspace{0.5em} y^{(k)}(t)]^T
+		y(t) = c_1e^{\lambda_1t} + ... + c_ke^{\lambda_kt}%, \hspace{1em} \mathbf{y(t)} = [ y(t) \hspace{0.5em}y^{'}(t)\hspace{0.5em} ...\hspace{0.5em} y^{(k)}(t)]^T
 	\end{equation}
 
-	The dynamics of the step response are governed by the exponential components of y(t). If  $\{\lambda_1, ... , \lambda_N\} \in \mathds{C}$ where $\lambda_k=\sigma_k+j\omega_K$, the real portion of each $\lambda_k$ will describe the transient behavior. The long term settling of y(t) will be dominated by the $\lambda_k$ with the smallest valued real component. This value is approximately the time constant for the system. Settling time $t_s$ can be considered as the interval required for the signal to drop within a tolerance band $\pm \delta_{tol} \textnormal{y}(\infty)$ about the final value $\textnormal{y}(\infty)$. 
+	% The state transition matrix $\mathbf{\Phi}_{\mathrm{T}}$ corresponding to the system $\mathrm{T}(s)$ is:
+	% \begin{equation}
+		% \mathbf{\Phi}_\mathrm{T} = (s\mathbf{I}-A)^{-1}
+	% \end{equation}
+
+	The dynamics of the step response are governed by the exponential components of y(t). If  $\{\lambda_1, ... , \lambda_N\} \in \mathds{C}$ where $\lambda_k=\sigma_k+j\omega_K$, the real portion of each $\lambda_k$ will describe the transient behavior. The long term settling of y(t) will be dominated by the $\lambda_k$ with the smallest valued real component, that is the dominant pole. This value is approximately the reciprocal time constant for the system. Settling time $t_s$ can be considered as the interval required for the signal to drop within a tolerance band $\pm \delta_{tol} \textnormal{y}(\infty)$ about the final value $\textnormal{y}(\infty)$. 
 	\begin{equation}
 		t_s = \tau\ln(\delta_{tol}) = \frac{\ln(\delta_{tol})}{\min(|\Re(\{\lambda_1, ... , \lambda_k\})|)}
 	\end{equation}
+	This settling time estimate is computationally fast, as it requires only (a) computation of state matrix $\mathbf{A}$, (b) computation of the eigenvalues of $\mathbf{A}$, and (c) computation of settling time from the eigenvalue with minimum real component.
 \subsubsection{Estimation of PLL phase noise}
 	It is assumed that the dominant output-referred phase noise contributions are due to the DCO thermal noise and the TDC quantization. If such is the case, total output integrated noise power is at a minimimum when the TDC and DCO contributions are approximately equal. Thus $S_{TDC}$ and $S_{DCO}$ are the PLL output-referred noise PSD respectively for the TDC and DCO noise sources. The total PLL output noise PSD $S_{\Sigma}(f)$ is (N is the PLL divider modulus):
 	\begin{equation}
