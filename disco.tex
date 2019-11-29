@@ -1,31 +1,44 @@
 \section{Discussion}\label{disco}
-Discuss choices for loop filter optimizer (loop filter type)
-	how was loop filter transfer function prototype arrived at?
-	ie what is the best loop filter design 
-
-	why direct type 1 structure is selected.
-	lf noise via simulation with input noise
-	optimization of data word precision
-	loop filter error due to coefficient round-off
-
-
-	Why DCO+TDC is primary focus of phase noise optimization (other noise sources are easier to reduce below the limits of these two)
-	Plot of BW vs tdc/dco noise, motivating optimum
-
-
-Talk about why DCO flicker noise doesn't matter (i.e. Reference flicker is much greater)
-	Also, we don't optimize for reference flicker, it will be constant no matter what,
-	reference is separate from PLL and PLL reponse is flat N multiplier from ref to output.
-	Discuss why only random-phase walk component of oscillator noise considered.
-
-Compare to state of art (perrot)
-Perrot's pre-existing work: general purpuse simulation architecture, doesn't directly handle optimization for integer-N, especially in heavily quantized case
-
-Models are not accurate for frequencies near or greater than reference frequency???
-
-\hl{Design recommendations:}
-\hl{High sampling rate}
-\hl{Minimum choice of TDC tesolution, constraints for divider jitter,}
+\begin{itemize}
+	\item Discuss choices made in simulator
+	\begin{itemize}
+		\item Deficiencies, advantages, why they were made
+		\item Phase noise/lock time analysis
+		\item Analysis - monte-carlo variation to analyze stability/lock time
+		\item purpose: to validate filter design
+	\end{itemize}
+	\item Filter structure choice - PI with added pole. Why is this best (low complexity, no phase error)
+	\item Why only phase random walk in oscillator phase noise
+	\item Why direct type I implementation
+	\item Discuss choices made in loop filter designer/optimizer
+	\begin{itemize}
+		\item Why only optimize for TDC/DCO phase noise initially - (other noise sources are easier to reduce below the limits of these two). Flicker noise ignore due to time resolution limitations, expectation that reference flicker> PLL flicker components as reference flicker with be multiplied by N at output.
+		\item Plot showing BW vs noise components, motivates optimization approach. PN min when TDC and DCO components roughly equal.
+		\item Discuss why ref flicker noise doesn't matter (it can't be altered by PLL so it doesn't matter for optimization)
+		\item Optimizer approach: minimization of phase noise constrained by lock time (BFGS optimizer)
+		\item Second order optimization of filter design for data representation precision with discrete time considerations (first order design is with approximations from continuous PLL model). Discretized LF noise via simulation with input noise
+		\item Recommendations for divider noise limit
+		\item Design verification
+	\end{itemize}
+	\item State of art comparison
+	\begin{itemize}
+		\item Compare to state of art/existing frameworks
+		\item What are improvements made here?
+		\item Perrot's pre-existing work: general purpuse simulation architecture, doesn't directly handle optimization for integer-N, especially in heavily quantized case
+	\end{itemize}
+	\item Design example - compare to existing
+	\begin{itemize}
+		\item Design 2.4G PLL for WuRx, show results from process
+		\item Repeat in CPPsim, compare results?
+		\item Explain advantage of this framework based on exercise
+	\end{itemize}
+	\item Discuss limitations and considerations for use of framework
+	\begin{itemize}
+		\item Models are not accurate for frequencies near or greater than reference frequency???
+		\item Sampling rate recommendations (high oversampling)
+		\item Minimum choice of TDC resolution, constraints for divider jitter,
+	\end{itemize}
+\end{itemize}
 
 	Recommendations for maximum divider jitter, loop filter resolution
 	\subsection{Divider noise constraint}

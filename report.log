@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.20)  29 NOV 2019 13:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.20)  29 NOV 2019 13:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1393,35 +1393,35 @@ LaTeX Font Info:    Try loading font information for U+dsrom on input line 146.
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 ) [31])
-(/home/cole/Documents/pll/report/disco.tex [32]
+(/home/cole/Documents/pll/report/disco.tex [32] [33]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 56.
-) [33] [34] [35] [36]
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 69.
+) [34] [35] [36] [37]
 \openout2 = `appendix.aux'.
 
 
 (/home/cole/Documents/pll/report/appendix.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
- [37
+ [38
 
 ]
-<figs/inv_waves3.pdf, id=836, 507.8975pt x 162.6075pt>
+<figs/inv_waves3.pdf, id=840, 507.8975pt x 162.6075pt>
 File: figs/inv_waves3.pdf Graphic file (type pdf)
 <use figs/inv_waves3.pdf>
 Package pdftex.def Info: figs/inv_waves3.pdf  used on input line 82.
 (pdftex.def)             Requested size: 364.19667pt x 116.6034pt.
-<figs/inv_rc_model.pdf, id=837, 316.18124pt x 185.69376pt>
+<figs/inv_rc_model.pdf, id=841, 316.18124pt x 185.69376pt>
 File: figs/inv_rc_model.pdf Graphic file (type pdf)
 <use figs/inv_rc_model.pdf>
 Package pdftex.def Info: figs/inv_rc_model.pdf  used on input line 91.
 (pdftex.def)             Requested size: 227.62206pt x 133.68523pt.
-<figs/inv_waves2.pdf, id=838, 226.8475pt x 167.62625pt>
+<figs/inv_waves2.pdf, id=842, 226.8475pt x 167.62625pt>
 File: figs/inv_waves2.pdf Graphic file (type pdf)
 <use figs/inv_waves2.pdf>
 Package pdftex.def Info: figs/inv_waves2.pdf  used on input line 97.
 (pdftex.def)             Requested size: 182.09833pt x 134.559pt.
- [38 </home/cole/Documents/pll/report/figs/inv_waves3.pdf> </home/cole/Document
+ [39 </home/cole/Documents/pll/report/figs/inv_waves3.pdf> </home/cole/Document
 s/pll/report/figs/inv_rc_model.pdf> </home/cole/Documents/pll/report/figs/inv_w
 aves2.pdf>]
 
@@ -1451,19 +1451,19 @@ Overfull \hbox (54.67484pt too wide) detected at line 138
 
  []
 
-[39] [40]
-<figs/backgate_rosc_tuning2.pdf, id=878, 175.65625pt x 143.53625pt>
+[40] [41]
+<figs/backgate_rosc_tuning2.pdf, id=883, 175.65625pt x 143.53625pt>
 File: figs/backgate_rosc_tuning2.pdf Graphic file (type pdf)
 <use figs/backgate_rosc_tuning2.pdf>
 Package pdftex.def Info: figs/backgate_rosc_tuning2.pdf  used on input line 202
 .
 (pdftex.def)             Requested size: 136.57462pt x 111.60957pt.
- [41 </home/cole/Documents/pll/report/figs/backgate_rosc_tuning2.pdf>]
+ [42 </home/cole/Documents/pll/report/figs/backgate_rosc_tuning2.pdf>]
 Overfull \hbox (51.48584pt too wide) detected at line 236
  []$[][]$ []  
  []
 
-) [42]
+) [43]
 
 Package caption Warning: Unused \captionsetup[mycapequ] on input line 77.
 See the caption package documentation for explanation.
@@ -1505,8 +1505,8 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 161.
  ) 
 Here is how much of TeX's memory you used:
- 19289 strings out of 492982
- 312358 string characters out of 6134896
+ 19290 strings out of 492982
+ 312365 string characters out of 6134896
  957532 words of memory out of 5000000
  22057 multiletter control sequences out of 15000+600000
  46795 words of font info for 100 fonts, out of 8000000 for 9000
@@ -1541,11 +1541,11 @@ ive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on /home/cole/Documents/pll/report/report.pdf (44 pages, 584628 
+Output written on /home/cole/Documents/pll/report/report.pdf (45 pages, 584920 
 bytes).
 PDF statistics:
- 1069 PDF objects out of 1200 (max. 8388607)
- 959 compressed objects within 10 object streams
- 333 named destinations out of 1000 (max. 500000)
+ 1073 PDF objects out of 1200 (max. 8388607)
+ 962 compressed objects within 10 object streams
+ 334 named destinations out of 1000 (max. 500000)
  577 words of extra memory for PDF output out of 10000 (max. 10000000)
 
