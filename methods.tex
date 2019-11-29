@@ -1,18 +1,112 @@
 \section{Methods}\label{methods}
-The methods for simulation of the discrete-time 
+The methods for implementation of a behavioral, discrete-time PLL simulator and for the PLL loop filter automation and optimization will be covered here.
 
 \hl{Talk about how simulator is implemented:}
 \hl{Discrete simulation models of phase noise, dco etc}
 \hl{Filter optimization}
 \hl{-phase noise and lock time estimate in frequency domain}
 
-\hl{Design recommendations:}
-\hl{High sampling rate}
-\hl{Minimum choice of TDC tesolution, constraints for divider jitter,}
 \subsection{Behavioral, discrete event PLL simulation}
-\subsubsection{Phase noise modeling}
-\subsubsection{Measurement of phase noise, spurs}
-\subsubsection{Monte-carlo sampling}
+To fully capture the effects of a discrete time PLL with digital quantization effects, the implementation a behavioral, discrete event PLL simulator is described in the following. The simulator utilizes of behavioral models of to describe the individual components which comprise the PLL. These components are (1) a clock reference, (2) a TDC, (3) a loop filter, (4) a DCO, and (5) a divider. These behavioral models fully encapsulate effects of time-quantization and digitization. The simulator operates by iterating in fixed time steps of $\Delta t$, where each node in the PLL is updated based upon the previous node values in a manner that is defined by each PLL component behavioral model. Each behavioral model is represented programmatically utilizing classes. In simulation, each component instance is represented by a object instance of the respective model class, constructed with any initial parameters (such as division ratio) that describe the component.
+\begin{figure}[htb!]
+	\center\include{./figs/simulator}
+	\caption{Simulation process.}
+	\label{fig:simulator}
+\end{figure}
+\FloatBarrier
+The discrete event simulator is given in the following pseudocode, with component model objects \{\texttt{clk, tdc, lf, dco, div}\}, and simulation data arrays \{\texttt{clk\_sig, tdc\_sig, lf\_sig, dco\_sig, div\_sig}\}. Each model object is updated at each simulation step utilizing the class method \texttt{update}, passing any relevant simulation data as arguments to the method.
+
+\begin{lstlisting}[language={Python}, caption={PLL simulation loop Python pseudocode}, label={sim_code}]
+for n in range(simulation_steps):
+    clk_sig[n] = clk.update()
+    tdc_sig[n] = tdc.update(clk_sig[n-1], div_sig[n-1]))
+    lf_sig[n]  = lf.update(tdc_sig[n-1], clk_sig[n-1]) #loop filter
+    osc_sig[n] = dco.update(lf_sig[n-1])
+    div_sig[n] = div.update(osc_sig[n-1], div_n)
+    \end{lstlisting}
+After the simulation loop reaches completion, the results stored in the simulation data arrays can be post-processed to extract phase noise data, transient behavior and lock time. The following sections will discuss in more detail the implemented behavioral model classes and post-processing.
+
+\subsubsection{Clock behavioral model}
+An ideal behavioral clock model is utilized. The model is instantiated with the clock frequency \texttt{f} and the simulator time step \texttt{dt}. The model functions by incrementing its phase every simulation step by $\Delta \Phi$ = $2\pi$\texttt{f}$\cdot$\texttt{dt}. The model outputs an analog phase signal.
+
+\begin{lstlisting}[language={Python}, caption={Ideal clock behavioral model.}, label={clk_code}]
+class Clock:
+	def __init__(self, f, dt):
+		self.f = f 			# clock frequency
+		self.dt = dt 		# simulation time step
+		self.phase = 0.0	# clock phase state variable
+
+	def update(self):
+		self.phase += 2*pi*self.f*self.dt 	# increment phase
+		return self.phase
+    \end{lstlisting}
+
+\subsubsection{TDC behavioral model}
+The TDC behavioral model takes two analog inputs \texttt{x} and \texttt{y} that are in units of phase, and outputs a digital word that quantifies the phase separation of the signals. The model is instantiated with a resolution parameter \texttt{tdc\_steps}, which defines the number of phase steps per cycle of the reference input \texttt{x} the TDC can resolve.
+
+\begin{lstlisting}[language={Python}, caption={TDC behavioral model.}, label={tdc_code}]
+class TDC:
+	def __init__(self, tdc_steps):
+		self.tdc_steps = tdc_steps
+
+	def update(x, y):
+		ph_error = wrap(x-y) 	# wraps phase to be within [0, 2*pi]
+		return round(self.tdc_steps*(ph_error/(2*pi)))
+\end{lstlisting}
+\subsubsection{Loop filter behavioral model}
+The loop filter model implements a discrete-time filter via difference equation that operates on input \texttt{x}. The equivalent of one pole and two zeros are modelled, described using the filter coefficients $\{a_1, a_2; b_0, b_1\}$:
+\begin{equation}
+\text{H}_{LF}(z) = \frac{b_0 + b_1z^{-1}}{a_0 + a_1z^{-1} + a_2z^{-2}}
+\end{equation}
+\begin{equation}
+\text{y}[n] = -a_1 \text{y}[n-1]-a_2 \text{y}[n-2] + b_0\text{x}[n] + b_1\text{x}[n-1]
+\end{equation}
+Pseudocode for implementation of the model class is as follows. Data is to be represented with fixed point format, with number of fractional bits \texttt{frac\_bits} and number of integer bits \texttt{int\_bits}. A method \texttt{fixed\_point} is used to round floating point values to be equivalent to the nearest representation in the desired fixed point format given with (int\_bits.frac\_bits)$_2$. The filter coefficients are assumed to be pre-converted to the desired fixed-point equivalent values, and input \texttt{x} is assumed to be integer-valued.
+\begin{lstlisting}[language={Python}, caption={Loop filter behavioral model.}, label={lf_code}]
+class LoopFilter:
+	def __init__(self, a1, a2, b0, b1, int_bits, frac_bits):
+		self.a1 = a1;	self.a2 = a2
+		self.b0 = b0;	self.b1 = b1
+		self.xprev1 = 0;	
+		self.yprev1 = 0; self.yprev2 = 0
+		self.int_bits=int_bits;	self.frac_bits=frac_bits
+
+	def update(x):
+		ynew = -self.a1*self.yprev1 - self.a2*self.yprev2 \\
+			   + self.b0*x + self.b1*self.xprev1	# difference equation
+		self.yprev2 = self.yprev1	
+		self.yprev1 = fixed_point(ynew, self.int_bits, self.frac_bits)
+		self.xprev1 = x
+		return round(self.yprev1)	# convert to integer
+\end{lstlisting}
+
+\subsubsection{DCO behavioral model}
+The DCO is modeled similar to the clock, except with a digital input \texttt{otw} for tuning the frequency. Additionally, oscillator phase noise modeling is included utilizing a random phase walk component \hl{cite theory}. Random walk is implemented by stochastically adding $\pm$\texttt{krw} in phase to the oscillator phase every
+simulation step. The sign of the added amount \texttt{krw} is randomly chosen with equal probability for positive and negative, implemented with via method \texttt{choice}. 
+\begin{lstlisting}[language={Python}, caption={DCO behavioral model.}, label={dco_code}]
+class DCO:
+	def __init__(self, f0, kdco, krw):
+		self.f0 = f0		# nominal frequency
+		self.kdco = kdco 	# DCO gain
+		self.krw			# random phase walk gain
+		self.phase = 0		# phase state variable
+
+	def update(otw):
+		self.phase += 2*pi*(f0 + otw*kdco) + krw*choice([-1,1])
+		return self.phase
+    \end{lstlisting}
+
+\subsubsection{Divider behavioral model}
+The divider model is definied with the divider modulus \texttt{div\_n} and
+\begin{lstlisting}[language={Python}, caption={Divider behavioral model.}, label={div_code}]
+class Divider:
+	def update(x, div_n):
+		return x/div_n
+\end{lstlisting}
+\subsubsection{Post-processing}
+
+\subsubsection{Monte-Carlo sampling}
+An engine for automated simulation of parameter variations...
 	\hl{Used to verify stability}
 
 \subsection{Loop filter optimization}

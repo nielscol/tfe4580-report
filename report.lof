@@ -32,8 +32,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {16}{\ignorespaces Full PLL additive noise model.\relax }}{25}{figure.caption.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {17}{\ignorespaces Model for ring oscillator.\relax }}{35}{figure.caption.20}
+\contentsline {figure}{\numberline {17}{\ignorespaces Simulation process.\relax }}{28}{figure.caption.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {18}{\ignorespaces Approximate model for ring oscillator inverter delay cell.\relax }}{35}{figure.caption.21}
+\contentsline {figure}{\numberline {18}{\ignorespaces Model for ring oscillator.\relax }}{38}{figure.caption.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {19}{\ignorespaces Backgate-tuned ring oscillator with coarse tuning capacitor bank.\relax }}{38}{figure.caption.22}
+\contentsline {figure}{\numberline {19}{\ignorespaces Approximate model for ring oscillator inverter delay cell.\relax }}{38}{figure.caption.22}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {20}{\ignorespaces Backgate-tuned ring oscillator with coarse tuning capacitor bank.\relax }}{41}{figure.caption.23}

@@ -26,28 +26,32 @@
 \BOOKMARK [3][-]{subsubsection.2.3.7}{PLL output-referred noise PSD}{subsection.2.3}% 26
 \BOOKMARK [1][-]{section.3}{Methods}{}% 27
 \BOOKMARK [2][-]{subsection.3.1}{Behavioral, discrete event PLL simulation}{section.3}% 28
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Phase noise modeling}{subsection.3.1}% 29
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Measurement of phase noise, spurs}{subsection.3.1}% 30
-\BOOKMARK [3][-]{subsubsection.3.1.3}{Monte-carlo sampling}{subsection.3.1}% 31
-\BOOKMARK [2][-]{subsection.3.2}{Loop filter optimization}{section.3}% 32
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Estimation of settling time}{subsection.3.2}% 33
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Estimation of PLL phase noise}{subsection.3.2}% 34
-\BOOKMARK [3][-]{subsubsection.3.2.3}{Optimization algorithm}{subsection.3.2}% 35
-\BOOKMARK [1][-]{section.4}{Discussion}{}% 36
-\BOOKMARK [2][-]{subsection.4.1}{Divider noise constraint}{section.4}% 37
-\BOOKMARK [2][-]{subsection.4.2}{Example exercise}{section.4}% 38
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 39
-\BOOKMARK [1][-]{section.6}{Baseband phase noise in radio with PLL}{}% 40
-\BOOKMARK [2][-]{subsection.6.1}{Modulated Signal}{section.6}% 41
-\BOOKMARK [2][-]{subsection.6.2}{Local oscillator - noisy PLL}{section.6}% 42
-\BOOKMARK [2][-]{subsection.6.3}{Baseband phase noise}{section.6}% 43
-\BOOKMARK [1][-]{appendix.A}{Appendix - Schedule}{}% 44
-\BOOKMARK [1][-]{appendix.B}{Appendix - Code}{}% 45
-\BOOKMARK [1][-]{appendix.C}{DCO tuning}{}% 46
-\BOOKMARK [2][-]{subsection.C.1}{Backgate tuning}{appendix.C}% 47
-\BOOKMARK [2][-]{subsection.C.2}{Ring oscillator frequency derivation}{appendix.C}% 48
-\BOOKMARK [3][-]{subsubsection.C.2.1}{Finding "426830A gch"526930B \040and C}{subsection.C.2}% 49
-\BOOKMARK [3][-]{subsubsection.C.2.2}{Handling unequal NMOS/PMOS}{subsection.C.2}% 50
-\BOOKMARK [3][-]{subsubsection.C.2.3}{Solving for oscillator frequency and power}{subsection.C.2}% 51
-\BOOKMARK [2][-]{subsection.C.3}{Ring oscillator backgate tuning derivation}{appendix.C}% 52
-\BOOKMARK [2][-]{subsection.C.4}{DCO Gain Uncertainty}{appendix.C}% 53
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Clock behavioral model}{subsection.3.1}% 29
+\BOOKMARK [3][-]{subsubsection.3.1.2}{TDC behavioral model}{subsection.3.1}% 30
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Loop filter behavioral model}{subsection.3.1}% 31
+\BOOKMARK [3][-]{subsubsection.3.1.4}{DCO behavioral model}{subsection.3.1}% 32
+\BOOKMARK [3][-]{subsubsection.3.1.5}{Divider behavioral model}{subsection.3.1}% 33
+\BOOKMARK [3][-]{subsubsection.3.1.6}{Post-processing}{subsection.3.1}% 34
+\BOOKMARK [3][-]{subsubsection.3.1.7}{Monte-Carlo sampling}{subsection.3.1}% 35
+\BOOKMARK [2][-]{subsection.3.2}{Loop filter optimization}{section.3}% 36
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Estimation of settling time}{subsection.3.2}% 37
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Estimation of PLL phase noise}{subsection.3.2}% 38
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Optimization algorithm}{subsection.3.2}% 39
+\BOOKMARK [1][-]{section.4}{Discussion}{}% 40
+\BOOKMARK [2][-]{subsection.4.1}{Divider noise constraint}{section.4}% 41
+\BOOKMARK [2][-]{subsection.4.2}{Example exercise}{section.4}% 42
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 43
+\BOOKMARK [1][-]{section.6}{Baseband phase noise in radio with PLL}{}% 44
+\BOOKMARK [2][-]{subsection.6.1}{Modulated Signal}{section.6}% 45
+\BOOKMARK [2][-]{subsection.6.2}{Local oscillator - noisy PLL}{section.6}% 46
+\BOOKMARK [2][-]{subsection.6.3}{Baseband phase noise}{section.6}% 47
+\BOOKMARK [1][-]{appendix.A}{Appendix - Schedule}{}% 48
+\BOOKMARK [1][-]{appendix.B}{Appendix - Code}{}% 49
+\BOOKMARK [1][-]{appendix.C}{DCO tuning}{}% 50
+\BOOKMARK [2][-]{subsection.C.1}{Backgate tuning}{appendix.C}% 51
+\BOOKMARK [2][-]{subsection.C.2}{Ring oscillator frequency derivation}{appendix.C}% 52
+\BOOKMARK [3][-]{subsubsection.C.2.1}{Finding "426830A gch"526930B \040and C}{subsection.C.2}% 53
+\BOOKMARK [3][-]{subsubsection.C.2.2}{Handling unequal NMOS/PMOS}{subsection.C.2}% 54
+\BOOKMARK [3][-]{subsubsection.C.2.3}{Solving for oscillator frequency and power}{subsection.C.2}% 55
+\BOOKMARK [2][-]{subsection.C.3}{Ring oscillator backgate tuning derivation}{appendix.C}% 56
+\BOOKMARK [2][-]{subsection.C.4}{DCO Gain Uncertainty}{appendix.C}% 57
