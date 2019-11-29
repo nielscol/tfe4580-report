@@ -300,6 +300,10 @@ INPUT /home/cole/Documents/pll/report/abbrev.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
 INPUT /home/cole/Documents/pll/report/intro.tex
 INPUT /home/cole/Documents/pll/report/intro.tex
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8c.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr8c.vf
 INPUT /home/cole/Documents/pll/report/theory.tex
 INPUT /home/cole/Documents/pll/report/theory.tex
 OUTPUT /home/cole/Documents/pll/report/./figs/basic_feedback.aux
@@ -495,10 +499,6 @@ INPUT /home/cole/Documents/pll/report/figs/inv_rc_model.pdf
 INPUT /home/cole/Documents/pll/report/figs/inv_waves2.pdf
 INPUT /home/cole/Documents/pll/report/figs/inv_waves2.pdf
 INPUT /home/cole/Documents/pll/report/figs/inv_waves2.pdf
-INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8c.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr8c.vf
 INPUT /home/cole/Documents/pll/report/figs/backgate_rosc_tuning2.pdf
 INPUT /home/cole/Documents/pll/report/figs/backgate_rosc_tuning2.pdf
 INPUT /home/cole/Documents/pll/report/figs/backgate_rosc_tuning2.pdf

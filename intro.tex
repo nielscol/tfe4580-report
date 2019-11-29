@@ -6,5 +6,12 @@ All-digital PLLs introduce new challenges in the process of design in the ultra-
 Thus in this paper, a new framework written in pure-Python is introduced, which uniquely addresses issues of ultra-low power ADPLL design. Specifically, design of integer-N type PLLs is focused on, as the impetus of this work is an integer-N PLL design project. Topics presented are (a) automatic design and optimization of ADPLL loop filters given target system and component level specs for the PLL, and (b) behavioral time domain PLL simulation for accurate analysis and verification of PLL performance, with an integrated Monte-Carlo sampling variation analysis engine.
 
 A brief outline of the paper is as follows. An introduction to PLL theory is in section \ref{theory}. Simulation and optimization methods are discussed in section \ref{methods}. An example design exercise, a comparison to existing solutions, and general discussion considerations for using the framework are in section \ref{disco}. Finally, section \ref{conclusion} concludes.
+\vspace{1em}
 
-\hl{include main contributions}
+The main contributions of this work to PLL design are:
+\vspace{-0.8em}
+\begin{itemize}
+	\setlength\itemsep{-0.8em}
+	\item Fully automatic PLL loop filter design and optimization of all digital PLLs from high level specifications in an open source framework.
+	\item Integrated behavioral time domain simulation of integer-N digital PLLs for verification of filter and PLL design, with variational analysis of performance and stability.
+\end{itemize}

@@ -66,7 +66,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.2.1}Estimation of settling time}{28}{subsubsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.2}Estimation of PLL phase noise}{28}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2}Estimation of PLL phase noise}{29}{subsubsection.3.2.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.2.3}Optimization algorithm}{29}{subsubsection.3.2.3}
 \defcounter {refsection}{0}\relax 
