@@ -1,10 +1,10 @@
 %!PS-Adobe-3.0 EPSF-3.0
 %%Title: pi_pz_plot.ps
 %%Creator: XCircuit v3.8 rev78
-%%CreationDate: Thu Nov 21 16:21:50 2019
+%%CreationDate: Sun Dec  1 12:03:26 2019
 %%Pages: 1
 %%BoundingBox: 68 68 508 244
-%%DocumentNeededResources: font Helvetica Helvetica-Bold 
+%%DocumentNeededResources: font Helvetica-Bold 
 %%EndComments
 %%BeginProlog
 %
@@ -176,93 +176,84 @@
 
 %%BeginSetup
 
-/generic::tap {
-% trivial
-<</@in (bus\(0:7\)) /@out (bus\(0\)) >> begingate
-496 1.000 0 8 16 0 0 -8 3 polygon
-1.000 0.000 0.000 scb
-mark @out {/Helvetica cf} ctmk 20 0 1.000 16 0 pinlabel
-mark @in {/Helvetica cf} ctmk 23 0 1.000 0 0 pinlabel
-endgate
-} def
-
 
 %%EndSetup
 
 %%Page: pi_pz_plot 1
 %%PageOrientation: Portrait
 /pgsave save def bop
-% 32.00 4.00 gridspace
+% 32.00 2.00 gridspace
 1.0000 inchscale
 2.6000 setlinewidth 800 416 translate
 
 0.400 0.400 0.400 scb
-1 2.000 0 0 0 192 2 polygon
+1025 2.000 0 0 0 192 2 polygon
 0.180 0.545 0.341 scb
-1 2.000 0 0 192 0 2 polygon
+1025 2.000 4 0 196 0 2 polygon
 0.400 0.400 0.400 scb
-1 2.000 -256 0 0 0 2 polygon
-1 2.000 0 -192 0 0 2 polygon
-1.000 0 192 0 generic::tap
-1.000 90 0 -192 generic::tap
-1.000 180 -256 0 generic::tap
-1.000 270 0 192 generic::tap
+1025 2.000 0 -192 0 0 2 polygon
 ($\\Re\(s\)$) {/Helvetica-Bold cf} 2 144 0 1.000 164 -48 label
 ($\\Im\(s\)$) {/Helvetica-Bold cf} 2 144 0 1.000 12 184 label
 0.000 0.000 1.000 scb
-1 2.000 0 0 128 90.000 180.000 xcarc
+1025 2.000 0 0 128 90.000 180.000 xcarc
 1.000 0.000 0.000 scb
-1 2.000 0 0 128 180.000 270.000 xcarc
+1025 2.000 0 0 128 180.000 270.000 xcarc
 0.000 0.000 1.000 scb
-1 2.000 -128 0 0 0 2 polygon
+1025 2.000 -128 0 0 0 2 polygon
 1.000 0.000 0.000 scb
-1 2.000 -128 0 -256 0 2 polygon
+1025 2.000 -128 0 -256 0 2 polygon
 0.000 0.000 0.000 scb
 ($\\sqrt{\\mathrm{K}}$) {/Helvetica-Bold cf} 2 144 0 1.000 -100 -176 label
 0.400 0.400 0.400 scb
-3 1.000 -128 0 -128 -176 2 polygon
+1027 1.000 -128 0 -128 -176 2 polygon
 0.000 0.000 0.000 scb
-1.000 180 -112 -160 generic::tap
-1.000 0 -16 -160 generic::tap
-1 1.000 32 128 0 128 2 polygon
+1025 1.000 32 128 8 128 2 polygon
 0.400 0.400 0.400 scb
-3 1.000 -92 0 -92 144 2 polygon
-3 1.000 -84 88 -4 88 2 polygon
+1027 1.000 -92 0 -92 144 2 polygon
+1027 1.000 -84 88 -4 88 2 polygon
 1.000 1.000 1.000 scb
-497 1.500 -92 88 8 0.000 360.000 xcarc
+1521 1.500 -92 88 8 0.000 360.000 xcarc
 0.000 0.000 1.000 scb
-1 1.500 -92 88 8 0.000 360.000 xcarc
+1025 1.500 -92 88 8 0.000 360.000 xcarc
 0.400 0.400 0.400 scb
-3 1.000 -92 -88 -92 0 2 polygon
-3 1.000 -84 -88 -4 -88 2 polygon
+1027 1.000 -92 -88 -92 0 2 polygon
+1027 1.000 -84 -88 -4 -88 2 polygon
 1.000 1.000 1.000 scb
-497 1.500 -92 -88 8 0.000 360.000 xcarc
+1521 1.500 -92 -88 8 0.000 360.000 xcarc
 1.000 0.000 0.000 scb
-1 1.500 -92 -88 8 0.000 360.000 xcarc
-1.000 180 -184 0 generic::tap
-0.000 0.000 1.000 scb
-1.000 0 -72 0 generic::tap
-1.000 120 -108 68 generic::tap
-1.000 0.000 0.000 scb
-1.000 240 -108 -68 generic::tap
+1025 1.500 -92 -88 8 0.000 360.000 xcarc
 sce
 ($\\zeta\\sqrt{\\mathrm{K}}$) {/Helvetica-Bold cf} 2 144 0 1.000 -220 140 label
-0.000 0.000 0.000 scb
-1.000 180 16 128 generic::tap
-1.000 0 -108 128 generic::tap
 0.180 0.545 0.341 scb
 1 2.000 84 8 100 -8 2 polygon
 1 2.000 100 8 84 -8 2 polygon
 sce
 ($\\sqrt{\\mathrm{K}}/2\\zeta$) {/Helvetica-Bold cf} 2 144 0 1.000 36 28 label
 1.000 1.000 1.000 scb
-0 2.000 544 224 544 -224 -608 -224 -608 224 4 polygon
+1024 2.000 544 224 544 -224 -608 -224 -608 224 4 polygon
 0.000 0.000 0.000 scb
-1 1.000 -124 128 -92 128 2 polygon
-1 1.000 -128 -160 -104 -160 2 polygon
-1 1.000 -24 -160 0 -160 2 polygon
+1025 1.000 -124 128 -100 128 2 polygon
+1025 1.000 -120 -160 -104 -160 2 polygon
+1025 1.000 -24 -160 -8 -160 2 polygon
+0.400 0.400 0.400 scb
+1520 1.000 -256 -8 -256 8 -272 0 -256 -8 4 polygon
+1520 1.000 0 -208 -8 -192 8 -192 0 -208 4 polygon
+1520 1.000 0 208 -8 192 8 192 0 208 4 polygon
+1520 1.000 208 0 192 -8 192 8 208 0 4 polygon
+0.000 0.000 1.000 scb
+1520 1.000 -56 0 -72 -8 -72 8 -56 0 4 polygon
+1.000 0.000 0.000 scb
+1520 1.000 -184 -8 -184 8 -200 0 -184 -8 4 polygon
+1520 1.000 -114 -74 -100 -66 -115 -56 -114 -74 4 polygon
+0.000 0.000 1.000 scb
+1520 1.000 -118 49 -117 68 -103 60 -118 49 4 polygon
 0.180 0.545 0.341 scb
-1.000 180 144 0 generic::tap
+1520 1.000 144 -8 144 8 128 0 144 -8 4 polygon
+sce
+1520 1.000 -112 -166 -112 -154 -124 -160 -112 -166 4 polygon
+1520 1.000 -18 -166 -18 -154 -6 -160 -18 -166 4 polygon
+1520 1.000 -108 122 -108 134 -96 128 -108 122 4 polygon
+1520 1.000 16 122 16 134 4 128 16 122 4 polygon
 pgsave restore showpage
 
 %%Trailer

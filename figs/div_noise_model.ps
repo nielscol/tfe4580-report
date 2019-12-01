@@ -1,7 +1,7 @@
 %!PS-Adobe-3.0 EPSF-3.0
 %%Title: div_noise_model.ps
 %%Creator: XCircuit v3.8 rev78
-%%CreationDate: Sun Nov 24 21:50:47 2019
+%%CreationDate: Sun Dec  1 13:07:58 2019
 %%Pages: 1
 %%BoundingBox: 68 68 359 140
 %%DocumentNeededResources: font Helvetica 
@@ -176,16 +176,6 @@
 
 %%BeginSetup
 
-/generic::tap {
-% trivial
-<</@in (bus\(0:7\)) /@out (bus\(0\)) >> begingate
-496 1.000 0 8 16 0 0 -8 3 polygon
-1.000 0.000 0.000 scb
-mark @out {/Helvetica cf} ctmk 20 0 1.000 16 0 pinlabel
-mark @in {/Helvetica cf} ctmk 23 0 1.000 0 0 pinlabel
-endgate
-} def
-
 
 %%EndSetup
 
@@ -196,25 +186,26 @@ endgate
 1.0000 inchscale
 2.6000 setlinewidth -96 524 translate
 
-1 2.000 740 -320 740 -320 740 -256 3 polygon
-1 2.000 708 -224 628 -224 2 polygon
-1 2.000 740 -224 32 -180.000 180.000 xcarc
+1025 2.000 740 -320 740 -320 740 -272 3 polygon
+1025 2.000 692 -224 628 -224 2 polygon
+1025 2.000 740 -224 32 -180.000 180.000 xcarc
 1 2.000 772 -224 708 -224 2 polygon
 1 2.000 740 -256 740 -192 2 polygon
-1 1.500 700 -196 684 -196 2 polygon
-1 1.500 692 -204 692 -188 2 polygon
-0 2.000 628 -160 628 -288 452 -288 452 -160 4 polygon
--1.000 180 436 -224 generic::tap
-1 2.000 448 -224 288 -224 2 polygon
--1.000 180 696 -224 generic::tap
-1 1.500 776 -272 760 -272 2 polygon
-1 1.500 768 -280 768 -264 2 polygon
-1 2.000 932 -224 776 -224 2 polygon
-1.000 270 740 -272 generic::tap
+1025 1.500 700 -196 684 -196 2 polygon
+1025 1.500 692 -204 692 -188 2 polygon
+1024 2.000 628 -160 628 -288 452 -288 452 -160 4 polygon
+1025 2.000 436 -224 288 -224 2 polygon
+1025 1.500 776 -272 760 -272 2 polygon
+1025 1.500 768 -280 768 -264 2 polygon
+1025 2.000 932 -224 776 -224 2 polygon
 ($\\Phi_{out}$[n]) {/Helvetica cf} 2 144 0 1.000 288 -196 label
 ($\\div \\mathrm{N}$) {/Helvetica cf} 2 144 0 1.000 496 -236 label
 ($\\Phi_{n_{div}}$) {/Helvetica cf} 2 144 0 1.000 756 -328 label
 ($\\Phi_{div}$[n]) {/Helvetica cf} 2 144 0 1.000 784 -196 label
+0.000 0.000 0.000 scb
+1520 1.000 704 -224 688 -216 688 -232 704 -224 4 polygon
+1520 1.000 740 -260 732 -276 748 -276 740 -260 4 polygon
+1520 1.000 448 -224 432 -216 432 -232 448 -224 4 polygon
 pgsave restore showpage
 
 %%Trailer

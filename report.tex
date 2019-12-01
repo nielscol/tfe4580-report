@@ -1,9 +1,11 @@
 \input{setup}
 
 \pagestyle{fancy}
+% \renewcommand{\sectionmark}[1]{\markboth{ #1}{}}
+% \renewcommand{\subsectionmark}[1]{\markboth{\thesection\ #1}{\thesubsection\ #1}}
 \fancyhf{}
-\rhead{\fontfamily{\sfdefault}\selectfont \textbf{Specialization Project}}
-\lhead{\fontfamily{\sfdefault}\selectfont \textbf{\leftmark}}
+\rhead{\fontfamily{\sfdefault}\selectfont \textbf{\rightmark}}
+\lhead{\fontfamily{\sfdefault}\selectfont \textbf{Specialization Project}}
 \rfoot{\fontfamily{\sfdefault}\selectfont \textbf{Page \thepage}}
 \lfoot{\fontfamily{\sfdefault}\selectfont \textbf{Cole Nielsen}} % \today
 
@@ -76,16 +78,21 @@
 	% WAVEGUIDE MEASUREMENTS LAB
 	\pagebreak
 	\FloatBarrier
+
+	\section{Introduction}\label{intro}
 	\input{intro.tex}
 	\pagebreak
 	\FloatBarrier
+
+	\section{Theory}\label{theory}
 	\input{theory.tex}
 	\input{theory2.tex}
 
+	\section{Methods}\label{methods}
 	\input{methods.tex}
 
     % \section{Results}
-
+	\section{Discussion and results}\label{disco}
     \input{disco.tex}
 
 	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -139,7 +146,7 @@
 			S_{MM} &= |M(f)|^2 = |\mathcal{F}\{\cos(\phi_m(t))\}|^2\\
 			S_{NN} &= |N(f)|^2 = |\Phi_n(f)*\mathcal{F}\{\cos(\phi_m(t))\}|^2
 		\end{align}
-		The inband noise and signal power of these components can be easily computed via integration:
+		The in-band noise and signal power of these components can be easily computed via integration:
 		\begin{equation}
 			P_x = \int^{+\Delta f/2}_{-\Delta f/2}S_{XX}df
 		\end{equation}

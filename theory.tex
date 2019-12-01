@@ -1,5 +1,5 @@
-\section{Theory}\label{theory}
-	In its most basic form, a phase locked loop is a phase-based feedback system whose output tracks or maintains a fixed phase relationship to an input signal. Such a system is uniquely suited to the task of frequency synthesis, which is the process of generating derivative frequencies from some reference frequency. Given reference and output phase signals $\Phi_{ref}$ and $\Phi_{out}$, a PLL can be modeled as in figure \ref{fig:basic_fb}, with feedforward and feedback networks A(s) and B(s). 
+
+	In its most basic form, a phase locked loop is a phase-based feedback system whose output tracks or maintains a fixed phase relationship to an input signal. As will be shown, such a system is uniquely suited to the task of frequency synthesis, which is the process of generating derivative frequencies from some reference frequency. Given reference and output phase signals $\Phi_{ref}$ and $\Phi_{out}$, a PLL can be modeled as in figure \ref{fig:basic_fb}, with feedforward and feedback networks A(s) and B(s). 
 	\begin{figure}[htb!]
 		\center\include{./figs/basic_feedback}
 		\caption{Basic phase feedback network.}
@@ -16,7 +16,7 @@
 	\end{equation}
 	We see that the phase through the PLL is multiplied by a factor of N. If the input phase signal is a sinusoid with frequency $\omega_{ref}$, and likewise the output with $\omega_{out}$, then $\phi_{ref}(t)=\omega_{ref}t$ and $\phi_{out}(t)=\omega_{out}t$. Thus:
 	\begin{equation}\label{mult_by_n}
-		\frac{\Phi_{out}}{\Phi_{ref}} = \frac{\omega_{out}t}{\omega_{ref}t} \approx N \hspace{1em} \rightarrow \hspace{1em} \omega_{out} \approx N\omega_{ref}
+		\frac{\Phi_{out}(t)}{\Phi_{ref}(t)} = \frac{\omega_{out}t}{\omega_{ref}t} \approx N \hspace{1em} \rightarrow \hspace{1em} \omega_{out} \approx N\omega_{ref}
 	\end{equation}
 	Therefore, it is observed that a PLL allows for the generation, i.e. synthesis, of a new frequency from a reference frequency signal. Given a feedback divider ration of 1/N, the PLL multiplies the reference frequency by a factor of N. In the following sections, more advanced models for PLL will be developed, extending the concept introduced here. Specifically, the theory of digital, discrete-time PLLs will be developed and extended from a continuous phase model of a basic PLL.
 
@@ -139,7 +139,7 @@
 			\end{equation}
 
 		\subsubsection{Alternative PID controller permutations} \label{other_pid}
-			If individual terms within the PID-controller are dropped, different controller permutations (PD, ID, PI, P, I, D) can be achieved. As mentioned before, inclusion of an integral term is needed to ensure the desired zero steady state error for a PLL. This leaves ID and I-controllers as possible alternative solutions to PI for the loop filter. However, it can be easily found that neither of these controllers result in a stable PLL, which leaves a PI-controller as the only viable PID implementation.
+			If individual terms within the PID-controller are dropped, different controller permutations (PD, ID, PI, P, I, D) can be achieved. As mentioned before, inclusion of an integral term is needed to ensure the desired zero steady state error for a PLL. This leaves ID and I-controllers as possible alternative solutions to PI for the loop filter. It is shown in the following that neither of these controllers result in a stable PLL, which leaves a PI-controller as the only viable PID implementation.
 
 			\textbf{I-only controller}
 

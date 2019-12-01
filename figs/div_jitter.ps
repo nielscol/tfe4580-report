@@ -1,10 +1,10 @@
 %!PS-Adobe-3.0 EPSF-3.0
 %%Title: div_jitter.ps
 %%Creator: XCircuit v3.8 rev78
-%%CreationDate: Sun Nov 24 21:52:27 2019
+%%CreationDate: Sun Dec  1 13:13:20 2019
 %%Pages: 1
-%%BoundingBox: 68 68 285 131
-%%DocumentNeededResources: font Helvetica Helvetica-Bold 
+%%BoundingBox: 68 68 285 133
+%%DocumentNeededResources: font Helvetica-Bold 
 %%EndComments
 %%BeginProlog
 %
@@ -176,49 +176,39 @@
 
 %%BeginSetup
 
-/generic::tap {
-% trivial
-<</@in (bus\(0:7\)) /@out (bus\(0\)) >> begingate
-496 1.000 0 8 16 0 0 -8 3 polygon
-1.000 0.000 0.000 scb
-mark @out {/Helvetica cf} ctmk 20 0 1.000 16 0 pinlabel
-mark @in {/Helvetica cf} ctmk 23 0 1.000 0 0 pinlabel
-endgate
-} def
-
 
 %%EndSetup
 
 %%Page: basic_feedback 1
 %%PageOrientation: Portrait
 /pgsave save def bop
-% 32.00 4.00 gridspace
+% 32.00 1.00 gridspace
 1.0000 inchscale
 2.6000 setlinewidth -116 432 translate
 
-1 2.000 772 -192 776 -192 2 polygon
+1025 2.000 772 -192 776 -192 2 polygon
 0.600 0.600 0.600 scb
-497 2.000 408 -192 440 -96 472 -96 440 -192 408 -192 5 polygon
-497 2.000 600 -192 632 -96 664 -96 632 -192 600 -192 5 polygon
+1521 2.000 408 -192 440 -96 472 -96 440 -192 408 -192 5 polygon
+1521 2.000 600 -192 632 -96 664 -96 632 -192 600 -192 5 polygon
 sce
-1 2.000 392 -192 424 -192 456 -96 520 -96 552 -192 616 -192 648 -96 712 -96 744 
--192 772 -192 10 polygon
-1 1.500 424 -208 424 -240 2 polygon
-1 1.500 616 -208 616 -240 2 polygon
+1025 2.000 392 -192 424 -192 456 -96 520 -96 552 -192 616 -192 648 -96 712 -96 
+744 -192 772 -192 10 polygon
+1025 1.500 424 -208 424 -240 2 polygon
+1025 1.500 616 -208 616 -240 2 polygon
 ($\\mathrm{N}/f_{osc}$) {/Helvetica-Bold cf} 2 144 0 1.000 468 -236 label
-1 1.500 424 -224 456 -224 2 polygon
-1 1.500 616 -224 584 -224 2 polygon
-1.000 0 408 -140 generic::tap
-1.000 180 476 -140 generic::tap
-1 1.500 388 -140 420 -140 2 polygon
-1 1.500 464 -140 496 -140 2 polygon
-($\\sigma_{\\Phi n_{div}}$) {/Helvetica-Bold cf} 2 144 0 1.000 308 -120 label
+1025 1.500 436 -224 456 -224 2 polygon
+1025 1.500 600 -224 584 -224 2 polygon
+1025 1.500 388 -140 412 -140 2 polygon
+1025 1.500 471 -140 495 -140 2 polygon
+($\\sigma_{\\Phi n_{div}}$) {/Helvetica-Bold cf} 2 144 0 1.000 308 -116 label
 1.000 0.000 0.000 scb
-1 2.000 632 -144 632 -108 644 -108 3 polygon
+1025 2.000 632 -144 632 -108 644 -108 3 polygon
 sce
 ($\\frac{dV}{dt}$) {/Helvetica-Bold cf} 2 144 0 1.000 572 -124 label
-1.000 180 440 -224 generic::tap
-1.000 0 600 -224 generic::tap
+1520 1.000 420 -140 404 -148 404 -132 420 -140 4 polygon
+1520 1.000 463 -140 479 -132 479 -148 463 -140 4 polygon
+1520 1.000 428 -224 444 -216 444 -232 428 -224 4 polygon
+1520 1.000 612 -224 596 -232 596 -216 612 -224 4 polygon
 pgsave restore showpage
 
 %%Trailer

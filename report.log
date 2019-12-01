@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.20)  29 NOV 2019 13:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.20)  1 DEC 2019 18:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -791,28 +791,28 @@ LaTeX Warning: Label `eq:lf_quant_tf_s' multiply defined.
 (/home/cole/Documents/pll/report/appendix.aux))
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 14.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -848,7 +848,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring ON on input line 14.
+Package hyperref Info: Link coloring ON on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -858,9 +858,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count326
 )
-LaTeX Info: Redefining \ref on input line 14.
-LaTeX Info: Redefining \pageref on input line 14.
-LaTeX Info: Redefining \nameref on input line 14.
+LaTeX Info: Redefining \ref on input line 16.
+LaTeX Info: Redefining \pageref on input line 16.
+LaTeX Info: Redefining \nameref on input line 16.
 
 (/home/cole/Documents/pll/report/report.out)
 (/home/cole/Documents/pll/report/report.out)
@@ -913,8 +913,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'report.bbl' found.
 (/home/cole/Documents/pll/report/report.bbl)
-Package biblatex Info: Reference section=0 on input line 14.
-Package biblatex Info: Reference segment=0 on input line 14.
+Package biblatex Info: Reference section=0 on input line 16.
+Package biblatex Info: Reference segment=0 on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
@@ -947,19 +947,19 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/cole/Documents/pll/r
 eport/logo_ntnu_eng_black.png>] [2]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 25.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 27.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 35.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 37.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.35 	\thispagestyle
+l.37 	\thispagestyle
                     {nohdr} [1]pdfTeX warning (ext4): destination with the same
  identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.37 	\thispagestyle
+l.39 	\thispagestyle
                     {nohdr} [2] [3] [4]
 (/home/cole/Documents/pll/report/report.toc
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
@@ -987,7 +987,7 @@ Overfull \vbox (68.12077pt too high) has occurred while \output is active []
 
 
 [9] (/home/cole/Documents/pll/report/intro.tex
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 15.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 14.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
@@ -1077,13 +1077,13 @@ Overfull \hbox (5.6187pt too wide) in paragraph at lines 23--23
 
 
 (/home/cole/Documents/pll/report/./figs/digital_div.tex
-<./figs/digital_div.pdf, id=492, 179.67125pt x 140.525pt>
+<./figs/digital_div.pdf, id=492, 260.975pt x 143.53625pt>
 File: ./figs/digital_div.pdf Graphic file (type pdf)
 <use ./figs/digital_div.pdf>
 Package pdftex.def Info: ./figs/digital_div.pdf  used on input line 15.
-(pdftex.def)             Requested size: 161.7026pt x 126.47131pt.
+(pdftex.def)             Requested size: 234.87534pt x 129.18141pt.
 
-Overfull \hbox (6.54752pt too wide) in paragraph at lines 15--15
+Overfull \hbox (7.22528pt too wide) in paragraph at lines 15--15
 [][] 
  []
 
@@ -1130,18 +1130,18 @@ Overfull \hbox (5.61786pt too wide) in paragraph at lines 31--31
 
 
 (/home/cole/Documents/pll/report/./figs/discrete_pll.tex
-<./figs/discrete_pll.pdf, id=550, 718.685pt x 164.615pt>
+<./figs/discrete_pll.pdf, id=550, 682.55pt x 158.5925pt>
 File: ./figs/discrete_pll.pdf Graphic file (type pdf)
 <use ./figs/discrete_pll.pdf>
 Package pdftex.def Info: ./figs/discrete_pll.pdf  used on input line 27.
-(pdftex.def)             Requested size: 503.07607pt x 115.2297pt.
+(pdftex.def)             Requested size: 477.78175pt x 111.01396pt.
 
-Overfull \hbox (5.61772pt too wide) in paragraph at lines 27--27
+Overfull \hbox (5.61835pt too wide) in paragraph at lines 27--27
 [][] 
  []
 
 )
-Overfull \hbox (47.77402pt too wide) in paragraph at lines 27--102
+Overfull \hbox (22.47908pt too wide) in paragraph at lines 27--102
  [][] 
  []
 
@@ -1225,11 +1225,11 @@ Overfull \hbox (5.09312pt too wide) in paragraph at lines 20--20
 \openout2 = `./figs/aperture_noise.aux'.
 
  (/home/cole/Documents/pll/report/./figs/aperture_noise.tex
-<./figs/aperture_noise.pdf, id=584, 334.24875pt x 140.525pt>
+<./figs/aperture_noise.pdf, id=584, 334.24875pt x 135.50626pt>
 File: ./figs/aperture_noise.pdf Graphic file (type pdf)
 <use ./figs/aperture_noise.pdf>
 Package pdftex.def Info: ./figs/aperture_noise.pdf  used on input line 28.
-(pdftex.def)             Requested size: 300.82109pt x 126.47131pt.
+(pdftex.def)             Requested size: 300.82109pt x 121.95448pt.
 
 Overfull \hbox (6.7721pt too wide) in paragraph at lines 28--28
 [][] 
@@ -1259,11 +1259,11 @@ Overfull \hbox (5.5325pt too wide) in paragraph at lines 18--18
 \openout2 = `./figs/div_jitter.aux'.
 
  (/home/cole/Documents/pll/report/./figs/div_jitter.tex
-<./figs/div_jitter.pdf, id=600, 217.81375pt x 63.23625pt>
+<./figs/div_jitter.pdf, id=600, 217.81375pt x 65.24374pt>
 File: ./figs/div_jitter.pdf Graphic file (type pdf)
 <use ./figs/div_jitter.pdf>
 Package pdftex.def Info: ./figs/div_jitter.pdf  used on input line 17.
-(pdftex.def)             Requested size: 196.03055pt x 56.91208pt.
+(pdftex.def)             Requested size: 196.03055pt x 58.71881pt.
 
 Overfull \hbox (6.9989pt too wide) in paragraph at lines 17--17
 [][] 
@@ -1293,14 +1293,14 @@ Overfull \hbox (5.3556pt too wide) in paragraph at lines 26--26
 \openout2 = `./figs/direct_type_1_quant.aux'.
 
  (/home/cole/Documents/pll/report/./figs/direct_type_1_quant.tex
-<./figs/direct_type_1_quant.pdf, id=622, 310.15875pt x 179.67125pt>
+<./figs/direct_type_1_quant.pdf, id=622, 309.155pt x 179.67125pt>
 File: ./figs/direct_type_1_quant.pdf Graphic file (type pdf)
 <use ./figs/direct_type_1_quant.pdf>
 Package pdftex.def Info: ./figs/direct_type_1_quant.pdf  used on input line 31.
 
-(pdftex.def)             Requested size: 217.10963pt x 125.769pt.
+(pdftex.def)             Requested size: 216.40701pt x 125.769pt.
 
-Overfull \hbox (5.5322pt too wide) in paragraph at lines 31--31
+Overfull \hbox (5.35559pt too wide) in paragraph at lines 31--31
 [][] 
  []
 
@@ -1357,37 +1357,37 @@ Overfull \hbox (4.82042pt too wide) in paragraph at lines 35--35
  []
 
 )
-Overfull \hbox (2.00427pt too wide) in paragraph at lines 35--12
+Overfull \hbox (2.00427pt too wide) in paragraph at lines 35--11
  [][] 
  []
 
 [27]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 17.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 16.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 12.0pt on input line 17.
+(Font)              scaled to size 12.0pt on input line 16.
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 19.
-LaTeX Font Info:    Try loading font information for T1+zi4 on input line 19.
+nput line 18.
+LaTeX Font Info:    Try loading font information for T1+zi4 on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 19.
+(Font)              scaled to size 10.0pt on input line 18.
 LaTeX Font Info:    Font shape `T1/zi4/bx/n' in size <10> not available
-(Font)              Font shape `T1/zi4/b/n' tried instead on input line 20.
+(Font)              Font shape `T1/zi4/b/n' tried instead on input line 19.
 LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
-(Font)              scaled to size 10.0pt on input line 20.
+(Font)              scaled to size 10.0pt on input line 19.
  [28
 
 
  <./figs/simulator.pdf>] [29] [30]
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 146.
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 145.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
@@ -1395,7 +1395,7 @@ File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 ) [31])
 (/home/cole/Documents/pll/report/disco.tex [32] [33]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 69.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
 ) [34] [35] [36] [37]
 \openout2 = `appendix.aux'.
 
@@ -1468,8 +1468,8 @@ Overfull \hbox (51.48584pt too wide) detected at line 236
 Package caption Warning: Unused \captionsetup[mycapequ] on input line 77.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 161.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 161.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 168.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 168.
 (/home/cole/Documents/pll/report/report.aux
 (/home/cole/Documents/pll/report/./figs/basic_feedback.aux)
 (/home/cole/Documents/pll/report/./figs/basic_pll.aux)
@@ -1491,10 +1491,10 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 161.
 (/home/cole/Documents/pll/report/./figs/discrete_pll_full_noise.aux)
 (/home/cole/Documents/pll/report/./figs/simulator.aux)
 (/home/cole/Documents/pll/report/appendix.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 161.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 161.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 168.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 168.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 125AA8BB5E5E4CDAB1180974B14487B0;4303.
+(rerunfilecheck)             Checksum: D8E3BB5A0B2544353A590DACE09C827B;4315.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1502,12 +1502,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 161.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 168.
  ) 
 Here is how much of TeX's memory you used:
  19290 strings out of 492982
  312365 string characters out of 6134896
- 957532 words of memory out of 5000000
+ 957544 words of memory out of 5000000
  22057 multiletter control sequences out of 15000+600000
  46795 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1541,7 +1541,7 @@ ive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on /home/cole/Documents/pll/report/report.pdf (45 pages, 584920 
+Output written on /home/cole/Documents/pll/report/report.pdf (45 pages, 585222 
 bytes).
 PDF statistics:
  1073 PDF objects out of 1200 (max. 8388607)

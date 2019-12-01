@@ -1,10 +1,10 @@
 %!PS-Adobe-3.0 EPSF-3.0
 %%Title: basic_feedback.ps
 %%Creator: XCircuit v3.8 rev78
-%%CreationDate: Thu Nov 21 00:09:15 2019
+%%CreationDate: Sun Dec  1 11:43:32 2019
 %%Pages: 1
 %%BoundingBox: 68 68 448 196
-%%DocumentNeededResources: font Helvetica Helvetica-Bold Times-Roman 
+%%DocumentNeededResources: font Helvetica-Bold Times-Roman 
 %%EndComments
 %%BeginProlog
 %
@@ -176,16 +176,6 @@
 
 %%BeginSetup
 
-/generic::tap {
-% trivial
-<</@in (bus\(0:7\)) /@out (bus\(0\)) >> begingate
-496 1.000 0 8 16 0 0 -8 3 polygon
-1.000 0.000 0.000 scb
-mark @out {/Helvetica cf} ctmk 20 0 1.000 16 0 pinlabel
-mark @in {/Helvetica cf} ctmk 23 0 1.000 0 0 pinlabel
-endgate
-} def
-
 /generic::dot {
 % trivial
 begingate
@@ -201,36 +191,36 @@ endgate
 %%Page: basic_feedback 1
 %%PageOrientation: Portrait
 /pgsave save def bop
-% 32.00 8.00 gridspace
+% 32.00 4.00 gridspace
 1.0000 inchscale
 2.6000 setlinewidth 544 496 translate
 
-0 2.000 80 0 80 -128 272 -128 272 0 4 polygon
+1024 2.000 80 0 80 -128 272 -128 272 0 4 polygon
 (A\(s\)) {/Helvetica-Bold cf} 2 144 0 1.000 136 -80 label
-0 2.000 80 -160 80 -288 272 -288 272 -160 4 polygon
+1024 2.000 80 -160 80 -288 272 -288 272 -160 4 polygon
 (B\(s\)) {/Helvetica-Bold cf} 2 144 0 1.000 136 -240 label
-1 2.000 -96 -64 32 0.000 360.000 xcarc
+1025 2.000 -96 -64 32 0.000 360.000 xcarc
 1 2.000 -96 -96 -96 -32 2 polygon
 1 2.000 -128 -64 -64 -64 2 polygon
-1 2.000 -64 -64 80 -64 2 polygon
-1 2.000 272 -64 512 -64 2 polygon
-1 2.000 416 -64 416 -224 272 -224 3 polygon
-1 2.000 80 -224 -96 -224 -96 -96 3 polygon
-1 2.000 -128 -64 -240 -64 2 polygon
-1.000 0 -144 -64 generic::tap
-1.000 270 -96 -112 generic::tap
+1025 2.000 -64 -64 64 -64 2 polygon
+1025 2.000 272 -64 512 -64 2 polygon
+1025 2.000 416 -64 416 -224 288 -224 3 polygon
+1025 2.000 80 -224 -96 -224 -96 -112 3 polygon
+1025 2.000 -144 -64 -240 -64 2 polygon
 1.000 0 416 -64 generic::dot
 ($\\Phi_{ref}$) {/Helvetica-Bold cf} 2 144 0 1.000 -240 -40 label
 ($\\Phi_{out}$) {/Helvetica-Bold cf} 2 144 0 1.000 416 -40 label
-1 1.500 -160 -88 -144 -88 2 polygon
-1 1.500 -152 -96 -152 -80 2 polygon
-1 1.500 -128 -120 -112 -120 2 polygon
+1025 1.500 -160 -88 -144 -88 2 polygon
+1025 1.500 -152 -96 -152 -80 2 polygon
+1025 1.500 -128 -120 -112 -120 2 polygon
 ($\\Phi_{error}$) {/Helvetica-Bold cf} 2 144 0 1.000 -56 -40 label
 1.000 1.000 1.000 scb
-0 1.500 640 16 640 -304 -352 -304 -352 16 4 polygon
-sce
-1.000 0 64 -64 generic::tap
-1.000 180 288 -224 generic::tap
+1024 1.500 640 16 640 -304 -352 -304 -352 16 4 polygon
+0.000 0.000 0.000 scb
+1520 1.000 -132 -64 -148 -72 -148 -56 -132 -64 4 polygon
+1520 1.000 292 -232 292 -216 276 -224 292 -232 4 polygon
+1520 1.000 -104 -116 -88 -116 -96 -100 -104 -116 4 polygon
+1520 1.000 76 -64 60 -72 60 -56 76 -64 4 polygon
 pgsave restore showpage
 
 %%Trailer

@@ -1,9 +1,9 @@
 %!PS-Adobe-3.0 EPSF-3.0
 %%Title: aperture_noise.ps
 %%Creator: XCircuit v3.8 rev78
-%%CreationDate: Sun Nov 24 14:30:36 2019
+%%CreationDate: Sun Dec  1 13:04:22 2019
 %%Pages: 1
-%%BoundingBox: 68 68 401 208
+%%BoundingBox: 68 68 401 203
 %%DocumentNeededResources: font Helvetica 
 %%EndComments
 %%BeginProlog
@@ -176,97 +176,88 @@
 
 %%BeginSetup
 
-/generic::tap {
-% trivial
-<</@in (bus\(0:7\)) /@out (bus\(0\)) >> begingate
-496 1.000 0 8 16 0 0 -8 3 polygon
-1.000 0.000 0.000 scb
-mark @out {/Helvetica cf} ctmk 20 0 1.000 16 0 pinlabel
-mark @in {/Helvetica cf} ctmk 23 0 1.000 0 0 pinlabel
-endgate
-} def
-
 
 %%EndSetup
 
 %%Page: quantization 1
 %%PageOrientation: Portrait
 /pgsave save def bop
-% 32.00 4.00 gridspace
+% 32.00 2.00 gridspace
 1.0000 inchscale
 2.6000 setlinewidth 96 256 translate
 
-0.400 0.400 0.400 scb
-1.000 0 672 0 generic::tap
-1.000 270 384 256 generic::tap
 0.000 0.000 1.000 scb
 ($\\Phi$) {/Helvetica cf} 2 144 360 0.800 688 -24 label
-1 1.500 400 192 416 224 448 224 384 128 spline
-1 1.500 480 224 496 192 512 128 448 224 spline
-1 1.500 544 32 528 64 512 128 576 32 spline
-1 1.500 608 32 624 64 640 128 576 32 spline
+1025 1.500 400 192 416 224 448 224 384 128 spline
+1025 1.500 480 224 496 192 512 128 448 224 spline
+1025 1.500 544 32 528 64 512 128 576 32 spline
+1025 1.500 608 32 624 64 640 128 576 32 spline
 (V) {/Helvetica cf} 2 144 0 0.800 340 240 label
 sce
-1 1.000 512 128 368 128 2 polygon
+1025 1.000 512 128 368 128 2 polygon
 0.400 0.400 0.400 scb
-3 1.000 508 140 384 140 2 polygon
-3 1.000 512 116 384 116 2 polygon
+1027 1.000 508 140 384 140 2 polygon
+1027 1.000 512 116 384 116 2 polygon
 sce
-1 1.000 512 128 512 0 2 polygon
+1025 1.000 512 128 512 0 2 polygon
 0.400 0.400 0.400 scb
-3 1.000 508 140 508 0 2 polygon
-3 1.000 516 116 516 0 2 polygon
+1027 1.000 508 140 508 0 2 polygon
+1027 1.000 516 116 516 0 2 polygon
 sce
-1 1.000 440 140 440 172 2 polygon
+1025 1.000 440 150 440 172 2 polygon
 0.000 0.000 0.000 scb
-1 1.000 440 84 440 116 2 polygon
-1.000 270 440 100 generic::tap
-1.000 90 440 156 generic::tap
-1 1.000 476 28 508 28 2 polygon
-1 1.000 516 28 548 28 2 polygon
-1.000 0 492 28 generic::tap
+1025 1.000 440 84 440 108 2 polygon
+1025 1.000 476 28 500 28 2 polygon
+1025 1.000 524 28 548 28 2 polygon
 sce
-1.000 180 532 28 generic::tap
 ($\\sigma_{v_n}$) {/Helvetica cf} 2 144 0 0.800 424 184 label
 ($\\sigma_{\\Phi_n}$) {/Helvetica cf} 2 144 0 0.800 420 28 label
-1 1.000 384 128 332 128 2 polygon
+1025 1.000 384 128 332 128 2 polygon
 1.000 0.000 0.000 scb
-1 1.000 332 132 336 136 336 120 340 140 340 124 344 132 348 124 352 136 352 124 
-356 132 356 120 360 128 364 124 368 136 372 124 372 132 376 120 376 136 380 124 
-380 124 384 128 21 polygon
+1025 1.000 332 132 336 136 336 120 340 140 340 124 344 132 348 124 352 136 352 
+124 356 132 356 120 360 128 364 124 368 136 372 124 372 132 376 120 376 136 380 
+124 380 124 384 128 21 polygon
 0.400 0.400 0.400 scb
-1 2.000 384 0 384 256 2 polygon
+1025 2.000 384 0 384 256 2 polygon
 0.000 0.000 0.000 scb
-1 1.000 512 0 512 -48 2 polygon
+1025 1.000 512 0 512 -48 2 polygon
 1.000 0.000 0.000 scb
-1 1.000 512 0 508 -4 516 -4 512 -8 516 -12 508 -16 516 -20 512 -24 508 -24 516 
--28 512 -28 516 -32 508 -36 516 -36 512 -40 516 -44 508 -48 17 polygon
+1025 1.000 512 0 508 -4 516 -4 512 -8 516 -12 508 -16 516 -20 512 -24 508 -24 
+516 -28 512 -28 516 -32 508 -36 516 -36 512 -40 516 -44 508 -48 17 polygon
 0.000 0.000 0.000 scb
 (Thermal ) {/Helvetica cf} 2 144 0 0.500 300 168 label
 (noise) {/Helvetica cf} 2 144 0 0.500 316 148 label
 (Phase ) {/Helvetica cf} 2 144 0 0.500 440 -28 label
 (noise) {/Helvetica cf} 2 144 0 0.500 444 -48 label
 0.400 0.400 0.400 scb
-1 2.000 384 0 672 0 2 polygon
+1025 2.000 384 0 672 0 2 polygon
 0.000 0.000 0.000 scb
-1 1.000 640 8 640 -8 2 polygon
+1025 1.000 640 8 640 -8 2 polygon
 sce
 ($2\\pi$) {/Helvetica cf} 2 144 360 0.500 628 -28 label
 0.400 0.400 0.400 scb
-5 1.000 640 128 640 8 2 polygon
+1029 1.000 640 128 640 8 2 polygon
 0.000 0.000 0.000 scb
 ($0$) {/Helvetica cf} 2 144 0 0.500 376 -28 label
 sce
 ($\\delta_{v_n}$) {/Helvetica cf} 2 144 0 0.800 280 124 label
 ($\\delta_{\\Phi_n}$) {/Helvetica cf} 2 144 0 0.800 524 -56 label
 1.000 0.000 0.000 scb
-1 2.000 500 180 524 76 2 polygon
+1025 2.000 500 180 524 76 2 polygon
 sce
 ($\\frac{dV_{osc}\(\\Phi\)}{d\\Phi}$) {/Helvetica cf} 2 144 0 0.800 520 120 
 label
 ($V_{osc}$) {/Helvetica cf} 2 144 360 0.500 432 236 label
 1.000 1.000 1.000 scb
-0 1.000 964 -64 964 288 96 288 96 -64 4 polygon
+1024 1.000 964 -64 964 276 96 276 96 -64 4 polygon
+0.400 0.400 0.400 scb
+1520 1.000 376 256 392 256 384 272 376 256 4 polygon
+1520 1.000 688 0 672 -8 672 8 688 0 4 polygon
+sce
+1520 1.000 504 28 492 22 492 34 504 28 4 polygon
+1520 1.000 440 112 434 100 446 100 440 112 4 polygon
+1520 1.000 520 28 532 22 532 34 520 28 4 polygon
+1520 1.000 440 144 434 156 446 156 440 144 4 polygon
 pgsave restore showpage
 
 %%Trailer

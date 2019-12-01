@@ -1,10 +1,10 @@
 %!PS-Adobe-3.0 EPSF-3.0
-%%Title: discrete_pll.ps
+%%Title: div_noise.ps
 %%Creator: XCircuit v3.8 rev78
-%%CreationDate: Sun Dec  1 12:44:46 2019
+%%CreationDate: Sun Nov 24 17:00:37 2019
 %%Pages: 1
-%%BoundingBox: 68 68 748 226
-%%DocumentNeededResources: font Helvetica-Bold Times-Roman 
+%%BoundingBox: 68 68 612 142
+%%DocumentNeededResources: font Helvetica Helvetica-Bold 
 %%EndComments
 %%BeginProlog
 %
@@ -176,12 +176,13 @@
 
 %%BeginSetup
 
-/generic::dot {
+/generic::tap {
 % trivial
-begingate
-248 1.000 0 0 6 0.000 360.000 xcarc
+<</@in (bus\(0:7\)) /@out (bus\(0\)) >> begingate
+496 1.000 0 8 16 0 0 -8 3 polygon
 1.000 0.000 0.000 scb
-(x) {/Times-Roman cf} 2 29 0 1.000 0 0 pinlabel
+mark @out {/Helvetica cf} ctmk 20 0 1.000 16 0 pinlabel
+mark @in {/Helvetica cf} ctmk 23 0 1.000 0 0 pinlabel
 endgate
 } def
 
@@ -191,62 +192,50 @@ endgate
 %%Page: basic_feedback 1
 %%PageOrientation: Portrait
 /pgsave save def bop
-% 32.00 2.00 gridspace
+% 32.00 4.00 gridspace
 1.0000 inchscale
-2.6000 setlinewidth 416 508 translate
+2.6000 setlinewidth -72 528 translate
 
-1025 2.000 -128 -64 64 -64 2 polygon
-1025 2.000 112 -224 112 -224 112 -112 3 polygon
-($\\Phi_{ref}$[n]) {/Helvetica-Bold cf} 2 144 0 1.000 -128 -40 label
-1024 2.000 336 -16 336 -112 432 -112 432 -16 4 polygon
-1025 2.000 144 -64 208 -64 2 polygon
-($\\Phi_{div}$[n]) {/Helvetica-Bold cf} 2 144 0 1.000 264 -200 label
-(e$_\\Phi$[n]) {/Helvetica-Bold cf} 2 144 0 1.000 492 -32 label
-1025 2.000 112 -64 32 0.000 360.000 xcarc
-1 2.000 80 -64 144 -64 2 polygon
-1 2.000 112 -96 112 -32 2 polygon
-($\\frac{\\mathrm{M}}{2\\pi}$) {/Helvetica-Bold cf} 2 144 360 1.000 236 -20 
-label
-($\\Phi_e$) {/Helvetica-Bold cf} 2 144 0 1.000 152 -40 label
-($\\lfloor x\\rfloor$) {/Helvetica-Bold cf} 2 144 0 1.000 350 -76 label
-1024 2.000 224 -96 224 -32 272 -64 224 -96 4 polygon
-1025 2.000 272 -64 320 -64 2 polygon
-1025 2.000 432 -64 608 -64 2 polygon
-0.400 0.400 0.400 scb
-1026 2.000 32 32 32 -144 464 -144 464 32 4 polygon
+1 2.000 512 -320 512 -320 512 -256 3 polygon
+1.000 270 512 -272 generic::tap
+1 2.000 544 -224 624 -224 2 polygon
+($\\Phi_{div}$[n]) {/Helvetica-Bold cf} 2 144 0 1.000 264 -196 label
+1 2.000 512 -224 32 0.000 360.000 xcarc
+1 2.000 480 -224 544 -224 2 polygon
+1 2.000 512 -256 512 -192 2 polygon
+1 1.500 552 -196 568 -196 2 polygon
+1 1.500 560 -204 560 -188 2 polygon
+($\\Phi_{out}$[n]) {/Helvetica-Bold cf} 2 144 0 1.000 820 -208 label
+0 2.000 624 -160 624 -288 800 -288 800 -160 4 polygon
+1.000 180 816 -224 generic::tap
+1 2.000 804 -224 964 -224 2 polygon
+($\\div$ N) {/Helvetica-Bold cf} 2 144 0 1.000 656 -236 label
+1.000 180 556 -224 generic::tap
+1 1.500 476 -272 492 -272 2 polygon
+1 1.500 484 -280 484 -264 2 polygon
+1 2.000 352 -224 476 -224 2 polygon
+($\\Phi_{n_{div}}$) {/Helvetica-Bold cf} 2 144 0 1.000 520 -332 label
+1 2.000 1620 -260 1624 -260 2 polygon
+0.600 0.600 0.600 scb
+497 2.000 1256 -260 1288 -164 1320 -164 1288 -260 1256 -260 5 polygon
+497 2.000 1448 -260 1480 -164 1512 -164 1480 -260 1448 -260 5 polygon
 sce
-(TDC) {/Helvetica-Bold cf} 2 144 0 0.750 32 48 label
-1.000 1.000 1.000 scb
-1024 2.000 1568 84 1568 -316 -224 -316 -224 84 4 polygon
+1 2.000 1240 -260 1272 -260 1304 -164 1368 -164 1400 -260 1464 -260 1496 -164 
+1560 -164 1592 -260 1620 -260 10 polygon
+1 2.000 1272 -276 1272 -308 2 polygon
+1 2.000 1464 -276 1464 -308 2 polygon
+($1/f_{ref}$) {/Helvetica-Bold cf} 2 144 0 1.000 1320 -300 label
+1 2.000 1272 -292 1304 -292 2 polygon
+1 2.000 1464 -292 1432 -292 2 polygon
+1.000 0 1256 -208 generic::tap
+1.000 180 1324 -208 generic::tap
+1 2.000 1236 -208 1268 -208 2 polygon
+1 2.000 1312 -208 1344 -208 2 polygon
+($\\sigma_{\\Phi n_{div}}$) {/Helvetica-Bold cf} 2 144 0 1.000 1188 -188 label
+1.000 0.000 0.000 scb
+1 2.000 1480 -212 1480 -176 1492 -176 3 polygon
 sce
-1025 1.500 520 -80 536 -48 2 polygon
-1025 1.500 52 -88 68 -88 2 polygon
-1025 1.500 60 -96 60 -80 2 polygon
-1025 1.500 80 -120 96 -120 2 polygon
-1024 2.000 624 0 624 -128 800 -128 800 0 4 polygon
-(H$_{LF}$\(z\)) {/Helvetica-Bold cf} 2 144 0 1.000 644 -76 label
-1025 2.000 800 -64 944 -64 2 polygon
-1025 1.500 872 -80 888 -48 2 polygon
-(u[n]) {/Helvetica-Bold cf} 2 144 0 1.000 844 -32 label
-1024 2.000 960 0 960 -128 1168 -128 1168 0 4 polygon
-($\\frac{2\\pi K_{DCO}T}{1-z^{-1}}$) {/Helvetica-Bold cf} 2 144 0 1.000 968 -72 
-label
-1025 2.000 1168 -64 1344 -64 2 polygon
-($\\Phi_{out}$[n]) {/Helvetica-Bold cf} 2 144 0 1.000 1192 -40 label
-1024 2.000 624 -160 624 -288 800 -288 800 -160 4 polygon
-1025 2.000 816 -224 1264 -224 2 polygon
-1025 2.000 1264 -224 1264 -224 1264 -64 3 polygon
-1.000 0 1264 -64 generic::dot
-1025 2.000 112 -224 624 -224 2 polygon
-($\\div$ N) {/Helvetica-Bold cf} 2 144 0 1.000 664 -236 label
-(DCO) {/Helvetica-Bold cf} 2 144 0 0.750 960 12 label
-1520 1.000 112 -100 104 -116 120 -116 112 -100 4 polygon
-1520 1.000 76 -64 60 -56 60 -72 76 -64 4 polygon
-1520 1.000 220 -64 204 -56 204 -72 220 -64 4 polygon
-1520 1.000 332 -64 316 -56 316 -72 332 -64 4 polygon
-1520 1.000 620 -64 604 -56 604 -72 620 -64 4 polygon
-1520 1.000 956 -64 940 -56 940 -72 956 -64 4 polygon
-1520 1.000 804 -224 820 -216 820 -232 804 -224 4 polygon
+($\\frac{dV}{dt}$) {/Helvetica-Bold cf} 2 144 0 1.000 1420 -192 label
 pgsave restore showpage
 
 %%Trailer
