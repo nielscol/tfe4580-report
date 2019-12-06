@@ -19,6 +19,35 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{brockett_1965}{article}{}
+      \name{author}{1}{}{%
+        {{hash=d88ec7e8ab5cf633c633f60505b09f78}{%
+           family={Brockett},
+           familyi={B\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{d88ec7e8ab5cf633c633f60505b09f78}
+      \strng{fullhash}{d88ec7e8ab5cf633c633f60505b09f78}
+      \strng{bibnamehash}{d88ec7e8ab5cf633c633f60505b09f78}
+      \strng{authorbibnamehash}{d88ec7e8ab5cf633c633f60505b09f78}
+      \strng{authornamehash}{d88ec7e8ab5cf633c633f60505b09f78}
+      \strng{authorfullhash}{d88ec7e8ab5cf633c633f60505b09f78}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Automatic Control}
+      \field{number}{2}
+      \field{title}{Poles, zeros, and feedback: State space interpretation}
+      \field{volume}{10}
+      \field{year}{1965}
+      \field{pages}{129\bibrangedash 135}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/tac.1965.1098118
+      \endverb
+    \endentry
     \entry{gardner_1980}{article}{}
       \name{author}{1}{}{%
         {{hash=89f8acc357a52f941eeea0000d1fa10d}{%
@@ -47,6 +76,45 @@
       \range{pages}{10}
       \verb{doi}
       \verb 10.1109/tcom.1980.1094619
+      \endverb
+    \endentry
+    \entry{perrott_2002}{article}{}
+      \name{author}{3}{}{%
+        {{hash=b258d08afdc4ad54faaf053aeaab95ec}{%
+           family={Perrott},
+           familyi={P\bibinitperiod},
+           given={M.h.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9d6ccb3a107efdb99040fbc189c34775}{%
+           family={Trott},
+           familyi={T\bibinitperiod},
+           given={M.d.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5770fd80ffe4edd9639dbf5e5b10510c}{%
+           family={Sodini},
+           familyi={S\bibinitperiod},
+           given={C.g.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{0572267591cb5951df5865cef7d6e7d6}
+      \strng{fullhash}{0572267591cb5951df5865cef7d6e7d6}
+      \strng{bibnamehash}{0572267591cb5951df5865cef7d6e7d6}
+      \strng{authorbibnamehash}{0572267591cb5951df5865cef7d6e7d6}
+      \strng{authornamehash}{0572267591cb5951df5865cef7d6e7d6}
+      \strng{authorfullhash}{0572267591cb5951df5865cef7d6e7d6}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Journal of Solid-State Circuits}
+      \field{number}{8}
+      \field{title}{A modeling approach for Sigma-Delta fractional-N frequency synthesizers allowing straightforward noise analysis}
+      \field{volume}{37}
+      \field{year}{2002}
+      \field{pages}{1028\bibrangedash 1038}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/jssc.2002.800925
       \endverb
     \endentry
     \entry{razavi_2017}{book}{}
@@ -93,6 +161,65 @@
       \field{labeltitlesource}{title}
       \field{title}{Design of monolithic phase-locked loops and clock recovery circuitsDa tutorial}
       \field{year}{1996}
+    \endentry
+    \entry{spalvieri_2006}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f9f7e34e47df30b60dfbca81d1b02498}{%
+           family={Spalvieri},
+           familyi={S\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f9f7e34e47df30b60dfbca81d1b02498}
+      \strng{fullhash}{f9f7e34e47df30b60dfbca81d1b02498}
+      \strng{bibnamehash}{f9f7e34e47df30b60dfbca81d1b02498}
+      \strng{authorbibnamehash}{f9f7e34e47df30b60dfbca81d1b02498}
+      \strng{authornamehash}{f9f7e34e47df30b60dfbca81d1b02498}
+      \strng{authorfullhash}{f9f7e34e47df30b60dfbca81d1b02498}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{11th IEEE Symposium on Computers and Communications (ISCC06)}
+      \field{title}{Optimal Loop Filter of the Discrete-time PLL in the Presence of Phase Noise}
+      \field{year}{2006}
+      \verb{doi}
+      \verb 10.1109/iscc.2006.115
+      \endverb
+    \endentry
+    \entry{vannicola_varshney_1983}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a2704fe1a9c9c65314adc2f73bb47ae9}{%
+           family={Vannicola},
+           familyi={V\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=b17a4ceb844067d9d8782df6cf1416d4}{%
+           family={Varshney},
+           familyi={V\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{098ae1a63f55d7411937f298e54d2f27}
+      \strng{fullhash}{098ae1a63f55d7411937f298e54d2f27}
+      \strng{bibnamehash}{098ae1a63f55d7411937f298e54d2f27}
+      \strng{authorbibnamehash}{098ae1a63f55d7411937f298e54d2f27}
+      \strng{authornamehash}{098ae1a63f55d7411937f298e54d2f27}
+      \strng{authorfullhash}{098ae1a63f55d7411937f298e54d2f27}
+      \field{sortinit}{V}
+      \field{sortinithash}{75dd7385c90b2252c3ae853a80ca853b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Communications}
+      \field{number}{7}
+      \field{title}{Spectral Dispersion of Modulated Signals Due to Oscillator Phase Instability: White and Random Walk Phase Model}
+      \field{volume}{31}
+      \field{year}{1983}
+      \field{pages}{886\bibrangedash 895}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/tcom.1983.1095902
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

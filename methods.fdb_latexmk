@@ -1,17 +1,23 @@
 # Fdb version 3
-["pdflatex"] 1574778506 "methods.tex" "/home/cole/Documents/pll/report/methods.pdf" "methods" 1574778506
+["pdflatex"] 1575582431 "methods.tex" "/home/cole/Documents/pll/report/methods.pdf" "methods" 1575582431
+  "./figs/simulator.tex" 1575573115 2557 35812d4e4d1872f17fd9546c8d967ee8 ""
   "/etc/texmf/web2c/texmf.cnf" 1547987446 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/cole/Documents/pll/report/methods.aux" 1574188983 8 a94a2480d3289e625eea47cd1b285758 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm" 1480098701 1332 f817c21a1ba54560425663374f1b651a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm" 1480098701 1336 3125ccb448c1a09074e3aa4a9832f130 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1480098701 1316 b636689f1933f24d1294acdf6041daaa ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1480098701 768 1321e9409b4137d6fb428ac9dc956269 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd" 1480098821 2256 80ce1168fb4ce6a85583a9cf8972c013 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1547987491 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1547987520 4128328 fdce742b0ea170930dab83e47e0b22ad ""
-  "methods.tex" 1574778505 4695 9b2a9c021b7c32e97b1e2376c8c37f3e ""
+  "methods.tex" 1575582430 18238 0bab7c661c75fc5089a31b054c300e91 ""
   (generated)
-  "/home/cole/Documents/pll/report/methods.log"
   "methods.log"
+  "./figs/simulator.aux"
+  "/home/cole/Documents/pll/report/methods.log"
+  "methods.pdf"
   "/home/cole/Documents/pll/report/methods.pdf"

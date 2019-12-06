@@ -50,7 +50,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.3.6}PLL phase noise and output PSD relationship}{26}{subsubsection.2.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.7}PLL output-referred noise PSD}{26}{subsubsection.2.3.7}
+\contentsline {subsubsection}{\numberline {2.3.7}PLL output-referred noise PSD}{27}{subsubsection.2.3.7}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3}Methods}{27}{section.3}
 \defcounter {refsection}{0}\relax 
@@ -66,50 +66,36 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.1.5}Divider behavioral model}{30}{subsubsection.3.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.6}Post-processing}{30}{subsubsection.3.1.6}
+\contentsline {subsubsection}{\numberline {3.1.6}Post processing: lock time detection}{30}{subsubsection.3.1.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.7}Monte-Carlo sampling}{30}{subsubsection.3.1.7}
+\contentsline {subsubsection}{\numberline {3.1.7}Post processing: phase noise power spectrum estimate}{31}{subsubsection.3.1.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Loop filter optimization}{30}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.1.8}Monte-Carlo sampling}{31}{subsubsection.3.1.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.1}Estimation of settling time}{30}{subsubsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2}Loop filter optimizer}{32}{subsection.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.2}Estimation of PLL phase noise}{31}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Fast estimation of PLL settling time}{32}{subsubsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.3}Optimization algorithm}{32}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.2}Estimation of PLL phase noise}{33}{subsubsection.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Discussion and results}{32}{section.4}
+\contentsline {subsubsection}{\numberline {3.2.3}Loop filter optimization algorithm}{34}{subsubsection.3.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Divider noise constraint}{33}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {3.2.4}Loop filter optimization - finite word effects}{34}{subsubsection.3.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Example exercise}{34}{subsection.4.2}
+\contentsline {section}{\numberline {4}Discussion and results}{34}{section.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Conclusion}{34}{section.5}
+\contentsline {subsection}{\numberline {4.1}Divider noise constraint}{36}{subsection.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Baseband phase noise in radio with PLL}{34}{section.6}
+\contentsline {subsection}{\numberline {4.2}Example exercise}{36}{subsection.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}Modulated Signal}{35}{subsection.6.1}
+\contentsline {section}{\numberline {5}Conclusion}{37}{section.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2}Local oscillator - noisy PLL}{35}{subsection.6.2}
+\contentsline {section}{\numberline {6}Baseband phase noise in radio with PLL}{37}{section.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3}Baseband phase noise}{35}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.1}Modulated Signal}{37}{subsection.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}Appendix - Schedule}{38}{appendix.A}
+\contentsline {subsection}{\numberline {6.2}Local oscillator - noisy PLL}{37}{subsection.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B}Appendix - Code}{38}{appendix.B}
+\contentsline {subsection}{\numberline {6.3}Baseband phase noise}{37}{subsection.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C}DCO tuning}{39}{appendix.C}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.1}Backgate tuning}{39}{subsection.C.1}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.2}Ring oscillator frequency derivation}{39}{subsection.C.2}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {C.2.1}Finding $\delimiter "426830A g_{ch}\delimiter "526930B $ and C}{40}{subsubsection.C.2.1}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {C.2.2}Handling unequal NMOS/PMOS}{41}{subsubsection.C.2.2}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {C.2.3}Solving for oscillator frequency and power}{41}{subsubsection.C.2.3}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.3}Ring oscillator backgate tuning derivation}{42}{subsection.C.3}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.4}DCO Gain Uncertainty}{43}{subsection.C.4}
+\contentsline {section}{\numberline {A}Appendix - Schedule}{40}{appendix.A}

@@ -7,6 +7,14 @@ INPUT /home/cole/Documents/pll/report/methods.tex
 OUTPUT /home/cole/Documents/pll/report/methods.log
 INPUT /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+OUTPUT /home/cole/Documents/pll/report/methods.pdf
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+OUTPUT /home/cole/Documents/pll/report/./figs/simulator.aux
+INPUT /home/cole/Documents/pll/report/./figs/simulator.tex
+INPUT /home/cole/Documents/pll/report/./figs/simulator.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
