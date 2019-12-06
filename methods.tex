@@ -1,11 +1,20 @@
-The methods for implementation of a behavioral, discrete-time PLL simulator and for the PLL loop filter automation and optimization will be covered here.
+% The methods for implementation of a behavioral, discrete-time PLL simulator and for the PLL loop filter automation and optimization will be covered here.
 
-\hl{Talk about how simulator is implemented:}
-\hl{Discrete simulation models of phase noise, dco etc}
-\hl{Filter optimization}
-\hl{-phase noise and lock time estimate in frequency domain}
+% \hl{Talk about how simulator is implemented:}
+% \hl{Discrete simulation models of phase noise, dco etc}
+% \hl{Filter optimization}
+% \hl{-phase noise and lock time estimate in frequency domain}
 
-\subsection{Behavioral, discrete event PLL simulation}
+
+\section{ADPLL Design Automation}
+Design automation for ADPLL loop filter is implemented with a strategy that utilizes a continuous time-approximation based model of the PLL to generate a pseudo-optimum loop filter design, and then performs discrete time conversion and digitization of the design. Second order optimization is then applied to the discretized and digitized filter implementation, to minimize effects of quantization error and filter design error due to finite word effects. A discrete-time, behavioral PLL simulator is then used to verify the filter design for proper lock-time, phase noise and stability.
+
+The design automation approach utilizes a fixed form of a loop filter as a prototype for all loop filter designs. 
+
+\subsection{Loop filter}
+\subsection{Design sequence}
+
+\section{Behavioral ADPLL simulation}
 To fully capture the effects of a discrete time PLL with digital quantization effects, the implementation a behavioral, discrete event PLL simulator is described in the following. The simulator utilizes behavioral models to describe the individual components which comprise the PLL. These components are (1) a clock reference, (2) a TDC, (3) a loop filter, (4) a DCO, and (5) a divider. These behavioral models fully encapsulate effects of time-quantization and digitization. The simulator operates by iterating in fixed time steps of $\Delta t$=1/\texttt{fs}, where each node in the PLL is updated based upon the previous node values in a manner that is defined by each PLL component behavioral model. Each behavioral model is represented programmatically utilizing classes. In simulation, each component instance is represented by a object instance of the respective model class, constructed with any initial parameters (such as division ratio) that describe the component.
 \begin{figure}[htb!]
 	\center\include{./figs/simulator}
@@ -25,7 +34,7 @@ for n in range(simulation_steps):
     \end{lstlisting}
 After the simulation loop reaches completion, the results stored in the simulation data arrays can be post-processed to extract phase noise data, transient behavior and lock time. The following sections will discuss in more detail the implemented behavioral model classes and post-processing.
 
-\subsubsection{Clock behavioral model}
+\subsection{Clock behavioral model}
 An ideal behavioral clock model is utilized. The model is instantiated with the clock frequency \texttt{f} and the simulator time step \texttt{dt}. The model incrementing its phase every simulation step by a fixed amount $\Delta \Phi$ = $2\pi$\texttt{f}$\cdot$\texttt{dt}. The model outputs an analog phase signal.
 
 \begin{lstlisting}[language={Python}, caption={Ideal clock behavioral model.}, label={clk_code}]
@@ -40,7 +49,7 @@ class Clock:
 		return self.phase
     \end{lstlisting}
 
-\subsubsection{TDC behavioral model}
+\subsection{TDC behavioral model}
 The TDC behavioral model takes two analog inputs \texttt{x} and \texttt{y} that are in units of phase, and outputs a digital word that quantifies the phase separation of the signals. The model is instantiated with a resolution parameter \texttt{tdc\_steps}, which defines the number of phase steps per cycle of the reference input \texttt{x} the TDC can resolve. The method \texttt{round} quantizes an floating point argument to the nearest integer.
 
 \begin{lstlisting}[language={Python}, caption={TDC behavioral model.}, label={tdc_code}]
@@ -52,7 +61,7 @@ class TDC:
 		ph_error = wrap(x-y) 	# wraps phase to be within [0, 2*pi]
 		return round(self.tdc_steps*(ph_error/(2*pi)))
 \end{lstlisting}
-\subsubsection{Loop filter behavioral model}
+\subsection{Loop filter behavioral model}
 The loop filter model implements a discrete-time filter via difference equation that operates on input \texttt{x}. The equivalent of one pole and two zeros are modelled, described using the filter coefficients $\{a_1, a_2; b_0, b_1\}$:
 \begin{equation}
 \text{H}_{LF}(z) = \frac{b_0 + b_1z^{-1}}{a_0 + a_1z^{-1} + a_2z^{-2}}
@@ -79,7 +88,7 @@ class LoopFilter:
 		return round(self.yprev1)	# convert to integer
 \end{lstlisting}
 
-\subsubsection{DCO behavioral model}
+\subsection{DCO behavioral model}
 The DCO is modeled similar to the clock model, with the inclusion of a digital input \texttt{otw} for tuning the frequency. Nominal oscillator frequency is given by \texttt{f0}, and the DCO gain in Hz/LSB of \texttt{otw} is \texttt{kdco}. Additionally, oscillator phase noise modeling is included utilizing additive random phase walk (see section \ref{dco_noise}). Random walk is implemented by stochastically adding or subtracting a fixed magnitude random walk phase increment $\texttt{krw}$ to the oscillator phase every simulation step. The sign of \texttt{krw} is randomly chosen with equal probability for positive and negative, implemented with the method \texttt{choice}.
 
 \begin{lstlisting}[language={Python}, caption={DCO behavioral model.}, label={dco_code}]
@@ -95,7 +104,7 @@ class DCO:
 		return self.phase
    \end{lstlisting}
 
-\subsubsection{Divider behavioral model}
+\subsection{Divider behavioral model}
 The divider model is definied with the divider modulus \texttt{div\_n} and only performs a simple division of input phase. 
 \begin{lstlisting}[language={Python}, caption={Divider behavioral model.}, label={div_code}]
 class Divider:
@@ -103,14 +112,14 @@ class Divider:
 		return x/div_n
 \end{lstlisting}
 
-\subsubsection{Post processing: lock time detection}
+\subsection{Post processing: lock time detection}
 Lock time detection of the PLL start-up transient can be determined from the simulation data conditioned on a tolerance band for acceptable frequency error \texttt{lock\_f\_tol} is provided to the simulator by the user. Since the desired frequency of the PLL \texttt{fosc = div\_n*fref}, nominal oscillator frequency \texttt{dco\_f0} and simulation conditions of the PLL are known by the simulator, the ideal value of the loop filter at lock, \texttt{lf\_lock\_ideal} can be computed directly. Given the DCO gain value in the simulation \texttt{kdco}, the value of \texttt{lf\_lock\_ideal = round((fosc - dco\_f0)/kdco)}. Lock is then detected at the first simulation step for which the current and all later time steps meet the following criteria for the loop filter signal \texttt{lf\_sig} (i.e. frequency of oscillator is within the frequency tolerance band):
 \begin{equation}
 \text{\texttt{abs(lf\_sig[n] - lf\_lock\_ideal)*kdco < lock\_f\_tol}}
 \end{equation}
 This measurement is predicated on the simulation being fully complete at the time of measurement. Lock time is computed by multiplying the simulation index of lock with the simulation time step, 1/\texttt{fs}.
 
-\subsubsection{Post processing: phase noise power spectrum estimate}
+\subsection{Post processing: phase noise power spectrum estimate}
 The simulation data can be used to make an estimate of the single side band phase noise power spectrum $\mathcal{L}(\Delta f)$ of the PLL (normalized to the carrier power). First, the phase error signal of the simulated PLL must be computed, \texttt{phase\_error = div\_n*clk\_sig - osc\_sig}. The phase error signal includes the phase noise signal in addition to any transient phase error components of the PLL. If the simulated PLL is in lock, the phase error can be is dominated by phase noise components, as the transient components become negligible. If \texttt{phase\_error} is reduced to the simulation signal span after the detection of lock, with a span in samples of \texttt{n\_steps}, the power spectral density of the phase noise normalized to the carrier tone, utilizing the fast Fourier transform (FFT) is:
 \begin{equation}
 	\text{\texttt{psd}} = \left|\frac{1}{\text{\texttt{n\_steps}}}\cdot\mathcal{FFT}\{\text{\texttt{div\_n*clk\_sig - osc\_sig}}\}\right|^2
@@ -120,10 +129,10 @@ Provided the simulation sampling rate \texttt{fs}, the indices [0, \texttt{n\_st
 	\mathcal{L}(\Delta f) = \text{\texttt{psd[round(}}\Delta f\text{\texttt{/fbin)]}}
 \end{equation}
 
-\subsubsection{Monte-Carlo sampling}
+\subsection{Monte-Carlo sampling}
 The simulation code implemented uses a Python dictionary containing the simulation parameters and the corresponsing parameters for which the simulation engine should simulate the PLL for. This format makes the introduction of Monte-Carlo sampling into the simulator straightforward. This can be implementing utilizing a dictionary with the nominal simulation configuration, and then a second dictionary to define the parameters to be varied along with the corresponding parameter variance. Given a sample size of N for the Monte-Carlo simulation, a loop is implemented which creates a new simulation configuration dictionary each loop iteration with stochastically sampled values from a normal distribution based on the provided nominal configuration and variance dictionaries. That unique configuration dictionary instance is used to spawn a PLL simulation, and is stored. After N iterations, N sets of data are created with varied parameters.
 
-\subsection{Loop filter optimizer}
+\section{Loop filter optimization}
 The loop filter optimization engine implemented utilizes constrained optimization to minimize total phase noise of the PLL subject to lock time constraints. The optimizer is limited to optimizing for a loop filter in the form of \ref{eq:loop_filter_def}, having parameters $K_i$, $\omega_p$, $\omega_z$. Following the theory of section \ref{adpll_model}, the PLL will have open loop and normalized closed loop transfer functions $\mathrm{L}(s)$ and $\mathrm{\hat{T}}(s)$ in \ref{eq:loop_gain_def} and \ref{eq:norm_cl_def} respectively.  Computationally fast methods utilizing the continuous closed-loop PLL approximation $\mathrm{\hat{T}}(s)$ to estimate PLL settling time and phase noise are implemented as cost functions for the optimizer.
 
 	\begin{equation}\label{eq:loop_filter_def}
@@ -146,7 +155,7 @@ Filter optimization follows the following sequency:
 
 The following sections detail the optimizer methods implemented.
 
-\subsubsection{Fast estimation of PLL settling time}
+\subsection{Fast estimation of PLL settling time}
 	Based on the continuous model approximation of ADPLL dynamics, the PLL closed loop phase transfer function $\mathrm{\hat{T}}(s)$ is defined as a rational function of two polynomial functions of s, with P poles and Z zeros. Such a transfer function is computationally represented with arrays A and B, containing the denominator and numerator polynomial coefficients.
 	\begin{equation}\label{eq:pll_cl_tf}
 	\mathrm{\hat{T}}(s) = \frac{\sum_{j=0}^Z b_js^j}{\sum_{k=0}^P a_ns^n}
@@ -182,7 +191,7 @@ The following sections detail the optimizer methods implemented.
 	\end{equation}
 	This settling time estimate is computationally fast, as it requires only (a) computation of state matrix $\mathbf{A}$, (b) computation of the eigenvalues of $\mathbf{A}$, and (c) computation of settling time from the eigenvalue with minimum real component.
 
-\subsubsection{Estimation of PLL phase noise}
+\subsection{Estimation of PLL phase noise}
 	\hl{It is assumed here that [DISCUSSION EXPLAINS WHY...]} the dominant output-referred phase noise contributions of the PLL are due to the DCO thermal noise and TDC quantization. If $S_{TDC}$ and $S_{DCO}$ are the PLL output-referred noise PSD respectively for the TDC and DCO noise sources from section \ref{pn_theory}, the total PLL output noise PSD $S_{\Sigma}(f)$ is estimated as \ref{eq:tot_pn_est}. N is the PLL divider modulus.
 	\begin{align}\label{eq:tot_pn_est}
 		S_{\Sigma}(f) &= S_{\Phi n_{TDC,out}}(f) + S_{\Phi n_{DCO,out}}(f)\\
@@ -198,7 +207,7 @@ The following sections detail the optimizer methods implemented.
 		\hat{P}_{\phi noise} = 2\sum_{k=0}^{K-1} S_{\Sigma}(kf_{bin})f_{bin}
 	\end{equation}
 
-\subsubsection{Loop filter optimization algorithm}
+\subsection{Loop filter optimization algorithm}
 	The optimization algorithm in use is predicated on a fixed form for the filter being design, as in \ref{eq:loop_filter_def}, and consequenctly known and fixed open and closed loop transfer function forms. The prototype loop filter design in this work a contains a tunable pole $\omega_p$, a tunable zero $\omega_z$ and a gain parameter $K$. To allow the phase noise minimization and the constraint on maximum lock time to both have an impact in the optimization, the optimization is implemented with two nested levels. There is there is a lower level optimizer which will minimize phase noise given a fixed target for settling time. The higher level optimizer applies a constrained search for settling time, utilizing the lower level optimizer, that results in minimum phase noise. 
 
 	\textbf{Level A - Minimize phase noise for fixed settling time.}\label{lf_opt}
@@ -219,7 +228,7 @@ The following sections detail the optimizer methods implemented.
 		\item Use golden section search to find optimal constrained settling time that has minimal phase noise using method from level A as cost function.
 	\end{itemize} 
 
-\subsubsection{Loop filter optimization - finite word effects}
+\subsection{Loop filter optimization - finite word effects}
 Once a filter design has been optimized in the continuous domain following section \ref{lf_opt}, second order optimization is carried out to ensure the digitized, discrete implementation performs as expected in the presence of finite word effects. The optimized digital implementation provided here utilized fixed-point words for equal resolution throughout the datapath. The implemented second order optimization considers both the effect of loop filter quantization noise and transfer function error.
 
 \textbf{Loop filter quantization noise optimization}

@@ -24,27 +24,29 @@
 \BOOKMARK [3][-]{subsubsection.2.3.5}{PLL noise sensitivity transfer functions}{subsection.2.3}% 24
 \BOOKMARK [3][-]{subsubsection.2.3.6}{PLL phase noise and output PSD relationship}{subsection.2.3}% 25
 \BOOKMARK [3][-]{subsubsection.2.3.7}{PLL output-referred noise PSD}{subsection.2.3}% 26
-\BOOKMARK [1][-]{section.3}{Methods}{}% 27
-\BOOKMARK [2][-]{subsection.3.1}{Behavioral, discrete event PLL simulation}{section.3}% 28
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Clock behavioral model}{subsection.3.1}% 29
-\BOOKMARK [3][-]{subsubsection.3.1.2}{TDC behavioral model}{subsection.3.1}% 30
-\BOOKMARK [3][-]{subsubsection.3.1.3}{Loop filter behavioral model}{subsection.3.1}% 31
-\BOOKMARK [3][-]{subsubsection.3.1.4}{DCO behavioral model}{subsection.3.1}% 32
-\BOOKMARK [3][-]{subsubsection.3.1.5}{Divider behavioral model}{subsection.3.1}% 33
-\BOOKMARK [3][-]{subsubsection.3.1.6}{Post processing: lock time detection}{subsection.3.1}% 34
-\BOOKMARK [3][-]{subsubsection.3.1.7}{Post processing: phase noise power spectrum estimate}{subsection.3.1}% 35
-\BOOKMARK [3][-]{subsubsection.3.1.8}{Monte-Carlo sampling}{subsection.3.1}% 36
-\BOOKMARK [2][-]{subsection.3.2}{Loop filter optimizer}{section.3}% 37
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Fast estimation of PLL settling time}{subsection.3.2}% 38
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Estimation of PLL phase noise}{subsection.3.2}% 39
-\BOOKMARK [3][-]{subsubsection.3.2.3}{Loop filter optimization algorithm}{subsection.3.2}% 40
-\BOOKMARK [3][-]{subsubsection.3.2.4}{Loop filter optimization - finite word effects}{subsection.3.2}% 41
-\BOOKMARK [1][-]{section.4}{Discussion and results}{}% 42
-\BOOKMARK [2][-]{subsection.4.1}{Divider noise constraint}{section.4}% 43
-\BOOKMARK [2][-]{subsection.4.2}{Example exercise}{section.4}% 44
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 45
-\BOOKMARK [1][-]{section.6}{Baseband phase noise in radio with PLL}{}% 46
-\BOOKMARK [2][-]{subsection.6.1}{Modulated Signal}{section.6}% 47
-\BOOKMARK [2][-]{subsection.6.2}{Local oscillator - noisy PLL}{section.6}% 48
-\BOOKMARK [2][-]{subsection.6.3}{Baseband phase noise}{section.6}% 49
-\BOOKMARK [1][-]{appendix.A}{Appendix - Schedule}{}% 50
+\BOOKMARK [1][-]{section.3}{ADPLL Design Automation}{}% 27
+\BOOKMARK [2][-]{subsection.3.1}{Loop filter}{section.3}% 28
+\BOOKMARK [2][-]{subsection.3.2}{Design sequence}{section.3}% 29
+\BOOKMARK [1][-]{section.4}{Behavioral ADPLL simulation}{}% 30
+\BOOKMARK [2][-]{subsection.4.1}{Clock behavioral model}{section.4}% 31
+\BOOKMARK [2][-]{subsection.4.2}{TDC behavioral model}{section.4}% 32
+\BOOKMARK [2][-]{subsection.4.3}{Loop filter behavioral model}{section.4}% 33
+\BOOKMARK [2][-]{subsection.4.4}{DCO behavioral model}{section.4}% 34
+\BOOKMARK [2][-]{subsection.4.5}{Divider behavioral model}{section.4}% 35
+\BOOKMARK [2][-]{subsection.4.6}{Post processing: lock time detection}{section.4}% 36
+\BOOKMARK [2][-]{subsection.4.7}{Post processing: phase noise power spectrum estimate}{section.4}% 37
+\BOOKMARK [2][-]{subsection.4.8}{Monte-Carlo sampling}{section.4}% 38
+\BOOKMARK [1][-]{section.5}{Loop filter optimization}{}% 39
+\BOOKMARK [2][-]{subsection.5.1}{Fast estimation of PLL settling time}{section.5}% 40
+\BOOKMARK [2][-]{subsection.5.2}{Estimation of PLL phase noise}{section.5}% 41
+\BOOKMARK [2][-]{subsection.5.3}{Loop filter optimization algorithm}{section.5}% 42
+\BOOKMARK [2][-]{subsection.5.4}{Loop filter optimization - finite word effects}{section.5}% 43
+\BOOKMARK [1][-]{section.6}{Discussion and results}{}% 44
+\BOOKMARK [2][-]{subsection.6.1}{Divider noise constraint}{section.6}% 45
+\BOOKMARK [2][-]{subsection.6.2}{Example exercise}{section.6}% 46
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 47
+\BOOKMARK [1][-]{section.8}{Baseband phase noise in radio with PLL}{}% 48
+\BOOKMARK [2][-]{subsection.8.1}{Modulated Signal}{section.8}% 49
+\BOOKMARK [2][-]{subsection.8.2}{Local oscillator - noisy PLL}{section.8}% 50
+\BOOKMARK [2][-]{subsection.8.3}{Baseband phase noise}{section.8}% 51
+\BOOKMARK [1][-]{appendix.A}{Appendix - Schedule}{}% 52
