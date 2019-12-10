@@ -23,6 +23,7 @@
 \usepackage{dsfont}
 \usepackage{parskip}
 \usepackage{soul}
+\usepackage{setspace}
 \usepackage[backend=biber]{biblatex}
 \addbibresource{mybib.bib}
 \usepackage[skip=8pt,labelfont=bf, font=sf]{caption}
@@ -145,5 +146,14 @@
 
 \setlength{\parskip}{12pt} % 1ex plus 0.5ex minus 0.2ex}
 \setlength{\parindent}{0pt}
+% \linespread{1.5}
+\onehalfspacing
 
 \DeclareMathOperator*{\argmin}{argmin}
+
+\usepackage{tikz}
+\usepackage{enumitem}
+\newcommand*\mycirc[1]{%
+\begin{tikzpicture}[baseline=(C.base)]
+\node[draw,circle,inner sep=1pt,minimum size=3ex](C) {#1};
+\end{tikzpicture}}

@@ -48,6 +48,19 @@
       \verb 10.1109/tac.1965.1098118
       \endverb
     \endentry
+    \entry{numerical_methods_2011}{article}{}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{A First Course in Numerical Methods}
+      \field{title}{Chapter 15: Numerical Integration}
+      \field{year}{2011}
+      \field{pages}{441\bibrangedash 479}
+      \range{pages}{39}
+      \verb{doi}
+      \verb 10.1137/9780898719987.ch15
+      \endverb
+    \endentry
     \entry{gardner_1980}{article}{}
       \name{author}{1}{}{%
         {{hash=89f8acc357a52f941eeea0000d1fa10d}{%
@@ -77,6 +90,144 @@
       \verb{doi}
       \verb 10.1109/tcom.1980.1094619
       \endverb
+    \endentry
+    \entry{gardner_2005}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=b562de937df78e2826e27caac9e9ebee}{%
+           family={Gardner},
+           familyi={G\bibinitperiod},
+           given={Floyd\bibnamedelima Martin},
+           giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley}%
+      }
+      \strng{namehash}{b562de937df78e2826e27caac9e9ebee}
+      \strng{fullhash}{b562de937df78e2826e27caac9e9ebee}
+      \strng{bibnamehash}{b562de937df78e2826e27caac9e9ebee}
+      \strng{authorbibnamehash}{b562de937df78e2826e27caac9e9ebee}
+      \strng{authornamehash}{b562de937df78e2826e27caac9e9ebee}
+      \strng{authorfullhash}{b562de937df78e2826e27caac9e9ebee}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Phaselock techniques}
+      \field{title}{Chapter Two Loop Fundamentals}
+      \field{year}{2005}
+    \endentry
+    \entry{lee_hajimiri_2000}{article}{}
+      \name{author}{2}{}{%
+        {{hash=dded0b064a713d8a8df8fc8a04c3386d}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={T.h.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=d85c5078a4edc604243a894378f4397b}{%
+           family={Hajimiri},
+           familyi={H\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{b64061ce17746326325668baeb1cab68}
+      \strng{fullhash}{b64061ce17746326325668baeb1cab68}
+      \strng{bibnamehash}{b64061ce17746326325668baeb1cab68}
+      \strng{authorbibnamehash}{b64061ce17746326325668baeb1cab68}
+      \strng{authornamehash}{b64061ce17746326325668baeb1cab68}
+      \strng{authorfullhash}{b64061ce17746326325668baeb1cab68}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Journal of Solid-State Circuits}
+      \field{number}{3}
+      \field{title}{Oscillator phase noise: a tutorial}
+      \field{volume}{35}
+      \field{year}{2000}
+      \field{pages}{326\bibrangedash 336}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/4.826814
+      \endverb
+    \endentry
+    \entry{leeson_1966}{article}{}
+      \name{author}{1}{}{%
+        {{hash=035b411326410a2d1e442f55d65be276}{%
+           family={Leeson},
+           familyi={L\bibinitperiod},
+           given={D.b.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{035b411326410a2d1e442f55d65be276}
+      \strng{fullhash}{035b411326410a2d1e442f55d65be276}
+      \strng{bibnamehash}{035b411326410a2d1e442f55d65be276}
+      \strng{authorbibnamehash}{035b411326410a2d1e442f55d65be276}
+      \strng{authornamehash}{035b411326410a2d1e442f55d65be276}
+      \strng{authorfullhash}{035b411326410a2d1e442f55d65be276}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the IEEE}
+      \field{number}{2}
+      \field{title}{A simple model of feedback oscillator noise spectrum}
+      \field{volume}{54}
+      \field{year}{1966}
+      \field{pages}{329\bibrangedash 330}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1109/proc.1966.4682
+      \endverb
+    \endentry
+    \entry{ogata_2010}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=72cb1e667ce543119df1b777c0db24de}{%
+           family={Ogata},
+           familyi={O\bibinitperiod},
+           given={Katsuhiko},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{72cb1e667ce543119df1b777c0db24de}
+      \strng{fullhash}{72cb1e667ce543119df1b777c0db24de}
+      \strng{bibnamehash}{72cb1e667ce543119df1b777c0db24de}
+      \strng{authorbibnamehash}{72cb1e667ce543119df1b777c0db24de}
+      \strng{authornamehash}{72cb1e667ce543119df1b777c0db24de}
+      \strng{authorfullhash}{72cb1e667ce543119df1b777c0db24de}
+      \field{sortinit}{O}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Modern control engineering}
+      \field{title}{5-7 Effects of Integral and Derivative Control Actions on System Performance}
+      \field{year}{2010}
+    \endentry
+    \entry{ogata_2010_pid}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=72cb1e667ce543119df1b777c0db24de}{%
+           family={Ogata},
+           familyi={O\bibinitperiod},
+           given={Katsuhiko},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{72cb1e667ce543119df1b777c0db24de}
+      \strng{fullhash}{72cb1e667ce543119df1b777c0db24de}
+      \strng{bibnamehash}{72cb1e667ce543119df1b777c0db24de}
+      \strng{authorbibnamehash}{72cb1e667ce543119df1b777c0db24de}
+      \strng{authornamehash}{72cb1e667ce543119df1b777c0db24de}
+      \strng{authorfullhash}{72cb1e667ce543119df1b777c0db24de}
+      \field{sortinit}{O}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Modern control engineering}
+      \field{title}{Chapter 8 PID Controllers and Modified PID Controllers}
+      \field{year}{2010}
     \endentry
     \entry{perrott_2002}{article}{}
       \name{author}{3}{}{%
@@ -117,29 +268,65 @@
       \verb 10.1109/jssc.2002.800925
       \endverb
     \endentry
-    \entry{razavi_2017}{book}{}
-      \name{author}{1}{}{%
-        {{hash=c7a8cbdc611fb566c84f257674d0a44f}{%
-           family={Razavi},
-           familyi={R\bibinitperiod},
-           given={Behzad},
-           giveni={B\bibinitperiod}}}%
+    \entry{proakis_1993}{inbook}{}
+      \name{author}{2}{}{%
+        {{hash=823300710640b0f515aa8b4640bb4c69}{%
+           family={Proakis},
+           familyi={P\bibinitperiod},
+           given={John\bibnamedelima G.},
+           giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=59341c9c92e0549c1c06f0b5cd192616}{%
+           family={Manolakis},
+           familyi={M\bibinitperiod},
+           given={Dimitris\bibnamedelima G.},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {McGraw-Hill Education}%
+        {Macmillan}%
       }
-      \strng{namehash}{c7a8cbdc611fb566c84f257674d0a44f}
-      \strng{fullhash}{c7a8cbdc611fb566c84f257674d0a44f}
-      \strng{bibnamehash}{c7a8cbdc611fb566c84f257674d0a44f}
-      \strng{authorbibnamehash}{c7a8cbdc611fb566c84f257674d0a44f}
-      \strng{authornamehash}{c7a8cbdc611fb566c84f257674d0a44f}
-      \strng{authorfullhash}{c7a8cbdc611fb566c84f257674d0a44f}
-      \field{sortinit}{R}
-      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \strng{namehash}{7833629adaf08c7851937901cb752049}
+      \strng{fullhash}{7833629adaf08c7851937901cb752049}
+      \strng{bibnamehash}{7833629adaf08c7851937901cb752049}
+      \strng{authorbibnamehash}{7833629adaf08c7851937901cb752049}
+      \strng{authornamehash}{7833629adaf08c7851937901cb752049}
+      \strng{authorfullhash}{7833629adaf08c7851937901cb752049}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Design of analog CMOS integrated circuits}
-      \field{year}{2017}
+      \field{booktitle}{Digital signal processing: principles, algorithms, and applications}
+      \field{title}{7.3 Structures for IIR Systems}
+      \field{year}{1993}
+    \endentry
+    \entry{proakis_1993_bilinear}{inbook}{}
+      \name{author}{2}{}{%
+        {{hash=823300710640b0f515aa8b4640bb4c69}{%
+           family={Proakis},
+           familyi={P\bibinitperiod},
+           given={John\bibnamedelima G.},
+           giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=59341c9c92e0549c1c06f0b5cd192616}{%
+           family={Manolakis},
+           familyi={M\bibinitperiod},
+           given={Dimitris\bibnamedelima G.},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Macmillan}%
+      }
+      \strng{namehash}{7833629adaf08c7851937901cb752049}
+      \strng{fullhash}{7833629adaf08c7851937901cb752049}
+      \strng{bibnamehash}{7833629adaf08c7851937901cb752049}
+      \strng{authorbibnamehash}{7833629adaf08c7851937901cb752049}
+      \strng{authornamehash}{7833629adaf08c7851937901cb752049}
+      \strng{authorfullhash}{7833629adaf08c7851937901cb752049}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Digital signal processing: principles, algorithms, and applications}
+      \field{title}{8.3.3 IIR Filter Design by the Bilinear Transformation}
+      \field{year}{1993}
     \endentry
     \entry{Razavi1996DesignOM}{inproceedings}{}
       \name{author}{1}{}{%
@@ -159,8 +346,37 @@
       \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Design of monolithic phase-locked loops and clock recovery circuitsDa tutorial}
+      \field{title}{Design of monolithic phase-locked loops and clock recovery circuits tutorial}
       \field{year}{1996}
+    \endentry
+    \entry{razavi_2017}{inbook}{}
+      \name{author}{2}{}{%
+        {{hash=c7a8cbdc611fb566c84f257674d0a44f}{%
+           family={Razavi},
+           familyi={R\bibinitperiod},
+           given={Behzad},
+           giveni={B\bibinitperiod}}}%
+        {{hash=c7a8cbdc611fb566c84f257674d0a44f}{%
+           family={Razavi},
+           familyi={R\bibinitperiod},
+           given={Behzad},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill}%
+      }
+      \strng{namehash}{07d9b02aa8625821883a2aa04b8c501d}
+      \strng{fullhash}{07d9b02aa8625821883a2aa04b8c501d}
+      \strng{bibnamehash}{07d9b02aa8625821883a2aa04b8c501d}
+      \strng{authorbibnamehash}{07d9b02aa8625821883a2aa04b8c501d}
+      \strng{authornamehash}{07d9b02aa8625821883a2aa04b8c501d}
+      \strng{authorfullhash}{07d9b02aa8625821883a2aa04b8c501d}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Design of analog CMOS integrated circuits}
+      \field{title}{16 Phase-Locked Loops}
     \endentry
     \entry{spalvieri_2006}{article}{}
       \name{author}{1}{}{%

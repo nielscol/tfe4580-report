@@ -1,0 +1,48 @@
+	\section{Baseband phase noise in radio with PLL}
+		This doesn't have a home yet, perhaps appendices... will be relevant for BER estimation for radio system (will be referenced in discussion)
+
+	\subsection{Modulated Signal}
+		A generalized FSK/PSK modulated signal $x_s(t)$ can be written in the following with phase trajectory $\phi_s(t)$. $\phi_s(t)$ is composed of a modulation component $\phi_m(t)$ and carrier component $\omega_ct$.
+		\begin{equation}
+			x_s(t) = A_s\cos(\phi_s(t)) = A_s\cos(\phi_m(t)+\omega_ct)
+		\end{equation} 
+
+	\subsection{Local oscillator - noisy PLL}
+		A noisy PLL can be realized as $x_{lo}(t)$ with phase trajectory $\phi_{lo}(t)$. $\phi_{lo}(t)$ is comprised of a phase noise component $\phi_{n}(t)$ and an oscillation $\omega_{lo}t$. 
+
+		\begin{equation}
+			x_{lo}(t)  = A_{lo}\cos(\phi_{lo}(t)) = A_{lo}\cos(\phi_n(t)+\omega_{lo}t)
+		\end{equation} 
+
+	\subsection{Baseband phase noise}
+		The signal in the baseband, $x_{bb}(t)$, is given by mixing $x_{s}(t)$ with the LO $x_{lo}(t)$. For analysis of the baseband phase noise, zero-IF ($\omega_{c}=\omega_{lo}$) is considered. Thus:
+		\begin{align}
+			x_{bb}(t) & = A_s\cos(\phi_m(t)+\omega_ct)\cdot A_{lo}\cos(\phi_n(t)+\omega_{lo}t) \\
+			& = \frac{1}{2}A_sA_{lo}\left[\cos(2\omega_{lo}t + \phi_m(t) + \phi_n(t)) +  \cos(\phi_m(t) - \phi_n(t))\right] 
+		\end{align} 
+		The $2\omega_{lo}t$ component is assumed to be rejected due to limited mixer bandwidth. Thus the baseband signal is now:
+		\begin{align}
+			x_{bb}(t) &= A_s\cos(\phi_m(t)+\omega_ct)\cdot A_{lo}\cos(\phi_n(t)+\omega_{lo}t)\\
+			= & \frac{1}{2}A_sA_{lo}\left[\cos(\phi_m(t) - \phi_n(t))\right] = \frac{1}{4}A_sA_{lo}\left[e^{j\phi_m(t)} e^{-j\phi_n(t)} + e^{-j\phi_m(t)} e^{j\phi_n(t)}\right] 
+		\end{align} 
+		The phase noise is presumed to be comprised of random phase and frequency walk, such that $\langle\phi_n(t)\rangle = 0$. Also, the phase noise is presumed to be small in amplitude, such that $\phi_n(t) << 1$, so a Taylor polynomial-based approximation of $e^{-j\phi_n(t)} = 1 -j\phi_n(t)$ can be made. Accordingly :
+		\begin{align}
+			x_{bb}(t) \approx \frac{1}{4}A_sA_{lo}\left[e^{j\phi_m(t)}(1 -j\phi_n(t))+ e^{-j\phi_m(t)}(1+j\phi_n(t))\right] \\
+			= \frac{1}{4}A_sA_{lo}\left[\cos(\phi_m(t)) + \phi_n(t)\sin(\phi_m(t))\right]
+		\end{align} 
+		The above can be treated as a signal component $m(t) = \cos(\phi_m(t))$, and a noise component $n(t) = \phi_n(t)\sin(\phi_m(t))$. The Fourier transform of the noise component can be considered:
+		\begin{align}
+			N(f) = \mathcal{F}\{\phi_n(t)\sin(\phi_m(t))\} &= \Phi_n(f)*\mathcal{F}\{-\cos(\phi_m(t)+\pi/2)\}\\
+			& =-j\Phi_n(f)*\mathcal{F}\{\cos(\phi_m(t))\}
+		\end{align}
+
+		The signal and noise power spectral densities are therefore approximately:
+		\begin{align}
+			S_{MM} &= |M(f)|^2 = |\mathcal{F}\{\cos(\phi_m(t))\}|^2\\
+			S_{NN} &= |N(f)|^2 = |\Phi_n(f)*\mathcal{F}\{\cos(\phi_m(t))\}|^2
+		\end{align}
+		The in-band noise and signal power of these components can be easily computed via integration:
+		\begin{equation}
+			P_x = \int^{+\Delta f/2}_{-\Delta f/2}S_{XX}df
+		\end{equation}
+		SNR is therefore the ratio of $P_M/P_N$ within a bandwidth of interest $\Delta f$, which is straightforward to determine computationally for arbitrary PLL phase noise and modulation spectral densities.

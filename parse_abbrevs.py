@@ -1,6 +1,6 @@
 import yaml
 
-LINES_PER_PAGE = 36
+LINES_PER_PAGE = 28
 
 files = [
     "appendix.tex",
@@ -114,9 +114,10 @@ for word in acronyms:
 s += "\\pagebreak\n"
 s += "\\null\n"
 
-for page in pages:
+for n, page in enumerate(pages):
     s += "\\pagebreak\n"
-    s += "\\section*{Abbreviations.}\n"
+    if n==0:
+        s += "\\section*{Abbreviations.}\n"
     s += make_table(page, defs)
 
 print("\nGenerated abbrev.tex:")

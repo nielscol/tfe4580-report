@@ -1,11 +1,12 @@
-{ADPLL: All digital phase locked loop, BER: Bit error rate, BFGS: Broyden-Fletcher-Goldfarb-Shanno,
+{2Q: '', ADPLL: All digital phase locked loop, BER: Bit error rate, BFGS: Broyden-Fletcher-Goldfarb-Shanno,
   BW: Bandwidth, CMOS: Complementary metal oxide semiconductor, DCO: Digitally controlled
-    oscillator, DIV: Divider, DNL: Differential non-linearity, FFT: Fast Fourier transform,
-  FM: Frequency modulation, FSK: Frequency shift keying, IF: Intermediate frequency,
-  IIR: Infinite impulse response, ISM: Industrial scientific medicine, LF: Loop filter,
-  LO: Local oscillator, LSB: Least signigicant bit, OTW: Oscillator tuning word, PD: Phase
-    detector, PI: Propotional-integral, PID: Proportional-integral-derivative, PLL: Phase
-    locked loop, PN: Phase noise, PSD: Power spectral density, PSK: Phase shift keying,
-  RMS: Root mean squared, SNR: Signal to noise ratio, SSB: Single side band, TDC: Time
-    to digital converter, TF: Transfer function, ULPPLL: Ultra low power phase locked
-    loop, VCO: Voltage controlled oscillator}
+    oscillator, DISCUSSION: '', DIV: Divider, DNL: Differential non-linearity, EXPLAINS: '',
+  FFT: Fast Fourier transform, FM: Frequency modulation, FSK: Frequency shift keying,
+  IF: Intermediate frequency, IIR: Infinite impulse response, ISM: 'Industrial, scientific
+    and medicine', LF: Loop filter, LO: Local oscillator, LSB: Least signigicant bit,
+  OTW: Oscillator tuning word, PD: Phase detector, PI: Propotional-integral, PID: Proportional-integral-derivative,
+  PLL: Phase locked loop, PN: Phase noise, PSD: Power spectral density, PSK: Phase
+    shift keying, PVT: 'Process, voltage and temperature', RMS: Root mean squared,
+  SNR: Signal to noise ratio, SSB: Single side band, TDC: Time to digital converter,
+  TF: Transfer function, ULPPLL: Ultra low power phase locked loop, VCO: Voltage controlled
+    oscillator, WHY: ''}

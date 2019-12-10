@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1575540329 "theory.tex" "/home/cole/Documents/pll/report/theory.pdf" "theory" 1575540329
+["pdflatex"] 1575656137 "theory.tex" "/home/cole/Documents/pll/report/theory.pdf" "theory" 1575656137
   "./figs/basic_feedback.tex" 1575197048 1067 906ecdfc6ce79d2347a2ea16f26ca3d4 ""
   "./figs/basic_pll.tex" 1575197248 1252 572d5fd71e1fee3ad8535554a8ab6e9d ""
   "./figs/pi_pz_plot.tex" 1575198211 1094 84f34890b676e51ee72209d8eed26c93 ""
@@ -12,15 +12,15 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1547987491 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1547987520 4128328 fdce742b0ea170930dab83e47e0b22ad ""
-  "theory.tex" 1575540329 14300 ae7f5e1f6c5f503fbdcda4d15ea6ef4c ""
+  "theory.tex" 1575656136 13558 8774ca461f8ca1578457000ae39b793c ""
   (generated)
-  "theory.log"
-  "basic_feedback.tex.aux"
-  "theory.pdf"
-  "./figs/basic_pll.aux"
-  "./figs/basic_feedback1.aux"
-  "./figs/basic_feedback.tex.aux"
-  "/home/cole/Documents/pll/report/theory.log"
   "./figs/pi_pz_plot.aux"
   "/home/cole/Documents/pll/report/theory.pdf"
+  "/home/cole/Documents/pll/report/theory.log"
+  "basic_feedback.tex.aux"
+  "./figs/basic_feedback1.aux"
+  "./figs/basic_pll.aux"
+  "theory.log"
+  "./figs/basic_feedback.tex.aux"
+  "theory.pdf"
   "./figs/basic_feedback.aux"

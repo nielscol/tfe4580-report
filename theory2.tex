@@ -1,21 +1,21 @@
 \subsection{ADPLL - digital, discretized PLL Model}\label{adpll_model}
-Based on the continuous PLL theory, a model for digital, discretized PLLs (i.e. ADPLLs) can be adapted. The general approach here is to utilize the bilinear transformation between continuous s-domain models to the discrete z-domain models. As commonly cited in PLL literature from a seminal paper by Gardner \cite{gardner_1980}, if the sampling frequency $f_s > 10\cdot\textnormal{BW}_{loop}$, where BW$_{loop}$ is the PLL loop bandwidth, the effects of time sampling are easily ignored for purposes of analysis. Thus the design methods established in this paper are predicated on $f_s > 10\cdot\textnormal{BW}_{loop}$.
+Based on the continuous PLL theory, a model for digital, discrete time sampled PLLs (i.e. ADPLLs) can be adapted. The general approach here is to utilize the bilinear transformation between continuous s-domain models to the discrete z-domain models and vice-versa. As commonly cited in PLL literature from a seminal paper by Gardner \cite{gardner_1980}, if the PLL sampling frequency $f_s > 10\cdot\textnormal{BW}_{loop}$, where BW$_{loop}$ is the PLL loop bandwidth, the granularity effects due to time-sampling can be neglected. Thus the design methods established in this paper are predicated on $f_s > 10\cdot\textnormal{BW}_{loop}$.
 \begin{figure}[htb!]
 	\center\include{./figs/basic_adpll}
 	\caption{Basic ADPLL.}
 	\label{fig:basic_adpll}
 \end{figure}
 \FloatBarrier
-The basic architecture of an ADPLL is shown in figure \ref{fig:basic_adpll}. Here, compared to the continuous PLL, the phase detector has been replaced with a time to digital converter (TDC), the loop filter $\mathrm{H}_{LF}(s)$ with a discrete loop filter $\mathrm{H}_{LF}(z)$, and the VCO with a digitally controlled oscillator (DCO). In this architecture, the TDC, loop filter, and DCO are digital. 
+The basic architecture of an ADPLL is shown in figure \ref{fig:basic_adpll}. Here, compared to the continuous PLL of figure \ref{fig:basic_pll}, the phase detector has been replaced with a time to digital converter (TDC), the loop filter $\mathrm{H}_{LF}(s)$ with a discrete-time loop filter $\mathrm{H}_{LF}(z)$, and the VCO with a digitally controlled oscillator (DCO). In this architecture, all components are fully or partially digital in implementation. 
 
 \subsubsection{Divider}
-	A digital divider functions by counting input cycles. With a divider modulus N, the output of the divider will have an active edge transition (considered to be rising edge as shown here) every N-cycles. Phase information is inferred from active edge timing, which occurs with time interval N$/f_{osc}$, and is equal to the point at which output phase equals a multiple of $2\pi$. Thus a digital divider does not provider continuous phase information, but rather a sampled phase signal with rate $f_{osc}/$N. 
+	A digital divider functions by counting input cycles. With a divider modulus N, the output of the divider will have an active edge transition (considered to be rising edge as shown in figure \ref{fig:digital_div}) every N-cycles. Phase information is inferred from active edge timing, which occurs with time interval N$/f_{osc}$, and is equal to the point at which output phase equals a multiple of $2\pi$. Thus a digital divider does not provider continuous phase information, but rather a sampled phase signal with rate $f_{osc}/$N. 
 	\begin{figure}[htb!]
 		\center\include{./figs/digital_div}
 		\caption{Digital divider signals.}
-		\label{fig:gigital_div}
+		\label{fig:digital_div}
 	\end{figure}
-	\FloatBarrier
+
 	For PLL transfer function modeling, a digital divider behaves identically to the continuous case:
 	\begin{equation}
 		\Phi_{div}[n] = \frac{\Phi_{out}[n]}{\mathrm{N}}
@@ -37,7 +37,7 @@ The basic architecture of an ADPLL is shown in figure \ref{fig:basic_adpll}. Her
 	\begin{equation}
 		e_\Phi[n] = \left\lfloor\frac{\mathrm{M}}{2\pi}(\Phi_{ref}[n] - \Phi_{div}[n])\right\rfloor
 	\end{equation}
-	For purposes of PLL transfer function calculation, the TDC z- and s-domain representation is equation \ref{eq:tdc_tf}, which accounts for phase-to-digital domain conversion gain. Effects of quantization will be handled in section \ref{pn_theory}.
+	For purposes of PLL loop gain calculation, the TDC z- and s-domain representation is equation \ref{eq:tdc_tf}, which accounts for phase-to-digital domain conversion gain. Effects of quantization will be handled in section \ref{pn_theory}.
 	\begin{equation}
 		e_\Phi(z) = \frac{\mathrm{M}}{2\pi}(\Phi_{ref}(z) - \Phi_{div}(z))
 	\end{equation}	
@@ -46,45 +46,38 @@ The basic architecture of an ADPLL is shown in figure \ref{fig:basic_adpll}. Her
 	\end{equation}	
 	\FloatBarrier
 
-\subsubsection{Loop Filter}
-	The loop filter design will be derived from the continuous PI-controller loop filter with optional peaking compensation (equation \ref{eq:pi_compensated_tf}) via application of the bilinear transform. The bilinear transform specifically allows for the conversion of a continuous transfer function to discrete representation, and vice versa. This, however is conditioned on satisfaction of Nyquist sampling criteria, and in the case of PLLs it is recommended that $f_s > 10\cdot\mathrm{BW}_{loop}$ to ensure transformation accuracy \cite{gardner_1980}. A high level of oversampling allows for the following definition of the bilinear transform, where $1/\Delta T_s$=$f_{ref}$:
+\subsubsection{Discrete-time loop filter}\label{lf-discretization}
+	The discrete-time loop filter design will be derived from the continuous canonical loop filter (equation \ref{eq:lf_general_form}) via application of a s-to-z domain transformation. The bilinear transform \cite{proakis_1993_bilinear} allows for such conversion from continuous transfer function to discrete representation. However, in the case presented in this work, where a high degree of sampling ($f_s > 10\cdot\mathrm{BW}_{loop}$) is employed, a simpler transformation is permissable, derived through Taylor series approximation of z=$re^{s\Delta T}$ for values on the unit circle, i.e. r=1. This will be refered to as the approximate bilinear transform in this work. Given the $1/\Delta T_s$=$f_{ref}$ as the relation for sampling rate, then:
 	\begin{align*}
-		z^{-1} &= e^{-s\Delta T_s} && \text{(definition of z-space)} \\
+		z^{-1} &= e^{-s\Delta T_s} && \text{(definition of z-space on unit circle)} \\
 		&= \sum_{k=0}^\infty\frac{(-s\Delta T_s)^k}{k!} && \text{(exponential Taylor series)} \\
 		&\approx 1-s\Delta T_s &&\text{(if $|s\Delta T_s| = 2\pi\mathrm{BW}_{loop}\cdot \Delta T_s << 1$)} \\
 	\end{align*}
-	Thus the bilinear transform identities are:
+	Thus the s-to-z and z-to-s identities for the approximated bilinear transform are:
 	\begin{align}
 		z^{-1} &= 1-s\Delta T_s\\
-		s &= \frac{1}{\Delta T_s}(1-z^{-1}) \label{eq:s_to_z}
+		s &= \frac{1}{\Delta T_s}(1-z^{-1}) \label{eq:s_to_z_xfrm}
 	\end{align}
-	Applying \ref{eq:s_to_z} to equation \ref{eq:pi_compensated_tf} yields the z-domain loop filter:
+	Applying \ref{eq:s_to_z_xfrm} to equation \ref{eq:lf_general_form} yields the z-domain loop filter:
 	\begin{align}
-		\textnormal{H}_{LF}(z) &= \left.\textnormal{H}_{LF}(s)\right\vert_{s=\frac{1}{\Delta T_s}(1-z^{-1})} = \left.\frac{K_i}{s}\frac{\left(\frac{s}{\omega_z} + 1\right)}{\left(\frac{s}{\omega_p} + 1\right)}\right\vert_{s=\frac{1}{\Delta T_s}(1-z^{-1})}\\
-		&= k_i\Delta T_s\frac{\omega_p}{\omega_z}\frac{(1+\omega_z\Delta T_s)-z^{-1}}{(1+\omega_p\Delta T_s) - z^{-1}(2+\omega_p\Delta T_s) + z^{-2}}\label{eq:z_lf}
+		\textnormal{H}_{LF}(z) &= \left.\textnormal{H}_{LF}(s)\right\vert_{s=\frac{1}{\Delta T_s}(1-z^{-1})} = \left.\frac{\sum_{j=0}^Z b_js^j}{\sum_{k=0}^P a_ks^k}\right\vert_{s=\frac{1}{\Delta T_s}(1-z^{-1})}\\
+		&= \frac{\sum_{j=0}^Z b_j(1-z^{-1})^j}{\sum_{k=0}^P a_k(1-z^{-1})^k} \label{eq:z_general_lf}
 	\end{align}
-	Equation \ref{eq:z_lf} is transformed to a digitally implementable representation by converting into the canonical representation of \ref{eq:canonical_z}, which then determines the tap coefficients for the sampled-time difference equation \ref{eq:cananical_diff}. 
+	Equation \ref{eq:z_general_lf} is transformed to a digitally implementable representation by reorganizing into the canonical representation of \ref{eq:canonical_z_tf}, which then determines the tap coefficients for the sampled-time difference equation \ref{eq:cananical_diff_eq}. 
 	\begin{align}
-		\textnormal{H}_{LF}(z) &= \frac{\sum_{j=0}^M b_jz^{-j}}{1+\sum_{k=1}^N a_kz^{-k}}\label{eq:canonical_z} \\
-		y[n]&= -\sum_{k=1}^N a_ky[n-k] + \sum_{j=0}^M b_jx[n-j] \label{eq:cananical_diff}
+		\textnormal{H}_{LF}(z) &= \frac{\sum_{j=0}^P b_j^{'}z^{-j}}{1+\sum_{k=1}^Z a_k^{'}z^{-k}}\label{eq:canonical_z_tf} \\
+		y[n]&= -\sum_{k=1}^P a_k^{'}y[n-k] + \sum_{j=0}^Z b_j^{'}x[n-j] \label{eq:cananical_diff_eq}
 	\end{align}
-	The transformed \ref{eq:z_lf} is directly implementable in digital hardware with a direct type 1 IIR filter shown in figure \ref{fig:filt_imple}, with the filter coefficients given by equations \ref{eq:a1}-\ref{eq:b1}. The filter coefficients must be quantized into finite resolution fixed point words for a complete digital implementation. Effects of quantization will be discussed in section \ref{pn_theory}.
+	The obtained difference equation is directly implementable in digital hardware with a direct from I IIR filter \cite{proakis_1993} shown in figure \ref{fig:filt_implementation}. The filter coefficients $\{a_1^{'}, ..., a_P^{'}\}$ and $\{b_0^{'}, ..., b_Z^{'}\}$ must be quantized into finite resolution fixed point words for a complete digital implementation. The delay elements ($z^{-1}$ blocks) are implementable digitally as registers, the coefficient gains are implementable with array multipliers and the adders are implementable with digital adders. Effects of quantization will be discussed in section \ref{pn_theory}.
 	\begin{figure}[htb!]
-		\center\include{./figs/filter_arch_tex}
-		\caption{Implementation of filter.}
-		\label{fig:filt_imple}
+		\center\include{./figs/direct_type_1_primed}
+		\caption{Direct form I implementation of IIR filter.}
+		\label{fig:filt_implementation}
 	\end{figure}
-				% y[n] = x[n]\frac{K_i\omega_pT}{\omega_z}\frac{1+\omega_zT}{1+\omega_pT} - x[n-1]\frac{K_i\omega_pT}{\omega_z}\frac{1}{1+\omega_pT} + y[n-1]\frac{2+\omega_pT}{1+\omega_pT} - y[n-2]\frac{1}{1+\omega_pT}\\
-				% = a_0x[n] + a_1x[n-1] - b_1y[n-1] - b_2x[n-2] 
-	\begin{align}
-		a_1 &= -\frac{2+\omega_p\Delta T_s}{1+\omega_p\Delta T_s}\label{eq:a1}\\
-		a_2 &= \frac{1}{1+\omega_p\Delta T_s} \\
-		b_0 &= \frac{K_i\omega_p\Delta T_s}{\omega_z}\frac{1+\omega_z\Delta T_s}{1+\omega_p\Delta T_s}\\
-		b_1 &= \frac{K_i\omega_p\Delta T_s}{\omega_z}\frac{1}{1+\omega_p\Delta T_s}\label{eq:b1}
-	\end{align}
+
 
 \subsubsection{DCO}
-	The digitally controlled oscillator varies from a VCO by only accepting a digital (quantized) frequency tuning signal, called the oscillator tuning word (OTW). A DCO modeled in discrete time as a recursive phase integrator, dependent on (a) the DCO gain $K_{DCO}$, equal to the frequency tuning of the oscillator per OTW LSB , (b) the digital OTW u[n], and (c) the sampling period T=$f_{ref}^{-1}$.
+	The digitally controlled oscillator varies from a VCO by only accepting a digital frequency tuning signal, called the oscillator tuning word (OTW). A DCO modeled in discrete time as a recursive phase integrator, dependent on (a) the DCO gain $K_{DCO}$, equal to the frequency tuning of the oscillator per LSB of the OTW, (b) the current state of the OTW u[n], and (c) the PLL sampling period T=$f_{ref}^{-1}$.
 	\begin{equation}
 		\Phi_{out}[n] = \Phi_{out}[n-1] + 2\pi K_{DCO}u[n]\Delta T_s
 	\end{equation}
@@ -97,32 +90,30 @@ The basic architecture of an ADPLL is shown in figure \ref{fig:basic_adpll}. Her
 		\mathrm{H}_{DCO}(s) = \frac{\Phi_{out}(s)}{u(s)} = \frac{2\pi K_{DCO}\Delta T_s}{1-(1-s\Delta T_s)} = \frac{2\pi K_{DCO}}{s} 
 	\end{equation}
 
-\subsubsection{Discrete-time PLL transfer function}
+\subsubsection{Discrete-time PLL transfer function}\label{discrete_pll_tf}
 	\begin{figure}[htb!]
 		\center\include{./figs/discrete_pll}
 		\caption{Discrete time PLL model.}
 		\label{fig:discrete_pll2}
 	\end{figure}
-	\FloatBarrier
-	The transfer function for the discrete-time PLL can be computed in the z-domain, and also approximated continuously. The open loop z-domain transfer function is:
+	The transfer function for the discrete-time PLL of figure \ref{fig:discrete_pll2} can be computed in the z-domain, and also approximated continuously. The open loop z-domain transfer function is:
 	\begin{align}
-		\mathrm{L}(z) &= \mathrm{H}_{TDC}(z)\mathrm{H}_{LF}(z)\mathrm{H}_{DCO}(z)\mathrm{H}_{DIV}(z) \\
-		&= 2\pi K_{DCO}K_i\Delta T_s^2\frac{\mathrm{M}}{\mathrm{N}}\frac{\omega_p}{\omega_z}\frac{(1+\omega_z\Delta T_s)-z^{-1}}{(1+\omega_p\Delta T_s) - z^{-1}(3+2\omega_p\Delta T_s) + z^{-2}(3+\omega_p\Delta T_s) - z^{-3}}\label{eq:z_open_loop}
+		\mathrm{L}(z) &= \mathrm{H}_{TDC}(z)\mathrm{H}_{LF}(z)\mathrm{H}_{DCO}(z)\mathrm{H}_{DIV}(z)
+		= \frac{\mathrm{M}}{\mathrm{N}}\frac{K_{DCO}\Delta T_s}{(1-z^{-1})}\frac{\sum_{j=0}^Z b_j(1-z^{-1})^j}{\sum_{k=0}^P a_k(1-z^{-1})^k}\label{eq:z_open_loop}
 	\end{align}
 	The closed loop z-domain PLL phase transfer function is:
 	\begin{align}
-		\mathrm{T}(z) = \frac{\Phi_{out}(z)}{\Phi_{ref}(z)} &= \frac{2\pi K_{DCO}K_i\Delta T_s^2\mathrm{M}\frac{\omega_p}{\omega_z}(1+\omega_z\Delta T_s)-z^{-1}}{\left(\parbox{4.2in}{$(1+\omega_p\Delta T_s + 2\pi K_{DCO}K_i\Delta T_s^2\frac{\mathrm{M}}{\mathrm{N}}\frac{\omega_p}{\omega_z}(1+\omega_z\Delta T_s))- z^{-1}(3+2\omega_p\Delta T_s+2\pi K_{DCO}K_i\Delta T_s^2\frac{\mathrm{M}}{\mathrm{N}}\frac{\omega_p}{\omega_z})+ z^{-2}(3+\omega_p\Delta T_s) - z^{-3}$}\right)}%\\
+		\mathrm{T}(z) = \frac{\Phi_{out}(z)}{\Phi_{ref}(z)} &= \frac{\mathrm{M}K_{DCO}\Delta T_s\sum_{j=0}^Z b_j(1-z^{-1})^j}{\sum_{k=0}^P a_k(1-z^{-1})^{k+1} + K_{DCO}\Delta T_s\frac{\mathrm{M}}{\mathrm{N}}\sum_{j=0}^Z b_j(1-z^{-1})^j}%\\
 		%&= \mathrm{N}\frac{\mathrm{L}(z)}{1+\mathrm{L}(z)}\\
 	\end{align}
 	The s-domain approximation of the transfer function is:
 	\begin{align}
-		\mathrm{L}(s) = \mathrm{H}_{TDC}(s)\mathrm{H}_{LF}(s)\mathrm{H}_{DCO}(s)\mathrm{H}_{DIV}(s) = \frac{\mathrm{M}}{\mathrm{N}}\frac{K_{DCO}K_i}{s^2} \frac{\left(\frac{s}{\omega_z} + 1\right)}{\left(\frac{s}{\omega_p} + 1\right)}
+		\mathrm{L}(s) = \mathrm{H}_{TDC}(s)\mathrm{H}_{LF}(s)\mathrm{H}_{DCO}(s)\mathrm{H}_{DIV}(s) = \frac{\mathrm{M}}{\mathrm{N}}\frac{K_{DCO}}{s} \frac{\sum_{j=0}^Z b_js^j}{\sum_{k=0}^P a_ks^k}
 	\end{align}
 	And in closed loop configuration the s-domain PLL phase transfer function is:
 	\begin{align}
-		\mathrm{T}(s)=\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{\mathrm{M}K_{DCO}K_i\left(\frac{s}{\omega_z} + 1\right)}{s^3\frac{1}{\omega_z} + s^2 + \frac{\mathrm{M}}{\mathrm{N}}K_{DCO}K_i\left(\frac{s}{\omega_z} + 1\right)} = \mathrm{N}\frac{\mathrm{L}(s)}{1+\mathrm{L}(s)}
+		\mathrm{T}(s)=\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{\mathrm{M}K_{DCO}\sum_{j=0}^Z b_js^j}{\sum_{k=0}^P a_ks^{k+1}1 + \frac{\mathrm{M}}{\mathrm{N}}K_{DCO}\sum_{j=0}^Z b_js^j} = \mathrm{N}\frac{\mathrm{L}(s)}{1+\mathrm{L}(s)}
 	\end{align}
-	Incidentally, the s-domain approximation is significantly simpler and will is preferred in this paper for purposes of analysis.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -172,53 +163,33 @@ The noise in the discrete-time ADPLL result from quantization and from stochasti
 	\end{equation}
 
 \subsubsection{DCO noise}\label{dco_noise}
-	\hl{Add connection of DCO noise to random phase walk, cite Leeson}
-	Spectral dispresion from random phase walk \cite{vannicola_varshney_1983}.
+	Noise in a DCO is resulting from (a) quantization of the oscillator tuning word u[n], and (b) from thermal and stochastic sources. In the digital PLL, the OTW quantization occurs in the loop filter, so this will be analyzed in the later loop filter section (\ref{lf_noise}). Thus oscillator thermal/stochastic noise will be considered, based on Leeson's model for oscillator phase noise \cite{leeson_1966}. Leeson's model considers noise power density at an offset $\Delta f$ from the oscillator tone (carrier). Noise power density is represented with the function $\mathcal{L}(\Delta f)$, which is the noise power density normalized to the power of the oscillator carrier tone, in other words in units of dBc/Hz. Leeson's model divides phase noise into three regions, illustrated in figure \ref{fig:leeson_pn}: (1) flicker-noise dominated, with a slope of -30 dB/decade, (2) white frequency-noise dominated, with -20 dB per decade, and (3) a flat region, limited by the thermal noise floor or amplitude noise. It is noted that phase noise components are at frequencies different than the carrier, hence are orthogonal, and can be treated as independent components that are added to the main carrier frequency for analysis. Figure \ref{fig:dco_noise} demonstrates the application of this principle for modeling of the DCO phase noise $\Phi_{n_{DCO}}$ as an additive process to the oscillator phase $\Phi_{osc}$, thus $\Phi_{out}$ = $\Phi_{osc}$ + $\Phi_{n_{DCO}}$.
 
-	Noise in a DCO is resulting from (a) quantization of the oscillator tuning word u[n], and (b) from thermal and stochastic sources. In the digital PLL, the OTW quantization occurs in the loop filter, so this will be analyzed in the later loop filter section (\ref{lf_noise}). Thus oscillator thermal/stochastic noise will be considered, to develop a phase noise model where oscillator phase noise $\Phi_{n_{DCO}}$ is an additive process to the oscillator phase $\Phi_{osc}$, thus $\Phi_{out}$ = $\Phi_{osc} + \Phi_{n_{DCO}}$.
 
 	\begin{figure}[htb!]
-		\center\include{./figs/dco_noise}
-		\caption{DCO additive noise model.}
-		\label{fig:dco_noise}
+	    \centering
+	    \begin{subfigure}{0.45\textwidth}
+	        \centering
+			\include{./figs/leeson_pn}
+			\caption{ }
+			\label{fig:leeson_pn}
+	    \end{subfigure}
+	    \begin{subfigure}{0.5\textwidth}
+	        \centering
+			\include{./figs/dco_noise}
+			\caption{ }
+			\label{fig:dco_noise}
+	    \end{subfigure}%
+	    % \caption{Approximate model for ring oscillator inverter delay cell.}
+	    \label{fig:osc_pn_figs}
+	    \caption{\textbf{(a)} Leeson model for phase noise, \textbf{(b)} DCO additive noise model.}
 	\end{figure}
 	\FloatBarrier
-
-	 Oscillator phase noise due to stochastic and uncorrelated circuit and supply noise can be analyzed as additive voltage disturbance $\delta v_n$ with variance $\sigma_{v_n}^2$ to the oscillator waveform $V_{osc}$ at any given time.  In a stable, noiseless oscillator, amplitude is inherently tied to signal phase, i.e. $V_{osc}(\Phi=\omega t)$. With additive noise, given $\frac{dV_{osc}(\Phi)}{d\Phi}$ is finite $\forall$t, a small voltage disturbance from noise $\delta v_{n}$ will be coupled as a disturbance $\delta\Phi_{n}$ in the oscillator phase, shown in figure \ref{fig:aperture_noise}. The phase evolution of the noisy oscillator for an infinitesimal time increment $\delta t$  with such a disturbance is:
-	 \begin{equation}
-		\Phi_{out}(t+\delta t) = \Phi_{out}(t) + \delta\Phi_n + \omega_{osc}\delta t \label{eq:rwalk_ph}
-	 \end{equation}
-
-	\begin{figure}[htb!]
-		\center\include{./figs/aperture_noise}
-		\caption{Voltage to phase noise conversion.}
-		\label{fig:aperture_noise}
-	\end{figure}
-	\FloatBarrier
-	  Assuming $\delta v_n$ is Gaussian white noise, $\delta\Phi_{n}$ is sampled stochastically at any instant based on the probability distribution \ref{eq:osc_rw_dist}, dependent on the current oscillator phase $\Phi_{out}$ and the noiseless voltage-phase relation $V_{osc}(\Phi)$. It will be assumed that like the source noise $\delta v_n$, $\delta\Phi_{n}$ is white spectrum.
-	 \begin{equation}
-	 	P(\delta\Phi_{n}|\Phi_{out}) = \text{Norm}\left(\mu=0, \sigma=\sigma_{v_n}\left(\left.\frac{dV_{osc}(\Phi)}{d\Phi}\right\vert_{\Phi=\Phi_{out}}\right)^{-1}\right) \label{eq:osc_rw_dist}
-	 \end{equation} 
-	Spectral analysis of the noisy oscillator phase can be made utilizing discrete time-modeling. Converting \ref{eq:rwalk_ph} into a sampled signal with time step $\delta t$ 
-	\begin{equation}
-		\Phi_{out}[n+1] = \Phi_{out}[n] + \omega_{osc}\delta t + \delta\Phi_n[n|\Phi_{out}[n]]
+	The equation for $\mathcal{L}(\Delta f)$ (from \cite{lee_hajimiri_2000}) is in \ref{eq:leesons}, and is dependent on the temperature T, excess noise factor F, oscillator power P, oscillator Q factor, and the transition frequencies $f_1$ and $f_2$ that separate the different noise regions. It is of interest to note that the phase noise relative to the carrier will increase as power decreases, which provides challenge for creating low power oscillators with acceptable phase noise characteristics.
+	\begin{equation}\label{eq:leesons}
+	\mathcal{L}(\Delta f) = 10\log_{10}\left[\frac{2\text{F}k_B\text{T}}{\text{P}}\left(1+\left(\frac{f_2}{2Q\Delta f}\right)^2\right)\left(1+\frac{f_1}{|\Delta f|}\right)\right] = S_{\Phi n_{DCO}}(\Delta f)
 	\end{equation}
-	Computing the z-transform, and splitting the result into the oscillation $\Phi_{osc}$ and phase noise $\Phi_{n}$ components:
-	\begin{equation}
-		\Phi_{out}(z) = \frac{\omega_{osc}\delta t}{z-1} + \frac{\delta\Phi_n(z)}{z-1} = \Phi_{osc}(z) + \Phi_{n}(z)
-	\end{equation}
-	\begin{equation}
-		\Rightarrow \Phi_{n}(z) = \frac{\delta\Phi_n(z)}{z-1} \label{eq:z_osc_pn}
-	\end{equation}
-	Application of the bilinear transform to \ref{eq:z_osc_pn} can be used to approximate the continuous phase noise spectrum, if $s=j\omega$
-	\begin{equation}
-		\Phi_{n}(s) = \left.\Phi_{n}(z)\right\vert_{z=1-s\delta t} = \left.\frac{\delta\Phi_n(z)}{z-1}\right\vert_{z=1+s\delta t} = \frac{\delta\Phi_n(s)}{s\delta t}
-	\end{equation}
-	The phase noise PSD is therefore:
-	\begin{equation}
-		S_{\Phi n_{DCO}}(f)= \lim_{\Delta T\rightarrow\infty}\frac{1}{\Delta T}\left|\frac{\delta\Phi_n(j2\pi f)}{j2\pi f \delta t}*\mathcal{F}\left\{\text{rect}\left(\frac{t}{\Delta t}\right)\right\}\right|^2  =  \frac{S_{0\Phi n_{DCO}}}{f^2}
-	\end{equation}
-	Following that the phase disturbance signal $\delta\Phi_{n}(t)$ is white spectrum, a constant value for its PSD $S_{0\Phi n_{DCO}}$ can be defined. The value for $S_{0\Phi n_{DCO}}$ is highly dependent on implementation and is best extracted by means of curve fitting simulation or physical measurement.
+	For notational consistency, the following redefinition is used in the remainder of this paper: $S_{\Phi n_{DCO}}(f) = \mathcal{L}(\Delta f)|_{\Delta f = f}$
 
 \subsubsection{Divider noise}
 	\begin{figure}[htb!]
@@ -226,18 +197,18 @@ The noise in the discrete-time ADPLL result from quantization and from stochasti
 	    \begin{subfigure}{0.5\textwidth}
 	        \centering
 	        \include{./figs/div_noise_model}
-	        \caption{Divider noise model.}
+	        \caption{ }
 	        \label{fig:div_pn_model}
 	    \end{subfigure}%
 	    \begin{subfigure}{0.5\textwidth}
 	        \centering
 	        \include{./figs/div_jitter}
-	        \caption{Digital divider output jitter.}
+	        \caption{ }
 	        \label{fig:div_jitter}
 	    \end{subfigure}
 	    % \caption{Approximate model for ring oscillator inverter delay cell.}
 	    \label{fig:div_pn}
-	    \caption{Divider phase noise.}
+	    \caption{\textbf{(a)} Divider noise model, \textbf{(b)} Digital divider output jitter.}
 	\end{figure}
 	\FloatBarrier
 	Divider noise is manifested as jitter (with RMS distribution in time of $\sigma_{t n_{div}}$) on the the divider output. This is due to effects of stochastic and uncorrelated voltage noise coupling into the signal phase, much like in the case of oscillator phase noise. If the divider is a digital circuit, with edge rate $dV/dt$, and subject to thermal noise in the form of a  voltage $v_n$, with noise power of $\sigma_{v_n}^2$, the divider phase noise power added to the divider output is:
@@ -249,13 +220,13 @@ The noise in the discrete-time ADPLL result from quantization and from stochasti
 		S_{\Phi n_{div}}(f) = \frac{\sigma_{\Phi n_{div}}^2}{f_{ref}} = 2\pi\omega_{ref}\sigma^2_{t n_{div}}  =2\pi\omega_{ref}\left(\frac{dV}{dt}\right)^{-2}\sigma_{v_n}^2\hspace{1em}\frac{[\text{rad}]^2}{[\text{Hz}]}
 	\end{equation}
 
-\subsubsection{Loop filter noise - direct type I}\label{lf_noise}
-	In a digital loop filter, quantization noise arises from rounding errors due to finite precision in the arithmetic circuits that implement the filter. Quantization noise power here will be derived under the assumption of a direct type-I filter implementation, with B bits in each fixed point word throughout the loop filter. In a digital implementation of the canonical z-domain transfer function \ref{eq:canon_z_tf} as the direct type-I structure of figure \ref{fig:direct_type_1_ideal}, delays are constructed using registers, adders with digital adders, and the filter coefficient gain terms $\{a_1, ... a_N; b_0, ..., b_M\}$ with digital multipliers. The registers and adders do not introduce extra round-off error beyond that already existing, however the multipliers will if the products of B bit words, yielding 2B bits, are mapped onto B bit words. 
+\subsubsection{Loop filter noise - direct form I}\label{lf_noise}
+	In a digital loop filter, quantization noise arises from rounding errors due to finite precision in the arithmetic circuits that implement the filter. Quantization noise power here will be derived under the assumption of a direct form I filter implementation, with B bits in each fixed point word throughout the loop filter. In a digital implementation of the canonical z-domain transfer function \ref{eq:canon_z_tf} as the direct form I structure of figure \ref{fig:direct_type_1_ideal}, delays are constructed using registers, adders with digital adders, and the filter coefficient gain terms $\{a_1, ... a_N; b_0, ..., b_M\}$ with digital multipliers. The registers and adders do not introduce extra round-off error beyond that already existing (if overflows do not occur). However, the multipliers will if the products resulting from two B bit words (nominally 2B bits), are mapped back onto B bit words.
 	\begin{equation}
 		\textnormal{H}_{LF}(z) = \frac{\sum_{j=0}^Z b_jz^{-j}}{1+\sum_{k=1}^P a_kz^{-k}}\label{eq:canon_z_tf}
 	\end{equation}
 	\FloatBarrier
-	Quantization in this case can be represented by adding a quantization error signal $q_x$[n] to the result of each ideal multiplication, as shown in figure \ref{fig:direct_type_1_quant}. This is the same approach for TDC quantization noise in section \ref{eq:tdc_noise}. The noise power associated with each q$_x$[n] is identical, with $\sigma_{qx}^2 = 1/12$ LSB$^2$. 
+	Quantization in this case can be represented by adding a quantization error signal $q_x$[n] to the result of each ideal multiplication, as shown in figure \ref{fig:direct_type_1_quant}. This is the same approach for TDC quantization noise in section \ref{tdc_noise}. The noise power associated with each q$_x$[n] is identical, with $\sigma_{qx}^2 = 1/12$ LSB$^2$. 
 
 	\begin{figure}[htb!]
 	    \centering
@@ -274,10 +245,10 @@ The noise in the discrete-time ADPLL result from quantization and from stochasti
 	    \end{subfigure}
 	    % \caption{Approximate model for ring oscillator inverter delay cell.}
 	    \label{fig:direct_type_1}
-	    \caption{Direct type I filter implementation with quantization.}
+	    \caption{Direct form I filter implementation with quantization.}
 	\end{figure}
-	\FloatBarrier
-	Assuming the quantization error signals of each multiplier are uncorrelated with all other multipliers, the output-referred noise power of the filter can be computed as the sum of the output-referred individual contributions. These contributions can be determined via solving for the transfer function from each source q$_x$[n] of each quantization noise to the output y[n]. In the case of the direct type I filter structure, all quantization sources q$_x$[n] have the same transfer characteristic to the output y[n]:
+
+	Assuming the quantization error signals of each multiplier are uncorrelated with all other multipliers, the output-referred noise power of the filter can be computed as the sum of the output-referred individual contributions. These contributions can be determined via solving for the transfer function from each source q$_x$[n] of each quantization noise to the output y[n]. In the case of the direct form I filter structure, all quantization sources q$_x$[n] have the same transfer characteristic to the output y[n] given in \ref{eq:lf_quant_tf}.
 	\begin{equation}
 		\frac{Y(z)}{Q_x(z)} = \frac{1}{1+\sum_{k=1}^P a_kz^{-k}}\label{eq:lf_quant_tf}
 	\end{equation}
@@ -289,34 +260,34 @@ The noise in the discrete-time ADPLL result from quantization and from stochasti
 	\begin{equation}
 		S_{qx}(f) = \frac{\sigma_{qx}^2}{f_{ref}}\left|\frac{Y(s)}{Q_x(s)}\right|^2_{s=j2\pi f} \approx \frac{1}{12f_{ref}}\left|\frac{1}{1+\sum_{k=1}^P a_k - j2\pi f\sum_{k=1}^P ka_k}\right|^2 \hspace{1em}\frac{[\text{LSB}]^2}{[\text{Hz}]}
 	\end{equation}
-	Given P poles and Z zeros in the filter, the total output quantization PSD of the filter is \ref{eq:lf_noise}. The total loop filter noise PSD linearly scales with the number of multipliers in the direct type-I filter implementation.
+	Given P poles and Z zeros in the filter, the total output quantization PSD of the filter is \ref{eq:lf_noise}. The total loop filter noise PSD linearly scales with the number of multipliers in the direct form I filter implementation.
 	\begin{equation}
 		S_{qn_{LF}}(f) = (P+Z+1)S_{qx}(f) \hspace{1em}\frac{[\text{LSB}]^2}{[\text{Hz}]}\label{eq:lf_noise}
 	\end{equation}
 
 \subsubsection{PLL noise sensitivity transfer functions}
-	Having developed models for noise of generated by each PLL component, noise sensitivity transfer functions must be computer to refer each noise source to the PLL output in terms of phase. In the developed noise theory, thus far all noise sources have been modeled as additive phase components. The full system model illustrating this is:
+	Having developed models for noise of generated by each PLL component, noise sensitivity transfer functions must be computer to refer each noise source to the PLL output in terms of phase. In the developed noise theory, thus far all noise sources have been modeled as additive phase components. The full system model illustrating this is in figure \ref{fig:full_pll_noise}.
 	\begin{figure}[htb!]
 		\center\include{./figs/discrete_pll_full_noise}
 		\caption{Full PLL additive noise model.}
 		\label{fig:full_pll_noise}
 	\end{figure}
 	\FloatBarrier
-	It is useful to define a transfer function $\hat{\mathrm{T}}(s)$ which characterizes the normalized closed loop response from reference to output of the PLL. $\hat{\mathrm{T}}(s)$ is defined in terms of the loop gain L(s).
+	Following the approach of \cite{perrott_2002}, it is useful to define a transfer function $\hat{\mathrm{T}}(s)$ which characterizes the normalized closed loop response from reference to output of the PLL. $\hat{\mathrm{T}}(s)$ is defined in terms of the loop gain L(s).
 	\begin{equation}
 	\hat{\mathrm{T}}(s) = \frac{\mathrm{L}(s)}{1+\mathrm{L}(s)}\hspace{1em} \text{s.t.} \hspace{1em} \mathrm{T}(s) = \frac{\Phi_{out}}{\Phi_{ref}} = \mathrm{N}\hat{\mathrm{T}}(s) 
 	\end{equation}
-	Solving for the closed transfer functions between each $q_{n_{TDC}}$, $q_{n_{LF}}$, $\Phi_{n_{DCO}}$ and $\Phi_{n_{div}}$ to the output $\Phi_{out}$ utilizing s-domain approximations yield:
+	Solving for the closed transfer functions between each $q_{n_{TDC}}$, $q_{n_{LF}}$, $\Phi_{n_{DCO}}$ and $\Phi_{n_{div}}$ to the output $\Phi_{out}$ utilizing s-domain approximations yields equations \ref{eq:noise_tf_tdc}-\ref{eq:noise_tf_div}.
 	\begin{align}
-		\frac{\Phi_{out}(s)}{q_{n_{TDC}}(s)} & = \frac{2\pi\frac{K_{DCO}}{s}\mathrm{H}_{LF}(s)}{1+\mathrm{L}(s)}= 2\pi\frac{\mathrm{N}}{\mathrm{M}}\frac{\mathrm{L}(s)}{1+\mathrm{L}(s)} = 2\pi\frac{\mathrm{N}}{\mathrm{M}}\hat{\mathrm{T}}(s)\\
+		\frac{\Phi_{out}(s)}{q_{n_{TDC}}(s)} & = \frac{2\pi\frac{K_{DCO}}{s}\mathrm{H}_{LF}(s)}{1+\mathrm{L}(s)}= 2\pi\frac{\mathrm{N}}{\mathrm{M}}\frac{\mathrm{L}(s)}{1+\mathrm{L}(s)} = 2\pi\frac{\mathrm{N}}{\mathrm{M}}\hat{\mathrm{T}}(s)\label{eq:noise_tf_tdc}\\
 		\frac{\Phi_{out}(s)}{\Phi_{n_{DCO}}(s)} & = \frac{1}{1+\mathrm{L}(s)}= 1-\hat{\mathrm{T}}(s)\\
 		\frac{\Phi_{out}(s)}{q_{n_{LF}}(s)} & = \frac{2\pi\frac{K_{DCO}}{s}}{1+\mathrm{L}(s)} = 2\pi\frac{K_{DCO}}{s}(1-\hat{\mathrm{T}}(s))\\
-		\frac{\Phi_{out}(s)}{\Phi_{n_{div}}(s)} & = \frac{\mathrm{M}\frac{K_{DCO}}{s}\mathrm{H}_{LF}(s)}{1+\mathrm{L}(s)}= \mathrm{N}\frac{\mathrm{L}(s)}{1+\mathrm{L}(s)} = \mathrm{N}\hat{\mathrm{T}}(s)
+		\frac{\Phi_{out}(s)}{\Phi_{n_{div}}(s)} & = \frac{\mathrm{M}\frac{K_{DCO}}{s}\mathrm{H}_{LF}(s)}{1+\mathrm{L}(s)}= \mathrm{N}\frac{\mathrm{L}(s)}{1+\mathrm{L}(s)} = \mathrm{N}\hat{\mathrm{T}}(s)\label{eq:noise_tf_div}
 	\end{align}
 
 
-\subsubsection{PLL phase noise and output PSD relationship}\label{pn_noise_psd}
-	When analyzing PLL noise, the noise power spectral density of the PLL output is of most interest. Up to this point, noise has been defined in terms of phase noise $\Phi_{n}$, or an unwanted added component to the oscillator phase signal $\Phi_{osc}=\omega_{osc}t$. The PLL output phase signal $\Phi_{out}$ is thus:
+\subsubsection{PLL phase signal and output PSD relationship for noise}\label{pn_noise_psd}
+	When analyzing PLL noise, the noise power spectral density of the PLL output is of most interest. Up to this point, noise has been defined in terms of noise phase signal $\Phi_{n}$, or an unwanted added component to the oscillator phase signal $\Phi_{osc}=\omega_{osc}t$. The PLL output phase signal $\Phi_{out}$ is thus:
 	\begin{equation}
 		\Phi_{out}(t) = \Phi_{osc}(t) + \Phi_{n}(t) = \omega_{osc}t + \Phi_{n}(t) 
 	\end{equation}
@@ -331,16 +302,16 @@ The noise in the discrete-time ADPLL result from quantization and from stochasti
 	\end{align}
 	The result is a carrier cosine signal, and an orthogonal sine signal modulated by the phase noise $\Phi_{n}$. From this, the spectral density of the phase noise relative to the carrier can be estimated. The power spectral density $S_{V_{out}}$ is computed in \ref{eq:psd_vout}-\ref{eq:psd_noise}. Due to orthogonality of the sine/cosine components of \ref{eq:pll_out_approx}, the cross terms that appear in the PSD are zero. 
 	\begin{align}
-		S_{V_{out}} =& \lim_{\Delta T\rightarrow\infty}\frac{1}{\Delta T}|\mathcal{F}\{V_{out}(t)\cdot\mathrm{rect}(t/\Delta T)\}|^2 \label{eq:psd_vout}\\
+		S_{V_{out}}(f) =& \lim_{\Delta T\rightarrow\infty}\frac{1}{\Delta T}|\mathcal{F}\{V_{out}(t)\cdot\mathrm{rect}(t/\Delta T)\}|^2 \label{eq:psd_vout}\\
 		=&\lim_{\Delta T\rightarrow\infty}\frac{A_0^2}{\Delta T}|\mathcal{F}\{\cos(\omega_{osc}t)\cdot\mathrm{rect}(t/\Delta T)\}|^2 \label{eq:psd_carrier}\\ 
 		&+ \lim_{\Delta T\rightarrow\infty}\frac{A_0^2}{\Delta T}|\mathcal{F}\{\Phi_{n}(t)\cdot\mathrm{rect}(t/\Delta T)\}*\mathcal{F}\{\sin(\omega_{osc}t)\cdot\mathrm{rect}(t/\Delta T)\}|^2 \label{eq:psd_noise}
 	\end{align}
-	 Single side band (SSB) noise power spectral density $\mathcal{L}(\Delta f)$ is defined as the phase noise PSD at offset $\Delta f$ from the carrier frequency $f_{osc}$, normalized to the carrier power. Here the PSD carrier component is given by \ref{eq:psd_carrier}, and the noise component by \ref{eq:psd_noise}.
-	\begin{equation}
+	 The noise power spectral density $\mathcal{L}(\Delta f)$ is defined as the noise PSD at offset $\Delta f$ from the carrier frequency $f_{osc}$, normalized to the carrier power. Here the PSD carrier component is given by \ref{eq:psd_carrier}, and the noise component by \ref{eq:psd_noise}. Shifting \ref{eq:psd_noise} by $\omega_{osc}$ and performing normalization for carrier power results in:
+	\begin{equation}\label{eq:pn_psd_relation}
 		\mathcal{L}(\Delta f) = \left.\lim_{\Delta T\rightarrow\infty}\frac{1}{\Delta T}|\mathcal{F}\{\Phi_{n}(t)\cdot\mathrm{rect}(t/\Delta T)\}|^2 \right|_{f=\Delta f}= S_{\Phi_{n}}(\Delta f)
 	\end{equation}
 
-	Thus, the PLL output noise PSD relative to the carrier is equal to the PSD $S_{\Phi_{n}}(\Delta f)$ of the phase noise signal $\Phi_{n}(t)$.
+	Thus, the PLL output noise PSD relative to the carrier $\mathcal{L}(\Delta f)$ is equal to the PSD of the phase noise signal $\Phi_{n}(t)$, $S_{\Phi_{n}}(\Delta f)$, provided $\text{Var}[\Phi_{n}(t)] << 1$. 
 
 \subsubsection{PLL output-referred noise PSD}
 In terms of analysis, PLL noise PSD referred to the PLL output is of most interest. Thus far the following have been established: (a) noise spectrum generated by each individual PLL component, (b) the PLL phase noise sensitivity functions, and (c) the relationship between PLL output PSD and output phase noise. Now these can be combined to provide a final result for full PLL output-referred noise PSD. An important assumption here is all noise sources are uncorrelated, so their independent noise power contributions may be summed to find the total noise PSD. The PLL output phase noise PSD for each noise source is simply found by multiplying magnitude squared of the respective noise sensitivity function with the noise source PSD. Thus:

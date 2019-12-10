@@ -1924,13 +1924,21 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">Razavi1996DesignOM</bcf:citekey>
-    <bcf:citekey order="2">razavi_2017</bcf:citekey>
-    <bcf:citekey order="3">gardner_1980</bcf:citekey>
-    <bcf:citekey order="4">gardner_1980</bcf:citekey>
+    <bcf:citekey order="2">gardner_1980</bcf:citekey>
+    <bcf:citekey order="3">proakis_1993_bilinear</bcf:citekey>
+    <bcf:citekey order="4">proakis_1993</bcf:citekey>
     <bcf:citekey order="5">perrott_2002</bcf:citekey>
-    <bcf:citekey order="6">vannicola_varshney_1983</bcf:citekey>
-    <bcf:citekey order="7">brockett_1965</bcf:citekey>
-    <bcf:citekey order="8">spalvieri_2006</bcf:citekey>
+    <bcf:citekey order="6">leeson_1966</bcf:citekey>
+    <bcf:citekey order="7">lee_hajimiri_2000</bcf:citekey>
+    <bcf:citekey order="8">perrott_2002</bcf:citekey>
+    <bcf:citekey order="9">ogata_2010</bcf:citekey>
+    <bcf:citekey order="10">gardner_2005</bcf:citekey>
+    <bcf:citekey order="11">ogata_2010_pid</bcf:citekey>
+    <bcf:citekey order="12">razavi_2017</bcf:citekey>
+    <bcf:citekey order="13">vannicola_varshney_1983</bcf:citekey>
+    <bcf:citekey order="14">brockett_1965</bcf:citekey>
+    <bcf:citekey order="15">numerical_methods_2011</bcf:citekey>
+    <bcf:citekey order="16">spalvieri_2006</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

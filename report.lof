@@ -1,35 +1,43 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Basic phase feedback network.\relax }}{11}{figure.caption.1}
+\contentsline {figure}{\numberline {1}{\ignorespaces Basic phase feedback network.\relax }}{12}{figure.caption.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2}{\ignorespaces Basic PLL.\relax }}{12}{figure.caption.2}
+\contentsline {figure}{\numberline {2}{\ignorespaces Basic PLL.\relax }}{13}{figure.caption.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3}{\ignorespaces PI-controller PLL pole-zero locations.\relax }}{14}{figure.caption.3}
+\contentsline {figure}{\numberline {3}{\ignorespaces Basic ADPLL.\relax }}{15}{figure.caption.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4}{\ignorespaces Example PI-PLL responses with varied $\zeta $.\relax }}{15}{figure.caption.4}
+\contentsline {figure}{\numberline {4}{\ignorespaces Digital divider signals.\relax }}{16}{figure.caption.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5}{\ignorespaces Basic ADPLL.\relax }}{16}{figure.caption.5}
+\contentsline {figure}{\numberline {5}{\ignorespaces TDC model.\relax }}{16}{figure.caption.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6}{\ignorespaces Digital divider signals.\relax }}{17}{figure.caption.6}
+\contentsline {figure}{\numberline {6}{\ignorespaces Direct form I implementation of IIR filter.\relax }}{18}{figure.caption.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7}{\ignorespaces TDC model.\relax }}{18}{figure.caption.7}
+\contentsline {figure}{\numberline {7}{\ignorespaces Discrete time PLL model.\relax }}{19}{figure.caption.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {8}{\ignorespaces Implementation of filter.\relax }}{19}{figure.caption.8}
+\contentsline {figure}{\numberline {8}{\ignorespaces TDC quantization noise models.\relax }}{20}{figure.caption.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {9}{\ignorespaces Discrete time PLL model.\relax }}{20}{figure.caption.9}
+\contentsline {figure}{\numberline {9}{\ignorespaces Quantization as via additive error signal.\relax }}{20}{figure.caption.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {10}{\ignorespaces TDC quantization noise models.\relax }}{21}{figure.caption.10}
+\contentsline {figure}{\numberline {10}{\ignorespaces \textbf {(a)} Leeson model for phase noise, \textbf {(b)} DCO additive noise model.\relax }}{21}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {11}{\ignorespaces Quantization as via additive error signal.\relax }}{21}{figure.caption.11}
+\contentsline {figure}{\numberline {11}{\ignorespaces \textbf {(a)} Divider noise model, \textbf {(b)} Digital divider output jitter.\relax }}{21}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {12}{\ignorespaces DCO additive noise model.\relax }}{22}{figure.caption.12}
+\contentsline {figure}{\numberline {12}{\ignorespaces Direct form I filter implementation with quantization.\relax }}{23}{figure.caption.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {13}{\ignorespaces Voltage to phase noise conversion.\relax }}{22}{figure.caption.13}
+\contentsline {figure}{\numberline {13}{\ignorespaces Full PLL additive noise model.\relax }}{24}{figure.caption.13}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {14}{\ignorespaces Divider phase noise.\relax }}{23}{figure.caption.14}
+\contentsline {figure}{\numberline {14}{\ignorespaces Filter design sequence.\relax }}{27}{figure.caption.14}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {15}{\ignorespaces Direct type I filter implementation with quantization.\relax }}{24}{figure.caption.15}
+\contentsline {figure}{\numberline {15}{\ignorespaces PI-controller PLL pole-zero locations.\relax }}{30}{figure.caption.15}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {16}{\ignorespaces Full PLL additive noise model.\relax }}{25}{figure.caption.16}
+\contentsline {figure}{\numberline {16}{\ignorespaces Example PI-PLL responses with varied $\zeta $.\relax }}{30}{figure.caption.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {17}{\ignorespaces Simulation process.\relax }}{28}{figure.caption.17}
+\contentsline {figure}{\numberline {17}{\ignorespaces Implementation of filter.\relax }}{32}{figure.caption.17}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {18}{\ignorespaces Simulation process.\relax }}{34}{figure.caption.18}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {19}{\ignorespaces Discrete model for oscillator random walk.\relax }}{38}{figure.caption.19}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {20}{\ignorespaces DCO additive noise model.\relax }}{50}{figure.caption.22}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {21}{\ignorespaces Voltage to phase noise conversion.\relax }}{50}{figure.caption.23}
