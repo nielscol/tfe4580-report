@@ -19,6 +19,40 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{barzilai_borwein_1988}{article}{}
+      \name{author}{2}{}{%
+        {{hash=d1922e287e0d8c860617fa203c62aeb7}{%
+           family={Barzilai},
+           familyi={B\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=5c0e820fb83089684333682ea051ee69}{%
+           family={Borwein},
+           familyi={B\bibinitperiod},
+           given={Jonathan\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{0b1ec99aa398c7e88cd0b1b3685fbfcf}
+      \strng{fullhash}{0b1ec99aa398c7e88cd0b1b3685fbfcf}
+      \strng{bibnamehash}{0b1ec99aa398c7e88cd0b1b3685fbfcf}
+      \strng{authorbibnamehash}{0b1ec99aa398c7e88cd0b1b3685fbfcf}
+      \strng{authornamehash}{0b1ec99aa398c7e88cd0b1b3685fbfcf}
+      \strng{authorfullhash}{0b1ec99aa398c7e88cd0b1b3685fbfcf}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IMA Journal of Numerical Analysis}
+      \field{number}{1}
+      \field{title}{Two-Point Step Size Gradient Methods}
+      \field{volume}{8}
+      \field{year}{1988}
+      \field{pages}{141\bibrangedash 148}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1093/imanum/8.1.141
+      \endverb
+    \endentry
     \entry{brockett_1965}{article}{}
       \name{author}{1}{}{%
         {{hash=d88ec7e8ab5cf633c633f60505b09f78}{%
@@ -59,6 +93,36 @@
       \range{pages}{39}
       \verb{doi}
       \verb 10.1137/9780898719987.ch15
+      \endverb
+    \endentry
+    \entry{chau_chen_2009}{article}{}
+      \name{author}{2}{}{%
+        {{hash=053a41e8e34d6ee9b41a8c0981ee196c}{%
+           family={Chau},
+           familyi={C\bibinitperiod},
+           given={Yawgeng\bibnamedelima A.},
+           giveni={Y\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=1fa0fd942731cba3385fe4c75ead792d}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Chen-Feng},
+           giveni={C\bibinithyphendelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{089b479f82e18d88f9c3fa7454d03a6e}
+      \strng{fullhash}{089b479f82e18d88f9c3fa7454d03a6e}
+      \strng{bibnamehash}{089b479f82e18d88f9c3fa7454d03a6e}
+      \strng{authorbibnamehash}{089b479f82e18d88f9c3fa7454d03a6e}
+      \strng{authornamehash}{089b479f82e18d88f9c3fa7454d03a6e}
+      \strng{authorfullhash}{089b479f82e18d88f9c3fa7454d03a6e}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2009 International Symposium on Intelligent Signal Processing and Communication Systems (ISPACS)}
+      \field{title}{All-digital phase-locked loop with an adaptive bandwidth design procedure}
+      \field{year}{2009}
+      \verb{doi}
+      \verb 10.1109/ispacs.2009.5383893
       \endverb
     \endentry
     \entry{gardner_1980}{article}{}
@@ -115,6 +179,89 @@
       \field{booktitle}{Phaselock techniques}
       \field{title}{Chapter Two Loop Fundamentals}
       \field{year}{2005}
+    \endentry
+    \entry{kratyuk_2007}{article}{}
+      \name{author}{4}{}{%
+        {{hash=6e1fc99f7fcc1143c8fa2139ea2f7c3a}{%
+           family={Kratyuk},
+           familyi={K\bibinitperiod},
+           given={Volodymyr},
+           giveni={V\bibinitperiod}}}%
+        {{hash=08ad8ab2ee3847a61f1f43212478278d}{%
+           family={Hanumolu},
+           familyi={H\bibinitperiod},
+           given={Pavan\bibnamedelima Kumar},
+           giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=580f0b0c1465058ee6eef67e251887cc}{%
+           family={Moon},
+           familyi={M\bibinitperiod},
+           given={Un-Ku},
+           giveni={U\bibinithyphendelim K\bibinitperiod}}}%
+        {{hash=bda7793df94282427ced71f68e1d6139}{%
+           family={Mayaram},
+           familyi={M\bibinitperiod},
+           given={Kartikeya},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{79041cde82feda9c3472d0a1001d3799}
+      \strng{fullhash}{6801d4e0ac107d71f5b253b9dd4b9f69}
+      \strng{bibnamehash}{79041cde82feda9c3472d0a1001d3799}
+      \strng{authorbibnamehash}{79041cde82feda9c3472d0a1001d3799}
+      \strng{authornamehash}{79041cde82feda9c3472d0a1001d3799}
+      \strng{authorfullhash}{6801d4e0ac107d71f5b253b9dd4b9f69}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Circuits and Systems II: Express Briefs}
+      \field{number}{3}
+      \field{title}{A Design Procedure for All-Digital Phase-Locked Loops Based on a Charge-Pump Phase-Locked-Loop Analogy}
+      \field{volume}{54}
+      \field{year}{2007}
+      \field{pages}{247\bibrangedash 251}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/tcsii.2006.889443
+      \endverb
+    \endentry
+    \entry{kumm_klingbeil_zipf_2010}{article}{}
+      \name{author}{3}{}{%
+        {{hash=0046d827395c0e4a0cfb0ed7541159ad}{%
+           family={Kumm},
+           familyi={K\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=6b4dc5ebb679e0dc592dee13e75e5b3f}{%
+           family={Klingbeil},
+           familyi={K\bibinitperiod},
+           given={Harald},
+           giveni={H\bibinitperiod}}}%
+        {{hash=1d2e0f976151515d372d07c881768e3e}{%
+           family={Zipf},
+           familyi={Z\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{a3945c6bcff6474f6a0e072b6ab18782}
+      \strng{fullhash}{a3945c6bcff6474f6a0e072b6ab18782}
+      \strng{bibnamehash}{a3945c6bcff6474f6a0e072b6ab18782}
+      \strng{authorbibnamehash}{a3945c6bcff6474f6a0e072b6ab18782}
+      \strng{authornamehash}{a3945c6bcff6474f6a0e072b6ab18782}
+      \strng{authorfullhash}{a3945c6bcff6474f6a0e072b6ab18782}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Circuits and Systems I: Regular Papers}
+      \field{number}{9}
+      \field{title}{An FPGA-Based Linear All-Digital Phase-Locked Loop}
+      \field{volume}{57}
+      \field{year}{2010}
+      \field{pages}{2487\bibrangedash 2497}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/tcsi.2010.2046237
+      \endverb
     \endentry
     \entry{lee_hajimiri_2000}{article}{}
       \name{author}{2}{}{%
@@ -179,6 +326,19 @@
       \verb 10.1109/proc.1966.4682
       \endverb
     \endentry
+    \entry{numpy.fft}{misc}{}
+      \field{sortinit}{n}
+      \field{sortinithash}{f7242c3ed3dc50029fca1be76c497c7c}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{numpy.fft.fft - NumPy v1.17 Manual}
+      \field{title}{numpy.fft.fft}
+      \verb{urlraw}
+      \verb https://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html
+      \endverb
+      \verb{url}
+      \verb https://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html
+      \endverb
+    \endentry
     \entry{ogata_2010}{inbook}{}
       \name{author}{1}{}{%
         {{hash=72cb1e667ce543119df1b777c0db24de}{%
@@ -229,6 +389,35 @@
       \field{title}{Chapter 8 PID Controllers and Modified PID Controllers}
       \field{year}{2010}
     \endentry
+    \entry{perrott_2002_sim}{article}{}
+      \name{author}{1}{}{%
+        {{hash=b258d08afdc4ad54faaf053aeaab95ec}{%
+           family={Perrott},
+           familyi={P\bibinitperiod},
+           given={M.h.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{b258d08afdc4ad54faaf053aeaab95ec}
+      \strng{fullhash}{b258d08afdc4ad54faaf053aeaab95ec}
+      \strng{bibnamehash}{b258d08afdc4ad54faaf053aeaab95ec}
+      \strng{authorbibnamehash}{b258d08afdc4ad54faaf053aeaab95ec}
+      \strng{authornamehash}{b258d08afdc4ad54faaf053aeaab95ec}
+      \strng{authorfullhash}{b258d08afdc4ad54faaf053aeaab95ec}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Design \& Test of Computers}
+      \field{number}{4}
+      \field{title}{Behavioral simulation of fractional-N frequency synthesizers and other PLL circuits}
+      \field{volume}{19}
+      \field{year}{2002}
+      \field{pages}{74\bibrangedash 83}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/mdt.2002.1018136
+      \endverb
+    \endentry
     \entry{perrott_2002}{article}{}
       \name{author}{3}{}{%
         {{hash=b258d08afdc4ad54faaf053aeaab95ec}{%
@@ -267,6 +456,81 @@
       \verb{doi}
       \verb 10.1109/jssc.2002.800925
       \endverb
+    \endentry
+    \entry{press_2007}{inbook}{}
+      \name{author}{5}{}{%
+        {{hash=e25935343805f5bc8cf8924629f02376}{%
+           family={Press},
+           familyi={P\bibinitperiod},
+           given={William\bibnamedelima H.},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=669bf06e8f7f0f6139884459cb728440}{%
+           family={Teukolsky},
+           familyi={T\bibinitperiod},
+           given={Saul\bibnamedelima Arno},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=12ba825dc296f78b21b90f645ff266b9}{%
+           family={Vetterling},
+           familyi={V\bibinitperiod},
+           given={William\bibnamedelima T.},
+           giveni={W\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=15807a7b15e1cd89dfa546bd8385a36f}{%
+           family={Flannery},
+           familyi={F\bibinitperiod},
+           given={Brian\bibnamedelima P.},
+           giveni={B\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=c5acec3aa77da79fbc7a4517a8506292}{%
+           given={undefined\bibnamedelima undefined},
+           giveni={u\bibinitperiod\bibinitdelim u\bibinitperiod},
+           prefix={undefined\bibnamedelimb undefined\bibnamedelima undefined},
+           prefixi={u\bibinitperiod\bibinitdelim u\bibinitperiod\bibinitdelim u\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{21c96521d50e44757fcf123ac89a147c}
+      \strng{fullhash}{2b66dc7ce1cce7d484db77e687a27090}
+      \strng{bibnamehash}{21c96521d50e44757fcf123ac89a147c}
+      \strng{authorbibnamehash}{21c96521d50e44757fcf123ac89a147c}
+      \strng{authornamehash}{21c96521d50e44757fcf123ac89a147c}
+      \strng{authorfullhash}{2b66dc7ce1cce7d484db77e687a27090}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Numerical recipes: the art of scientific computing}
+      \field{title}{10.2 Golden Section Search in One Dimension}
+      \field{year}{2007}
+    \endentry
+    \entry{proakis_1993_psd}{inbook}{}
+      \name{author}{2}{}{%
+        {{hash=823300710640b0f515aa8b4640bb4c69}{%
+           family={Proakis},
+           familyi={P\bibinitperiod},
+           given={John\bibnamedelima G.},
+           giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=59341c9c92e0549c1c06f0b5cd192616}{%
+           family={Manolakis},
+           familyi={M\bibinitperiod},
+           given={Dimitris\bibnamedelima G.},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Macmillan}%
+      }
+      \strng{namehash}{7833629adaf08c7851937901cb752049}
+      \strng{fullhash}{7833629adaf08c7851937901cb752049}
+      \strng{bibnamehash}{7833629adaf08c7851937901cb752049}
+      \strng{authorbibnamehash}{7833629adaf08c7851937901cb752049}
+      \strng{authornamehash}{7833629adaf08c7851937901cb752049}
+      \strng{authorfullhash}{7833629adaf08c7851937901cb752049}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Digital signal processing: principles, algorithms, and applications}
+      \field{title}{12 Power Spectrum Estimation}
+      \field{year}{1993}
     \endentry
     \entry{proakis_1993}{inbook}{}
       \name{author}{2}{}{%
@@ -378,29 +642,52 @@
       \field{booktitle}{Design of analog CMOS integrated circuits}
       \field{title}{16 Phase-Locked Loops}
     \endentry
-    \entry{spalvieri_2006}{article}{}
-      \name{author}{1}{}{%
-        {{hash=f9f7e34e47df30b60dfbca81d1b02498}{%
-           family={Spalvieri},
+    \entry{safwat_ghoneima_ismail_2011}{article}{}
+      \name{author}{3}{}{%
+        {{hash=4b437d46c493bb2762c0beb4e2107a99}{%
+           family={Safwat},
            familyi={S\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
+           given={Sally},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9e0c0370051e932a7cf87d94f5113679}{%
+           family={Ghoneima},
+           familyi={G\bibinitperiod},
+           given={Maged},
+           giveni={M\bibinitperiod}}}%
+        {{hash=321a61c6deea39bc53a63589d0c58d10}{%
+           family={Ismail},
+           familyi={I\bibinitperiod},
+           given={Yehea},
+           giveni={Y\bibinitperiod}}}%
       }
-      \strng{namehash}{f9f7e34e47df30b60dfbca81d1b02498}
-      \strng{fullhash}{f9f7e34e47df30b60dfbca81d1b02498}
-      \strng{bibnamehash}{f9f7e34e47df30b60dfbca81d1b02498}
-      \strng{authorbibnamehash}{f9f7e34e47df30b60dfbca81d1b02498}
-      \strng{authornamehash}{f9f7e34e47df30b60dfbca81d1b02498}
-      \strng{authorfullhash}{f9f7e34e47df30b60dfbca81d1b02498}
+      \strng{namehash}{b2388c53cbc087228d0220e7cb580fbf}
+      \strng{fullhash}{b2388c53cbc087228d0220e7cb580fbf}
+      \strng{bibnamehash}{b2388c53cbc087228d0220e7cb580fbf}
+      \strng{authorbibnamehash}{b2388c53cbc087228d0220e7cb580fbf}
+      \strng{authornamehash}{b2388c53cbc087228d0220e7cb580fbf}
+      \strng{authorfullhash}{b2388c53cbc087228d0220e7cb580fbf}
       \field{sortinit}{S}
       \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{11th IEEE Symposium on Computers and Communications (ISCC06)}
-      \field{title}{Optimal Loop Filter of the Discrete-time PLL in the Presence of Phase Noise}
-      \field{year}{2006}
+      \field{journaltitle}{2011 International Conference on Energy Aware Computing}
+      \field{title}{A design methodology for a low power bang-bang all digital PLL based on digital loop filter programmable coefficients}
+      \field{year}{2011}
       \verb{doi}
-      \verb 10.1109/iscc.2006.115
+      \verb 10.1109/iceac.2011.6136676
+      \endverb
+    \endentry
+    \entry{scipy.signal}{misc}{}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Signal processing (scipy.signal) - SciPy v1.3.3 Reference Guide}
+      \field{title}{Signal processing (scipy.signal)}
+      \verb{urlraw}
+      \verb https://docs.scipy.org/doc/scipy/reference/signal.html
+      \endverb
+      \verb{url}
+      \verb https://docs.scipy.org/doc/scipy/reference/signal.html
       \endverb
     \endentry
     \entry{vannicola_varshney_1983}{article}{}
@@ -435,6 +722,94 @@
       \range{pages}{10}
       \verb{doi}
       \verb 10.1109/tcom.1983.1095902
+      \endverb
+    \endentry
+    \entry{xu_abidi_2017}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ebe87161fff38c40d0bf84a35cba7349}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c0c8100d40d057462fe64152d9ad2361}{%
+           family={Abidi},
+           familyi={A\bibinitperiod},
+           given={Asad\bibnamedelima A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{7f8974443f3530eab115c1449d2b8669}
+      \strng{fullhash}{7f8974443f3530eab115c1449d2b8669}
+      \strng{bibnamehash}{7f8974443f3530eab115c1449d2b8669}
+      \strng{authorbibnamehash}{7f8974443f3530eab115c1449d2b8669}
+      \strng{authornamehash}{7f8974443f3530eab115c1449d2b8669}
+      \strng{authorfullhash}{7f8974443f3530eab115c1449d2b8669}
+      \field{sortinit}{X}
+      \field{sortinithash}{b0b62a29ee4a21a0e618fed53a0313cc}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Circuits and Systems I: Regular Papers}
+      \field{number}{7}
+      \field{title}{Design Methodology for Phase-Locked Loops Using Binary (Bang-Bang) Phase Detectors}
+      \field{volume}{64}
+      \field{year}{2017}
+      \field{pages}{1637\bibrangedash 1650}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1109/tcsi.2017.2679683
+      \endverb
+    \endentry
+    \entry{zanuso_2009}{article}{}
+      \name{author}{6}{}{%
+        {{hash=5edbf00ec2148739d1f930120dcedd56}{%
+           family={Zanuso},
+           familyi={Z\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2d52ad5618dfe020b2314f87373b59c9}{%
+           family={Tasca},
+           familyi={T\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=88988b7824b7d650d1297ff6b453b1a0}{%
+           family={Levantino},
+           familyi={L\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=2556b037de43f9b11debcf7cef534cfa}{%
+           family={Donadel},
+           familyi={D\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a8bbc623b8c54039a4edd443a13591ab}{%
+           family={Samori},
+           familyi={S\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=0d82dfddc0954dd471b755bf000006b9}{%
+           family={Lacaita},
+           familyi={L\bibinitperiod},
+           given={A.l.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{1cadd1b3068fe372bfc6235ecb51e147}
+      \strng{fullhash}{65f8565793756a022ef14b683ab62c67}
+      \strng{bibnamehash}{1cadd1b3068fe372bfc6235ecb51e147}
+      \strng{authorbibnamehash}{1cadd1b3068fe372bfc6235ecb51e147}
+      \strng{authornamehash}{1cadd1b3068fe372bfc6235ecb51e147}
+      \strng{authorfullhash}{65f8565793756a022ef14b683ab62c67}
+      \field{sortinit}{Z}
+      \field{sortinithash}{156173bd08b075d7295bc3e0f4735a04}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Circuits and Systems II: Express Briefs}
+      \field{number}{11}
+      \field{title}{Noise Analysis and Minimization in Bang-Bang Digital PLLs}
+      \field{volume}{56}
+      \field{year}{2009}
+      \field{pages}{835\bibrangedash 839}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/tcsii.2009.2032470
       \endverb
     \endentry
   \enddatalist

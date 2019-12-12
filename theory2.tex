@@ -8,7 +8,7 @@ Based on the continuous PLL theory, a model for digital, discrete time sampled P
 \FloatBarrier
 The basic architecture of an ADPLL is shown in figure \ref{fig:basic_adpll}. Here, compared to the continuous PLL of figure \ref{fig:basic_pll}, the phase detector has been replaced with a time to digital converter (TDC), the loop filter $\mathrm{H}_{LF}(s)$ with a discrete-time loop filter $\mathrm{H}_{LF}(z)$, and the VCO with a digitally controlled oscillator (DCO). In this architecture, all components are fully or partially digital in implementation. 
 
-\subsubsection{Divider}
+\subsubsection{Divider}\label{div_theory}
 	A digital divider functions by counting input cycles. With a divider modulus N, the output of the divider will have an active edge transition (considered to be rising edge as shown in figure \ref{fig:digital_div}) every N-cycles. Phase information is inferred from active edge timing, which occurs with time interval N$/f_{osc}$, and is equal to the point at which output phase equals a multiple of $2\pi$. Thus a digital divider does not provider continuous phase information, but rather a sampled phase signal with rate $f_{osc}/$N. 
 	\begin{figure}[htb!]
 		\center\include{./figs/digital_div}
@@ -26,7 +26,7 @@ The basic architecture of an ADPLL is shown in figure \ref{fig:basic_adpll}. Her
 	\end{equation}
 
 \subsubsection{TDC}
-	The TDC is a digital, quantized representation of the the phase detector. It takes input phase signals $\Phi_{div}$[n] and $\Phi_{ref}$[n], and outputs a digital phase error word $e_\Phi[n]$. Figure \ref{fig:tdc} shows the basic TDC model architecture. Being digitized, a TDC will have limited resolution in phase, equivalent to M steps per reference cycle. This is a minimum step size in time of $\Delta t_{step}$ = $1/Mf_{ref}$. Since the output of the TDC is digital, the model applies a scale factor M$/2\pi$ and floor rounding, so 1 least significant bit (LSB) of $e_\Phi[n]$ equates to $\Delta t_{step}$ timing error  between $\Phi_{div}$[n] and $\Phi_{ref}$[n].
+	The TDC is a digital, quantized representation of the phase detector. It takes input phase signals $\Phi_{div}$[n] and $\Phi_{ref}$[n], and outputs a digital phase error word $e_\Phi[n]$. Figure \ref{fig:tdc} shows the basic TDC model architecture. Being digitized, a TDC will have limited resolution in phase, equivalent to M steps per reference cycle. This is a minimum step size in time of $\Delta t_{step}$ = $1/Mf_{ref}$. Since the output of the TDC is digital, the model applies a scale factor M$/2\pi$ and floor rounding, so 1 least significant bit (LSB) of $e_\Phi[n]$ equates to $\Delta t_{step}$ timing error  between $\Phi_{div}$[n] and $\Phi_{ref}$[n].
 	\begin{figure}[htb!]
 		\center\include{./figs/tdc}
 		\caption{TDC model.}
@@ -47,7 +47,7 @@ The basic architecture of an ADPLL is shown in figure \ref{fig:basic_adpll}. Her
 	\FloatBarrier
 
 \subsubsection{Discrete-time loop filter}\label{lf-discretization}
-	The discrete-time loop filter design will be derived from the continuous canonical loop filter (equation \ref{eq:lf_general_form}) via application of a s-to-z domain transformation. The bilinear transform \cite{proakis_1993_bilinear} allows for such conversion from continuous transfer function to discrete representation. However, in the case presented in this work, where a high degree of sampling ($f_s > 10\cdot\mathrm{BW}_{loop}$) is employed, a simpler transformation is permissable, derived through Taylor series approximation of z=$re^{s\Delta T}$ for values on the unit circle, i.e. r=1. This will be refered to as the approximate bilinear transform in this work. Given the $1/\Delta T_s$=$f_{ref}$ as the relation for sampling rate, then:
+	The discrete-time loop filter design will be derived from the continuous canonical loop filter (equation \ref{eq:lf_general_form}) via application of a s-to-z domain transformation. The bilinear transform \cite{proakis_1993_bilinear} allows for such conversion from continuous transfer function to discrete representation. However, in the case presented in this work, where a high degree of sampling ($f_s > 10\cdot\mathrm{BW}_{loop}$) is employed, a simpler transformation is permissible, derived through Taylor series approximation of z=$re^{s\Delta T}$ for values on the unit circle, i.e. r=1. This will be referred to as the approximate bilinear transform in this work. Given the $1/\Delta T_s$=$f_{ref}$ as the relation for sampling rate, then:
 	\begin{align*}
 		z^{-1} &= e^{-s\Delta T_s} && \text{(definition of z-space on unit circle)} \\
 		&= \sum_{k=0}^\infty\frac{(-s\Delta T_s)^k}{k!} && \text{(exponential Taylor series)} \\
@@ -81,12 +81,11 @@ The basic architecture of an ADPLL is shown in figure \ref{fig:basic_adpll}. Her
 	\begin{equation}
 		\Phi_{out}[n] = \Phi_{out}[n-1] + 2\pi K_{DCO}u[n]\Delta T_s
 	\end{equation}
-	Application of the z-transform yields:
-	\begin{equation}
+	Application of the z-transform yields equation \ref{eq:hdcoz}, and successive application of the bilinear transform to the DCO transfer function yields  \ref{eq:hdcos}.
+	\begin{equation}\label{eq:hdcoz}
 		\mathrm{H}_{DCO}(z) = \frac{\Phi_{out}(z)}{u(z)} = \frac{2\pi K_{DCO}\Delta T_s}{1-z^{-1}}
 	\end{equation}
-	Application of the bilinear transform to the DCO transfer function yields:
-	\begin{equation}
+	\begin{equation}\label{eq:hdcos}
 		\mathrm{H}_{DCO}(s) = \frac{\Phi_{out}(s)}{u(s)} = \frac{2\pi K_{DCO}\Delta T_s}{1-(1-s\Delta T_s)} = \frac{2\pi K_{DCO}}{s} 
 	\end{equation}
 
@@ -122,7 +121,7 @@ The basic architecture of an ADPLL is shown in figure \ref{fig:basic_adpll}. Her
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{ADPLL Noise Model} \label{pn_theory}
-The noise in the discrete-time ADPLL result from quantization and from stochastic sources. Quantization results from round off errors introducted in the digitization of PLL components (in the TDC, loop filter, and DCO). Stochastic noise results from thermal and flicker noise in the PLL components when considered in an analog viewpoint (present in the DCO, divider and TDC). The noise generated by these quantization sources will be discussed in the following sections, based on a modeling and noise analysis approach from \cite{perrott_2002}.
+The noise in the discrete-time ADPLL result from quantization and from stochastic sources. Quantization results from round off errors introduced in the digitization of PLL components (in the TDC, loop filter, and DCO). Stochastic noise results from thermal and flicker noise in the PLL components when considered in an analog viewpoint (present in the DCO, divider and TDC). The noise generated by these quantization sources will be discussed in the following sections, based on a modeling and noise analysis approach from \cite{perrott_2002}.
 
 \subsubsection{TDC noise}\label{tdc_noise}
 	The predominant phase noise source in the TDC is due to quantization. A straightforward approach to model quantization noise is to utilize the model of figure \ref{fig:tdc_add_pn} to represent quantization.
@@ -156,7 +155,7 @@ The noise in the discrete-time ADPLL result from quantization and from stochasti
 	\begin{equation}\label{eq:tdc_noise}
 		\sigma_{q_{TDC}}^2 = \int_{-\infty}^\infty q^2P_q(Q=q)dq =  \int_{-\Delta/2}^{\Delta/2}\frac{q^2}{\Delta}dq = \frac{\Delta^2}{12}
 	\end{equation}
-	Since $e_\Phi$[n] is digital signal, the minimum step size is $\Delta$=1 LSB. The TDC quantization noise power is therefore $\sigma_{q_{TDC}}^2 = 1/12$ LSB$^2$. The po
+	Since $e_\Phi$[n] is a digital signal, the minimum step size is $\Delta$=1 LSB. The TDC quantization noise power is therefore $\sigma_{q_{TDC}}^2 = 1/12$ LSB$^2$. The po
 	If the quantization noise is assumed to be white, and the TDC is sampled at $f_{ref}$, the quantization PSD is:
 	\begin{equation}
 		S_{qn_{TDC}}(f) = \frac{P_{q_{TDC}}}{\Delta f} = \frac{\sigma_{q_{TDC}}^2}{f_{ref}} = \frac{\Delta^2}{12f_{ref}} = \frac{1}{12f_{ref}} \hspace{1em}\frac{[\text{LSB}]^2}{[\text{Hz}]}
@@ -211,11 +210,11 @@ The noise in the discrete-time ADPLL result from quantization and from stochasti
 	    \caption{\textbf{(a)} Divider noise model, \textbf{(b)} Digital divider output jitter.}
 	\end{figure}
 	\FloatBarrier
-	Divider noise is manifested as jitter (with RMS distribution in time of $\sigma_{t n_{div}}$) on the the divider output. This is due to effects of stochastic and uncorrelated voltage noise coupling into the signal phase, much like in the case of oscillator phase noise. If the divider is a digital circuit, with edge rate $dV/dt$, and subject to thermal noise in the form of a  voltage $v_n$, with noise power of $\sigma_{v_n}^2$, the divider phase noise power added to the divider output is:
+	Divider noise is manifested as jitter (with RMS distribution in time of $\sigma_{t n_{div}}$) on the divider output. If the divider is a digital circuit, with edge rate $dV/dt$, and subject to thermal noise in the form of an additive voltage $v_n$, with noise power of $\sigma_{v_n}^2$, the divider phase noise power added to the divider output is:
 	\begin{equation}
 		\sigma_{\Phi n_{div}}^2 = \omega^2_{ref}\sigma^2_{t n_{div}}  =\omega^2_{ref}\left(\frac{dV}{dt}\right)^{-2}\sigma_{v_n}^2
 	\end{equation}
-	At lock, the output of a digital divider will have an update rate $f_{{osc}}/\mathrm{N} \approx f_{ref}$, which can be treated as the sampling rate of the output phase signal $\Phi_{div}[n]$. Thus if the divider phase noise power is confined into a bandwidth equal to $f_{ref}$, the spectral density of divider noise is:
+	At lock, the output of a digital divider will have an update rate $f_{{osc}}/\mathrm{N} \approx f_{ref}$, which can be treated as the sampling rate of the output phase signal $\Phi_{div}[n]$ as mentioned in section \ref{div_theory}. Thus if the divider phase noise power is confined into a bandwidth equal to $f_{ref}$, the spectral density of divider noise is:
 	\begin{equation}
 		S_{\Phi n_{div}}(f) = \frac{\sigma_{\Phi n_{div}}^2}{f_{ref}} = 2\pi\omega_{ref}\sigma^2_{t n_{div}}  =2\pi\omega_{ref}\left(\frac{dV}{dt}\right)^{-2}\sigma_{v_n}^2\hspace{1em}\frac{[\text{rad}]^2}{[\text{Hz}]}
 	\end{equation}
@@ -313,24 +312,34 @@ The noise in the discrete-time ADPLL result from quantization and from stochasti
 
 	Thus, the PLL output noise PSD relative to the carrier $\mathcal{L}(\Delta f)$ is equal to the PSD of the phase noise signal $\Phi_{n}(t)$, $S_{\Phi_{n}}(\Delta f)$, provided $\text{Var}[\Phi_{n}(t)] << 1$. 
 
-\subsubsection{PLL output-referred noise PSD}
-In terms of analysis, PLL noise PSD referred to the PLL output is of most interest. Thus far the following have been established: (a) noise spectrum generated by each individual PLL component, (b) the PLL phase noise sensitivity functions, and (c) the relationship between PLL output PSD and output phase noise. Now these can be combined to provide a final result for full PLL output-referred noise PSD. An important assumption here is all noise sources are uncorrelated, so their independent noise power contributions may be summed to find the total noise PSD. The PLL output phase noise PSD for each noise source is simply found by multiplying magnitude squared of the respective noise sensitivity function with the noise source PSD. Thus:
+\subsubsection{PLL output-referred noise PSD}\label{final_pn_model}
+In terms of analysis, PLL noise PSD referred to the PLL output is of most interest. Thus far the following have been established: (a) noise spectrum generated by each individual PLL component, (b) the PLL phase noise sensitivity functions, and (c) the relationship between PLL output PSD and output phase noise. These can be combined to provide a final result for total PLL output-referred noise PSD. An assumption here is all noise sources are uncorrelated, so their independent noise power contributions may be summed to find the total noise PSD. The PLL output phase noise PSD for each noise source is simply found by multiplying magnitude squared of the respective noise sensitivity function with the noise source PSD. Thus:
 \begin{align}
 	S_{\Phi n_{TDC,out}}(f) &= S_{qn_{TDC}}(f)\left|\frac{\Phi_{out}(f)}{q_{n_{TDC}}(f)}\right|^2 = \frac{1}{12f_{ref}}\left|2\pi\frac{\mathrm{N}}{\mathrm{M}}\hat{\mathrm{T}}(f)\right|^2\\
 	S_{\Phi n_{DCO,out}}(f) &= S_{\Phi n_{DCO}}(f)\left|\frac{\Phi_{out}(f)}{\Phi_{n_{DCO}}(f)}\right|^2  = \frac{S_{0\Phi n_{DCO}}}{f^2}\left|1-\hat{\mathrm{T}}(f)\right|^2\\		
-	S_{\Phi n_{LF,out}}(f) &= S_{q n_{LF}}(f)\left|\frac{\Phi_{out}(f)}{q_{n_{LF}}(f)}\right|^2 \approx \frac{K_{DCO}^2}{12f_{ref}f^2}\left|\frac{1-\hat{\mathrm{T}}(f)}{1+\sum_{k=1}^P a_k - j2\pi f\sum_{k=1}^P ka_k}\right|^2\\
+	S_{\Phi n_{LF,out}}(f) &= S_{q n_{LF}}(f)\left|\frac{\Phi_{out}(f)}{q_{n_{LF}}(f)}\right|^2 \approx \frac{K_{DCO}^2}{12f_{ref}f^2}\frac{(P+Z+1)|1-\hat{\mathrm{T}}(f)|^2}{\left|1+\sum_{k=1}^P a_k - j2\pi f\sum_{k=1}^P ka_k\right|^2}\\
 	S_{\Phi n_{div,out}}(f) &= S_{\Phi n_{div}}(f)\left|\frac{\Phi_{out}(f)}{\Phi_{n_{div}}(f)}\right|^2 = f_{ref}\left|2\pi\sigma_{tn_{div}}\mathrm{N}\hat{\mathrm{T}}(f)\right|^2
 \end{align}
-The output SSB noise PSD at offset $\Delta f$ relative to the carrier normalized to carrier power of PLL will be:
+The output noise PSD at offset $\Delta f$ relative to the carrier normalized to carrier power of PLL will be:
 \begin{equation}
 	\mathcal{L}(\Delta f) = S_{\Phi n_{TDC,out}}(\Delta f) + S_{\Phi n_{DCO,out}}(\Delta f) + S_{\Phi n_{LF,out}}(\Delta f) + S_{\Phi n_{div,out}}(\Delta f)
 \end{equation}
 
+\subsection{Modified ADPLL architecture for low TDC resolutions}
+When a low resolution TDC is used in a PLL, the resolution in phase will limit the ability to detect phase (or equivalently frequency) errors at the output in steady state. With M TDC steps per reference cycle, a divider ratio of N and a frequency error at the PLL output of $\Delta f$, the time needed for enough phase error to accumulate for a 1 LSB change of the TDC output is:
+\begin{equation}
+	t = \frac{\text{N}}{\text{M}\Delta f}
+\end{equation}
+If M $<$ N, the response time $t$ of the TDC to frequency disturbance $\Delta f$ is greater than the period of that disturbance $1/\Delta f$. Under these conditions, the PLL will have impaired ability to correct phase error and the phase noise performance will be degraded. In order to introduce higher resolution phase-feedback in steady state, a bang bang phase detector (BBPD) is added in parallel with the TDC, as in figure \ref{fig:bbpll}, weighted with a gain $K_{bb}$. The BBPD outputs a 1 if the divider signal is late relative to the clock, and -1 if it is early, with resolution limited only by jitter. Post the $K_{bb}$ gain, the power of the BBPD signal is $K_{bb}^2$. To ensure the noise generated by the BBPD is less than that expected for the TDC from quantization, $K_{bb}^2 < 1/12$.
+\vspace{-1em}
+\begin{figure}[htb!]
+	\center\include{./figs/bbpll}
+	\caption{PLL with parallel bang-bang phase detector and TDC.}
+	\label{fig:bbpll}
+\end{figure}
+\FloatBarrier
+
 % Out PSD = Noise PSD * |(TF from source to output)|^2
 
 % out PSD = sum of individual PSDs
-
-\hl{Hypothetical ex. plot of all components? (in disco?)}
-
-
 

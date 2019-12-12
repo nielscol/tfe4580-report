@@ -1936,9 +1936,34 @@
     <bcf:citekey order="11">ogata_2010_pid</bcf:citekey>
     <bcf:citekey order="12">razavi_2017</bcf:citekey>
     <bcf:citekey order="13">vannicola_varshney_1983</bcf:citekey>
-    <bcf:citekey order="14">brockett_1965</bcf:citekey>
-    <bcf:citekey order="15">numerical_methods_2011</bcf:citekey>
-    <bcf:citekey order="16">spalvieri_2006</bcf:citekey>
+    <bcf:citekey order="14">numpy.fft</bcf:citekey>
+    <bcf:citekey order="15">proakis_1993_psd</bcf:citekey>
+    <bcf:citekey order="16">press_2007</bcf:citekey>
+    <bcf:citekey order="17">barzilai_borwein_1988</bcf:citekey>
+    <bcf:citekey order="18">scipy.signal</bcf:citekey>
+    <bcf:citekey order="19">brockett_1965</bcf:citekey>
+    <bcf:citekey order="20">numerical_methods_2011</bcf:citekey>
+    <bcf:citekey order="21">kratyuk_2007</bcf:citekey>
+    <bcf:citekey order="22">safwat_ghoneima_ismail_2011</bcf:citekey>
+    <bcf:citekey order="23">zanuso_2009</bcf:citekey>
+    <bcf:citekey order="24">xu_abidi_2017</bcf:citekey>
+    <bcf:citekey order="25">kumm_klingbeil_zipf_2010</bcf:citekey>
+    <bcf:citekey order="26">chau_chen_2009</bcf:citekey>
+    <bcf:citekey order="27">kratyuk_2007</bcf:citekey>
+    <bcf:citekey order="28">kumm_klingbeil_zipf_2010</bcf:citekey>
+    <bcf:citekey order="29">chau_chen_2009</bcf:citekey>
+    <bcf:citekey order="30">safwat_ghoneima_ismail_2011</bcf:citekey>
+    <bcf:citekey order="31">kratyuk_2007</bcf:citekey>
+    <bcf:citekey order="32">kumm_klingbeil_zipf_2010</bcf:citekey>
+    <bcf:citekey order="33">safwat_ghoneima_ismail_2011</bcf:citekey>
+    <bcf:citekey order="34">chau_chen_2009</bcf:citekey>
+    <bcf:citekey order="35">safwat_ghoneima_ismail_2011</bcf:citekey>
+    <bcf:citekey order="36">kumm_klingbeil_zipf_2010</bcf:citekey>
+    <bcf:citekey order="37">zanuso_2009</bcf:citekey>
+    <bcf:citekey order="38">xu_abidi_2017</bcf:citekey>
+    <bcf:citekey order="39">kumm_klingbeil_zipf_2010</bcf:citekey>
+    <bcf:citekey order="40">perrott_2002_sim</bcf:citekey>
+    <bcf:citekey order="41">proakis_1993_psd</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

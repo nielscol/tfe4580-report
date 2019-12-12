@@ -1,5 +1,7 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {1}{\ignorespaces System-level specifications\relax }}{47}{table.caption.20}
+\contentsline {table}{\numberline {1}{\ignorespaces System-level specifications\relax }}{49}{table.caption.26}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2}{\ignorespaces Component-level specifications.\relax }}{47}{table.caption.21}
+\contentsline {table}{\numberline {2}{\ignorespaces PLL parameters determined from filter design and optimization process.\relax }}{50}{table.caption.27}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {3}{\ignorespaces PLL parameters extracted from variance and parameter sweep simulations.\relax }}{53}{table.caption.32}

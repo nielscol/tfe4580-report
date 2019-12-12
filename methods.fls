@@ -26,5 +26,14 @@ INPUT /home/cole/Documents/pll/report/./figs/simulator.tex
 INPUT /home/cole/Documents/pll/report/./figs/simulator.tex
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+OUTPUT /home/cole/Documents/pll/report/./figs/rw_pn.aux
+INPUT /home/cole/Documents/pll/report/./figs/rw_pn.tex
+INPUT /home/cole/Documents/pll/report/./figs/rw_pn.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+OUTPUT /home/cole/Documents/pll/report/figs/optimizer.aux
+INPUT /home/cole/Documents/pll/report/figs/optimizer.tex
+INPUT /home/cole/Documents/pll/report/figs/optimizer.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm

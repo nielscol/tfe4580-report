@@ -1,0 +1,37 @@
+\fontfamily{\sfdefault}\selectfont
+% XCircuit output "optimizer.tex" for LaTeX input from optimizer.ps
+\def\putbox#1#2#3#4{\makebox[0.00000in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0.00000in][0.00000in]{\raisebox{#2}[0.00000in][0.00000in]{\scalebox{#3}{#4}}}}}
+\def\rightbox#1{\makebox[0.00000in][r]{#1}}
+\def\centbox#1{\makebox[0.00000in]{#1}}
+\def\topbox#1{\raisebox{-0.60\baselineskip}[0.00000in][0.00000in]{#1}}
+\def\midbox#1{\raisebox{-0.20\baselineskip}[0.00000in][0.00000in]{#1}}
+   \scalebox{1}{
+   \normalsize
+   \parbox{6.87968in}{
+   \includegraphics[scale=0.70000]{./figs/optimizer.pdf}\\
+   % translate x=1600 y=1120 scale 0.38
+   \putbox{3.12900in}{1.64500in}{0.96}{\textbf{B: Optimize $\{K, \omega_z, \omega_p\}$ for fixed $t_{settle}$}}%
+   \putbox{4.06700in}{0.97300in}{0.48}{\textbf{to minimize phase noise}}%
+   \putbox{4.06700in}{0.56700in}{0.48}{\textbf{Tune parameter $K$}}%
+   \putbox{4.06700in}{0.27300in}{0.48}{\textbf{equal to specified value}}%
+   \putbox{4.06700in}{0.42000in}{0.48}{\textbf{with GSS to set $t_{settle}$}}%
+   \putbox{4.06700in}{1.12000in}{0.48}{\textbf{with gradient descent}}%
+   \putbox{4.06700in}{1.26700in}{0.48}{\textbf{Tune parameters $\{\omega_z, \omega_p\}$}}%
+   \putbox{3.19200in}{1.47000in}{0.84}{{\color{blue}\texttt{while not converged:}}}%
+   \putbox{0.09800in}{1.64500in}{0.96}{\textbf{A: Minimize phase noise subject to $t_{settle,max}$}}%
+   \putbox{0.15400in}{1.47000in}{0.84}{{\color{blue}\texttt{while not converged:}}}%
+   \putbox{1.02900in}{1.26700in}{0.60}{\textbf{GSS for $t_{settle}$}}%
+   \putbox{1.02900in}{1.12000in}{0.48}{\textbf{minimize phase noise}}%
+   \putbox{1.02900in}{0.97300in}{0.48}{\textbf{with $0<t_{settle}<t_{settle,max}$}}%
+   \putbox{1.02900in}{0.56700in}{0.60}{\textbf{Optimizer B}}%
+   \putbox{1.02900in}{0.42000in}{0.48}{\textbf{Minimize phase noise}}%
+   \putbox{1.02900in}{0.27300in}{0.48}{\textbf{for fixed $t_{settle}$}}%
+   \putbox{1.93200in}{1.23200in}{0.48}{\textbf{current $t_{settle}$}}%
+   \putbox{0.35700in}{1.26700in}{0.48}{\textbf{Min. phase noise}}%
+   \putbox{5.02600in}{1.20400in}{0.48}{\textbf{$\{K, \omega_z, \omega_p\}$}}%
+   \putbox{3.54200in}{1.23200in}{0.48}{\textbf{$\{K, \omega_z, \omega_p\}$}}%
+   \putbox{0.35700in}{1.20400in}{0.48}{\textbf{for current $t_{settle}$}}%
+   } % close 'parbox'
+   } % close 'scalebox'
+   \vspace{-\baselineskip} % this is not necessary, but looks better
+\fontfamily{\rmdefault}\selectfont

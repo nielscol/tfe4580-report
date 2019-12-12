@@ -1,5 +1,38 @@
 	\appendix
 
+	\section{Estimating PSD with autoregressive model}\label{yule_walker_ar_psd}
+	The following is based on \cite{proakis_1993_psd}. Given a signal x[n] whose power spectrum should be estimated, its autocorrelation sequence $r_{xx}[l]$ with lag $l$ must be computed:
+	\begin{equation}
+		r_{xx}[l] = \sum_{n=-\infty}^{\infty} x[n]x[n-l]
+	\end{equation}
+	The autoregressive model for power spectrum, with p poles, that shall be fitted is given in \ref{eq:ar_psd_eq}
+	\begin{equation}\label{eq:ar_psd_eq}
+		S_{XX}(f) = \left.\frac{1}{|1+\sum_{n=1}^pa_nz^{-1}|^2}\right|_{z^{-1}=e^{-j2\pi f\Delta T}}
+	\end{equation}
+	MMSE optimization of the distribution for coefficients $\{a_1, ..., a_p\}$ is done by solving the Yule-Walker equation in \ref{eq:yule_walker}.
+	\begin{equation} \label{eq:yule_walker}
+	\begin{bmatrix}
+	a_1\\ 
+	a_2\\
+	\vdots\\
+	a_p
+	\end{bmatrix} = 
+	-\mathbf{R}_{xx}^{-1}\mathbf{r}_{xx}=
+	-\begin{bmatrix}
+	r_{xx}[0] & r_{xx}[1] & \dots & r_{xx}[p-1]\\ 
+	r_{xx}[1] & r_{xx}[0] & \dots & r_{xx}[p-2]\\ 
+	\vdots & \vdots &  & \\
+	r_{xx}[p-1] & r_{xx}[p-2] &  & r_{xx}[0]
+	\end{bmatrix}^{-1}
+	\begin{bmatrix}
+	r_{xx}[1]\\ 
+	r_{xx}[2]\\
+	\vdots\\
+	r_{xx}[p]
+	\end{bmatrix}
+	\end{equation}
+
+
 	\section{Oscillator phase noise due to thermal noise}\label{osc_pn_additive_append}
 
 

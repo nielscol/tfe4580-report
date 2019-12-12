@@ -1,103 +1,123 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}Introduction}{10}{section.1}
+\contentsline {section}{\numberline {1}Introduction}{11}{section.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}Theory}{12}{section.2}
+\contentsline {section}{\numberline {2}Theory}{13}{section.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1}Continuous PLL Model}{13}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.1}Continuous PLL Model}{14}{subsection.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.1}PLL Synthesizer architecture}{13}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.1}PLL Synthesizer architecture}{14}{subsubsection.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2}Divider}{13}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.2}Divider}{14}{subsubsection.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.3}Phase detector}{13}{subsubsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.3}Phase detector}{14}{subsubsection.2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.4}Loop Filter}{14}{subsubsection.2.1.4}
+\contentsline {subsubsection}{\numberline {2.1.4}Loop Filter}{15}{subsubsection.2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.5}VCO}{14}{subsubsection.2.1.5}
+\contentsline {subsubsection}{\numberline {2.1.5}VCO}{15}{subsubsection.2.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.6}Continuous PLL Transfer function}{14}{subsubsection.2.1.6}
+\contentsline {subsubsection}{\numberline {2.1.6}Continuous PLL Transfer function}{15}{subsubsection.2.1.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}ADPLL - digital, discretized PLL Model}{15}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.2}ADPLL - digital, discretized PLL Model}{16}{subsection.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.1}Divider}{15}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.1}Divider}{16}{subsubsection.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2}TDC}{16}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.2}TDC}{17}{subsubsection.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.3}Discrete-time loop filter}{17}{subsubsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.3}Discrete-time loop filter}{18}{subsubsection.2.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.4}DCO}{18}{subsubsection.2.2.4}
+\contentsline {subsubsection}{\numberline {2.2.4}DCO}{19}{subsubsection.2.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.5}Discrete-time PLL transfer function}{18}{subsubsection.2.2.5}
+\contentsline {subsubsection}{\numberline {2.2.5}Discrete-time PLL transfer function}{19}{subsubsection.2.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}ADPLL Noise Model}{19}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.3}ADPLL Noise Model}{20}{subsection.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.1}TDC noise}{19}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.1}TDC noise}{20}{subsubsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.2}DCO noise}{20}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.2}DCO noise}{21}{subsubsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.3}Divider noise}{21}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.3}Divider noise}{22}{subsubsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.4}Loop filter noise - direct form I}{22}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.4}Loop filter noise - direct form I}{23}{subsubsection.2.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.5}PLL noise sensitivity transfer functions}{23}{subsubsection.2.3.5}
+\contentsline {subsubsection}{\numberline {2.3.5}PLL noise sensitivity transfer functions}{24}{subsubsection.2.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.6}PLL phase signal and output PSD relationship for noise}{24}{subsubsection.2.3.6}
+\contentsline {subsubsection}{\numberline {2.3.6}PLL phase signal and output PSD relationship for noise}{25}{subsubsection.2.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.7}PLL output-referred noise PSD}{25}{subsubsection.2.3.7}
+\contentsline {subsubsection}{\numberline {2.3.7}PLL output-referred noise PSD}{26}{subsubsection.2.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Loop Filter Design Automation}{27}{section.3}
+\contentsline {subsection}{\numberline {2.4}Modified ADPLL architecture for low TDC resolutions}{27}{subsection.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Design sequence}{27}{subsection.3.1}
+\contentsline {section}{\numberline {3}Loop Filter Design Automation}{28}{section.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Loop filter Prototype}{28}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.1}Design sequence}{28}{subsection.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.1}Continuous PI-loop filter design}{29}{subsubsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2}Loop filter Prototype}{29}{subsection.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.2}PI-controller peaking compensation}{31}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Continuous PI-loop filter design}{30}{subsubsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.3}Alternative PID controller permutations}{31}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.2}PI-controller peaking compensation}{32}{subsubsection.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.4}Discretized Loop Filter Prototype}{32}{subsubsection.3.2.4}
+\contentsline {subsubsection}{\numberline {3.2.3}Alternative PID controller permutations}{32}{subsubsection.3.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.5}Prototype PLL response}{32}{subsubsection.3.2.5}
+\contentsline {subsubsection}{\numberline {3.2.4}Discretized Loop Filter Prototype}{33}{subsubsection.3.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Behavioral ADPLL simulation}{34}{section.4}
+\contentsline {subsubsection}{\numberline {3.2.5}Prototype PLL response}{33}{subsubsection.3.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Simulation engine}{34}{subsection.4.1}
+\contentsline {section}{\numberline {4}Behavioral ADPLL simulation}{35}{section.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Clock behavioral model}{35}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.1}Simulation engine}{35}{subsection.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}TDC behavioral model}{36}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.2}Clock behavioral model}{36}{subsection.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4}Loop filter behavioral model}{36}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.3}TDC behavioral model}{37}{subsection.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5}DCO behavioral model}{37}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.4}Loop filter behavioral model}{37}{subsection.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.6}Divider behavioral model}{38}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.5}DCO behavioral model}{38}{subsection.4.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.7}Post processing: lock time detection}{39}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.6}Divider behavioral model}{40}{subsection.4.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.8}Post processing: phase noise power spectrum estimate}{39}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.7}Post processing: lock time detection}{40}{subsection.4.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.9}Monte-Carlo sampling}{40}{subsection.4.9}
+\contentsline {subsection}{\numberline {4.8}Post processing: phase noise power spectrum estimate}{41}{subsection.4.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Loop filter optimization}{41}{section.5}
+\contentsline {subsection}{\numberline {4.9}Monte-Carlo sampling}{42}{subsection.4.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Fast estimation of PLL settling time}{41}{subsection.5.1}
+\contentsline {section}{\numberline {5}Loop filter optimization}{43}{section.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Estimation of PLL phase noise}{42}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.1}Optimization rationale}{43}{subsection.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3}Loop filter optimization algorithm}{43}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.2}Loop filter optimization algorithm}{44}{subsection.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4}Loop filter optimization - finite word effects}{44}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.3}Fast estimation of PLL settling time}{46}{subsection.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Discussion and results}{45}{section.6}
+\contentsline {subsection}{\numberline {5.4}Estimation of PLL phase noise}{47}{subsection.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}Divider noise constraint}{46}{subsection.6.1}
+\contentsline {subsection}{\numberline {5.5}Loop filter optimization - finite word effects}{48}{subsection.5.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2}Example exercise}{47}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {5.5.1}Loop filter quantization noise optimization}{48}{subsubsection.5.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Conclusion}{48}{section.7}
+\contentsline {subsubsection}{\numberline {5.5.2}Loop filter transfer function error optimization}{48}{subsubsection.5.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}Oscillator phase noise due to thermal noise}{50}{appendix.A}
+\contentsline {section}{\numberline {6}Discussion and results}{49}{section.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1}Design exercise using this work}{49}{subsection.6.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.1}Result of filter optimization.}{50}{subsubsection.6.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.2}Result of transient and phase noise simulation.}{50}{subsubsection.6.1.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.3}Result of parametric sweep and variation analysis.}{50}{subsubsection.6.1.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.2}Comparison to existing solutions}{53}{subsection.6.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.3}Design choices and areas of improvement}{54}{subsection.6.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.4}Divider noise constraint}{55}{subsection.6.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}Conclusion}{57}{section.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A}Estimating PSD with autoregressive model}{60}{appendix.A}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B}Oscillator phase noise due to thermal noise}{60}{appendix.B}
