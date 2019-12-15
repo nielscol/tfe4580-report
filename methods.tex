@@ -32,23 +32,23 @@ The automation approach for ADPLL loop filter design implemented in this work wi
 	\begin{equation}\label{eq:pid_controller}
 		\textnormal{H}_{LF}(s) = sK_d + K_p + \frac{K_i}{s} = \frac{K_d}{s}\left(s^2 + s\frac{K_p}{K_d} + \frac{K_i}{K_d}\right)
 	\end{equation}
-	Application of the loop filter to the continuous PLL transfer function model from section \ref{cont_pll_tf} produces the PLL loop gain in \ref{pid_pll_loop_gain} and the closed PLL loop response in \ref{eq:pid_pll_tf}.
+	Application of the loop filter to the continuous ADPLL transfer function model from section \ref{discrete_pll_tf} produces the PLL loop gain in \ref{pid_pll_loop_gain} and the closed loop ADPLL response in \ref{eq:pid_pll_tf}.
 	\begin{equation} \label{pid_pll_loop_gain}
-		\mathrm{L}(s) = \textnormal{H}_{LF}(s)\textnormal{H}_{VCO}(s)\textnormal{H}_{div}(s) = \frac{2\pi K_{VCO}K_d}{\mathrm{N}}\frac{1}{s^2}\left(s^2 + s\frac{K_p}{K_d} + \frac{K_i}{K_d}\right)
+		\mathrm{L}(s) = \textnormal{H}_{TDC}(s)\textnormal{H}_{LF}(s)\textnormal{H}_{DCO}(s)\textnormal{H}_{DIV}(s) = \frac{\mathrm{M}}{\mathrm{N}}\frac{K_{DCO}K_d}{s^2}\left(s^2 + s\frac{K_p}{K_d} + \frac{K_i}{K_d}\right)
 	\end{equation}
 	\begin{align} \label{eq:pid_pll_tf}
-		\mathrm{T}(s) = \frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{2\pi K_{VCO}\left(s^2K_d + sK_p + K_i\right)}{s^2\left(1 + \frac{2\pi K_{VCO}K_d}{\mathrm{N}}\right) + \frac{2\pi K_{VCO}}{\mathrm{N}}\left(sK_p + K_i\right)} = \mathrm{N}\frac{\mathrm{L}(s)}{1 + \mathrm{L}(s)}
+		\mathrm{T}(s) = \frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{\mathrm{M}K_{DCO}K_{d}\left(s^2K_d + sK_p + K_i\right)}{s^2\left(1 + \frac{\mathrm{M}}{\mathrm{N}}K_{DCO}K_d\right) + \frac{\mathrm{M}}{\mathrm{N}}K_{DCO}K_d\left(sK_p + K_i\right)} = \mathrm{N}\frac{\mathrm{L}(s)}{1 + \mathrm{L}(s)}
 	\end{align}
 	It should be noted that in the closed loop configuration, this PLL phase transfer function contains two poles and two zeros. This is not a low pass response as desired per criterion 4, needed for satisfactory PLL phase noise power spectrum as will later be discussed. In order achieve low pass operation, the derivative term $K_d$ must be set to zero, yielding a proportional-integral (PI) controller for the loop filter:
 	\begin{align} \label{eq:full_pi_pll_tf}
-		\mathrm{T}(s) = \frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{2\pi K_{VCO}\left(sK_p + K_i\right)}{s^2 + \frac{2\pi K_{VCO}}{\mathrm{N}}\left(sK_p + K_i\right)} = \mathrm{N}\frac{\mathrm{L}(s)}{1 + \mathrm{L}(s)} 
+		\mathrm{T}(s) = \frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{\mathrm{M}K_{DCO}\left(sK_p + K_i\right)}{s^2 + \frac{\mathrm{M}}{\mathrm{N}}K_{DCO}\left(sK_p + K_i\right)} = \mathrm{N}\frac{\mathrm{L}(s)}{1 + \mathrm{L}(s)} 
 	\end{align}
 	Steady state zero phase error can be verified by solving the closed loop $\Phi_e(s)$ for s=0:
 	\begin{align}
 		\left.\Phi_e(s)\right\vert_{s=0} = \left(\Phi_{ref}(0) - \frac{\Phi_{out}(0)}{\mathrm{N}}\right) = \Phi_{ref}(0)\left(1 - \frac{\Phi_{out}(0)}{\mathrm{N}\Phi_{ref}(0)}\right)= \Phi_{ref}(0)\left(1 - \frac{\mathrm{N}}{\mathrm{N}}\right) = 0
 	\end{align}
 
-		\subsubsection{Continuous PI-loop filter design}
+		\subsubsection{Continuous PI-loop filter design}\label{cont_pi_filt_des}
 			Given a PI-controller loop filter, which can be optionally represented using a pole at zero and a zero with $\omega_z = K_i/K_p$:
 			\begin{equation} \label{eq:pi_pll_tf}
 				\textnormal{H}_{LF}(s) = K_p + \frac{K_i}{s}  = \frac{K_i}{s}\left(\frac{s}{\omega_z} + 1\right) 
@@ -57,7 +57,7 @@ The automation approach for ADPLL loop filter design implemented in this work wi
 			\begin{equation}
 				t_s = -\tau\ln(\delta)
 			\end{equation}
-			Thus, to find settling time, a value for the PLL time constant $\tau$ must be derived. Rewriting equation \ref{eq:full_pi_pll_tf} with substitutions $\omega_z = K_i/K_p$ and $\mathrm{K} = 2\pi K_{VCO}K_i/\mathrm{N}$:
+			Thus, to find settling time, a value for the PLL time constant $\tau$ must be derived. Rewriting equation \ref{eq:full_pi_pll_tf} with substitutions $\omega_z = K_i/K_p$ and $\mathrm{K} = MK_{DCO}K_i/\mathrm{N}$:
 			\begin{equation} \label{eq:simp_pi_pll_tf}
 				\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \mathrm{N}\cdot\frac{s\frac{K}{\omega_z} + K }{s^2 + s\frac{K}{\omega_z} + K}
 			\end{equation}
@@ -93,12 +93,19 @@ The automation approach for ADPLL loop filter design implemented in this work wi
 			\begin{align}
 				\omega_z &= \frac{-\ln(\delta)}{2t_s} =  \frac{-\ln\left(\frac{f_{tol}}{|f_i - Nf_{ref}|}\right)}{2t_s}\\
 				K &= \frac{\ln^2(\delta)}{\zeta^2t_s^2} =  \frac{\ln^2\left(\frac{f_{tol}}{|f_i - Nf_{ref}|}\right)}{\zeta^2t_s^2}\\
-				K_i & = \frac{\mathrm{N}\mathrm{K}}{2\pi K_{VCO}} \\
+				K_i & = \frac{\mathrm{N}}{\mathrm{M}}\frac{\mathrm{K}}{K_{DCO}} \\
 				K_p & = \frac{K_i}{\omega_z}
 			\end{align}
+			\hl{This controller has a predictable phase margin/stability}
+			\begin{figure}[htb!]
+				\center\includegraphics[width=0.5\textwidth, angle=0]{figs/damping_vs_pm.pdf}
+				\caption{PI-controller PLL phase margin versus damping ratio.}
+				\label{fig:phase_margin}
+			\end{figure}
 
 		\subsubsection{PI-controller peaking compensation}\label{comp_pi_pll_lf}
 			 To compensate for closed loop peaking, the original PI-controller loop filter of equation \ref{eq:pi_pll_tf} can be modified with the addition of a single tunable pole at $\omega_p$. The closed loop response becomes third order, which complicates direct analysis and design of the loop filter, but can be handled utilizing the numerical optimization approach described in this work.
+			 \hl{Not necessarily stable as closed loop configuration has 3 poles}
 			\begin{equation} \label{eq:pi_compensated_tf}
 				\textnormal{H}_{LF}(s) = \frac{K_i}{s}\frac{\left(\frac{s}{\omega_z} + 1\right)}{\left(\frac{s}{\omega_p} + 1\right)}
 			\end{equation}
@@ -492,6 +499,37 @@ K_i=\frac{\mathrm{M}}{\mathrm{N}}\frac{K}{K_{DCO}}
 \subsection{Loop filter optimization - finite word effects}
 Once a filter design has been optimized in the continuous domain following the algorithm of section \ref{lf_opt}, second order optimization is carried out to ensure the digitized, discrete implementation performs as expected in the presence of finite word effects. The optimized digital implementation provided here utilized fixed-point words for equal resolution throughout the datapath. The implemented second order optimization considers both the effect of loop filter quantization noise and transfer function error.
 
+This optimizer works by converting the ideal discrete filter design into a fixed point implementation with direct form-I structure. All components of the data path in the optimization are constrained to have the same signed fixed point format, in twos complement format with 1 sign bit, a number of integer bits \texttt{int\_bits}, and a number of fraction bits \texttt{frac\_bits}. Thus the total data word representation bits is \texttt{B} = 1 + \texttt{int\_bits} + \texttt{frac\_bits}.
+
+Representation of data throughout the digital implementation here
+
+optimum = min number of bits that meets users accuracy and noise spec.
+
 \subsubsection{Loop filter quantization noise optimization}
 
+\begin{figure}[htb!]
+	\center\includegraphics[width=0.5\textwidth, angle=0]{figs/lf_quant_noise.pdf}
+	\caption{Quantization noise power power out of an example loop filter versus data word resolution.}
+	\label{fig:lf_quant_mse}
+\end{figure}
+
+
 \subsubsection{Loop filter transfer function error optimization}
+\begin{figure}[htb!]
+    \centering
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth, angle=0]{figs/tf_quant_error.pdf}
+        \caption{ }
+        \label{fig:tf_curves_quant_error}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth, angle=0]{figs/tf_mse.pdf}
+        \caption{ }
+        \label{fig:tf_mse}
+    \end{subfigure}
+    % \caption{Approximate model for ring oscillator inverter delay cell.}
+    \label{fig:tf_quant_error}
+    \caption{\textbf{(a)} Example filter error due to coefficient quantization, \textbf{(b)} Example MSE error of filter design due to coefficient quantization.}
+\end{figure}

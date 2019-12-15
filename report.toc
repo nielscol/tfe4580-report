@@ -58,11 +58,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.2.2}PI-controller peaking compensation}{32}{subsubsection.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.3}Alternative PID controller permutations}{32}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.3}Alternative PID controller permutations}{33}{subsubsection.3.2.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.2.4}Discretized Loop Filter Prototype}{33}{subsubsection.3.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.5}Prototype PLL response}{33}{subsubsection.3.2.5}
+\contentsline {subsubsection}{\numberline {3.2.5}Prototype PLL response}{34}{subsubsection.3.2.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Behavioral ADPLL simulation}{35}{section.4}
 \defcounter {refsection}{0}\relax 
@@ -102,22 +102,24 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6}Discussion and results}{49}{section.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}Design exercise using this work}{49}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.1}Design exercise using this work}{50}{subsection.6.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {6.1.1}Result of filter optimization.}{50}{subsubsection.6.1.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {6.1.2}Result of transient and phase noise simulation.}{50}{subsubsection.6.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.3}Result of parametric sweep and variation analysis.}{50}{subsubsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.3}Result of parametric sweep and variation analysis.}{51}{subsubsection.6.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2}Comparison to existing solutions}{53}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.1.4}Design method 2}{53}{subsubsection.6.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3}Design choices and areas of improvement}{54}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.2}Comparison to existing solutions}{56}{subsection.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4}Divider noise constraint}{55}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.3}Design choices and areas of improvement}{57}{subsection.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Conclusion}{57}{section.7}
+\contentsline {subsubsection}{\numberline {6.3.1}Divider noise constraint}{58}{subsubsection.6.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}Estimating PSD with autoregressive model}{60}{appendix.A}
+\contentsline {section}{\numberline {7}Conclusion}{59}{section.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B}Oscillator phase noise due to thermal noise}{60}{appendix.B}
+\contentsline {section}{\numberline {A}Estimating PSD with autoregressive model}{62}{appendix.A}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B}Oscillator phase noise due to thermal noise}{62}{appendix.B}

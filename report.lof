@@ -34,30 +34,44 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {17}{\ignorespaces Example PI-PLL responses with varied $\zeta $.\relax }}{31}{figure.caption.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {18}{\ignorespaces Implementation of filter.\relax }}{33}{figure.caption.18}
+\contentsline {figure}{\numberline {18}{\ignorespaces PI-controller PLL phase margin versus damping ratio.\relax }}{32}{figure.caption.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {19}{\ignorespaces Simulation process.\relax }}{35}{figure.caption.19}
+\contentsline {figure}{\numberline {19}{\ignorespaces Implementation of filter.\relax }}{33}{figure.caption.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {20}{\ignorespaces \textbf {(a)} Discrete model for oscillator random walk, \textbf {(b)} Simulated phase noise of behavioral model.\relax }}{39}{figure.caption.20}
+\contentsline {figure}{\numberline {20}{\ignorespaces Simulation process.\relax }}{35}{figure.caption.20}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {21}{\ignorespaces Detection of lock time from simulated PLL transient at loop filter.\relax }}{40}{figure.caption.21}
+\contentsline {figure}{\numberline {21}{\ignorespaces \textbf {(a)} Discrete model for oscillator random walk, \textbf {(b)} Simulated phase noise of behavioral model.\relax }}{39}{figure.caption.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {22}{\ignorespaces Power spectrum estimates example.\relax }}{42}{figure.caption.22}
+\contentsline {figure}{\numberline {22}{\ignorespaces Detection of lock time from simulated PLL transient at loop filter.\relax }}{40}{figure.caption.22}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {23}{\ignorespaces \textbf {(a)} Example PLL phase noise from models in this work, \textbf {(b)} integrated phase noise power versus bandwidth for the same PLL.\relax }}{44}{figure.caption.23}
+\contentsline {figure}{\numberline {23}{\ignorespaces Power spectrum estimates example.\relax }}{42}{figure.caption.23}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {24}{\ignorespaces Bandwidth versus total integrated phase noise of PLL.\relax }}{45}{figure.caption.24}
+\contentsline {figure}{\numberline {24}{\ignorespaces \textbf {(a)} Example PLL phase noise from models in this work, \textbf {(b)} integrated phase noise power versus bandwidth for the same PLL.\relax }}{44}{figure.caption.24}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {25}{\ignorespaces Optimizer visualized.\relax }}{45}{figure.caption.25}
+\contentsline {figure}{\numberline {25}{\ignorespaces Bandwidth versus total integrated phase noise of PLL.\relax }}{45}{figure.caption.25}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {26}{\ignorespaces Simulation with 0.5\% initial frequency error: \textbf {(a)} Loop filter transient response, \textbf {(b)} PLL output instantaneous frequency.\relax }}{51}{figure.caption.28}
+\contentsline {figure}{\numberline {26}{\ignorespaces Optimizer visualized.\relax }}{45}{figure.caption.26}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {27}{\ignorespaces Simulation with 12 MHz (0.5\%) initial frequency error: \textbf {(a)} BBPD/TDC detector responses, \textbf {(b)} PLL output phase noise power spectrum.\relax }}{51}{figure.caption.29}
+\contentsline {figure}{\numberline {27}{\ignorespaces Quantization noise power power out of an example loop filter versus data word resolution.\relax }}{49}{figure.caption.27}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {28}{\ignorespaces \textbf {(a)} PLL lock time simulation with KDCO swept, 12 MHz (0.5\%) initial frequency error, \textbf {(b)} PLL lock time simulation with initial frequency error swept.\relax }}{52}{figure.caption.30}
+\contentsline {figure}{\numberline {28}{\ignorespaces \textbf {(a)} Example filter error due to coefficient quantization, \textbf {(b)} Example MSE error of filter design due to coefficient quantization.\relax }}{49}{figure.caption.28}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {29}{\ignorespaces Monte-Carlo simulation with 1000 samples, 20\% RMS deviation in KDCO, and 60 MHz (2.5\%) RMS deviation in initial frequency error \textbf {(a)} Frequency transient responses, \textbf {(b)} Lock time histogram.\relax }}{52}{figure.caption.31}
+\contentsline {figure}{\numberline {29}{\ignorespaces Simulation with 0.5\% initial frequency error: \textbf {(a)} Loop filter transient response, \textbf {(b)} PLL output instantaneous frequency.\relax }}{52}{figure.caption.32}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {30}{\ignorespaces DCO additive noise model.\relax }}{60}{figure.caption.33}
+\contentsline {figure}{\numberline {30}{\ignorespaces Simulation with 12 MHz (0.5\%) initial frequency error: \textbf {(a)} BBPD/TDC detector responses, \textbf {(b)} PLL output phase noise power spectrum.\relax }}{52}{figure.caption.33}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {31}{\ignorespaces Voltage to phase noise conversion.\relax }}{61}{figure.caption.34}
+\contentsline {figure}{\numberline {31}{\ignorespaces \textbf {(a)} PLL lock time simulation with KDCO swept, 12 MHz (0.5\%) initial frequency error, \textbf {(b)} PLL lock time simulation with initial frequency error swept.\relax }}{53}{figure.caption.34}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {32}{\ignorespaces Monte-Carlo simulation with 1000 samples, 20\% RMS deviation in KDCO, and 60 MHz (2.5\%) RMS deviation in initial frequency error \textbf {(a)} Frequency transient responses, \textbf {(b)} Lock time histogram.\relax }}{53}{figure.caption.35}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {33}{\ignorespaces Simulation with 0.5\% initial frequency error: \textbf {(a)} Loop filter transient response, \textbf {(b)} PLL output instantaneous frequency.\relax }}{54}{figure.caption.37}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {34}{\ignorespaces Simulation with 12 MHz (0.5\%) initial frequency error: \textbf {(a)} BBPD/TDC detector responses, \textbf {(b)} PLL output phase noise power spectrum.\relax }}{54}{figure.caption.38}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {35}{\ignorespaces \textbf {(a)} PLL lock time simulation with KDCO swept, 12 MHz (0.5\%) initial frequency error, \textbf {(b)} PLL lock time simulation with initial frequency error swept.\relax }}{55}{figure.caption.39}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {36}{\ignorespaces Monte-Carlo simulation with 1000 samples, 20\% RMS deviation in KDCO, and 60 MHz (2.5\%) RMS deviation in initial frequency error \textbf {(a)} Frequency transient responses, \textbf {(b)} Lock time histogram.\relax }}{55}{figure.caption.40}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {37}{\ignorespaces DCO additive noise model.\relax }}{62}{figure.caption.41}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {38}{\ignorespaces Voltage to phase noise conversion.\relax }}{63}{figure.caption.42}

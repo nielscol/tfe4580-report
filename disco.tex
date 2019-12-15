@@ -41,7 +41,7 @@ The design of a loop filter for the PLL with the system level specifications of 
 \end{table}   
 
 \subsubsection{Result of filter optimization.}
-Table \ref{filter_params} contains the optimized filter parameters obtained from the filter design optimizer developed in this work. The estimated bandwidth for the filter is 144.8 kHz, and the lock time is estimated to be 19.3 $\mu$s.
+Table \ref{filter_params} contains the optimized filter parameters obtained from the filter design optimizer developed in this work. $\{K$, $K_i$, $K_p$, $f_z\}$ are the continuous model parameters of section \ref{cont_pi_filt_des}, and $\{a_0$, $a_1$, $a_2$, $b_0$, $b_1\}$ are the filter coefficients for the discrete-time direct form-I filter structure of section \ref{disc_lf_comp_pi}. The estimated bandwidth for the filter is 144.8 kHz, and the lock time is estimated to be 19.3 $\mu$s. Table \ref{dig_filter_params} contains the digitized version of the discrete time filter, based on a selection for word size determined via optimization for finite word effects. The final data words are 13 bits in length.  
 % \scriptsize
 \begin{table}[h!]
 	\centering
@@ -60,19 +60,19 @@ Table \ref{filter_params} contains the optimized filter parameters obtained from
 		\hline 
 		\rule[-1ex]{0pt}{2.5ex} \textbf{$f_z$} & $2.917324\times10^4$ & Hz\\ 
 		\hline 
-		\rule[-1ex]{0pt}{2.5ex} \textbf{$b_0$} & $7.4150613906\times10^1$  &\\ 
+		\rule[-1ex]{0pt}{2.5ex} \textbf{$b_0$}  & $7.4150613906\times10^1$  &\\ 
 		\hline 
-		\rule[-1ex]{0pt}{2.5ex} \textbf{$b_1$} & $-7.3310743796\times10^1$  & \\ 
+		\rule[-1ex]{0pt}{2.5ex} \textbf{$b_1$}  & $-7.3310743796\times10^1$  & \\ 
 		\hline 
-		\rule[-1ex]{0pt}{2.5ex} \textbf{$a_0$} & $1.0\times10^0$  &\\ 
+		\rule[-1ex]{0pt}{2.5ex} \textbf{$a_0$}  & $1.0\times10^0$  &\\ 
 		\hline 
-		\rule[-1ex]{0pt}{2.5ex} \textbf{$a_1$} & $-1.0\times10^0$  & \\ 
+		\rule[-1ex]{0pt}{2.5ex} \textbf{$a_1$}  & $-1.0\times10^0$  & \\ 
 		\hline 
-		\rule[-1ex]{0pt}{2.5ex} \textbf{$a_2$} & $0.0\times10^0$  & \\ 
+		\rule[-1ex]{0pt}{2.5ex} \textbf{$a_2$}  & $0.0\times10^0$  & \\ 
 		\hline 
 		\rule[-1ex]{0pt}{2.5ex} Estimated bandwidth & $1.448234\times10^5$ & Hz \\ 
 		\hline 
-		\rule[-1ex]{0pt}{2.5ex} Estimated lock time & $1.934253\times10^5$ & seconds \\ 
+		\rule[-1ex]{0pt}{2.5ex} Estimated lock time & $1.934253\times10^{-5}$ & seconds \\ 
 		\hline 
 	\end{tabular} 
 	% \caption{Assigned specifications for branch line hybrid design.}
@@ -80,7 +80,40 @@ Table \ref{filter_params} contains the optimized filter parameters obtained from
 	\caption{PLL parameters determined from filter design and optimization process.}
 	\label{filter_params}
 \end{table}   
-dfasdf
+
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.5}		
+	\setlength\arrayrulewidth{0.75pt}
+	\setlength{\tabcolsep}{1em} % for the horizontal padding
+	\begin{tabular}{|l|r|r|l|}
+		\hline 
+		\rule[-1ex]{0pt}{2.5ex} \cellcolor{gray!40}\textbf{Parameter} & \cellcolor{gray!40}\textbf{Value} & \cellcolor{gray!40}\textbf{Value (digital) } & \cellcolor{gray!40}\textbf{Value Error}\\ 
+		\hline 
+		\rule[-1ex]{0pt}{2.5ex} Total dataword bits  & 13 & & \\ 
+		\hline 
+		\rule[-1ex]{0pt}{2.5ex} Sign bits  & 1 & & \\ 
+		\hline 
+		\rule[-1ex]{0pt}{2.5ex} Integer bits & 7 & & \\ 
+		\hline 
+		\rule[-1ex]{0pt}{2.5ex} Fractional bits  & 5 & & \\ 
+		\hline 
+		\rule[-1ex]{0pt}{2.5ex} \textbf{$b_0$} & $7.415625\times10^1$ & \texttt{0b0100101000101}  & $+5.636094\times10^{-3}$\\ 
+		\hline 
+		\rule[-1ex]{0pt}{2.5ex} \textbf{$b_1$}  & $-7.331250\times10^1$ & \texttt{0b1111011010110}  & $-1.756204\times10^{-3}$\\ 
+		\hline 
+		\rule[-1ex]{0pt}{2.5ex} \textbf{$a_0$}  & $1.0\times10^0$ & \texttt{0b0000000100000} & $0.0\times10^0$ \\ 
+		\hline 
+		\rule[-1ex]{0pt}{2.5ex} \textbf{$a_1$}  & $-1.0\times10^0$ & \texttt{0b1111111100000} & $0.0\times10^0$ \\ 
+		\hline 
+		\rule[-1ex]{0pt}{2.5ex} \textbf{$a_2$}  & $0.0\times10^0$ & \texttt{0b0000000000000} & $0.0\times10^0$ \\ 
+		\hline 
+	\end{tabular} 
+	% \caption{Assigned specifications for branch line hybrid design.}
+	% \label{asgn_specs}
+	\caption{Loop filter parameters after digitization and optimization for data word length.}
+	\label{dig_filter_params}
+\end{table}  
 
 \subsubsection{Result of transient and phase noise simulation.}
 The simulation engine implemented in this work was utilized to run a time domain simulation to verify the designed filter. Figures \ref{fig:trans_lf} and \ref{fig:trans_inst_freq} demonstrate the transient response of the PLL with an initial frequency error of 12 MHz (0.5\% of final frequency). It is observed that the PLL design stably approaches the target frequency in approximately 23 $\mu$s. Figures \ref{fig:trans_det} illustrate the BBPD and TDC outputs during this inital transient. It is observed that the TDC output gives the dominant feedback, unit it reaches an output word of 0, where the BBPD then begins providing feedback in the steady state condition of the PLL. Figure \ref{fig:trans_phase_noise} is the result of a phase noise calculation for the simulated PLL in an interval beginning immediately after detection of lock. The spectrum closely approximates that designed for, with some small additional peaking.
@@ -129,13 +162,13 @@ The Monte-Carlo sampling and parametric sweep facilities in the simulator design
 	    \centering
 	    \begin{subfigure}{0.5\textwidth}
 	        \centering
-	        \center\includegraphics[width=1.0\textwidth, angle=0]{figs/kdco_sweep.pdf}
+	        \center\includegraphics[width=1.0\textwidth, angle=0]{figs/_kdco_sweep.pdf}
 	        \caption{ }
 	        \label{fig:sweep_kdco}
 	    \end{subfigure}%
 	    \begin{subfigure}{0.5\textwidth}
 	        \centering
-	        \center\includegraphics[width=1.0\textwidth, angle=0]{figs/finit_sweep.pdf}
+	        \center\includegraphics[width=1.0\textwidth, angle=0]{figs/_finit_sweep.pdf}
 	        \caption{ }
 	        \label{fig:sweep_finit}
 	    \end{subfigure}
@@ -189,6 +222,85 @@ The Monte-Carlo sampling and parametric sweep facilities in the simulator design
 	\label{simulation_params}
 \end{table}
 
+\subsubsection{Design method 2}
+\hl{make sure captions and labels are unique}
+	\begin{figure}[htb!]
+	    \centering
+	    \begin{subfigure}{0.5\textwidth}
+	        \centering
+	        \center\includegraphics[width=1.0\textwidth, angle=0]{figs/trans_loop_filter_fast.pdf}
+	        \caption{ }
+	        \label{fig:trans_lf_fast}
+	    \end{subfigure}%
+	    \begin{subfigure}{0.5\textwidth}
+	        \centering
+	        \center\includegraphics[width=1.0\textwidth, angle=0]{figs/trans_inst_freq_fast.pdf}
+	        \caption{ }
+	        \label{fig:trans_inst_freq_fast}
+	    \end{subfigure}
+	    % \caption{Approximate model for ring oscillator inverter delay cell.}
+	    \label{fig:trans_sim1_fast}
+	    \caption{Simulation with 0.5\% initial frequency error: \textbf{(a)} Loop filter transient response, \textbf{(b)} PLL output instantaneous frequency.}
+	\end{figure}
+
+	\begin{figure}[htb!]
+	    \centering
+	    \begin{subfigure}{0.5\textwidth}
+	        \centering
+	        \center\includegraphics[width=1.0\textwidth, angle=0]{figs/trans_tdc_bbpd_fast.pdf}
+	        \caption{ }
+	        \label{fig:trans_det_fast}
+	    \end{subfigure}%
+	    \begin{subfigure}{0.5\textwidth}
+	        \centering
+	        \center\includegraphics[width=1.0\textwidth, angle=0]{figs/trans_phase_noise_fast.pdf}
+	        \caption{ }
+	        \label{fig:trans_phase_noise_fast}
+	    \end{subfigure}
+	    % \caption{Approximate model for ring oscillator inverter delay cell.}
+	    \label{fig:trans_sim2_fast}
+	    \caption{Simulation with 12 MHz (0.5\%) initial frequency error: \textbf{(a)} BBPD/TDC detector responses, \textbf{(b)} PLL output phase noise power spectrum.}
+	\end{figure}
+
+	\begin{figure}[htb!]
+	    \centering
+	    \begin{subfigure}{0.5\textwidth}
+	        \centering
+	        \center\includegraphics[width=1.0\textwidth, angle=0]{figs/_kdco_sweep_fast.pdf}
+	        \caption{ }
+	        \label{fig:sweep_kdco}
+	    \end{subfigure}%
+	    \begin{subfigure}{0.5\textwidth}
+	        \centering
+	        \center\includegraphics[width=1.0\textwidth, angle=0]{figs/finit_sweep_fast.pdf}
+	        \caption{ }
+	        \label{fig:sweep_finit}
+	    \end{subfigure}
+	    % \caption{Approximate model for ring oscillator inverter delay cell.}
+	    \label{fig:sweep_sim}
+	    \caption{\textbf{(a)} PLL lock time simulation with KDCO swept, 12 MHz (0.5\%) initial frequency error, \textbf{(b)} PLL lock time simulation with initial frequency error swept.}
+	\end{figure}
+
+	\begin{figure}[htb!]
+	    \centering
+	    \begin{subfigure}{0.5\textwidth}
+	        \centering
+	        \center\includegraphics[width=1.0\textwidth, angle=0]{figs/mc_trans_2x.pdf}
+	        \caption{ }
+	        \label{fig:mc_trans}
+	    \end{subfigure}%
+	    \begin{subfigure}{0.5\textwidth}
+	        \centering
+	        \center\includegraphics[width=1.0\textwidth, angle=0]{figs/mc_hist_fast_2x.pdf}
+	        \caption{ }
+	        \label{fig:mc_hist}
+	    \end{subfigure}
+	    % \caption{Approximate model for ring oscillator inverter delay cell.}
+	    \label{fig:mc_sim}
+	    \caption{Monte-Carlo simulation with 1000 samples, 20\% RMS deviation in KDCO, and 60 MHz (2.5\%) RMS deviation in initial frequency error \textbf{(a)} Frequency transient responses, \textbf{(b)} Lock time histogram.}
+	\end{figure}
+
+
 
 	% \begin{figure}[htb!]
 	% 	\center\includegraphics[width=1.0\textwidth, angle=0]{figs/x.pdf}
@@ -226,7 +338,7 @@ A final advantage of this work not observed in the surveyed literature is the in
 
 
 \subsection{Design choices and areas of improvement}
-
+\hl{still a work in progess...}
 Currently the simulation only handles integer-N PLLs. To extend simulation to fractional-N PLLs, a small simulation time steps (much smaller than reference cycle time used in integer-N case) is needed to reduce quantization noise to low enough levels for the fractional divider noise characteristics to not be overpowered \cite{perrott_2002_sim}. This may prove a limitation in the current simulator, which runs on the order of 60s for the integer-N PLL phase noise simulations.
 
 
@@ -266,7 +378,7 @@ Currently the simulation only handles integer-N PLLs. To extend simulation to fr
 \end{itemize}
 
 	Recommendations for maximum divider jitter, loop filter resolution
-	\subsection{Divider noise constraint}
+	\subsubsection{Divider noise constraint}
 		Output referred phase noise PSD of TDC:
 		\begin{equation}
 			S_{\Phi n_{TDC,out}} = \frac{1}{12 f_{ref}}\left|2\pi\frac{N}{M} G(f) \right|^2

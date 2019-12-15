@@ -13,5 +13,6 @@ The main contributions of this work to PLL design are:
 \begin{enumerate}[itemsep=0pt,label=\protect\mycirc{\arabic*}]
 	\setlength\itemsep{-0.8em}
 	\item Fully automatic loop filter design and optimization for all digital integer-N PLLs in an open source Python framework, generating ready-for-hardware digital filter coeffients from high level PLL specifications (maximum lock time, reference frequency, DCO gain, divider ratio, oscillator phase noise). Design optimization performed in this work considers minimization of total phase noise and quantization errors in the final digital loop filter computed.
+	\item Generation of digital loop filter coefficients optimized for finite word effects (both quantization error and filter accuracy).
 	\item A behavioral time domain simulator of integer-N digital PLLs integrated with the loop filter designer. This simulator allows for verification of automatcally designed filters, with included analysis for variation to evaluate both lock-time and phase noise performance, as well as stability.
 \end{enumerate}

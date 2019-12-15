@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1576072168 "methods.tex" "/home/cole/Documents/pll/report/methods.pdf" "methods" 1576072169
+["pdflatex"] 1576377240 "methods.tex" "/home/cole/Documents/pll/report/methods.pdf" "methods" 1576377241
   "./figs/filt_design.tex" 1575928356 2606 df8bac72acf13f1a676b0143ac02a5c5 ""
   "./figs/filter_arch_tex.tex" 1575200033 1652 3a4886d9c085146a426d278f231dc387 ""
   "./figs/pi_pz_plot.tex" 1575198211 1094 84f34890b676e51ee72209d8eed26c93 ""
@@ -22,15 +22,15 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1547987491 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1547987520 4128328 fdce742b0ea170930dab83e47e0b22ad ""
   "figs/optimizer.tex" 1576067088 2445 a312a660bf2f2807db96b171a5baf401 ""
-  "methods.tex" 1576071866 47009 20f5726453566ba3c8dfa84255aeaf6a ""
+  "methods.tex" 1576377239 48469 053da5bbc4aa1fe3754e39ede4c0f5d0 ""
   (generated)
-  "/home/cole/Documents/pll/report/methods.pdf"
-  "/home/cole/Documents/pll/report/methods.log"
-  "./figs/rw_pn.aux"
-  "./figs/filt_design.aux"
-  "methods.log"
   "methods.pdf"
-  "figs/optimizer.aux"
-  "./figs/filter_arch_tex.aux"
-  "./figs/pi_pz_plot.aux"
   "./figs/simulator.aux"
+  "./figs/filter_arch_tex.aux"
+  "./figs/rw_pn.aux"
+  "/home/cole/Documents/pll/report/methods.log"
+  "./figs/pi_pz_plot.aux"
+  "figs/optimizer.aux"
+  "./figs/filt_design.aux"
+  "/home/cole/Documents/pll/report/methods.pdf"
+  "methods.log"
