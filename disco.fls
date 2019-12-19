@@ -7,3 +7,6 @@ INPUT /home/cole/Documents/pll/report/disco.tex
 OUTPUT /home/cole/Documents/pll/report/disco.log
 INPUT /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+OUTPUT /home/cole/Documents/pll/report/disco.pdf
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map

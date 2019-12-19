@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.20)  15 DEC 2019 04:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.20)  19 DEC 2019 06:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -384,6 +384,27 @@ Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
 )
+(/usr/share/texlive/texmf-dist/tex/latex/ms/ragged2e.sty
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everysel.sty
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+)
+\CenteringLeftskip=\skip64
+\RaggedLeftLeftskip=\skip65
+\RaggedRightLeftskip=\skip66
+\CenteringRightskip=\skip67
+\RaggedLeftRightskip=\skip68
+\RaggedRightRightskip=\skip69
+\CenteringParfillskip=\skip70
+\RaggedLeftParfillskip=\skip71
+\RaggedRightParfillskip=\skip72
+\JustifyingParfillskip=\skip73
+\CenteringParindent=\skip74
+\RaggedLeftParindent=\skip75
+\RaggedRightParindent=\skip76
+\JustifyingParindent=\skip77
+)
 (/usr/share/texlive/texmf-dist/tex/latex/soul/soul.sty
 Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@word=\toks35
@@ -391,7 +412,7 @@ Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@cmds=\toks37
 \SOUL@buffer=\toks38
 \SOUL@token=\toks39
-\SOUL@spaceskip=\skip64
+\SOUL@spaceskip=\skip78
 \SOUL@ttwidth=\dimen149
 \SOUL@uldp=\dimen150
 \SOUL@ulht=\dimen151
@@ -462,14 +483,14 @@ Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 \blx@parenlevel@text=\count164
 \blx@parenlevel@foot=\count165
 \blx@sectionciteorder@0=\count166
-\labelnumberwidth=\skip65
-\labelalphawidth=\skip66
-\biblabelsep=\skip67
-\bibitemsep=\skip68
-\bibnamesep=\skip69
-\bibinitsep=\skip70
-\bibparsep=\skip71
-\bibhang=\skip72
+\labelnumberwidth=\skip79
+\labelalphawidth=\skip80
+\biblabelsep=\skip81
+\bibitemsep=\skip82
+\bibnamesep=\skip83
+\bibinitsep=\skip84
+\bibparsep=\skip85
+\bibhang=\skip86
 \blx@bcfin=\read1
 \blx@bcfout=\write4
 \c@mincomprange=\count167
@@ -549,12 +570,12 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@savedoriglanguage=\count301
 \c@pageref=\count302
 \c@savedpageref=\count303
-\shorthandwidth=\skip73
-\shortjournalwidth=\skip74
-\shortserieswidth=\skip75
-\shorttitlewidth=\skip76
-\shortauthorwidth=\skip77
-\shorteditorwidth=\skip78
+\shorthandwidth=\skip87
+\shortjournalwidth=\skip88
+\shortserieswidth=\skip89
+\shorttitlewidth=\skip90
+\shortauthorwidth=\skip91
+\shorteditorwidth=\skip92
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -610,7 +631,7 @@ Package biblatex Info: ... file 'biblatex.cfg' found.
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 36.
+Package hyperref Info: Option `colorlinks' set `true' on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
@@ -642,10 +663,10 @@ Package: times 2005/04/12 PSNFSS-v9.2a (SPQR)
 (/usr/share/texlive/texmf-dist/tex/latex/caption/newfloat.sty
 Package: newfloat 2015/09/17 v1.1-109 Defining new floating environments (AR)
 )
-Package newfloat Info: New float `mycapequ' with options `' on input line 77.
+Package newfloat Info: New float `mycapequ' with options `' on input line 78.
 \c@mycapequ=\count313
 \newfloat@ftype=\count314
-Package newfloat Info: float type `mycapequ'=8 on input line 77.
+Package newfloat Info: float type `mycapequ'=8 on input line 78.
 \c@submycapequ=\count315
 
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/inconsolata.sty
@@ -1016,7 +1037,7 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
 (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\labelindent=\skip79
+\labelindent=\skip93
 \enit@outerparindent=\dimen198
 \enit@toks=\toks54
 \enit@inbox=\box42
@@ -1050,44 +1071,14 @@ File: english.lbx 2017/12/19 v3.10 biblatex localization (PK/JW/AB)
 (/home/cole/Documents/pll/report/./figs/direct_type_1_quant.aux)
 (/home/cole/Documents/pll/report/./figs/discrete_pll_full_noise.aux)
 (/home/cole/Documents/pll/report/./figs/bbpll.aux)
-(/home/cole/Documents/pll/report/./figs/filt_design.aux)
+(/home/cole/Documents/pll/report/./figs/tdc_bbpll.aux)
+(/home/cole/Documents/pll/report/./figs/filt_design2.aux)
 (/home/cole/Documents/pll/report/./figs/pi_pz_plot.aux)
 (/home/cole/Documents/pll/report/./figs/filter_arch_tex.aux)
 (/home/cole/Documents/pll/report/./figs/simulator.aux)
 (/home/cole/Documents/pll/report/./figs/rw_pn.aux)
 (/home/cole/Documents/pll/report/figs/optimizer.aux)
-
-LaTeX Warning: Label `fig:sweep_kdco' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sweep_kdco' multiply defined.
-
-
-LaTeX Warning: Label `fig:sweep_finit' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:sweep_finit' multiply defined.
-
-
-LaTeX Warning: Label `fig:sweep_sim' multiply defined.
-
-
-LaTeX Warning: Label `fig:mc_trans' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:mc_trans' multiply defined.
-
-
-LaTeX Warning: Label `fig:mc_hist' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:mc_hist' multiply defined.
-
-
-LaTeX Warning: Label `fig:mc_sim' multiply defined.
-
-(/home/cole/Documents/pll/report/./figs/dco_noise.aux)
-(/home/cole/Documents/pll/report/./figs/aperture_noise.aux))
+(/home/cole/Documents/pll/report/figs/lf_quant_noise_model.aux))
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
@@ -1204,6 +1195,8 @@ LaTeX Info: Redefining \nameref on input line 16.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 16.
 Package biblatex Info: Input encoding 'latin1' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'latin1'.
@@ -1211,6 +1204,7 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'report.bbl' found.
+
 (/home/cole/Documents/pll/report/report.bbl)
 Package biblatex Info: Reference section=0 on input line 16.
 Package biblatex Info: Reference segment=0 on input line 16.
@@ -1226,7 +1220,7 @@ LaTeX Font Info:    Try loading font information for OT1+phv on input line 4.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
-<logo_ntnu_eng_black.png, id=256, 449.5194pt x 98.0463pt>
+<logo_ntnu_eng_black.png, id=284, 449.5194pt x 98.0463pt>
 File: logo_ntnu_eng_black.png Graphic file (type png)
 <use logo_ntnu_eng_black.png>
 Package pdftex.def Info: logo_ntnu_eng_black.png  used on input line 5.
@@ -1247,21 +1241,25 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/cole/Documents/pll/r
 eport/logo_ntnu_eng_black.png>] [2]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 27.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 28.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 37.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 38.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.37 	\thispagestyle
+l.38 	\thispagestyle
                     {nohdr} [1]pdfTeX warning (ext4): destination with the same
  identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.39 	\thispagestyle
-                    {nohdr} [2] [3] [4]
-(/home/cole/Documents/pll/report/report.toc
+l.40 	\thispagestyle
+                    {nohdr} [2]
+Underfull \hbox (badness 10000) in paragraph at lines 41--44
+
+ []
+
+[3] [4] (/home/cole/Documents/pll/report/report.toc
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 3.
  [5])
@@ -1278,18 +1276,28 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
 \tf@lot=\write9
 \openout9 = `report.lot'.
 
-
-(/home/cole/Documents/pll/report/abbrev.tex [8] [9]
+ [8]
+(/home/cole/Documents/pll/report/abbrev.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 6.
-) [10]
-(/home/cole/Documents/pll/report/intro.tex [11]) [12]
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+) [9] [10]
+(/home/cole/Documents/pll/report/intro.tex
+LaTeX Font Info:    Try loading font information for OT1+zi4 on input line 6.
+
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ot1zi4.fd
+File: ot1zi4.fd 2018/01/14 OT1/zi4 (Inconsolata)
+)
+LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
+(Font)              scaled to size 12.0pt on input line 6.
+LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
+(Font)              scaled to size 8.0pt on input line 6.
+ [11]) [12]
 (/home/cole/Documents/pll/report/theory.tex
 \openout2 = `./figs/basic_feedback.aux'.
 
 
 (/home/cole/Documents/pll/report/./figs/basic_feedback.tex
-<./figs/basic_feedback.pdf, id=494, 381.425pt x 128.48pt>
+<./figs/basic_feedback.pdf, id=562, 381.425pt x 128.48pt>
 File: ./figs/basic_feedback.pdf Graphic file (type pdf)
 <use ./figs/basic_feedback.pdf>
 Package pdftex.def Info: ./figs/basic_feedback.pdf  used on input line 19.
@@ -1310,7 +1318,7 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
 
 
 (/home/cole/Documents/pll/report/./figs/basic_pll.tex
-<./figs/basic_pll.pdf, id=512, 471.7625pt x 122.4575pt>
+<./figs/basic_pll.pdf, id=579, 471.7625pt x 122.4575pt>
 File: ./figs/basic_pll.pdf Graphic file (type pdf)
 <use ./figs/basic_pll.pdf>
 Package pdftex.def Info: ./figs/basic_pll.pdf  used on input line 23.
@@ -1328,7 +1336,7 @@ Overfull \hbox (5.6186pt too wide) in paragraph at lines 23--23
 
 
 (/home/cole/Documents/pll/report/./figs/basic_adpll.tex
-<./figs/basic_adpll.pdf, id=526, 531.9875pt x 122.4575pt>
+<./figs/basic_adpll.pdf, id=594, 531.9875pt x 122.4575pt>
 File: ./figs/basic_adpll.pdf Graphic file (type pdf)
 <use ./figs/basic_adpll.pdf>
 Package pdftex.def Info: ./figs/basic_adpll.pdf  used on input line 23.
@@ -1342,7 +1350,7 @@ Overfull \hbox (5.6187pt too wide) in paragraph at lines 23--23
 \openout2 = `./figs/digital_div.aux'.
 
  (/home/cole/Documents/pll/report/./figs/digital_div.tex
-<./figs/digital_div.pdf, id=542, 260.975pt x 143.53625pt>
+<./figs/digital_div.pdf, id=613, 260.975pt x 143.53625pt>
 File: ./figs/digital_div.pdf Graphic file (type pdf)
 <use ./figs/digital_div.pdf>
 Package pdftex.def Info: ./figs/digital_div.pdf  used on input line 15.
@@ -1352,11 +1360,14 @@ Overfull \hbox (7.22528pt too wide) in paragraph at lines 15--15
 [][] 
  []
 
-)
+) [16
+
+
+ <./figs/basic_adpll.pdf>]
 \openout2 = `./figs/tdc.aux'.
 
  (/home/cole/Documents/pll/report/./figs/tdc.tex
-<./figs/tdc.pdf, id=544, 369.38pt x 114.4275pt>
+<./figs/tdc.pdf, id=630, 369.38pt x 114.4275pt>
 File: ./figs/tdc.pdf Graphic file (type pdf)
 <use ./figs/tdc.pdf>
 Package pdftex.def Info: ./figs/tdc.pdf  used on input line 21.
@@ -1366,20 +1377,17 @@ Overfull \hbox (5.61923pt too wide) in paragraph at lines 21--21
 [][] 
  []
 
-) [16
-
-
- <./figs/basic_adpll.pdf>] [17
+) [17
 
 
 
 
- <./figs/digital_div.pdf> <./figs/tdc.pdf>]
+ <./figs/digital_div.pdf> <./figs/tdc.pdf>] [18]
 \openout2 = `./figs/direct_type_1_primed.aux'.
 
 
 (/home/cole/Documents/pll/report/./figs/direct_type_1_primed.tex
-<./figs/direct_type_1_primed.pdf, id=581, 292.09125pt x 161.60374pt>
+<./figs/direct_type_1_primed.pdf, id=675, 292.09125pt x 161.60374pt>
 File: ./figs/direct_type_1_primed.pdf Graphic file (type pdf)
 <use ./figs/direct_type_1_primed.pdf>
 Package pdftex.def Info: ./figs/direct_type_1_primed.pdf  used on input line 26
@@ -1390,11 +1398,11 @@ Overfull \hbox (5.00429pt too wide) in paragraph at lines 26--26
 [][] 
  []
 
-) [18]
+)
 \openout2 = `./figs/discrete_pll.aux'.
 
  (/home/cole/Documents/pll/report/./figs/discrete_pll.tex
-<./figs/discrete_pll.pdf, id=599, 682.55pt x 158.5925pt>
+<./figs/discrete_pll.pdf, id=678, 682.55pt x 158.5925pt>
 File: ./figs/discrete_pll.pdf Graphic file (type pdf)
 <use ./figs/discrete_pll.pdf>
 Package pdftex.def Info: ./figs/discrete_pll.pdf  used on input line 27.
@@ -1405,7 +1413,7 @@ Overfull \hbox (5.61835pt too wide) in paragraph at lines 27--27
  []
 
 )
-Overfull \hbox (22.47908pt too wide) in paragraph at lines 27--94
+Overfull \hbox (22.47908pt too wide) in paragraph at lines 27--96
  [][] 
  []
 
@@ -1427,16 +1435,16 @@ Overfull \hbox (5.61923pt too wide) in paragraph at lines 21--21
  []
 
 )
-Overfull \hbox (30.88272pt too wide) in paragraph at lines 21--132
+Overfull \hbox (30.88272pt too wide) in paragraph at lines 21--134
  [][] 
  []
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 133.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 135.
 \openout2 = `./figs/tdc_quant.aux'.
 
 (/home/cole/Documents/pll/report/./figs/tdc_quant.tex
-<./figs/tdc_quant.pdf, id=617, 369.38pt x 117.43875pt>
+<./figs/tdc_quant.pdf, id=698, 369.38pt x 117.43875pt>
 File: ./figs/tdc_quant.pdf Graphic file (type pdf)
 <use ./figs/tdc_quant.pdf>
 Package pdftex.def Info: ./figs/tdc_quant.pdf  used on input line 21.
@@ -1447,7 +1455,7 @@ Overfull \hbox (5.61923pt too wide) in paragraph at lines 21--21
  []
 
 )
-Overfull \hbox (30.88272pt too wide) in paragraph at lines 21--138
+Overfull \hbox (30.88272pt too wide) in paragraph at lines 21--140
  [][] 
  []
 
@@ -1459,7 +1467,7 @@ Overfull \hbox (30.88272pt too wide) in paragraph at lines 21--138
 
 
 (/home/cole/Documents/pll/report/./figs/quantization.tex
-<./figs/quantization.pdf, id=631, 445.665pt x 128.48pt>
+<./figs/quantization.pdf, id=712, 445.665pt x 128.48pt>
 File: ./figs/quantization.pdf Graphic file (type pdf)
 <use ./figs/quantization.pdf>
 Package pdftex.def Info: ./figs/quantization.pdf  used on input line 22.
@@ -1481,7 +1489,7 @@ Overfull \hbox (5.53156pt too wide) in paragraph at lines 22--22
 
 
 (/home/cole/Documents/pll/report/./figs/leeson_pn.tex
-<./figs/leeson_pn.pdf, id=647, 249.93375pt x 141.52875pt>
+<./figs/leeson_pn.pdf, id=733, 249.93375pt x 141.52875pt>
 File: ./figs/leeson_pn.pdf Graphic file (type pdf)
 <use ./figs/leeson_pn.pdf>
 Package pdftex.def Info: ./figs/leeson_pn.pdf  used on input line 22.
@@ -1495,7 +1503,7 @@ Overfull \hbox (5.72165pt too wide) in paragraph at lines 22--22
 \openout2 = `./figs/dco_noise.aux'.
 
  (/home/cole/Documents/pll/report/./figs/dco_noise.tex
-<./figs/dco_noise.pdf, id=648, 375.4025pt x 76.285pt>
+<./figs/dco_noise.pdf, id=734, 375.4025pt x 76.285pt>
 File: ./figs/dco_noise.pdf Graphic file (type pdf)
 <use ./figs/dco_noise.pdf>
 Package pdftex.def Info: ./figs/dco_noise.pdf  used on input line 20.
@@ -1506,14 +1514,14 @@ Overfull \hbox (5.09312pt too wide) in paragraph at lines 20--20
  []
 
 )
-Overfull \hbox (35.62456pt too wide) in paragraph at lines 20--178
+Overfull \hbox (35.62456pt too wide) in paragraph at lines 20--179
  [][] 
  []
 
 \openout2 = `./figs/div_noise_model.aux'.
 
 (/home/cole/Documents/pll/report/./figs/div_noise_model.tex
-<./figs/div_noise_model.pdf, id=651, 292.09125pt x 72.27pt>
+<./figs/div_noise_model.pdf, id=737, 292.09125pt x 72.27pt>
 File: ./figs/div_noise_model.pdf Graphic file (type pdf)
 <use ./figs/div_noise_model.pdf>
 Package pdftex.def Info: ./figs/div_noise_model.pdf  used on input line 18.
@@ -1527,7 +1535,7 @@ Overfull \hbox (5.5325pt too wide) in paragraph at lines 18--18
 \openout2 = `./figs/div_jitter.aux'.
 
  (/home/cole/Documents/pll/report/./figs/div_jitter.tex
-<./figs/div_jitter.pdf, id=652, 217.81375pt x 65.24374pt>
+<./figs/div_jitter.pdf, id=738, 217.81375pt x 65.24374pt>
 File: ./figs/div_jitter.pdf Graphic file (type pdf)
 <use ./figs/div_jitter.pdf>
 Package pdftex.def Info: ./figs/div_jitter.pdf  used on input line 17.
@@ -1542,17 +1550,12 @@ Overfull \hbox (6.9989pt too wide) in paragraph at lines 17--17
 
 
 
-
-
-
-
- <./figs/leeson_pn.pdf> <./figs/dco_noise.pdf> <./figs/div_noise_model.pdf> <./
-figs/div_jitter.pdf>]
+ <./figs/leeson_pn.pdf> <./figs/dco_noise.pdf>]
 \openout2 = `./figs/direct_type_1.aux'.
 
 
 (/home/cole/Documents/pll/report/./figs/direct_type_1.tex
-<./figs/direct_type_1.pdf, id=672, 276.03125pt x 161.60374pt>
+<./figs/direct_type_1.pdf, id=757, 276.03125pt x 161.60374pt>
 File: ./figs/direct_type_1.pdf Graphic file (type pdf)
 <use ./figs/direct_type_1.pdf>
 Package pdftex.def Info: ./figs/direct_type_1.pdf  used on input line 26.
@@ -1566,7 +1569,7 @@ Overfull \hbox (5.3556pt too wide) in paragraph at lines 26--26
 \openout2 = `./figs/direct_type_1_quant.aux'.
 
  (/home/cole/Documents/pll/report/./figs/direct_type_1_quant.tex
-<./figs/direct_type_1_quant.pdf, id=673, 309.155pt x 179.67125pt>
+<./figs/direct_type_1_quant.pdf, id=758, 309.155pt x 179.67125pt>
 File: ./figs/direct_type_1_quant.pdf Graphic file (type pdf)
 <use ./figs/direct_type_1_quant.pdf>
 Package pdftex.def Info: ./figs/direct_type_1_quant.pdf  used on input line 31.
@@ -1577,11 +1580,17 @@ Overfull \hbox (5.35559pt too wide) in paragraph at lines 31--31
 [][] 
  []
 
-) [23]
+) [23
+
+
+
+
+ <./figs/div_noise_model.pdf> <./figs/div_jitter.pdf>]
 \openout2 = `./figs/discrete_pll_full_noise.aux'.
 
- (/home/cole/Documents/pll/report/./figs/discrete_pll_full_noise.tex
-<./figs/discrete_pll_full_noise.pdf, id=686, 766.865pt x 177.66376pt>
+
+(/home/cole/Documents/pll/report/./figs/discrete_pll_full_noise.tex
+<./figs/discrete_pll_full_noise.pdf, id=776, 766.865pt x 177.66376pt>
 File: ./figs/discrete_pll_full_noise.pdf Graphic file (type pdf)
 <use ./figs/discrete_pll_full_noise.pdf>
 Package pdftex.def Info: ./figs/discrete_pll_full_noise.pdf  used on input line
@@ -1610,48 +1619,66 @@ Overfull \hbox (5.61688pt too wide) in paragraph at lines 30--270
 
 
 (/home/cole/Documents/pll/report/./figs/bbpll.tex
-<./figs/bbpll.pdf, id=736, 409.53pt x 159.59625pt>
+<./figs/bbpll.pdf, id=826, 381.425pt x 114.4275pt>
 File: ./figs/bbpll.pdf Graphic file (type pdf)
 <use ./figs/bbpll.pdf>
-Package pdftex.def Info: ./figs/bbpll.pdf  used on input line 21.
+Package pdftex.def Info: ./figs/bbpll.pdf  used on input line 20.
+(pdftex.def)             Requested size: 228.85675pt x 68.65701pt.
+
+Overfull \hbox (4.81932pt too wide) in paragraph at lines 20--20
+[][] 
+ []
+
+) [27
+
+
+ <./figs/bbpll.pdf>]) [28] (/home/cole/Documents/pll/report/methods.tex
+\openout2 = `./figs/tdc_bbpll.aux'.
+
+
+(/home/cole/Documents/pll/report/./figs/tdc_bbpll.tex
+<./figs/tdc_bbpll.pdf, id=861, 409.53pt x 159.59625pt>
+File: ./figs/tdc_bbpll.pdf Graphic file (type pdf)
+<use ./figs/tdc_bbpll.pdf>
+Package pdftex.def Info: ./figs/tdc_bbpll.pdf  used on input line 21.
 (pdftex.def)             Requested size: 245.7199pt x 95.75847pt.
 
 Overfull \hbox (4.51921pt too wide) in paragraph at lines 21--21
 [][] 
  []
 
-)) [27
+) [29
 
 
- <./figs/bbpll.pdf>] (/home/cole/Documents/pll/report/methods.tex
-\openout2 = `./figs/filt_design.aux'.
+ <./figs/tdc_bbpll.pdf>]
+\openout2 = `./figs/filt_design2.aux'.
 
 
-(/home/cole/Documents/pll/report/./figs/filt_design.tex
-<./figs/filt_design.pdf, id=751, 658.46pt x 405.515pt>
-File: ./figs/filt_design.pdf Graphic file (type pdf)
-<use ./figs/filt_design.pdf>
-Package pdftex.def Info: ./figs/filt_design.pdf  used on input line 32.
-(pdftex.def)             Requested size: 460.91887pt x 283.85855pt.
+(/home/cole/Documents/pll/report/./figs/filt_design2.tex
+<./figs/filt_design2.pdf, id=880, 658.46pt x 429.605pt>
+File: ./figs/filt_design2.pdf Graphic file (type pdf)
+<use ./figs/filt_design2.pdf>
+Package pdftex.def Info: ./figs/filt_design2.pdf  used on input line 34.
+(pdftex.def)             Requested size: 460.91887pt x 300.72144pt.
 
-Overfull \hbox (5.61766pt too wide) in paragraph at lines 32--32
+Overfull \hbox (5.61766pt too wide) in paragraph at lines 34--34
 [][] 
  []
 
 )
-Overfull \hbox (5.61688pt too wide) in paragraph at lines 32--16
+Overfull \hbox (5.61688pt too wide) in paragraph at lines 34--35
  [][] 
  []
 
-[28
+[30
 
 
- <./figs/filt_design.pdf>] [29]
+ <./figs/filt_design2.pdf>] [31]
 \openout2 = `./figs/pi_pz_plot.aux'.
 
 
 (/home/cole/Documents/pll/report/./figs/pi_pz_plot.tex
-<./figs/pi_pz_plot.pdf, id=786, 441.65pt x 176.66pt>
+<./figs/pi_pz_plot.pdf, id=914, 441.65pt x 176.66pt>
 File: ./figs/pi_pz_plot.pdf Graphic file (type pdf)
 <use ./figs/pi_pz_plot.pdf>
 Package pdftex.def Info: ./figs/pi_pz_plot.pdf  used on input line 19.
@@ -1661,28 +1688,28 @@ Overfull \hbox (5.61911pt too wide) in paragraph at lines 19--19
 [][] 
  []
 
-) [30]
-<figs/pi_pll_response.pdf, id=798, 867.24pt x 289.08pt>
+)
+<figs/pi_pll_response.pdf, id=916, 867.24pt x 289.08pt>
 File: figs/pi_pll_response.pdf Graphic file (type pdf)
 <use figs/pi_pll_response.pdf>
-Package pdftex.def Info: figs/pi_pll_response.pdf  used on input line 79.
+Package pdftex.def Info: figs/pi_pll_response.pdf  used on input line 97.
 (pdftex.def)             Requested size: 455.24411pt x 151.74721pt.
- [31
+ [32
 
 
- <./figs/pi_pz_plot.pdf> </home/cole/Documents/pll/report/figs/pi_pll_response.
-pdf>]
-<figs/damping_vs_pm.pdf, id=862, 462.52798pt x 346.89601pt>
+ <./figs/pi_pz_plot.pdf>] [33 </home/cole/Documents/pll/report/figs/pi_pll_resp
+onse.pdf>]
+<figs/damping_vs_pm.pdf, id=998, 462.52798pt x 346.89601pt>
 File: figs/damping_vs_pm.pdf Graphic file (type pdf)
 <use figs/damping_vs_pm.pdf>
-Package pdftex.def Info: figs/damping_vs_pm.pdf  used on input line 101.
+Package pdftex.def Info: figs/damping_vs_pm.pdf  used on input line 123.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
- [32 </home/cole/Documents/pll/report/figs/damping_vs_pm.pdf>]
+ [34 </home/cole/Documents/pll/report/figs/damping_vs_pm.pdf>]
 \openout2 = `./figs/filter_arch_tex.aux'.
 
 
 (/home/cole/Documents/pll/report/./figs/filter_arch_tex.tex
-<./figs/filter_arch_tex.pdf, id=928, 580.1675pt x 167.62625pt>
+<./figs/filter_arch_tex.pdf, id=1063, 580.1675pt x 167.62625pt>
 File: ./figs/filter_arch_tex.pdf Graphic file (type pdf)
 <use ./figs/filter_arch_tex.pdf>
 Package pdftex.def Info: ./figs/filter_arch_tex.pdf  used on input line 31.
@@ -1692,23 +1719,15 @@ Overfull \hbox (5.61786pt too wide) in paragraph at lines 31--31
 [][] 
  []
 
-) [33
+) [35
 
 
- <./figs/filter_arch_tex.pdf>] [34]
-LaTeX Font Info:    Try loading font information for OT1+zi4 on input line 169.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ot1zi4.fd
-File: ot1zi4.fd 2018/01/14 OT1/zi4 (Inconsolata)
-)
-LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 12.0pt on input line 169.
+ <./figs/filter_arch_tex.pdf>] [36]
 \openout2 = `./figs/simulator.aux'.
 
 
 (/home/cole/Documents/pll/report/./figs/simulator.tex
-<./figs/simulator.pdf, id=955, 767.86874pt x 405.515pt>
+<./figs/simulator.pdf, id=1091, 767.86874pt x 405.515pt>
 File: ./figs/simulator.pdf Graphic file (type pdf)
 <use ./figs/simulator.pdf>
 Package pdftex.def Info: ./figs/simulator.pdf  used on input line 44.
@@ -1721,39 +1740,39 @@ Overfull \hbox (4.74759pt too wide) in paragraph at lines 44--44
  []
 
 )
-Overfull \hbox (6.29288pt too wide) in paragraph at lines 44--173
+Overfull \hbox (6.29288pt too wide) in paragraph at lines 44--194
  [][] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 178.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 199.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 178.
- [35
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 199.
+ [37
 
 
  <./figs/simulator.pdf>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 180.
-LaTeX Font Info:    Try loading font information for T1+zi4 on input line 180.
+nput line 201.
+LaTeX Font Info:    Try loading font information for T1+zi4 on input line 201.
  (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 180.
+(Font)              scaled to size 10.0pt on input line 201.
 LaTeX Font Info:    Font shape `T1/zi4/bx/n' in size <10> not available
-(Font)              Font shape `T1/zi4/b/n' tried instead on input line 181.
+(Font)              Font shape `T1/zi4/b/n' tried instead on input line 202.
 LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
-(Font)              scaled to size 10.0pt on input line 181.
- [36]
-[37]
+(Font)              scaled to size 10.0pt on input line 202.
+ [38]
+[39]
 \openout2 = `./figs/rw_pn.aux'.
 
  (/home/cole/Documents/pll/report/./figs/rw_pn.tex
-<./figs/rw_pn.pdf, id=1017, 248.93pt x 89.33376pt>
+<./figs/rw_pn.pdf, id=1151, 248.93pt x 89.33376pt>
 File: ./figs/rw_pn.pdf Graphic file (type pdf)
 <use ./figs/rw_pn.pdf>
 Package pdftex.def Info: ./figs/rw_pn.pdf  used on input line 21.
@@ -1764,45 +1783,45 @@ Overfull \hbox (6.425pt too wide) in paragraph at lines 21--21
  []
 
 )
-<figs/dco_rw_pn.pdf, id=1018, 462.52798pt x 346.89601pt>
+<figs/dco_rw_pn.pdf, id=1152, 462.52798pt x 346.89601pt>
 File: figs/dco_rw_pn.pdf Graphic file (type pdf)
 <use figs/dco_rw_pn.pdf>
-Package pdftex.def Info: figs/dco_rw_pn.pdf  used on input line 279.
+Package pdftex.def Info: figs/dco_rw_pn.pdf  used on input line 300.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
- [38] [39
+ [40] [41
 
 
  <./figs/rw_pn.pdf> </home/cole/Documents/pll/report/figs/dco_rw_pn.pdf>]
-<figs/loop_filter_trans.pdf, id=1139, 462.52798pt x 346.89601pt>
+<figs/loop_filter_trans.pdf, id=1274, 462.52798pt x 346.89601pt>
 File: figs/loop_filter_trans.pdf Graphic file (type pdf)
 <use figs/loop_filter_trans.pdf>
-Package pdftex.def Info: figs/loop_filter_trans.pdf  used on input line 325.
+Package pdftex.def Info: figs/loop_filter_trans.pdf  used on input line 346.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
- [40 </home/cole/Documents/pll/report/figs/loop_filter_trans.pdf>]
-<figs/psd_estimate.pdf, id=1201, 462.52798pt x 346.89601pt>
+ [42 </home/cole/Documents/pll/report/figs/loop_filter_trans.pdf>]
+<figs/psd_estimate.pdf, id=1337, 462.52798pt x 346.89601pt>
 File: figs/psd_estimate.pdf Graphic file (type pdf)
 <use figs/psd_estimate.pdf>
-Package pdftex.def Info: figs/psd_estimate.pdf  used on input line 344.
-(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
- [41]
-[42 </home/cole/Documents/pll/report/figs/psd_estimate.pdf>]
-<figs/pn_comps.pdf, id=1288, 462.52798pt x 346.89601pt>
-File: figs/pn_comps.pdf Graphic file (type pdf)
-<use figs/pn_comps.pdf>
-Package pdftex.def Info: figs/pn_comps.pdf  used on input line 390.
-(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/bandwidth_vs_pn.pdf, id=1289, 462.52798pt x 346.89601pt>
-File: figs/bandwidth_vs_pn.pdf Graphic file (type pdf)
-<use figs/bandwidth_vs_pn.pdf>
-Package pdftex.def Info: figs/bandwidth_vs_pn.pdf  used on input line 396.
+Package pdftex.def Info: figs/psd_estimate.pdf  used on input line 365.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
  [43]
-<figs/loop_bandwidth.pdf, id=1300, 539.01375pt x 189.70876pt>
+[44 </home/cole/Documents/pll/report/figs/psd_estimate.pdf>]
+<figs/pn_comps.pdf, id=1423, 462.52798pt x 346.89601pt>
+File: figs/pn_comps.pdf Graphic file (type pdf)
+<use figs/pn_comps.pdf>
+Package pdftex.def Info: figs/pn_comps.pdf  used on input line 411.
+(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
+<figs/bandwidth_vs_pn.pdf, id=1424, 462.52798pt x 346.89601pt>
+File: figs/bandwidth_vs_pn.pdf Graphic file (type pdf)
+<use figs/bandwidth_vs_pn.pdf>
+Package pdftex.def Info: figs/bandwidth_vs_pn.pdf  used on input line 417.
+(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
+ [45]
+<figs/loop_bandwidth.pdf, id=1435, 539.01375pt x 189.70876pt>
 File: figs/loop_bandwidth.pdf Graphic file (type pdf)
 <use figs/loop_bandwidth.pdf>
-Package pdftex.def Info: figs/loop_bandwidth.pdf  used on input line 408.
+Package pdftex.def Info: figs/loop_bandwidth.pdf  used on input line 429.
 (pdftex.def)             Requested size: 455.24411pt x 160.22845pt.
- [44 </home/cole/Documents/pll/report/figs/pn_comps.pdf> </home/cole/Documents/
+ [46 </home/cole/Documents/pll/report/figs/pn_comps.pdf> </home/cole/Documents/
 pll/report/figs/bandwidth_vs_pn.pdf
 
 pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/bandwidth_v
@@ -1812,7 +1831,7 @@ ge
 \openout2 = `figs/optimizer.aux'.
 
  (/home/cole/Documents/pll/report/figs/optimizer.tex
-<./figs/optimizer.pdf, id=1411, 717.68124pt x 188.705pt>
+<./figs/optimizer.pdf, id=1546, 717.68124pt x 188.705pt>
 File: ./figs/optimizer.pdf Graphic file (type pdf)
 <use ./figs/optimizer.pdf>
 Package pdftex.def Info: ./figs/optimizer.pdf  used on input line 35.
@@ -1823,85 +1842,97 @@ Overfull \hbox (5.17865pt too wide) in paragraph at lines 35--35
  []
 
 )
-Overfull \hbox (47.51047pt too wide) in paragraph at lines 35--420
+Overfull \hbox (47.51047pt too wide) in paragraph at lines 35--441
  [][] 
  []
 
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 428.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 449.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [45
+) [47
 
 
  </home/cole/Documents/pll/report/figs/loop_bandwidth.pdf> <./figs/optimizer.pd
-f>] [46]
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 479.
+f>]
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
+[]\OT1/ptm/m/n/12 Provided a fixed tar-get for set-tling time = $\OML/cmm/m/it/
+12 t[]$\OT1/ptm/m/n/12 , and PLL pa-ram-e-ters
+ []
 
+[48] [49]
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 523.
 
-(/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [47]
-<figs/lf_quant_noise.pdf, id=1461, 462.52798pt x 346.89601pt>
+)
+[50] [51]
+\openout2 = `figs/lf_quant_noise_model.aux'.
+
+ (/home/cole/Documents/pll/report/figs/lf_quant_noise_model.tex
+<./figs/lf_quant_noise_model.pdf, id=1632, 289.08pt x 176.66pt>
+File: ./figs/lf_quant_noise_model.pdf Graphic file (type pdf)
+<use ./figs/lf_quant_noise_model.pdf>
+Package pdftex.def Info: ./figs/lf_quant_noise_model.pdf  used on input line 22
+.
+(pdftex.def)             Requested size: 173.44933pt x 105.99681pt.
+
+Overfull \hbox (4.51865pt too wide) in paragraph at lines 22--22
+[][] 
+ []
+
+)
+<figs/lf_quant_noise.pdf, id=1633, 462.52798pt x 346.89601pt>
 File: figs/lf_quant_noise.pdf Graphic file (type pdf)
 <use figs/lf_quant_noise.pdf>
-Package pdftex.def Info: figs/lf_quant_noise.pdf  used on input line 511.
+Package pdftex.def Info: figs/lf_quant_noise.pdf  used on input line 576.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/tf_quant_error.pdf, id=1462, 462.52798pt x 346.89601pt>
+ [52
+
+
+ <./figs/lf_quant_noise_model.pdf> </home/cole/Documents/pll/report/figs/lf_qua
+nt_noise.pdf>]
+<figs/tf_quant_error.pdf, id=1700, 462.52798pt x 346.89601pt>
 File: figs/tf_quant_error.pdf Graphic file (type pdf)
 <use figs/tf_quant_error.pdf>
-Package pdftex.def Info: figs/tf_quant_error.pdf  used on input line 522.
+Package pdftex.def Info: figs/tf_quant_error.pdf  used on input line 612.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/tf_mse.pdf, id=1463, 462.52798pt x 346.89601pt>
+<figs/tf_mse.pdf, id=1701, 462.52798pt x 346.89601pt>
 File: figs/tf_mse.pdf Graphic file (type pdf)
 <use figs/tf_mse.pdf>
-Package pdftex.def Info: figs/tf_mse.pdf  used on input line 528.
+Package pdftex.def Info: figs/tf_mse.pdf  used on input line 618.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-) [48]
-(/home/cole/Documents/pll/report/disco.tex [49 </home/cole/Documents/pll/report
-/figs/lf_quant_noise.pdf> </home/cole/Documents/pll/report/figs/tf_quant_error.
-pdf
-
-pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/tf_quant_er
-ror.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
-e
-> </home/cole/Documents/pll/report/figs/tf_mse.pdf
+ [53]) [54 </home/cole/Documents/pll/report/figs/tf_quant_error.pdf> </home/col
+e/Documents/pll/report/figs/tf_mse.pdf
 
 pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/tf_mse.pdf)
 : PDF inclusion: multiple pdfs with page group included in a single page
->]
+>] (/home/cole/Documents/pll/report/disco.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 14.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figs/trans_loop_filter.pdf, id=1647, 462.52798pt x 346.89601pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
+ [55] [56]
+<figs/trans_loop_filter.pdf, id=1844, 462.52798pt x 346.89601pt>
 File: figs/trans_loop_filter.pdf Graphic file (type pdf)
 <use figs/trans_loop_filter.pdf>
-Package pdftex.def Info: figs/trans_loop_filter.pdf  used on input line 124.
+Package pdftex.def Info: figs/trans_loop_filter.pdf  used on input line 130.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/trans_inst_freq.pdf, id=1648, 462.52798pt x 346.89601pt>
+<figs/trans_inst_freq.pdf, id=1845, 462.52798pt x 346.89601pt>
 File: figs/trans_inst_freq.pdf Graphic file (type pdf)
 <use figs/trans_inst_freq.pdf>
-Package pdftex.def Info: figs/trans_inst_freq.pdf  used on input line 130.
+Package pdftex.def Info: figs/trans_inst_freq.pdf  used on input line 136.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-[50]
-<figs/trans_tdc_bbpd.pdf, id=1653, 462.52798pt x 346.89601pt>
+<figs/trans_tdc_bbpd.pdf, id=1846, 462.52798pt x 346.89601pt>
 File: figs/trans_tdc_bbpd.pdf Graphic file (type pdf)
 <use figs/trans_tdc_bbpd.pdf>
-Package pdftex.def Info: figs/trans_tdc_bbpd.pdf  used on input line 143.
+Package pdftex.def Info: figs/trans_tdc_bbpd.pdf  used on input line 149.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/trans_phase_noise.pdf, id=1654, 462.52798pt x 346.89601pt>
+<figs/trans_phase_noise.pdf, id=1847, 462.52798pt x 346.89601pt>
 File: figs/trans_phase_noise.pdf Graphic file (type pdf)
 <use figs/trans_phase_noise.pdf>
-Package pdftex.def Info: figs/trans_phase_noise.pdf  used on input line 149.
+Package pdftex.def Info: figs/trans_phase_noise.pdf  used on input line 155.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
- [51] [52 </home/cole/Documents/pll/report/figs/trans_loop_filter.pdf> </home/c
-ole/Documents/pll/report/figs/trans_inst_freq.pdf
+ [57 </home/cole/Documents/pll/report/figs/trans_loop_filter.pdf> </home/cole/D
+ocuments/pll/report/figs/trans_inst_freq.pdf
 
 pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/trans_inst_
 freq.pdf): PDF inclusion: multiple pdfs with page group included in a single pa
@@ -1917,103 +1948,112 @@ pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/trans_phase
 _noise.pdf): PDF inclusion: multiple pdfs with page group included in a single 
 page
 >]
-<figs/_kdco_sweep.pdf, id=1863, 462.52798pt x 346.89601pt>
+<figs/_kdco_sweep.pdf, id=2052, 462.52798pt x 346.89601pt>
 File: figs/_kdco_sweep.pdf Graphic file (type pdf)
 <use figs/_kdco_sweep.pdf>
-Package pdftex.def Info: figs/_kdco_sweep.pdf  used on input line 165.
+Package pdftex.def Info: figs/_kdco_sweep.pdf  used on input line 172.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/_finit_sweep.pdf, id=1864, 462.52798pt x 346.89601pt>
+<figs/_finit_sweep.pdf, id=2053, 462.52798pt x 346.89601pt>
 File: figs/_finit_sweep.pdf Graphic file (type pdf)
 <use figs/_finit_sweep.pdf>
-Package pdftex.def Info: figs/_finit_sweep.pdf  used on input line 171.
+Package pdftex.def Info: figs/_finit_sweep.pdf  used on input line 178.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/mc_trans.pdf, id=1865, 462.52798pt x 346.89601pt>
+<figs/mc_trans.pdf, id=2054, 462.52798pt x 346.89601pt>
 File: figs/mc_trans.pdf Graphic file (type pdf)
 <use figs/mc_trans.pdf>
-Package pdftex.def Info: figs/mc_trans.pdf  used on input line 184.
+Package pdftex.def Info: figs/mc_trans.pdf  used on input line 191.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/mc_hist.pdf, id=1866, 462.52798pt x 346.89601pt>
+<figs/mc_hist.pdf, id=2055, 462.52798pt x 346.89601pt>
 File: figs/mc_hist.pdf Graphic file (type pdf)
 <use figs/mc_hist.pdf>
-Package pdftex.def Info: figs/mc_hist.pdf  used on input line 190.
+Package pdftex.def Info: figs/mc_hist.pdf  used on input line 197.
 (pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/trans_loop_filter_fast.pdf, id=1867, 462.52798pt x 346.89601pt>
-File: figs/trans_loop_filter_fast.pdf Graphic file (type pdf)
-<use figs/trans_loop_filter_fast.pdf>
-Package pdftex.def Info: figs/trans_loop_filter_fast.pdf  used on input line 23
-1.
-(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/trans_inst_freq_fast.pdf, id=1868, 462.52798pt x 346.89601pt>
-File: figs/trans_inst_freq_fast.pdf Graphic file (type pdf)
-<use figs/trans_inst_freq_fast.pdf>
-Package pdftex.def Info: figs/trans_inst_freq_fast.pdf  used on input line 237.
-
-(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/trans_tdc_bbpd_fast.pdf, id=1869, 462.52798pt x 346.89601pt>
-File: figs/trans_tdc_bbpd_fast.pdf Graphic file (type pdf)
-<use figs/trans_tdc_bbpd_fast.pdf>
-Package pdftex.def Info: figs/trans_tdc_bbpd_fast.pdf  used on input line 250.
-(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/trans_phase_noise_fast.pdf, id=1870, 462.52798pt x 346.89601pt>
-File: figs/trans_phase_noise_fast.pdf Graphic file (type pdf)
-<use figs/trans_phase_noise_fast.pdf>
-Package pdftex.def Info: figs/trans_phase_noise_fast.pdf  used on input line 25
-6.
-(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/_kdco_sweep_fast.pdf, id=1871, 462.52798pt x 346.89601pt>
-File: figs/_kdco_sweep_fast.pdf Graphic file (type pdf)
-<use figs/_kdco_sweep_fast.pdf>
-Package pdftex.def Info: figs/_kdco_sweep_fast.pdf  used on input line 269.
-(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/finit_sweep_fast.pdf, id=1872, 462.52798pt x 346.89601pt>
-File: figs/finit_sweep_fast.pdf Graphic file (type pdf)
-<use figs/finit_sweep_fast.pdf>
-Package pdftex.def Info: figs/finit_sweep_fast.pdf  used on input line 275.
-(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/mc_trans_2x.pdf, id=1873, 462.52798pt x 346.89601pt>
-File: figs/mc_trans_2x.pdf Graphic file (type pdf)
-<use figs/mc_trans_2x.pdf>
-Package pdftex.def Info: figs/mc_trans_2x.pdf  used on input line 288.
-(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-<figs/mc_hist_fast_2x.pdf, id=1874, 462.52798pt x 346.89601pt>
-File: figs/mc_hist_fast_2x.pdf Graphic file (type pdf)
-<use figs/mc_hist_fast_2x.pdf>
-Package pdftex.def Info: figs/mc_hist_fast_2x.pdf  used on input line 294.
-(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
-[53 </home/cole/Documents/pll/report/figs/_kdco_sweep.pdf> </home/cole/Document
+[58 </home/cole/Documents/pll/report/figs/_kdco_sweep.pdf> </home/cole/Document
 s/pll/report/figs/_finit_sweep.pdf
 
 pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/_finit_swee
 p.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/cole/Documents/pll/report/figs/mc_trans.pdf
+>]
 
-pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/mc_trans.pd
-f): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/cole/Documents/pll/report/figs/mc_hist.pdf
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[59 </home/cole/Documents/pll/report/figs/mc_trans.pdf> </home/cole/Documents/p
+ll/report/figs/mc_hist.pdf
 
 pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/mc_hist.pdf
 ): PDF inclusion: multiple pdfs with page group included in a single page
->] [54 </home/cole/Documents/pll/report/figs/trans_loop_filter_fast.pdf> </home
-/cole/Documents/pll/report/figs/trans_inst_freq_fast.pdf
+>] [60]
+<figs/trans_loop_filter_fast.pdf, id=2254, 462.52798pt x 346.89601pt>
+File: figs/trans_loop_filter_fast.pdf Graphic file (type pdf)
+<use figs/trans_loop_filter_fast.pdf>
+Package pdftex.def Info: figs/trans_loop_filter_fast.pdf  used on input line 37
+1.
+(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
+<figs/trans_inst_freq_fast.pdf, id=2255, 462.52798pt x 346.89601pt>
+File: figs/trans_inst_freq_fast.pdf Graphic file (type pdf)
+<use figs/trans_inst_freq_fast.pdf>
+Package pdftex.def Info: figs/trans_inst_freq_fast.pdf  used on input line 377.
+
+(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
+<figs/trans_tdc_bbpd_fast.pdf, id=2256, 462.52798pt x 346.89601pt>
+File: figs/trans_tdc_bbpd_fast.pdf Graphic file (type pdf)
+<use figs/trans_tdc_bbpd_fast.pdf>
+Package pdftex.def Info: figs/trans_tdc_bbpd_fast.pdf  used on input line 390.
+(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
+<figs/trans_phase_noise_fast.pdf, id=2257, 462.52798pt x 346.89601pt>
+File: figs/trans_phase_noise_fast.pdf Graphic file (type pdf)
+<use figs/trans_phase_noise_fast.pdf>
+Package pdftex.def Info: figs/trans_phase_noise_fast.pdf  used on input line 39
+6.
+(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
+<figs/_kdco_sweep_fast.pdf, id=2264, 462.52798pt x 346.89601pt>
+File: figs/_kdco_sweep_fast.pdf Graphic file (type pdf)
+<use figs/_kdco_sweep_fast.pdf>
+Package pdftex.def Info: figs/_kdco_sweep_fast.pdf  used on input line 410.
+(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
+<figs/finit_sweep_fast.pdf, id=2265, 462.52798pt x 346.89601pt>
+File: figs/finit_sweep_fast.pdf Graphic file (type pdf)
+<use figs/finit_sweep_fast.pdf>
+Package pdftex.def Info: figs/finit_sweep_fast.pdf  used on input line 416.
+(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
+ [61 </home/cole/Documents/pll/report/figs/trans_loop_filter_fast.pdf> </home/c
+ole/Documents/pll/report/figs/trans_inst_freq_fast.pdf
 
 pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/trans_inst_
 freq_fast.pdf): PDF inclusion: multiple pdfs with page group included in a sing
 le page
-> </home/cole/Documents/pll/report/figs/trans_tdc_bbpd_fast.pdf
+>]
+<figs/mc_trans_2x.pdf, id=2353, 462.52798pt x 346.89601pt>
+File: figs/mc_trans_2x.pdf Graphic file (type pdf)
+<use figs/mc_trans_2x.pdf>
+Package pdftex.def Info: figs/mc_trans_2x.pdf  used on input line 429.
+(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
+<figs/mc_hist_fast_2x.pdf, id=2354, 462.52798pt x 346.89601pt>
+File: figs/mc_hist_fast_2x.pdf Graphic file (type pdf)
+<use figs/mc_hist_fast_2x.pdf>
+Package pdftex.def Info: figs/mc_hist_fast_2x.pdf  used on input line 435.
+(pdftex.def)             Requested size: 227.62206pt x 170.71628pt.
 
-pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/trans_tdc_b
-bpd_fast.pdf): PDF inclusion: multiple pdfs with page group included in a singl
-e page
-> </home/cole/Documents/pll/report/figs/trans_phase_noise_fast.pdf
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[62 </home/cole/Documents/pll/report/figs/trans_tdc_bbpd_fast.pdf> </home/cole/
+Documents/pll/report/figs/trans_phase_noise_fast.pdf
 
 pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/trans_phase
 _noise_fast.pdf): PDF inclusion: multiple pdfs with page group included in a si
 ngle page
->] [55 </home/cole/Documents/pll/report/figs/_kdco_sweep_fast.pdf> </home/cole/
+>] [63 </home/cole/Documents/pll/report/figs/_kdco_sweep_fast.pdf> </home/cole/
 Documents/pll/report/figs/finit_sweep_fast.pdf
 
 pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/finit_sweep
@@ -2028,53 +2068,20 @@ pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/mc_trans_2x
 pdfTeX warning: pdflatex (file /home/cole/Documents/pll/report/figs/mc_hist_fas
 t_2x.pdf): PDF inclusion: multiple pdfs with page group included in a single pa
 ge
->] [56
-
-] [57]) [58] [59] [60] [61] (/home/cole/Documents/pll/report/appendix.tex
-Underfull \hbox (badness 2384) in paragraph at lines 36--36
-|[]\OT1/phv/b/n/20.74 Oscillator phase noise due to ther-mal
+>] [64] [65] [66]) [67] [68]
+Underfull \hbox (badness 1087) in paragraph at lines 116--116
+[]\OT1/ptm/m/n/10 Yao Shi et al. ``28.3 A 606$\OML/cmm/m/it/10 ^^V$\OT1/ptm/m/n
+/10 W mm-Scale Blue-tooth Low-Energy Trans-mit-ter Us-ing Co-Designed
  []
 
-\openout2 = `./figs/dco_noise.aux'.
+[69] [70] [71] (/home/cole/Documents/pll/report/appendix.tex)
 
-(/home/cole/Documents/pll/report/./figs/dco_noise.tex
-File: ./figs/dco_noise.pdf Graphic file (type pdf)
-<use ./figs/dco_noise.pdf>
-Package pdftex.def Info: ./figs/dco_noise.pdf  used on input line 20.
-(pdftex.def)             Requested size: 262.77995pt x 53.39912pt.
-
-Overfull \hbox (5.09312pt too wide) in paragraph at lines 20--20
-[][] 
- []
-
-)
-\openout2 = `./figs/aperture_noise.aux'.
-
- (/home/cole/Documents/pll/report/./figs/aperture_noise.tex
-<./figs/aperture_noise.pdf, id=2510, 334.24875pt x 135.50626pt>
-File: ./figs/aperture_noise.pdf Graphic file (type pdf)
-<use ./figs/aperture_noise.pdf>
-Package pdftex.def Info: ./figs/aperture_noise.pdf  used on input line 28.
-(pdftex.def)             Requested size: 300.82109pt x 121.95448pt.
-
-Overfull \hbox (6.7721pt too wide) in paragraph at lines 28--28
-[][] 
- []
-
-) [62
-
-
-])
-
-Package caption Warning: Unused \captionsetup[mycapequ] on input line 78.
+Package caption Warning: Unused \captionsetup[mycapequ] on input line 79.
 See the caption package documentation for explanation.
 
-[63
-
-
- <./figs/aperture_noise.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 120.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 120.
+[72]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 124.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 124.
  (/home/cole/Documents/pll/report/report.aux
 (/home/cole/Documents/pll/report/./figs/basic_feedback.aux)
 (/home/cole/Documents/pll/report/./figs/basic_pll.aux)
@@ -2094,70 +2101,79 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 120.
 (/home/cole/Documents/pll/report/./figs/direct_type_1_quant.aux)
 (/home/cole/Documents/pll/report/./figs/discrete_pll_full_noise.aux)
 (/home/cole/Documents/pll/report/./figs/bbpll.aux)
-(/home/cole/Documents/pll/report/./figs/filt_design.aux)
+(/home/cole/Documents/pll/report/./figs/tdc_bbpll.aux)
+(/home/cole/Documents/pll/report/./figs/filt_design2.aux)
 (/home/cole/Documents/pll/report/./figs/pi_pz_plot.aux)
 (/home/cole/Documents/pll/report/./figs/filter_arch_tex.aux)
 (/home/cole/Documents/pll/report/./figs/simulator.aux)
 (/home/cole/Documents/pll/report/./figs/rw_pn.aux)
 (/home/cole/Documents/pll/report/figs/optimizer.aux)
-(/home/cole/Documents/pll/report/./figs/dco_noise.aux)
-(/home/cole/Documents/pll/report/./figs/aperture_noise.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 120.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 120.
+(/home/cole/Documents/pll/report/figs/lf_quant_noise_model.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 124.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 124.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: E8862597E8CED9C036DAED1AA0B4B5A6;4922.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
+(rerunfilecheck)             Checksum: 86C2233D7DC7581E469523F86FBA4687;5735.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 120.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 124.
  ) 
 Here is how much of TeX's memory you used:
- 29388 strings out of 492982
- 534596 string characters out of 6134896
- 1156191 words of memory out of 5000000
- 31825 multiletter control sequences out of 15000+600000
- 48266 words of font info for 108 fonts, out of 8000000 for 9000
+ 29602 strings out of 492982
+ 539625 string characters out of 6134896
+ 1164112 words of memory out of 5000000
+ 31977 multiletter control sequences out of 15000+600000
+ 48190 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,17n,78p,2263b,1951s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texliv
-e/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}{/usr/share/texlive/texmf-
-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}</usr/share/texlive/texmf-dist/fo
-nts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
-r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/cole/Documents/pll/report/report.pdf (65 pages, 2671422
+ 57i,17n,78p,2366b,1955s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/
+texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}{/usr/share/texlive/texmf-di
+st/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}</usr/share/texlive/texmf-dist/font
+s/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on /home/cole/Documents/pll/report/report.pdf (74 pages, 2734790
  bytes).
 PDF statistics:
- 2716 PDF objects out of 2984 (max. 8388607)
- 1502 compressed objects within 16 object streams
- 384 named destinations out of 1000 (max. 500000)
- 769 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2969 PDF objects out of 2984 (max. 8388607)
+ 1742 compressed objects within 18 object streams
+ 439 named destinations out of 1000 (max. 500000)
+ 830 words of extra memory for PDF output out of 10000 (max. 10000000)
 

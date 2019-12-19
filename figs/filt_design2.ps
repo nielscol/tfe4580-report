@@ -1,9 +1,9 @@
 %!PS-Adobe-3.0 EPSF-3.0
-%%Title: loop_bandwidth.ps
+%%Title: filt_design2.ps
 %%Creator: XCircuit v3.8 rev78
-%%CreationDate: Thu Dec 19 04:07:17 2019
+%%CreationDate: Wed Dec 18 23:17:41 2019
 %%Pages: 1
-%%BoundingBox: 68 68 605 257
+%%BoundingBox: 68 68 724 496
 %%DocumentNeededResources: font Helvetica Helvetica-Bold 
 %%EndComments
 %%BeginProlog
@@ -176,113 +176,82 @@
 
 %%BeginSetup
 
-/generic::tap {
-% trivial
-<</@in (bus\(0:7\)) /@out (bus\(0\)) >> begingate
-496 1.000 0 8 16 0 0 -8 3 polygon
-1.000 0.000 0.000 scb
-mark @out {/Helvetica cf} ctmk 20 0 1.000 16 0 pinlabel
-mark @in {/Helvetica cf} ctmk 23 0 1.000 0 0 pinlabel
-endgate
-} def
-
-/generic::arrowhead {
-% nonetwork
-begingate
-8 -28 beginpath
-3 -18 3 -15 0 0 curveto
--3 -15 -3 -18 -8 -28 curveto
--2 -26 2 -26 8 -28 curveto
-249 
-1.000 endpath
-endgate
-} def
-
-/generic::arrow {
-% nonetwork
-begingate
-1 0.800 0 -40 0 20 2 polygon
-1.000 0 0 40 generic::arrowhead
-endgate
-} def
-
 
 %%EndSetup
 
-%%Page: loop_bandwidth 1
+%%Page: filt_design 1
 %%PageOrientation: Portrait
 /pgsave save def bop
+% 32.00 8.00 gridspace
 1.0000 inchscale
-2.6000 setlinewidth 157 373 translate
+2.6000 setlinewidth 192 960 translate
 
-0.400 0.400 0.400 scb
-1 2.000 64 288 64 0 448 0 3 polygon
-1.000 0 448 0 generic::tap
-1.000 270 64 288 generic::tap
-(PSD) {/Helvetica-Bold cf} 2 16 270 0.500 48 240 label
-(log\(df\)) {/Helvetica-Bold cf} 2 16 0 0.500 432 -32 label
-1 2.000 544 288 544 0 928 0 3 polygon
-1.000 0 928 0 generic::tap
-1.000 270 544 288 generic::tap
-1 2.000 1024 288 1024 0 1408 0 3 polygon
-1.000 0 1408 0 generic::tap
-1.000 270 1024 288 generic::tap
-(PSD) {/Helvetica-Bold cf} 2 16 270 0.500 528 240 label
-(PSD) {/Helvetica-Bold cf} 2 16 270 0.500 1008 240 label
-0.000 0.000 1.000 scb
-1 1.500 64 160 192 160 272 0 3 polygon
-1 1.500 544 160 736 160 816 0 3 polygon
-1.000 0.000 0.000 scb
-1 1.500 576 0 736 160 896 0 3 polygon
-0.000 0.000 1.000 scb
-1 1.500 1024 160 1312 160 1392 0 3 polygon
-1.000 0.000 0.000 scb
-1 1.500 1248 0 1312 64 1376 0 3 polygon
-1 1.500 64 96 192 224 416 0 3 polygon
-0.400 0.400 0.400 scb
-(log\(df\)) {/Helvetica-Bold cf} 2 16 0 0.500 912 -32 label
-(log\(df\)) {/Helvetica-Bold cf} 2 16 0 0.500 1392 -32 label
-0.000 0.000 1.000 scb
-(TDC) {/Helvetica-Bold cf} 2 16 0 0.500 80 176 label
-(TDC) {/Helvetica-Bold cf} 2 16 0 0.500 560 176 label
-(TDC) {/Helvetica-Bold cf} 2 16 0 0.500 1040 176 label
-1.000 0.000 0.000 scb
-(DCO) {/Helvetica-Bold cf} 2 16 0 0.500 256 176 label
-(DCO) {/Helvetica-Bold cf} 2 16 0 0.500 768 144 label
-(DCO) {/Helvetica-Bold cf} 2 16 0 0.500 1248 64 label
-0.400 0.400 0.400 scb
-5 1.000 192 0 192 288 2 polygon
+0.898 0.898 0.898 scb
+1520 1.000 0 -96 0 128 1728 128 1728 -96 4 polygon
 sce
-1.000 270 192 256 generic::arrow
-(BW) {/Helvetica-Bold cf} 2 16 0 0.500 208 272 label
-0.400 0.400 0.400 scb
-5 1.000 736 0 736 288 2 polygon
-5 1.000 1312 0 1312 288 2 polygon
+
+($T_{opt}\(s\)=\\underset{T\(s\)}{\\argmin}\\int_0^{f_h}\\mathcal{L}\(\\Delta f|T\(s\)\)d\\Delta f$) 
+{/Helvetica cf} 2 144 0 0.800 512 16 label
+
+(\\textbf{Optimize continuous PLL closed loop response $T\(s\)$ for minimum total integrated phase noise.}) 
+{/Helvetica-Bold cf} 2 144 0 0.800 16 80 label
+0.898 0.898 0.898 scb
+1520 1.000 0 192 0 352 1728 352 1728 192 4 polygon
 sce
-1.000 90 1312 256 generic::arrow
-(BW) {/Helvetica-Bold cf} 2 16 0 0.500 1264 272 label
-(BW) {/Helvetica-Bold cf} 2 16 0 0.500 688 272 label
-(Decreasing bandwidth) {/Helvetica-Bold cf} 2 16 0 0.750 72 -64 label
-(DCO-dominated) {/Helvetica-Bold cf} 2 16 0 0.750 96 -144 label
-(Increasing phase noise,) {/Helvetica-Bold cf} 2 16 0 0.750 80 -112 label
-(Slow/increasing lock time) {/Helvetica-Bold cf} 2 16 0 0.750 80 -176 label
-(Optimal bandwidth) {/Helvetica-Bold cf} 2 16 0 0.750 568 -64 label
-(Equal contributions) {/Helvetica-Bold cf} 2 16 0 0.750 560 -144 label
-(Moderate lock time) {/Helvetica-Bold cf} 2 16 0 0.750 560 -176 label
-(Increasing bandwidth) {/Helvetica-Bold cf} 2 16 0 0.750 1048 -64 label
-(Increasing phase noise) {/Helvetica-Bold cf} 2 16 0 0.750 1040 -112 label
-(TDC-dominated) {/Helvetica-Bold cf} 2 16 0 0.750 1056 -144 label
-(Fast/decreasing lock time) {/Helvetica-Bold cf} 2 16 0 0.750 1040 -176 label
-1.000 0 1016 -104 generic::tap
-1.000 0 56 -104 generic::tap
-1.000 0 56 -168 generic::tap
-1.000 0 536 -104 generic::tap
-1.000 0 536 -168 generic::tap
-1.000 0 1016 -168 generic::tap
-(Minimum phase noise) {/Helvetica-Bold cf} 2 16 0 0.750 560 -112 label
-1 1.500 48 -80 416 -80 2 polygon
-1 1.500 528 -80 896 -80 2 polygon
-1 1.500 1008 -80 1376 -80 2 polygon
+(\\textbf{Specify PLL system parameters.}) {/Helvetica-Bold cf} 2 144 0 0.800 
+16 304 label
+(Divider ratio) {/Helvetica cf} 2 144 0 0.700 40 216 label
+(TDC resolution) {/Helvetica cf} 2 144 0 0.700 408 256 label
+(KDCO) {/Helvetica cf} 2 144 0 0.700 416 216 label
+(Reference frequency) {/Helvetica cf} 2 144 0 0.700 40 256 label
+($S_{\\Phi n_{DCO}}\(f\)$) {/Helvetica cf} 2 144 0 0.800 968 256 label
+1025 2.000 832 176 832 152 2 polygon
+1520 2.000 832 144 816 160 840 160 848 160 832 144 5 polygon
+1520 2.000 832 -144 816 -128 840 -128 848 -128 832 -144 5 polygon
+1025 2.000 832 -112 832 -136 2 polygon
+0.898 0.898 0.898 scb
+1520 1.000 0 -320 0 -160 1728 -160 1728 -320 4 polygon
+sce
+(\\textbf{Convert $T_{opt}\(s\)$ into discretized loop filter design.}) 
+{/Helvetica-Bold cf} 2 144 0 0.800 24 -208 label
+
+(Convert $T_{opt}\(s\)$ to loop filter $H_{LF}\(s\)$ based on provided system specifications.) 
+{/Helvetica cf} 2 144 0 0.700 48 -256 label
+
+(Use s-to-z transformation to convert $H_{LF}\(s\)$ to the discrete time $H_{LF}\(z\)$.) 
+{/Helvetica cf} 2 144 0 0.700 48 -296 label
+0.898 0.898 0.898 scb
+1520 1.000 0 -544 0 -384 1728 -384 1728 -544 4 polygon
+sce
+1520 2.000 832 -368 816 -352 840 -352 848 -352 832 -368 5 polygon
+1025 2.000 832 -336 832 -360 2 polygon
+
+(\\textbf{Conversion and optimization of loop filter into digital implementation.}) 
+{/Helvetica-Bold cf} 2 144 0 0.800 24 -432 label
+
+(Convert $H_{LF}\(z\)$ to direct form I implementation of its difference equation.) 
+{/Helvetica cf} 2 144 0 0.700 48 -480 label
+
+(Optimize number of bits per word used in digital implementation for quantization noise and filter accuracy.) 
+{/Helvetica cf} 2 144 0 0.700 48 -520 label
+0.898 0.898 0.898 scb
+1520 1.000 0 -768 0 -608 1728 -608 1728 -768 4 polygon
+sce
+1025 2.000 832 -560 832 -584 2 polygon
+1520 2.000 832 -592 816 -576 840 -576 848 -576 832 -592 5 polygon
+(\\textbf{Verify design with simulation.}) {/Helvetica-Bold cf} 2 144 0 0.800 
+24 -656 label
+
+(Utilize behavioral, discrete event simulator to capture non-linear and discrete time effects.) 
+{/Helvetica cf} 2 144 0 0.700 48 -704 label
+
+(Monte-Carlo sampling for KDCO. initial frequency error to analyze stability, phase noise and lock time across PVT.) 
+{/Helvetica cf} 2 144 0 0.700 48 -744 label
+(DCO phase noise - ) {/Helvetica cf} 2 144 0 0.700 696 256 label
+({\\color{blue}\\textbf{OR:}}) {/Helvetica-Bold cf} 2 144 0 0.800 16 -72 label
+
+(\\textbf{Optimize continuous PLL closed loop response $T\(s\)$ for minimum lock time.}) 
+{/Helvetica-Bold cf} 2 144 0 0.800 96 -72 label
 pgsave restore showpage
 
 %%Trailer

@@ -1,9 +1,17 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {1}{\ignorespaces System-level specifications\relax }}{50}{table.caption.29}
+\contentsline {table}{\numberline {1}{\ignorespaces System-level specifications\relax }}{55}{table.caption.31}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2}{\ignorespaces PLL parameters determined from filter design and optimization process.\relax }}{51}{table.caption.30}
+\contentsline {table}{\numberline {2}{\ignorespaces PLL parameters determined from filter design and optimization process.\relax }}{56}{table.caption.32}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3}{\ignorespaces Loop filter parameters after digitization and optimization for data word length.\relax }}{51}{table.caption.31}
+\contentsline {table}{\numberline {3}{\ignorespaces Loop filter parameters after digitization and optimization for data word length.\relax }}{56}{table.caption.33}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4}{\ignorespaces PLL parameters extracted from variance and parameter sweep simulations.\relax }}{54}{table.caption.36}
+\contentsline {table}{\numberline {4}{\ignorespaces PLL parameters extracted from variance and parameter sweep simulations.\relax }}{59}{table.caption.38}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5}{\ignorespaces PLL parameters determined from filter design and optimization process for fast lock speed with TDC feedback.\relax }}{60}{table.caption.39}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6}{\ignorespaces PLL parameters determined from filter design and optimization process for minimum phase noise with BBPD.\relax }}{60}{table.caption.40}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7}{\ignorespaces Loop filter parameters after digitization and optimization for data word length, gear 1 and gear 2.\relax }}{61}{table.caption.41}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {8}{\ignorespaces PLL parameters extracted from variance and parameter sweep simulations.\relax }}{63}{table.caption.46}

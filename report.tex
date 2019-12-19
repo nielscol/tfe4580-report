@@ -12,7 +12,7 @@
 \title{\textbf{}}
 \date{}
 
-\sloppy\raggedright
+\sloppy\RaggedRight
 \begin{document}	
 	\input{cover}
 	\pagebreak
@@ -21,12 +21,13 @@
 
 	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 	% Abstract		
+	\justify
 	\setcounter{page}{1}
 	\pagebreak
 	\thispagestyle{nohdr}
-	\begin{abstract}
-		\large\fontfamily{\rmdefault}\selectfont 
-		An open source Python-language design automation and simulation framework for the design of integer-N all digital phase locked loop (ADPLL) frequency synthesizers is presented in this paper. The framework enables (1) automatic design of optimized second order discrete time digital loop filters, and (2) behavioral ADPLL simulation to verify loop filter and PLL designs for satisfactory phase noise, lock-time and stability; optionally subject to variation using Monte-Carlo sampling. Simulation is implemented with a discrete-event time domain simulator utilizing behavioral PLL component models, permitting accurate modeling of effects of time-discretization and quantization in an ADPLL. Loop filter design automation is based upon a prototype second order filter, whose parameters are optimized to minimize total integrated output phase noise for a PLL provided specifications for reference frequency, divider ratio, time-to-digital converter (TDC) resolution, digitally controlled oscillator (DCO) gain, oscillator phase noise characteristics and maximum lock time. The optimizer utilizes continuous phase transfer function approximation of ADPLL dynamics and phase noise, which allows for computationally fast evaluation, but also requires conversion of the design filters from continuous-to-discrete time. Second order optimization is utilized post filter design to map the discrete filter into a fixed-point digital with acceptable quantization noise and filter error due to quantization effects.
+	\begin{abstract} \large\fontfamily{\rmdefault}\selectfont \
+		
+		\vspace{-2em}An open source Python-language design automation and simulation framework for the design of integer-N all digital phase locked loop (ADPLL) frequency synthesizers is presented in this paper. The framework enables (1) automatic design of optimized second order discrete time digital loop filters, and (2) behavioral ADPLL simulation to verify loop filter and PLL designs for satisfactory phase noise, lock-time and stability; optionally subject to variation using Monte-Carlo sampling. Simulation is implemented with a discrete-event time domain simulator utilizing behavioral PLL component models, permitting accurate modeling of effects of time-discretization and quantization in an ADPLL. Loop filter design automation is based upon a prototype second order filter, whose parameters are optimized to minimize total integrated output phase noise for a PLL provided specifications for reference frequency, divider ratio, time-to-digital converter (TDC) resolution, digitally controlled oscillator (DCO) gain, oscillator phase noise characteristics and maximum lock time. The optimizer utilizes a continuous phase transfer function approximation of ADPLL dynamics and phase noise, allowing for faster design iteration than with direct discrete time simulation, but also requires conversion of the designed filters from continuous-to-discrete time. A post-filter design optimizer is furthermore presented in this work to map the discrete-time filters into optimal fixed-point representations that are implementable in digital hardware, with quantization noise and filter error due to finite word effects minimized. 
 	\end{abstract}
 	% \section*{Abstract}
 	% fjdsfkajjlkf
@@ -38,12 +39,11 @@
 	\null\pagebreak
 	\thispagestyle{nohdr}
 	\Huge\textbf{Problem description.}\\
-	\vspace{1em}
+	% \vspace{1em}
 	\large\fontfamily{\rmdefault}\selectfont 
 	
 	The intent of this project is to develop a standalone PLL design and simulation framework to aid and facilitate a later master's thesis project regarding the design of an all-digital, ultra-low power PLL frequency synthesizer. This framework is intended to address and ease all-digital PLL design and simulation challenges at a high level. Specifically it should enable speedy PLL simulation defined with system and component- level specifications (e.g. desired frequency, gain of digitally controlled oscillator, phase detector resolution, divider ratio). This is to allow for development of component level specifications and verification of PLL performance (phase noise, lock time, stability) under ideal circumstances before transistor level implementation, thus accelerating overall implementation time for hardware.
 
-	A filter optimizer was made that correlates with simulation, 
 	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 	% % Preface
 	% \pagebreak
@@ -73,7 +73,10 @@
 	\fontfamily{\rmdefault}\selectfont 
 	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 	% Abbreviations
+	\pagebreak
 	\input{abbrev.tex}
+	\pagebreak
+	\null
 
 	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 	\pagebreak
@@ -91,10 +94,10 @@
 	% \section{Methods}\label{methods}
 	\pagebreak
 	\input{methods.tex}
-
+	\pagebreak
     % \section{Results}
-    \pagebreak
-	\section{Discussion and results}\label{disco}
+
+	\section{Results and Discussion}\label{disco}
     \input{disco.tex}
 
 	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -102,8 +105,9 @@
 
     \pagebreak
     \section{Conclusion} \label{conclusion}
-    In this work, an automatic framework for the design and optimization of all digital PLL loop filters has been introduced. The framework allows input of target PLL specifications, for which a digital implementation ready filter design will be generated having optimized phase noise in terms of integrated power, subject to specified lock time constraints. The framework additionally performs second order optimization on the generated loop filter design to ensure performance including effects of quantization in the digital loop filter. An included time domain PLL simulation engine is included within the framework to verify the performance of the designed filters for acceptable phase noise, lock time and stability. This work will be applied in a later thesis project undertaken by the author of this work concerning the design of ultra-low power ADPLLS, in order to assist and accelerate the design process. 
+    In this work, an automatic framework for the design and optimization of all digital PLL loop filters has been introduced. The framework allows for input of target PLL specifications, for which a digital implementation-ready filter design will be generated having (a) minimized lock time or (b) minimized phase noise in terms of integrated power, subject to specified lock time constraints. The framework additionally performs post-optimization on the generated loop filter design to ensure performance including effects of quantization in the digital loop filter. A time domain PLL simulation engine is included within the framework to verify the performance of the designed filters for acceptable phase noise, lock time and stability. It was shown in this work that the designed and optimized filters correlate with the results found with the implemented simulator. Furthermore, the design of a fast-locking and phase noise-minimized PLL using loop filter gear-shifting was demonstrated and shown to correlate with simulation.
 
+    This work will be applied in a later thesis project undertaken by the author of this work concerning the design of an ultra-low power ADPLL, in order to assist and accelerate the design process. 
 
 	% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 	% References

@@ -1,10 +1,10 @@
 %!PS-Adobe-3.0 EPSF-3.0
-%%Title: loop_bandwidth.ps
+%%Title: lf_quant_noise_model.ps
 %%Creator: XCircuit v3.8 rev78
-%%CreationDate: Thu Dec 19 04:07:17 2019
+%%CreationDate: Mon Dec 16 15:58:36 2019
 %%Pages: 1
-%%BoundingBox: 68 68 605 257
-%%DocumentNeededResources: font Helvetica Helvetica-Bold 
+%%BoundingBox: 68 68 356 244
+%%DocumentNeededResources: font Helvetica Times-Roman 
 %%EndComments
 %%BeginProlog
 %
@@ -186,103 +186,49 @@ mark @in {/Helvetica cf} ctmk 23 0 1.000 0 0 pinlabel
 endgate
 } def
 
-/generic::arrowhead {
-% nonetwork
+/generic::dot {
+% trivial
 begingate
-8 -28 beginpath
-3 -18 3 -15 0 0 curveto
--3 -15 -3 -18 -8 -28 curveto
--2 -26 2 -26 8 -28 curveto
-249 
-1.000 endpath
-endgate
-} def
-
-/generic::arrow {
-% nonetwork
-begingate
-1 0.800 0 -40 0 20 2 polygon
-1.000 0 0 40 generic::arrowhead
+248 1.000 0 0 6 0.000 360.000 xcarc
+1.000 0.000 0.000 scb
+(x) {/Times-Roman cf} 2 29 0 1.000 0 0 pinlabel
 endgate
 } def
 
 
 %%EndSetup
 
-%%Page: loop_bandwidth 1
+%%Page: lf_quant_noise_model 1
 %%PageOrientation: Portrait
 /pgsave save def bop
+% 32.00 8.00 gridspace
 1.0000 inchscale
-2.6000 setlinewidth 157 373 translate
+2.6000 setlinewidth 448 448 translate
 
-0.400 0.400 0.400 scb
-1 2.000 64 288 64 0 448 0 3 polygon
-1.000 0 448 0 generic::tap
-1.000 270 64 288 generic::tap
-(PSD) {/Helvetica-Bold cf} 2 16 270 0.500 48 240 label
-(log\(df\)) {/Helvetica-Bold cf} 2 16 0 0.500 432 -32 label
-1 2.000 544 288 544 0 928 0 3 polygon
-1.000 0 928 0 generic::tap
-1.000 270 544 288 generic::tap
-1 2.000 1024 288 1024 0 1408 0 3 polygon
-1.000 0 1408 0 generic::tap
-1.000 270 1024 288 generic::tap
-(PSD) {/Helvetica-Bold cf} 2 16 270 0.500 528 240 label
-(PSD) {/Helvetica-Bold cf} 2 16 270 0.500 1008 240 label
-0.000 0.000 1.000 scb
-1 1.500 64 160 192 160 272 0 3 polygon
-1 1.500 544 160 736 160 816 0 3 polygon
-1.000 0.000 0.000 scb
-1 1.500 576 0 736 160 896 0 3 polygon
-0.000 0.000 1.000 scb
-1 1.500 1024 160 1312 160 1392 0 3 polygon
-1.000 0.000 0.000 scb
-1 1.500 1248 0 1312 64 1376 0 3 polygon
-1 1.500 64 96 192 224 416 0 3 polygon
-0.400 0.400 0.400 scb
-(log\(df\)) {/Helvetica-Bold cf} 2 16 0 0.500 912 -32 label
-(log\(df\)) {/Helvetica-Bold cf} 2 16 0 0.500 1392 -32 label
-0.000 0.000 1.000 scb
-(TDC) {/Helvetica-Bold cf} 2 16 0 0.500 80 176 label
-(TDC) {/Helvetica-Bold cf} 2 16 0 0.500 560 176 label
-(TDC) {/Helvetica-Bold cf} 2 16 0 0.500 1040 176 label
-1.000 0.000 0.000 scb
-(DCO) {/Helvetica-Bold cf} 2 16 0 0.500 256 176 label
-(DCO) {/Helvetica-Bold cf} 2 16 0 0.500 768 144 label
-(DCO) {/Helvetica-Bold cf} 2 16 0 0.500 1248 64 label
-0.400 0.400 0.400 scb
-5 1.000 192 0 192 288 2 polygon
-sce
-1.000 270 192 256 generic::arrow
-(BW) {/Helvetica-Bold cf} 2 16 0 0.500 208 272 label
-0.400 0.400 0.400 scb
-5 1.000 736 0 736 288 2 polygon
-5 1.000 1312 0 1312 288 2 polygon
-sce
-1.000 90 1312 256 generic::arrow
-(BW) {/Helvetica-Bold cf} 2 16 0 0.500 1264 272 label
-(BW) {/Helvetica-Bold cf} 2 16 0 0.500 688 272 label
-(Decreasing bandwidth) {/Helvetica-Bold cf} 2 16 0 0.750 72 -64 label
-(DCO-dominated) {/Helvetica-Bold cf} 2 16 0 0.750 96 -144 label
-(Increasing phase noise,) {/Helvetica-Bold cf} 2 16 0 0.750 80 -112 label
-(Slow/increasing lock time) {/Helvetica-Bold cf} 2 16 0 0.750 80 -176 label
-(Optimal bandwidth) {/Helvetica-Bold cf} 2 16 0 0.750 568 -64 label
-(Equal contributions) {/Helvetica-Bold cf} 2 16 0 0.750 560 -144 label
-(Moderate lock time) {/Helvetica-Bold cf} 2 16 0 0.750 560 -176 label
-(Increasing bandwidth) {/Helvetica-Bold cf} 2 16 0 0.750 1048 -64 label
-(Increasing phase noise) {/Helvetica-Bold cf} 2 16 0 0.750 1040 -112 label
-(TDC-dominated) {/Helvetica-Bold cf} 2 16 0 0.750 1056 -144 label
-(Fast/decreasing lock time) {/Helvetica-Bold cf} 2 16 0 0.750 1040 -176 label
-1.000 0 1016 -104 generic::tap
-1.000 0 56 -104 generic::tap
-1.000 0 56 -168 generic::tap
-1.000 0 536 -104 generic::tap
-1.000 0 536 -168 generic::tap
-1.000 0 1016 -168 generic::tap
-(Minimum phase noise) {/Helvetica-Bold cf} 2 16 0 0.750 560 -112 label
-1 1.500 48 -80 416 -80 2 polygon
-1 1.500 528 -80 896 -80 2 polygon
-1 1.500 1008 -80 1376 -80 2 polygon
+1024 2.000 -32 0 -32 192 224 192 224 0 4 polygon
+($\\text{H}_{LF}$\(z\)) {/Helvetica cf} 2 144 0 0.800 32 80 label
+1024 2.000 -32 -256 -32 -64 224 -64 224 -256 4 polygon
+($\\hat{\\text{H}}_{LF}$\(z\)) {/Helvetica cf} 2 144 0 0.800 32 -128 label
+(\(B-bit) {/Helvetica cf} 2 144 0 0.700 48 -176 label
+(quantized\)) {/Helvetica cf} 2 144 0 0.700 16 -224 label
+1 2.000 352 -160 32 0.000 360.000 xcarc
+1 2.000 352 -128 352 -192 2 polygon
+1025 2.000 320 -160 384 -160 2 polygon
+1.000 0 304 -160 generic::tap
+1.000 90 352 -112 generic::tap
+1025 2.000 352 -112 352 96 224 96 3 polygon
+1025 2.000 224 -160 304 -160 2 polygon
+1025 2.000 -32 96 -160 96 -160 -160 -32 -160 4 polygon
+1025 2.000 -160 -160 -256 -160 2 polygon
+1.000 0 -160 -160 generic::dot
+(w[n]) {/Helvetica cf} 2 144 0 0.800 -248 -128 label
+1 2.000 384 -160 480 -160 2 polygon
+(q[n]) {/Helvetica cf} 2 144 0 0.800 400 -128 label
+(y[n]) {/Helvetica cf} 2 144 0 0.800 240 128 label
+($\\hat{\\text{y}}$[n]) {/Helvetica cf} 2 144 0 0.800 240 -128 label
+1025 1.500 376 -112 392 -112 2 polygon
+1025 1.500 384 -120 384 -104 2 polygon
+1025 1.500 296 -192 312 -192 2 polygon
 pgsave restore showpage
 
 %%Trailer

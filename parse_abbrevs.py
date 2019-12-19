@@ -1,6 +1,6 @@
 import yaml
 
-LINES_PER_PAGE = 28
+LINES_PER_PAGE = 36
 
 files = [
     "appendix.tex",
@@ -95,10 +95,13 @@ for word in list(defs):
 
 def make_table(acronyms, defs):
     s = ""
+    s += "\t\\begin{table}[htb!]\n"
+    s += "\t\\renewcommand*{\\arraystretch}{1.45}\\large\n"
     s += "\t\\begin{tabular}{@{}ll}\n"
     for acronym in acronyms:
         s += "\t\t\\textbf{\\textsf{%s}}\t&\t%s \\\\\n"%(acronym, defs[acronym])
     s += "\t\\end{tabular}\n"
+    s += "\t\\end{table}\n"
     return s
 
 s = ""
@@ -111,16 +114,16 @@ for word in acronyms:
     pages[-1].append(word)
     n += 1
 
-s += "\\pagebreak\n"
-s += "\\null\n"
+# s += "\\pagebreak\n"
+# s += "\\null\n"
 
 for n, page in enumerate(pages):
-    s += "\\pagebreak\n"
+    # s += "\\pagebreak\n"
     if n==0:
         s += "\\section*{Abbreviations.}\n"
     s += make_table(page, defs)
 
-print("\nGenerated abbrev.tex:")
+# print("\nGenerated abbrev.tex:")
 print(s)
 
 with open("abbrev.tex", "w") as file:

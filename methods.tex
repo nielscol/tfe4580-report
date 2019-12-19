@@ -5,21 +5,39 @@
 % \hl{Filter optimization}
 % \hl{-phase noise and lock time estimate in frequency domain}
 
+\section{Proposed ADPLL Architecture}\label{pll_arch}
+% First reference : \cite{toifl_1998}
+\vspace{-2em}
+\begin{figure}[htb!]
+	\center\include{./figs/tdc_bbpll}
+	\caption{PLL with parallel bang-bang phase detector and TDC.}
+	\label{fig:tdc_bbpll}
+\end{figure}
+To gain linearity advantages associated with a TDC, and low phase noise and high phase resolution of a BBPD, the PLL architecture in figure \ref{fig:tdc_bbpll} is utilized in this work. The TDC and BBPD are configured in a parallel configuration, where the TDC output is summed with the BBPD output. The BBPD output has a gain term $K_{bb}$ to adjust the BBPD gain relative to the TDC gain. This architecture is suggested as this work focuses on applications of low power PLLs, where a low resolution TDC is expected. Thus, it is expected the TDC resolution will limit the ability to detect phase (or equivalently frequency) errors at the output in steady state. With M TDC steps per reference cycle, a divider ratio of N and a frequency error at the PLL output of $\Delta f$, the time needed for enough phase error to accumulate for a 1 LSB change of the TDC output is in equation \ref{eq:response_time}.
+\begin{equation}\label{eq:response_time}
+	t = \frac{\text{N}}{\text{M}\Delta f}
+\end{equation}
+If M $<$ N, the response time $t$ of the TDC to output frequency disturbance $\Delta f$ from phase noise is greater than the period of that disturbance $1/\Delta f$. Under these conditions, the PLL will have impaired ability to correct phase error and the phase noise performance will be degraded in steady state. Thus, the BBPD is added in order to introduce higher resolution phase-feedback in steady state, where the phase error signal is small. Methods for selecting $K_{bb}$ will be considered later, however an approximate method will be described here, whose result is given in equation \ref{eq:approx_kbb}. This method assumes that in steady state (a) the intrinsic jitter of the BBPD with time variance $\sigma^2_{t_e}$ is the dominant PLL noise component, and (b) BBPD gain shall be set to equal the gain provided by the TDC. Given the established gain of the BBPD in equation \ref{eq:nom_bbpd_gain}:
+\begin{align}
+	\sqrt{\frac{2}{\pi}}\frac{1}{\sigma_{\Phi_e}}\cdot K_{bb} = \sqrt{\frac{2}{\pi}}\frac{1}{2\pi f_{ref}\sigma_{t_e}}\cdot K_{bb} =  \frac{\mathrm{M}}{2\pi}\\
+	K_{bb} = \sqrt{\frac{\pi}{2}}f_{ref}\sigma_{t_e}\mathrm{M}\label{eq:approx_kbb}
+\end{align}
+
+The proposed architecture enables a form of fast-locking via gear switching of the loop filter \cite{staszewski_balsara_2007}. In this work, the TDC is initially used for large frequency and phase errors with a loop filter optimized for speed, which after locking can be changed (gear-switched) to a BBPD optimized loop filter chosen to minimize total phase-noise. Methods for optimized loop filter design for phase noise and lock time will be considered in the following sections.
 
 \section{Loop Filter Design Automation}\label{methods_lf_design_approach}
-The automation approach for ADPLL loop filter design implemented in this work will be outlined here.
+% The automation approach for ADPLL loop filter design implemented in this work will be outlined here.
 
-\subsection{Design sequence}
-	Design automation for ADPLL loop filter is implemented with a strategy that is illustrated in figure \ref{fig:filt_design_seq}, that utilizes a continuous time-approximation based model of the PLL to generate a loop filter design which minimizes the total integrated phase noise power out of the PLL. The optimized continuous filter then undergoes discrete time conversion and mapping into digital representation of the design. Second order optimization is then applied to the discretized and digitized filter implementation, to minimize the effects of quantization error and filter design error due to finite word effects. A discrete-time, behavioral PLL simulator is then used to verify the filter design for proper lock-time, phase noise and stability. The following sections will detail these processes.
+\subsection{Design Sequence}
+	Design automation for ADPLL loop filter design is implemented with a strategy that is illustrated in figure \ref{fig:filt_design_seq}, that utilizes a continuous time-approximation based model of the PLL to generate a loop filter design which either minimizes the total integrated phase noise power out of the PLL, or lock time. The optimized continuous filter then undergoes discrete time conversion and mapping into a digital representation of the design. A post-optimization process is then applied to the discretized and digitized filter implementation, to minimize the effects of quantization error and filter design error due to finite word effects. A discrete-time, behavioral PLL simulator is then used to verify the filter design for proper lock-time, phase noise and stability. The following sections will detail these processes.
 
 	\begin{figure}[htb!]
-		\center\include{./figs/filt_design}
+		\center\include{./figs/filt_design2}
 		\caption{Filter design sequence.}
 		\label{fig:filt_design_seq}
 	\end{figure}
-	\FloatBarrier
 
-\subsection{Loop filter Prototype}
+\subsection{Loop Filter Prototype}
 	The design automation approach developed utilizes a fixed loop filter as a prototype for all loop filter designs. This choice was derived from several criteria that were established for desirable ADPLL operation:
 	\begin{enumerate}[itemsep=0pt,label=\protect\mycirc{\arabic*}]
 		\setlength\itemsep{-0.8em}
@@ -28,22 +46,22 @@ The automation approach for ADPLL loop filter design implemented in this work wi
 		\item Minimize complexity of implemented logic, i.e. minimize the number of poles and zeros.
 		\item Low pass response of PLL in closed-loop.
 	\end{enumerate}
-	To satisfy criterion 1, the loop filter response must include an integrator (1/s) term in the transfer function \cite{ogata_2010}. A PLL with loop filter containing such an integrator is commonly classified as type II, and sans the integrator is type I \cite{gardner_2005}. A rational starting point is to consider a proportional-integral-derivative (PID) controller \cite{ogata_2010_pid} for the loop filter, whose transfer function is given in equation \ref{eq:pid_controller}. This filter contains coefficients $K_d$, $K_p$, $K_i$ which set the gain of the derivative (s), proportional and integral (1/s) terms respectively. 
+	To satisfy criterion 1, the loop filter response must include an integrator (1/s) term in the transfer function \cite{ogata_2010}. A rational starting point is to consider a proportional-integral-derivative (PID) controller \cite{ogata_2010_pid} for the loop filter, whose transfer function is given in equation \ref{eq:pid_controller}. This filter contains coefficients $K_d$, $K_p$, $K_i$ which set the gain of the derivative (s), proportional and integral (1/s) terms respectively. 
 	\begin{equation}\label{eq:pid_controller}
 		\textnormal{H}_{LF}(s) = sK_d + K_p + \frac{K_i}{s} = \frac{K_d}{s}\left(s^2 + s\frac{K_p}{K_d} + \frac{K_i}{K_d}\right)
 	\end{equation}
-	Application of the loop filter to the continuous ADPLL transfer function model from section \ref{discrete_pll_tf} produces the PLL loop gain in \ref{pid_pll_loop_gain} and the closed loop ADPLL response in \ref{eq:pid_pll_tf}.
+	Application of the loop filter to the continuous ADPLL transfer function model from section \ref{discrete_pll_tf} produces the PLL loop gain in equation \ref{pid_pll_loop_gain} and the closed loop ADPLL response in equation \ref{eq:pid_pll_tf}.
 	\begin{equation} \label{pid_pll_loop_gain}
 		\mathrm{L}(s) = \textnormal{H}_{TDC}(s)\textnormal{H}_{LF}(s)\textnormal{H}_{DCO}(s)\textnormal{H}_{DIV}(s) = \frac{\mathrm{M}}{\mathrm{N}}\frac{K_{DCO}K_d}{s^2}\left(s^2 + s\frac{K_p}{K_d} + \frac{K_i}{K_d}\right)
 	\end{equation}
 	\begin{align} \label{eq:pid_pll_tf}
 		\mathrm{T}(s) = \frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{\mathrm{M}K_{DCO}K_{d}\left(s^2K_d + sK_p + K_i\right)}{s^2\left(1 + \frac{\mathrm{M}}{\mathrm{N}}K_{DCO}K_d\right) + \frac{\mathrm{M}}{\mathrm{N}}K_{DCO}K_d\left(sK_p + K_i\right)} = \mathrm{N}\frac{\mathrm{L}(s)}{1 + \mathrm{L}(s)}
 	\end{align}
-	It should be noted that in the closed loop configuration, this PLL phase transfer function contains two poles and two zeros. This is not a low pass response as desired per criterion 4, needed for satisfactory PLL phase noise power spectrum as will later be discussed. In order achieve low pass operation, the derivative term $K_d$ must be set to zero, yielding a proportional-integral (PI) controller for the loop filter:
+	It should be noted that in the closed loop configuration, this PLL phase transfer function contains two poles and two zeros. This is not a low pass response as desired per criterion 4, needed for satisfactory PLL phase noise power spectrum as will later be discussed. In order achieve low pass operation, the derivative term $K_d$ must be set to zero, yielding a proportional-integral (PI) controller for the loop filter, with closed loop response in equation \ref{eq:full_pi_pll_tf}.
 	\begin{align} \label{eq:full_pi_pll_tf}
 		\mathrm{T}(s) = \frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{\mathrm{M}K_{DCO}\left(sK_p + K_i\right)}{s^2 + \frac{\mathrm{M}}{\mathrm{N}}K_{DCO}\left(sK_p + K_i\right)} = \mathrm{N}\frac{\mathrm{L}(s)}{1 + \mathrm{L}(s)} 
 	\end{align}
-	Steady state zero phase error can be verified by solving the closed loop $\Phi_e(s)$ for s=0:
+	Steady state zero phase error can be verified for the PI-controller PLL by solving the closed loop phase error $\Phi_e(s)$ for s=0:
 	\begin{align}
 		\left.\Phi_e(s)\right\vert_{s=0} = \left(\Phi_{ref}(0) - \frac{\Phi_{out}(0)}{\mathrm{N}}\right) = \Phi_{ref}(0)\left(1 - \frac{\Phi_{out}(0)}{\mathrm{N}\Phi_{ref}(0)}\right)= \Phi_{ref}(0)\left(1 - \frac{\mathrm{N}}{\mathrm{N}}\right) = 0
 	\end{align}
@@ -53,7 +71,7 @@ The automation approach for ADPLL loop filter design implemented in this work wi
 			\begin{equation} \label{eq:pi_pll_tf}
 				\textnormal{H}_{LF}(s) = K_p + \frac{K_i}{s}  = \frac{K_i}{s}\left(\frac{s}{\omega_z} + 1\right) 
 			\end{equation}
-			Selection of (not-necessarily optimal) PI controller gains can be easily derived from overall PLL settling time requirements. Suppose that settling time $t_s$ is defined such that the PLL settles within $\pm \delta$ of the final value for a step input. If the initial and final PLL output frequencies are $f_i$ and $Nf_{ref}$, and settling with $\pm f_{tol}$ is desired,  $\delta = f_{tol}/|f_i - Nf_{ref}|$. Setting time is therefore:
+			Selection of (not-necessarily optimal) PI controller gains can be easily derived from overall PLL settling time requirements. Suppose that settling time $t_s$ is defined such that the PLL settles within $\pm \delta$ of the final value for a step input. If the initial and final PLL output frequencies are $f_i$ and $Nf_{ref}$, and a frequency tolerance of $\pm f_{tol}$ is desired for the lock criteria,  $\delta = f_{tol}/|f_i - Nf_{ref}|$. Setting time is therefore:
 			\begin{equation}
 				t_s = -\tau\ln(\delta)
 			\end{equation}
@@ -61,12 +79,12 @@ The automation approach for ADPLL loop filter design implemented in this work wi
 			\begin{equation} \label{eq:simp_pi_pll_tf}
 				\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \mathrm{N}\cdot\frac{s\frac{K}{\omega_z} + K }{s^2 + s\frac{K}{\omega_z} + K}
 			\end{equation}
-			If the second order denominator can be redefined in terms of a natural frequency $\omega_n$ and damping $\zeta$, such that:
+			If the second order denominator can be redefined in terms of a natural frequency $\omega_n$ and damping ratio $\zeta$, such that:
 			\begin{equation}
 				s^2 + s\frac{K}{\omega_z} + K = s^2 + s2\zeta\omega_n + \omega_n^2
 			\end{equation}
 			It is then found that $\omega_n = \sqrt{K}$, and $\omega_z = \sqrt{K}/2\zeta$. The poles of equation \ref{eq:simp_pi_pll_tf} are then located at s = $\zeta\sqrt{K} \pm \sqrt{K}\sqrt{1-\zeta^2}$.
-			The settling time of the PLL will be determined by the real portion of dominant pole of equation \ref{eq:simp_pi_pll_tf}, specifically $\tau = 1/|\min(\Re(\{s_{p1}, s_{p2}\}))|$. Based on the pole-zero plot of figure \ref{fig:pi_pll_pz}, it can be observed that the dominant pole location is maximized with $\zeta=1$. The pole-zero loci orientations are based on increasing $\zeta$ values. According to Razavi \cite{razavi_2017}, $\zeta$ is usually 
+			The settling time of the PLL will be determined by the real portion of dominant pole of equation \ref{eq:simp_pi_pll_tf}, specifically $\tau = 1/|\min(\Re(\{s_{p1}, s_{p2}\}))|$. Based on the pole-zero plot of figure \ref{fig:pi_pll_pz}, it can be observed that the dominant pole location is maximized with $\zeta=1$. The shown pole-zero loci orientations are based on increasing $\zeta$ values. According to Razavi \cite{razavi_2017}, $\zeta$ is usually 
 			"chosen to be $>\sqrt{2}/2$ or even 1 to avoid excessive ringing."
 			\begin{figure}[htb!]
 				\center\include{./figs/pi_pz_plot}
@@ -74,7 +92,7 @@ The automation approach for ADPLL loop filter design implemented in this work wi
 				\label{fig:pi_pll_pz}
 			\end{figure}
 			\FloatBarrier
-			To illustrate the effect of the damping coefficient $\zeta$, figure \ref{fig:pi_pll_response} illustrates the example frequency and step responses of a PI-controlled PLL with N=1. Notice excessive peaking and ringing for $\zeta<\sqrt{2}/2$. The peaking observed in the frequency response is unavoidable with the PI-PLL due to the inherent zero in the transfer function. Its effect can be reduced with large $\zeta$, however this will increase PLL settling time. 
+			To illustrate the effect of the damping ratio $\zeta$, figure \ref{fig:pi_pll_response} illustrates the example frequency and step responses of a PI-controlled PLL with N=1. Notice the excessive peaking and ringing for $\zeta<\sqrt{2}/2$. The peaking observed in the frequency response is unavoidable with the PI-PLL due to the inherent zero in the transfer function. Its effect can be reduced with large $\zeta$, however this will increase PLL settling time. 
 			\begin{figure}[htb!]
 				\center\includegraphics[width=1.0\textwidth, angle=0]{figs/pi_pll_response.pdf}
 				\caption{Example PI-PLL responses with varied $\zeta$.}
@@ -85,37 +103,40 @@ The automation approach for ADPLL loop filter design implemented in this work wi
 			\begin{equation}
 				\tau = \frac{1}{|\min(\Re(\{s_{p1}, s_{p2}\}))|} = \frac{1}{\zeta\sqrt{K}}
 			\end{equation}
-			Thus:
+			Thus settling time is:
 			\begin{equation}
 				t_s = \frac{-\ln(\delta)}{\zeta\sqrt{K}} = \frac{-\ln\left(\frac{f_{tol}}{|f_i - Nf_{ref}|}\right)}{\zeta\sqrt{K}} 
 			\end{equation}
-			Based on specification for settling time and damping $\zeta$, the values for K and $\omega_z$ can be determined. If $K_{VCO}$ and $\mathrm{N}$ are also specified, the PI gain coefficients can be solved additionally.
+			Based on specification for settling time and damping ratio $\zeta$, the PI-PLL model values K and $\omega_z$ can be determined. If $K_{DCO}$ and $\mathrm{N}$ are also specified, the PI gain coefficients can be solved additionally.
 			\begin{align}
-				\omega_z &= \frac{-\ln(\delta)}{2t_s} =  \frac{-\ln\left(\frac{f_{tol}}{|f_i - Nf_{ref}|}\right)}{2t_s}\\
+				\omega_z &= \frac{-\ln(\delta)}{2t_s} =  \frac{-\ln\left(\frac{f_{tol}}{|f_i - Nf_{ref}|}\right)}{2t_s}\label{eq:omega_z_pi}\\
 				K &= \frac{\ln^2(\delta)}{\zeta^2t_s^2} =  \frac{\ln^2\left(\frac{f_{tol}}{|f_i - Nf_{ref}|}\right)}{\zeta^2t_s^2}\\
 				K_i & = \frac{\mathrm{N}}{\mathrm{M}}\frac{\mathrm{K}}{K_{DCO}} \\
-				K_p & = \frac{K_i}{\omega_z}
+				K_p & = \frac{K_i}{\omega_z}\label{eq:kp_pi}
 			\end{align}
-			\hl{This controller has a predictable phase margin/stability}
+		\subsubsection{PI-controller phase margin}\label{pi_phase_margin}
+			A considerable advantage to using the PI-controller PLL design methodology of section \ref{cont_pi_filt_des} is the resulting phase margin of the PLLs is only determined by the damping ratio $\zeta$. The phase margin for such a PI-controller PLL was determined to be equation \ref{eq:pm_pi_pll}. This was computationally verified, resulting in the plot of figure \ref{fig:phase_margin} showing phase margin versus $0 \geq \zeta \geq 1$ of the PI-controller PLL. It is recommended to use at least 30-60 degrees in phase margin to achieve stability \cite{ogata_2010_stability}. Thus, it is expected the  PI-controller can yield stable ADPLLs for any closed loop bandwidth conditioned on the preceding the phase margin recommendation and the constraint that PLL loop bandwidth must be greater than 10 times the loop filter sampling rate as mentioned in section \ref{adpll_model}.
+			\begin{equation}\label{eq:pm_pi_pll}
+				\angle \text{L}(\omega_{ug}) = \frac{180}{2\pi}\arctan\left(2\zeta\sqrt{2\zeta^2 + \sqrt{4\zeta^4+1}}\right)\hspace{1em}[\text{degrees}]
+			\end{equation}
 			\begin{figure}[htb!]
 				\center\includegraphics[width=0.5\textwidth, angle=0]{figs/damping_vs_pm.pdf}
 				\caption{PI-controller PLL phase margin versus damping ratio.}
 				\label{fig:phase_margin}
 			\end{figure}
 
-		\subsubsection{PI-controller peaking compensation}\label{comp_pi_pll_lf}
-			 To compensate for closed loop peaking, the original PI-controller loop filter of equation \ref{eq:pi_pll_tf} can be modified with the addition of a single tunable pole at $\omega_p$. The closed loop response becomes third order, which complicates direct analysis and design of the loop filter, but can be handled utilizing the numerical optimization approach described in this work.
-			 \hl{Not necessarily stable as closed loop configuration has 3 poles}
+		\subsubsection{PI-Controller Peaking Compensation}\label{comp_pi_pll_lf}
+			 To compensate for closed loop peaking, the original PI-controller loop filter of equation \ref{eq:pi_pll_tf} can be modified with the addition of a single tunable pole at $\omega_p$. The closed loop response becomes third order, which complicates direct analysis and design of the loop filter, but can be handled utilizing the numerical optimization approach described in this work. Due to the third order nature, the stability of this PLL configuration is not guaranteed based on a closed-form selection of a single parameter like with the PI-controller PLL. 
 			\begin{equation} \label{eq:pi_compensated_tf}
 				\textnormal{H}_{LF}(s) = \frac{K_i}{s}\frac{\left(\frac{s}{\omega_z} + 1\right)}{\left(\frac{s}{\omega_p} + 1\right)}
 			\end{equation}
 
-		\subsubsection{Alternative PID controller permutations} \label{other_pid}
-			If individual terms within the PID-controller are dropped, different controller permutations (PD, ID, PI, P, I, D) can be achieved. As mentioned before, inclusion of an integral term is needed to ensure the desired zero steady state error for a PLL, and the derivative term must be removed to achieve low pass response in the PLL. This leaves integral term only controller as the remaining candidate for PID controller design. Thus, setting the $K_p$ and $K_d$ terms of equation \ref{eq:pid_pll_tf} to zero yields:
+		\subsubsection{Alternative PID Controller Permutations} \label{other_pid}
+			If individual terms within the PID-controller are dropped, different controller permutations (PD, ID, PI, P, I, D) can be achieved. As mentioned before, inclusion of an integral term is needed to ensure the desired zero steady state error for a PLL, and the derivative term must be removed to achieve low pass response in the PLL. This leaves an integral-only controller as the remaining candidate here for PID controller design. Thus, setting the $K_p$ and $K_d$ terms of equation \ref{eq:pid_pll_tf} to zero yields:
 			\begin{equation}
 				\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} = \frac{2\pi K_{VCO}K_i}{s^2 + \frac{2\pi K_{VCO}}{\mathrm{N}}K_i}
 			\end{equation}
-			This closed loop transfer function results in a pair of poles at $\pm\sqrt{2\pi K_{VCO}K_i/\mathrm{N}}$. This is not stable, as it can only be manifested as (1) a pair of poles on the imaginary axis, which is an oscillator, or (2) a real pole in the right-half plane and a real pole in the left-half plane, the former of which is not causally stable. Thus a PI-controller is the only viable PID-controller permutation for use in a PLL loop filter. 
+			This closed loop transfer function results in a pair of poles at $\pm\sqrt{2\pi K_{VCO}K_i/\mathrm{N}}$. This is not stable, as it can only be manifested as (1) a pair of poles on the imaginary axis, which is an oscillator, or (2) a real pole in the right-half plane and a real pole in the left-half plane, the former of which is not causally stable. Thus a PI-controller is the only viable PID-controller permutation for use in the PLL loop filter of this work. 
 
 
 	\subsubsection{Discretized Loop Filter Prototype}\label{disc_lf_comp_pi}
@@ -125,7 +146,7 @@ The automation approach for ADPLL loop filter design implemented in this work wi
 			&= k_i\Delta T_s\frac{\omega_p}{\omega_z}\frac{(1+\omega_z\Delta T_s)-z^{-1}}{(1+\omega_p\Delta T_s) - z^{-1}(2+\omega_p\Delta T_s) + z^{-2}}\label{eq:z_lf}
 		\end{align}
 
-		The transformation of \ref{eq:z_lf} into a digitally implementable design as a direct form 1 IIR filter shown in figure \ref{fig:filt_imple}. Its filter coefficients given by equations \ref{eq:a1}-\ref{eq:b1}.
+		The transformation of equation \ref{eq:z_lf} into a digitally implementable design as a direct form 1 IIR filter shown in figure \ref{fig:filt_imple}. Its filter coefficients given by equations \ref{eq:a1}-\ref{eq:b1}.
 		\begin{figure}[htb!]
 			\center\include{./figs/filter_arch_tex}
 			\caption{Implementation of filter.}
@@ -142,8 +163,8 @@ The automation approach for ADPLL loop filter design implemented in this work wi
 
 		%%%%
 
-		\subsubsection{Prototype PLL response}\label{proto_pll_tfs}
-		Based on the prototype loop filter developed, the PLL closed loop response is developed for usage in the loop optimizer discussed in this work. Applying the discrete-time PLL transfer function model developed in section \ref{discrete_pll_tf}, the PLL loop gain is in equation \ref{eq:z_loop_gain_pi_comp}, and the closed loop transfer function of the PLL is in \ref{eq:z_cl_tf_pi_comp_pll}.
+		\subsubsection{Prototype PLL Response}\label{proto_pll_tfs}
+		Based on the prototype loop filter developed, the PLL closed loop response is developed for usage in the loop filter optimizer discussed in this work. Applying the discrete-time PLL transfer function model developed in section \ref{discrete_pll_tf}, the PLL loop gain is in equation \ref{eq:z_loop_gain_pi_comp}, and the closed loop transfer function of the PLL is in \ref{eq:z_cl_tf_pi_comp_pll}.
 		\begin{align}
 			\mathrm{L}(z) &= \mathrm{H}_{TDC}(z)\mathrm{H}_{LF}(z)\mathrm{H}_{DCO}(z)\mathrm{H}_{DIV}(z) \\
 			&= 2\pi K_{DCO}K_i\Delta T_s^2\frac{\mathrm{M}}{\mathrm{N}}\frac{\omega_p}{\omega_z}\frac{(1+\omega_z\Delta T_s)-z^{-1}}{(1+\omega_p\Delta T_s) - z^{-1}(3+2\omega_p\Delta T_s) + z^{-2}(3+\omega_p\Delta T_s) - z^{-3}}\label{eq:z_loop_gain_pi_comp}
@@ -165,8 +186,8 @@ The automation approach for ADPLL loop filter design implemented in this work wi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
-\section{Behavioral ADPLL simulation}
-To fully capture the effects of a discrete time PLL with digital quantization effects, the implementation of a behavioral, discrete event PLL simulator is described in the following. The simulator utilizes behavioral models to describe the individual components which comprise the PLL. These components are (1) a clock reference, (2) a TDC, (3) a loop filter, (4) a DCO, and (5) a divider. These behavioral models fully encapsulate effects of time-quantization and digitization. The simulator operates by iterating in fixed time steps of $\Delta t$=1/\texttt{fs}, where each node in the PLL is updated based upon the previous node values in a manner that is defined by each PLL component behavioral model. Each behavioral model is represented programmatically utilizing classes. In simulation, each component instance is represented by a object instance of the respective model class, constructed with any initial parameters (such as division ratio) that describe the component.
+\section{Behavioral ADPLL Simulation}\label{simulator}
+To fully capture the effects of a discrete time PLL with digital quantization effects, the implementation of a behavioral, discrete event PLL simulator in Python is described in the following. The simulator utilizes behavioral models to describe the individual components which comprise the PLL. These components are (1) a clock reference, (2) a TDC, (3) a loop filter, (4) a DCO, and (5) a divider. These behavioral models fully encapsulate effects of time-quantization and digitization. The simulator operates by iterating in fixed time steps of $\Delta t$=1/\texttt{fs}=$1/f_{ref}$, where each node in the PLL is updated based upon the previous node values in a manner that is defined by each PLL component behavioral model. Each behavioral model is represented programmatically utilizing Python classes. In the simulation, each PLL component is represented by an object instance of the respective model class, constructed with any initial parameters (such as division ratio) that describe the component.
 \subsection{Simulation engine}
 The simulator engine for this work follows the sequence illustrated in figure \ref{fig:simulator} for running a simulation. Given specifications for simulation conditions (listed in the figure), the simulator accordingly initializes model objects that constitute the PLL components in simulation space. Then the simulation is run by entering a simulation loop. 
 \begin{figure}[htb!]
@@ -187,8 +208,8 @@ for n in range(simulation_steps):
     \end{lstlisting}
 After the simulation loop reaches completion, the results stored in the simulation data arrays can be post-processed to extract phase noise data, transient behavior and lock time. The following sections will discuss in more detail the implemented behavioral model classes and post-processing.
 
-\subsection{Clock behavioral model}
-An ideal behavioral clock model is utilized, given in the pseudocode of listing \ref{clk_code}. The model is instantiated with the clock frequency \texttt{f} and the simulator time step \texttt{dt}. The model incrementing its phase every simulation step by a fixed amount $\Delta \Phi$ = $2\pi$\texttt{f}$\cdot$\texttt{dt}, as in \ref{eq:clk_behavioral_model}. The model outputs an analog phase signal.
+\subsection{Clock Behavioral Model}
+An ideal behavioral clock model is utilized, given in the pseudocode of listing \ref{clk_code}. The model is instantiated with the clock frequency \texttt{f} and the simulator time step \texttt{dt}. The model increments its phase every simulation step by a fixed amount $\Delta \Phi$ = $2\pi$\texttt{f}$\cdot$\texttt{dt}, as in equation \ref{eq:clk_behavioral_model}. The model outputs an analog phase signal.
 \begin{equation}\label{eq:clk_behavioral_model}
 	\Phi_{clk}[n] = \Phi_{clk}[n-1] + 2\pi\mathtt{f}\cdot\mathtt{dt}
 \end{equation}
@@ -205,8 +226,8 @@ class Clock:
 		return self.phase
     \end{lstlisting}
 
-\subsection{TDC behavioral model}
-The TDC behavioral model takes two analog inputs \texttt{x} and \texttt{y} that are in units of phase, and outputs a digital word that quantifies the phase separation of the signals. The model is instantiated with a resolution parameter \texttt{tdc\_steps}, which defines the number of phase steps per cycle of the reference input \texttt{x} the TDC can resolve. The method \texttt{round} quantizes an floating point argument to the nearest integer.
+\subsection{TDC Behavioral Model}
+The TDC behavioral model takes two analog inputs \texttt{x} and \texttt{y} that are in units of phase, and outputs a digital word that quantifies the phase separation of the signals. The model is instantiated with a resolution parameter \texttt{tdc\_steps}, which defines the number of phase steps per cycle of the reference input \texttt{x} that the TDC can resolve. The method \texttt{round} quantizes a floating point argument to the nearest integer.
 \begin{equation}
 	\text{out}[n] = \left\lfloor0.5 + \mathtt{tdc\_steps}\frac{\mathtt{x}[n]-\mathtt{y}[n]}{2\pi} \right\rfloor
 \end{equation}
@@ -220,15 +241,15 @@ class TDC:
 		ph_error = wrap(x-y) 	# wraps phase to be within [0, 2*pi]
 		return round(self.tdc_steps*(ph_error/(2*pi)))
 \end{lstlisting}
-\subsection{Loop filter behavioral model}
-The loop filter model implements a discrete-time filter via difference equation that operates on input \texttt{x}. The equivalent of one pole and two zeros are modelled, described using the filter coefficients $\{a_1, a_2; b_0, b_1\}$:
+\subsection{Loop Filter Behavioral Model}
+The loop filter model implements a discrete-time filter via difference equation that operates on input \texttt{x}. The equivalent of one zero and two poles are modeled, described using the filter coefficients $\{a_1, a_2; b_0, b_1\}$:
 \begin{equation}
 \text{H}_{LF}(z) = \frac{b_0 + b_1z^{-1}}{a_0 + a_1z^{-1} + a_2z^{-2}}
 \end{equation}
 \begin{equation}
 \text{y}[n] = -a_1 \text{y}[n-1]-a_2 \text{y}[n-2] + b_0\text{x}[n] + b_1\text{x}[n-1]
 \end{equation}
-Pseudocode for implementation of the model class is as follows. Data is to be represented with fixed point format, with number of fractional bits \texttt{frac\_bits} and number of integer bits \texttt{int\_bits}. The method \texttt{fixed\_point} rounds floating point values to be equivalent to the nearest representation in the desired fixed point format. The filter coefficients are assumed to be pre-converted to the desired fixed-point equivalent values, and input \texttt{x} is assumed to be integer-valued.
+Pseudocode for the implementation of the model class is as follows. Data is to be represented with two's complement signed fixed point format, with number of fractional bits \texttt{frac\_bits} and number of integer bits \texttt{int\_bits}. The method \texttt{fixed\_point} rounds floating point values to be equivalent to the nearest representation in the desired fixed point format. The filter coefficients are assumed to be pre-converted to the desired fixed-point equivalent values, and input \texttt{x} is assumed to be integer-valued.
 \begin{lstlisting}[language={Python}, caption={Loop filter behavioral model Python pseudocode.}, label={lf_code}]
 class LoopFilter:
 	def __init__(self, a1, a2, b0, b1, int_bits, frac_bits):
@@ -247,7 +268,7 @@ class LoopFilter:
 		return round(self.yprev1)	# convert to integer
 \end{lstlisting}
 
-\subsection{DCO behavioral model}
+\subsection{DCO Behavioral Model}
 The DCO is modeled similar to the clock model, with the inclusion of a digital input \texttt{otw} for tuning the frequency. Nominal oscillator frequency is given by \texttt{f0}, and the DCO gain in Hz/LSB of \texttt{otw} is \texttt{kdco}. Additionally, modeling of the $\propto f^-2$ oscillator phase noise component, which is equivalent to random phase walk \cite{vannicola_varshney_1983}, is included utilizing additive random phase walk. Random walk is implemented by stochastically either adding or subtracting a fixed magnitude random walk phase increment $\texttt{krw}$ to the oscillator phase every simulation step. The sign of \texttt{krw} is randomly chosen with equal probability for positive and negative (sampling a bi-delta distribution), implemented with the method \texttt{choice}.
 \begin{equation}\label{eq:dco_behavioral_model}
 	\Phi_{osc}[n] = \Phi_{osc}[n-1] + 2\pi(\mathtt{f0}+\mathtt{otw}\cdot\mathtt{kdco})\cdot\mathtt{dt} \pm \mathtt{krw}
@@ -284,7 +305,7 @@ Selection of the parameter \texttt{krw} to achieve a target phase noise level $\
 	    \caption{\textbf{(a)} Discrete model for oscillator random walk, \textbf{(b)} Simulated phase noise of behavioral model.}
 	\end{figure}
 	\FloatBarrier
-The random walk process described in the behavioral model is represented in figure \ref{fig:rw_pn}, where a random white-spectrum input sequence $w$[n] taking on values $\pm$ 1 with equal probability are multiplied by gain \texttt{krw}, yielding signal $x$[n] that is passed a discrete integrator. The output $y$[n] is then the phase noise signal that is summed with the oscillator phase trajectory. If the simulation is limited to \texttt{sim\_steps} samples, application of Parseval's theorem for the discrete Fourier transform (DFT) of x[n] in \ref{eq:parsevals} results in the estimate of the energy spectrum x[n] \ref{eq:white_noise_pow}, having a constant value $\sigma_x^2$ .
+The random walk process described in the behavioral model is represented in figure \ref{fig:rw_pn}, where a random white-spectrum input sequence $w$[n] taking on values $\pm$ 1 with equal probability are multiplied by gain \texttt{krw}, yielding signal $x$[n] that is passed into a discrete integrator. The output $y$[n] is then the phase noise signal that is summed with the oscillator phase trajectory. If the simulation is limited to \texttt{sim\_steps} samples, application of Parseval's theorem for the discrete Fourier transform (DFT) of x[n] in equation \ref{eq:parsevals} results in the energy of x[n] in equation \ref{eq:white_noise_pow}, having a constant value $\sigma_x^2$.
 \begin{equation}\label{eq:parsevals}
 \sum _{n=0}^{\mathtt{sim\_steps}-1}|\texttt{krw}\cdot w[n]|^{2}=\frac{1}{\mathtt{sim\_steps}}\sum _{k=0}^{\mathtt{sim\_steps}-1}| X[k]|^{2}
 \end{equation}
@@ -292,29 +313,29 @@ The random walk process described in the behavioral model is represented in figu
 \sigma_x^2 = |X[k]|^{2} =\mathtt{sim\_steps}\cdot\texttt{krw}^2
 \end{equation}
 
-Computation of the spectrum of the output $y[n]$ of figure \ref{fig:rw_pn} can be computed as follows, recalling that $x[n]$ is white with power $\sigma_x^2$, and approximating $z = 1-s\mathtt{dt}$ is in \ref{eq:rw_model_pn_spectrum}. Normalizing $Y(f)$ by the number of samples \texttt{sim\_steps} to compute spectral density is performed in \ref{eq:rw_model_pn_spectrum_normed}.
+Computation of the spectrum of the output $y[n]$ of figure \ref{fig:rw_pn} can be computed as follows, recalling that $x[n]$ is white with energy $\sigma_x^2$, and approximating $z = 1-s\mathtt{dt}$ as shown in equation \ref{eq:rw_model_pn_spectrum}. Normalizing $Y(f)$ by the number of samples \texttt{sim\_steps} to compute spectral density is performed in \ref{eq:rw_model_pn_spectrum_normed}.
 \begin{equation}\label{eq:rw_model_pn_spectrum}
 |Y(f)|^{2} = \left.|X(z)|^{2}\frac{1}{|1-z^{-1}|^2}\right|_{z^{-1}=(1-j2\pi f\mathtt{dt})} = \frac{\sigma_x^2}{|j2\pi f\mathtt{dt}|^2} = \frac{\mathtt{sim\_steps}\cdot\texttt{krw}^2}{(2\pi f\mathtt{dt})^2}
 \end{equation}
 \begin{equation}\label{eq:rw_model_pn_spectrum_normed}
 |\hat Y(f)|^{2} = \frac{\texttt{krw}^2}{\mathtt{sim\_steps}\cdot(2\pi f\mathtt{dt})^2}
 \end{equation}
-Given the target phase noise level $\mathcal{L}(\Delta f)$ at offset $\Delta f$, we set $f=\Delta f$ and $|\hat Y(\Delta f)|^{2}$=$\mathcal{L}(\Delta f)$, a reorganization of \ref{eq:rw_model_pn_spectrum_normed} results in the final expression for \texttt{krw}, equation \ref{eq:krw}. Figure \ref{fig:dco_rw_pn_sim} demonstrates simulated a test of this behavioral model, for \texttt{krw} fitted to $\mathcal{L}(\Delta f=10^6)$ = -80 dBc/Hz.
+Given the target phase noise $\mathcal{L}(\Delta f)$ at offset $\Delta f$, setting $f=\Delta f$ and $|\hat Y(\Delta f)|^{2}$=$\mathcal{L}(\Delta f)$, a reorganization of equation \ref{eq:rw_model_pn_spectrum_normed} results in an expression for \texttt{krw} in equation \ref{eq:krw}. Figure \ref{fig:dco_rw_pn_sim} demonstrates a simulated test of this behavioral model, for \texttt{krw} fitted to $\mathcal{L}(\Delta f=10^6)$ = -80 dBc/Hz.
 \begin{equation}\label{eq:krw}
 \texttt{krw} = 2\pi \Delta f\cdot\mathtt{dt}\sqrt{\mathcal{L}(\Delta f)\cdot\mathtt{sim\_steps}}
 \end{equation}
 
 
 
-\subsection{Divider behavioral model}
-The divider model is defined with the divider modulus \texttt{div\_n} and only performs a simple division of input phase. 
+\subsection{Divider Behavioral Model}
+The divider model is defined with the divider ratio \texttt{div\_n} and only performs a simple division of input phase \texttt{x}.
 \begin{lstlisting}[language={Python}, caption={Divider behavioral model Python pseudocode.}, label={div_code}]
 class Divider:
 	def update(x, div_n):
 		return x/div_n
 \end{lstlisting}
 
-\subsection{Post processing: lock time detection}
+\subsection{Post-Processing: Lock Time Detection}
 Lock time detection of the PLL start-up transient can be determined from the simulation data conditioned on a tolerance band for acceptable frequency error \texttt{lock\_f\_tol} is provided to the simulator by the user. Since the desired frequency of the PLL \texttt{fosc = div\_n*fref}, nominal oscillator frequency \texttt{dco\_f0} and simulation conditions of the PLL are known by the simulator, the ideal value of the loop filter at lock, \texttt{lf\_lock\_ideal} can be computed directly. Given the DCO gain value in the simulation \texttt{kdco}, the value of \texttt{lf\_lock\_ideal = round((fosc - dco\_f0)/kdco)}. Lock is then detected at the first simulation step for which the current and all later time steps meet the following criteria for the loop filter signal \texttt{lf\_sig} (i.e. frequency of oscillator is within the frequency tolerance band):
 \begin{equation}
 \text{\texttt{abs(lf\_sig[n] - lf\_lock\_ideal)*kdco < lock\_f\_tol}}
@@ -328,17 +349,17 @@ This measurement is predicated on the simulation being fully complete at the tim
 \end{figure}
 \FloatBarrier
 
-\subsection{Post processing: phase noise power spectrum estimate}
-The simulation data can be used to make an estimate of the phase noise power spectrum $\mathcal{L}(\Delta f)$ of the PLL (normalized to the carrier power). First, the phase error signal of the simulated PLL must be computed, \texttt{phase\_error = div\_n*clk\_sig - osc\_sig}. The phase error signal includes the phase noise signal in addition to any transient phase error components of the PLL. If the simulated PLL is in lock, the phase error can be is dominated by phase noise components, as the transient components become negligible. If \texttt{phase\_error} is reduced to the simulation signal span after the detection of lock, with a span in samples of \texttt{n\_steps}, the power spectral density of the phase noise normalized to the carrier tone, utilizing the fast Fourier transform (FFT) is in \ref{eq:psd_estimate}. This definition is based on the FFT implementation available in \texttt{numpy.fft} \cite{numpy.fft}.
+\subsection{Post Processing: Phase Noise Power Spectrum Estimate}
+The simulation data can be used to make an estimate of the phase noise power spectrum $\mathcal{L}(\Delta f)$ of the PLL (normalized to the carrier power). First, the phase error signal of the simulated PLL must be computed, \texttt{phase\_error = div\_n*clk\_sig - osc\_sig}. The phase error signal includes the phase noise signal in addition to any transient phase error components of the PLL. If the simulated PLL is in lock, the phase error is dominated by phase noise components, as the transient components become negligible. If \texttt{phase\_error} is reduced to the simulation signal span after the detection of lock, with a span in samples of \texttt{n\_steps}, the power spectral density of the phase noise normalized to the carrier tone, utilizing the fast Fourier transform (FFT) is in equation \ref{eq:psd_estimate}. This definition is based on the FFT implementation available in the \texttt{numpy.fft}\footnote{numpy.fft.fft - NumPy v1.17 Manual, \url{https://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html}.} package.
 \begin{equation}\label{eq:psd_estimate}
 	\text{\texttt{psd}} = \left|\frac{1}{\text{\texttt{n\_steps}}}\cdot\mathcal{FFT}\{\text{\texttt{div\_n*clk\_sig - osc\_sig}}\}\right|^2
 \end{equation}
-Provided the simulation sampling rate \texttt{fs}, the indices [0, \texttt{n\_steps}/2-1] of the FFT and consequently \texttt{psd} correspond to frequencies [0, \texttt{fbin}$\cdot$(\texttt{n\_steps}/2-1)], where \texttt{fbin} = \texttt{fs}/\texttt{n\_steps}. Slicing the power spectrum data \texttt{psd} with indices [1, \texttt{fbin}$\cdot$(\texttt{n\_steps}/2-1)] will yield the single side band spectrum of the oscillator, with the corresponding offset frequency of each index \texttt{k} being $\Delta f\cdot \mathtt{k}\cdot\mathtt{fbin}$. Thus:
+Provided the simulation sampling rate \texttt{fs}, the indices [0, \texttt{n\_steps}/2-1] of the FFT data and consequently \texttt{psd} correspond to frequencies [0, \texttt{fbin}$\cdot$(\texttt{n\_steps}/2-1)], where \texttt{fbin} = \texttt{fs}/\texttt{n\_steps}. Slicing the power spectrum data \texttt{psd} with indices [1, \texttt{fbin}$\cdot$(\texttt{n\_steps}/2-1)] will yield the single side band spectrum of the oscillator, with the corresponding offset frequency of each index \texttt{k} being $\Delta f\cdot \mathtt{k}\cdot\mathtt{fbin}$. Thus:
 \begin{equation}
 	\mathcal{L}(\Delta f) = \text{\texttt{psd[round(}}\Delta f\text{\texttt{/fbin)]}}
 \end{equation}
 
-Computation of power spectrum based on the DFT has high variance about the true spectrum, thus an additional approach utilized here is parametric spectral estimation with autoregressive (AR) model \cite{proakis_1993_psd}, which allows for lower variance of the estimate. An AR(p) model is simply a transfer function with p poles, which can be minimum mean square error (MMSE) optimized to fit the spectrum of a signal. The MMSE optimization for an AR model can be performed using linear algebra with the Yule-Walker equations, which is based on the autocorrelation sequence of the signal to be fitted (see appendix \ref{yule_walker_ar_psd}). This approach is utilized in this work. Figure \ref{fig:psd_est} shows example power spectrum estimates utilizing the two implemented methods on a test data set.
+Computation of power spectrum based on the DFT has high variance about the true spectrum, thus an additional approach utilized here is parametric spectral estimation with autoregressive (AR) modeling \cite{proakis_1993_psd}, which allows for lower variance of the estimate. An AR(p) model is simply a transfer function with p poles, which can be minimum mean square error (MMSE) optimized to fit the spectrum of a signal. The MMSE optimization for the AR model is performed in this work using linear algebra with the Yule-Walker equations, which is based on the autocorrelation sequence of the signal to be fitted (see appendix \ref{yule_walker_ar_psd}). Figure \ref{fig:psd_est} shows example power spectrum estimates utilizing the two implemented methods discussed here on a test data set. It is observed the AR model has low variance. 
 
 	\begin{figure}[htb!]
 		\center\includegraphics[width=0.5\textwidth, angle=0]{figs/psd_estimate.pdf}
@@ -347,15 +368,15 @@ Computation of power spectrum based on the DFT has high variance about the true 
 	\end{figure}
 	\FloatBarrier
 
-\subsection{Monte-Carlo sampling}
-The simulation code implemented uses a Python dictionary containing the simulation parameters and the corresponding parameters for which the simulation engine should simulate the PLL for. This format makes the introduction of Monte-Carlo sampling into the simulator straightforward. This can be implementing utilizing a dictionary with the nominal simulation configuration, and then a second dictionary to define the parameters to be varied along with the corresponding parameter variance. Given a sample size of N for the Monte-Carlo simulation, a loop is implemented which creates a new simulation configuration dictionary each loop iteration with stochastically sampled values from a normal distribution based on the provided nominal configuration and variance dictionaries. That unique configuration dictionary instance is used to spawn a PLL simulation, and is stored. After N iterations, N sets of data are created with varied parameters.
+\subsection{Monte-Carlo Sampling}
+The simulation code implemented uses a Python dictionary containing the simulation parameters and the corresponding parameters for which the simulation engine should simulate the PLL. This format makes the introduction of Monte-Carlo sampling into the simulator straightforward. This can be implementing utilizing a dictionary with the nominal simulation configuration, and then a second dictionary to define the parameters to be varied along with the corresponding parameter variance. Given a sample size of N for the Monte-Carlo simulation, a loop is implemented which creates a new simulation configuration dictionary each loop iteration with stochastically sampled values from a normal distribution based on the provided nominal configuration and variance dictionaries. That unique configuration dictionary instance is used to spawn a PLL simulation, and is stored. After N iterations, N sets of data are created with varied parameters.
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
-\section{Loop filter optimization}\label{methods_lf_opt}
-The loop filter optimization engine implemented  minimizes total phase noise power of a PLL subject to a maximal lock time constraint. The optimizer uses a fixed prototype design for the loop filter in the form of equation \ref{eq:loop_filter_def} arrived at in section \ref{comp_pi_pll_lf} with parameters $\{K_i$, $\omega_p$, $\omega_z\}$. Based on section \ref{proto_pll_tfs}, the PLL developed in this work will have open loop and normalized and continuous closed loop transfer functions $\mathrm{L}(s)$ and $\mathrm{\hat{T}}(s)$ in \ref{eq:pll_tf_def}. The parameter $K$ is equivalent to $\frac{\mathrm{M}}{\mathrm{N}}K_{DCO}K_i$, where M is the TDC resolution in steps, N is the divider ratio, $K_{DCO}$ is the DCO gain in Hz/LSD and $K_i$ is the loop filter integral term gain. 
+\section{Loop Filter Optimization}\label{methods_lf_opt}
+The loop filter optimization engine implemented either minimizes (a) total phase noise power, or (b) lock time of a PLL subject to a maximum lock time constraint. The optimizer uses a fixed prototype design for the loop filter in the form of equation \ref{eq:loop_filter_def} arrived at in section \ref{comp_pi_pll_lf} with parameters $\{K_i$, $\omega_p$, $\omega_z\}$. Based on section \ref{proto_pll_tfs}, the PLL developed in this work will have open loop and normalized and continuous closed loop transfer functions $\mathrm{L}(s)$ and $\mathrm{\hat{T}}(s)$ in equation \ref{eq:pll_tf_def}. The parameter $K$ is equivalent to $\frac{\mathrm{M}}{\mathrm{N}}K_{DCO}K_i$, where M is the TDC resolution in steps, N is the divider ratio, $K_{DCO}$ is the DCO gain in Hz/LSB and $K_i$ is the loop filter integral term gain. 
 
 	\begin{equation}\label{eq:loop_filter_def}
 	\mathrm{H}_{LF}(s) = \frac{K_i}{s}\frac{(\frac{s}{\omega_z}+1)}{(\frac{s}{\omega_p}+1)}
@@ -370,7 +391,7 @@ The filter optimization and design sequence is detailed below. The following sec
 
 \begin{enumerate}[itemsep=0pt,label=\protect\mycirc{\arabic*}]
 	\setlength\itemsep{-0.8em}
-	\item Optimize parameters $\{K, \omega_p, \omega_z\}$ of $\mathrm{\hat{T}}(s)$ for minimize total PLL phase noise power, using the phase noise model developed in section \ref{final_pn_model} parameterized by the transfer function $\mathrm{\hat{T}}(s)$ and PLL parameters $\{\mathrm{M},\mathrm{N},K_{DCO},S_{0\Phi n_{DCO}}\}$.
+	\item Optimize parameters $\{K, \omega_p, \omega_z\}$ of $\mathrm{\hat{T}}(s)$ for minimize total PLL phase noise power or lock time, using the phase noise model developed in section \ref{final_pn_model} parameterized by the transfer function $\mathrm{\hat{T}}(s)$ and PLL parameters $\{\mathrm{M},\mathrm{N},K_{DCO},S_{0\Phi n_{DCO}}\}$.
 	\item Translate optimal parameters $\{K, \omega_p, \omega_z\}$ to prototype loop filter parameters $\{K_i, \omega_p, \omega_z\}$, perform continuous to discrete time filter conversion.
 	\item Optimize fixed point resolution of digital loop filter implementation for finite word effects.
 \end{enumerate}
@@ -381,8 +402,8 @@ The filter optimization and design sequence is detailed below. The following sec
 % 	\label{fig:bw_vs_pn}
 % \end{figure}
 % \FloatBarrier
-\subsection{Optimization rationale}
-The ADPLL transfer function in use (equation \ref{eq:pll_tf_def}), coupled with the phase noise theory of section \ref{final_pn_model} results in an output PLL phase noise spectrum with component-wise breakdown of figure \ref{fig:ex_pll_pn_comps}. The showing figure uses an arbitrary selection of PLL and phase noise parameters, however, varying the model parameters will shift the individual components up and in power and frequency. It is important to note in the presented PLL design, TDC, divider and loop filter phase noise components are manifested with a low pass response, and the DCO noise with a band pass response. Also note the overall PLL response is low pass, owing to the low pass nature of the loop filter. Figure \ref{fig:bw_pn_tradeoff} shows the result of integrating the phase noise spectrum to yield total PLL phase noise power for the system modeled in figure \ref{fig:ex_pll_pn_comps}. The parameters of the PLL were varied to change the half-power bandwidth of the closed loop response, resulting in a plot of total phase noise power versus PLL loop bandwidth. Here it is seen that there is an \textit{optimal} selection of bandwidth that minimizes phase noise power; and that loss function for this optimization, i.e. the total phase noise power, is convex, and thus is easily optimizable. 
+\subsection{Phase Noise Optimization Rationale}
+The ADPLL transfer function in use (equation \ref{eq:pll_tf_def}), coupled with the phase noise theory of section \ref{final_pn_model} results in an output PLL phase noise spectrum with component-wise breakdown of figure \ref{fig:ex_pll_pn_comps}. The shown figure uses an arbitrary selection of PLL and phase noise parameters, however, varying the model parameters will only shift the individual components up and in power and frequency. It is important to note in the presented PLL design, TDC, divider and loop filter phase noise components are manifested with a low pass response, and the DCO noise with a band pass response. Also note the overall PLL response is low pass, owing to the low pass nature of the loop filter. Figure \ref{fig:bw_pn_tradeoff} shows the result of integrating the phase noise spectrum to yield total PLL phase noise power for the system modeled in figure \ref{fig:ex_pll_pn_comps}. The parameters of the PLL were varied to change the half-power bandwidth of the closed loop response, resulting in a plot of total phase noise power versus PLL loop bandwidth. Here, it is seen that there is an \textit{optimal} selection of bandwidth that minimizes phase noise power. Also, the function that defines the phase noise power-bandwidth relation is \textit{convex}, and thus is easily optimized. 
 	\begin{figure}[htb!]
 	    \centering
 	    \begin{subfigure}{0.5\textwidth}
@@ -402,7 +423,7 @@ The ADPLL transfer function in use (equation \ref{eq:pll_tf_def}), coupled with 
 	    \caption{\textbf{(a)} Example PLL phase noise from models in this work, \textbf{(b)} integrated phase noise power versus bandwidth for the same PLL.}
 	\end{figure}
 
-The take-away here is the PLL will have an optimal set of parameters which will minimize the overall PLL phase noise. There is then a question of criteria for optimization. In the optimizer introduced here, the TDC and DCO phase noise are assumed to be the principal phase noise components, and are used as the sole criteria for establishing phase noise optimality. This assumption follows that the loop filter and divider implementations can be tuned easily to have less phase noise than DCO and TDC. This will be discussed in more detail later. If the TDC and DCO parameters are kept fixed, but the loop filter is varied resulting in a change of PLL bandwidth, figure \ref{fig:bw_vs_pn2} illustrates the corresponding changes in the DCO and TDC phase noise components. At low bandwidths, DCO noise because dominant, and at high bandwidths the TDC noise is dominant. In both cases, the total integrated phase noise is high (sub-optimal) due to excessive contributions from either component. Optimal bandwidth occurs when the contributions from both sources are approximately equal. It is possible that the optimal bandwidth for phase noise does not result in the desired transient lock time for the PLL, thus the final criteria for optimality is defined as \textit{the filter configuration that minimizes integrated TDC and DCO phase noise subject to a constraint for maximum lock time.}
+The take-away here is the PLL will have an optimal set of parameters, which will minimize the overall PLL phase noise. There is then a question of criteria for optimization. In the optimizer introduced here, the TDC and DCO phase noise are assumed to be the principal phase noise components, and are used as the sole criteria for establishing phase noise optimality. This assumption follows that the loop filter and divider implementations can be tuned easily to have less phase noise than DCO and TDC. This will be discussed in more detail later. If the TDC and DCO parameters are kept fixed, but the loop filter is varied resulting in a change of PLL bandwidth, figure \ref{fig:bw_vs_pn2} illustrates the corresponding changes in the DCO and TDC phase noise components. At low bandwidths, DCO noise because dominant, and at high bandwidths the TDC noise is dominant. In both cases, the total integrated phase noise is high (sub-optimal) due to excessive contributions from either component. Optimal bandwidth occurs when the contributions from both sources are approximately equal. It is possible that the optimal bandwidth for phase noise does not result in the desired transient lock time for the PLL, thus the final criteria for optimality is defined in this work as \textit{the filter configuration that minimizes integrated TDC and DCO phase noise subject to a constraint for maximum lock time.}
 
 \begin{figure}[htb!]
 	\center\includegraphics[width=1\textwidth, angle=0]{figs/loop_bandwidth}
@@ -411,10 +432,10 @@ The take-away here is the PLL will have an optimal set of parameters which will 
 \end{figure}
 
 
-\subsection{Loop filter optimization algorithm}
-Based on the developed criteria for PLL optimality, the following algorithm is defined to establish the optimal parameters $\{K, \omega_p, \omega_z\}$ of $\mathrm{\hat{T}}(s)$. In order to verify phase noise and lock time, algorithms based on the transfer function $\mathrm{\hat{T}}(s)$ have been implemented (see sections \ref{est_set} and \ref{est_pn}). Usage of the transfer function $\mathrm{\hat{T}}(s)$ for these estimates is done as it is computationally fast compared to direct time-domain simulation of the ADPLL, allowing for fast optimization. 
+\subsection{Loop Filter Optimization Algorithm - Phase Noise}\label{lf_optimizer}
+Based on the developed criteria for PLL optimality, the following algorithm is defined to establish the optimal parameters $\{K, \omega_p, \omega_z\}$ of $\mathrm{\hat{T}}(s)$. In order to verify phase noise and lock time, algorithms based on the continuous transfer function $\mathrm{\hat{T}}(s)$ have been implemented (see sections \ref{est_set} and \ref{est_pn}). Usage of the continuous transfer function $\mathrm{\hat{T}}(s)$ for these estimates is done as it is computationally lower complexity than direct time-domain simulation of the ADPLL, thus allowing for faster optimization. 
 
-To allow the phase noise minimization and the constraint on maximum lock time to both have an impact in the optimization, the optimization is implemented with a divided approach. There is there is a lower level optimizer (optimizer B) which minimizes phase noise given a fixed target for settling time. There is also  a higher level optimizer (optimizer A) that applies a constrained search for settling time that minimizes phase noise, using optimizer B to determine the optimal filter and minimum phase noise at each settling time value. Figure \ref{fig:optimizer} illustrates this algorithm.
+To allow the phase noise minimization and the constraint on maximum lock time to both have an impact in the loop filter optimization, the optimizer is implemented with a divided approach. This is realized with a lower level optimizer (optimizer B), which tunes the loop filter to minimize the total PLL output phase noise power given a fixed target for settling time. There is also a higher level optimizer (optimizer A) that applies a constrained search for settling time that minimizes phase noise, using optimizer B to determine the optimal filter and minimum phase noise at each settling time value. Figure \ref{fig:optimizer} illustrates this algorithm.
 
 \begin{figure}[htb!]
 	\center\include{figs/optimizer}
@@ -430,8 +451,8 @@ To allow the phase noise minimization and the constraint on maximum lock time to
 \textbf{Optimizer B - Minimize PLL phase noise for fixed settling time.}\label{lf_opt}
 \begin{itemize}
 	\setlength\itemsep{-0.8em}
-	\item Provided a fixed target for settling time = $t_{settle}$, and PLL parameters $\{\mathrm{M}$,$\mathrm{N}$,$K_{DCO}$,$S_{0\Phi n_{DCO}}\}$, evaluate the two steps, satisfactorily converged of optimization parameters is observed:
-	\begin{enumerate}
+	\item Provided a fixed target for settling time = $t_{settle}$, and PLL parameters $\{\mathrm{M}$,$\mathrm{N}$,$K_{DCO}$,$S_{0\Phi n_{DCO}}\}$, evaluate the two following steps until satisfactory convergence of optimization parameters is observed:
+	\begin{enumerate}[itemsep=0pt,label=\protect\mycirc{\arabic*}]
 		\setlength\itemsep{-0.8em}
 		\item Minimize total phase noise power using pole/zeros locations $\{\omega_p, \omega_z\}$ using gradient descent with a two-point step size method from \cite{barzilai_borwein_1988}.
 		\item Tune $K$ such that settling time is equal to the fixed target value using unconstrained golden section search.
@@ -440,24 +461,47 @@ To allow the phase noise minimization and the constraint on maximum lock time to
 
 Convergence for gradient descent, GSS and optimizer B algorithms is decided by comparing the parameter values in each optimizer iteration to the previous. If the normalized change in a given iteration for all optimization parameters is below a tolerance specified by the user, convergence is detected and the optimization ends. 
 
-Once the optimal parameters $\{K, \omega_p, \omega_z\}$ for $\mathrm{\hat{T}}(s)$ are determined, the parameter $K$ can be translated onto $K_i$ with equation \ref{eq:map_k_ki}. The loop filter design then can be mapped into a difference equation which is implementable in digital hardware as a a direct form-I IIR architecture, as outlined in section \ref{disc_lf_comp_pi}.
+Once the optimal parameters $\{K, \omega_p, \omega_z\}$ for $\mathrm{\hat{T}}(s)$ are determined, the parameter $K$ can be translated onto $K_i$ with equation \ref{eq:map_k_ki}. The loop filter design then can be mapped into a difference equation which is implementable in digital hardware as a direct form-I IIR architecture, as outlined in section \ref{disc_lf_comp_pi}.
 \begin{equation}\label{eq:map_k_ki}
 K_i=\frac{\mathrm{M}}{\mathrm{N}}\frac{K}{K_{DCO}}
 \end{equation}
 
+\subsection{Optimization of Phase Noise with BBPD}
+The nonlinear nature of the bang-bang phase detector complicates the optimization of phase noise in a PLL. Based on the BBPD-PLL theory in section \ref{bbpd_theory}, it is seen that the closed loop transfer function $\hat{\mathrm{T}}(s)$ of the BBPD-PLL is dependent on the variance $\sigma^2_{\Phi_e}$ of the phase error signal which the BBPD is sampling. In steady state, $\sigma^2_{\Phi_e}$ = $\sigma^2_{\Phi_n}/\mathrm{N}$, where $\sigma^2_{\Phi_n}$ is the PLL output phase noise power and N is the PLL divider ratio. To calculate $\sigma^2_{\Phi_n}$, however, requires $\hat{\mathrm{T}}(s)$ to integrate the PLL phase noise PSD determined by section \ref{final_pn_model}. Therefore, it is seen that $\sigma^2_{\Phi_n}$ and $\hat{\mathrm{T}}(s)$ have a circular definition in steady state. To handle optimization of the loop response $\hat{\mathrm{T}}(s)$ in light of this, the following method is used. First a cost function for the optimization is defined:
 
-\subsection{Fast estimation of PLL settling time}\label{est_set}
+\textbf{Cost function with input $\sigma^2_{\Phi_e}$:}
+	\begin{enumerate}[itemsep=0pt,label=\protect\mycirc{\alph*}]
+		\setlength\itemsep{-0.8em}
+		\item Find optimal PLL response $\hat{\mathrm{T}}_{opt}(s)$ using the method of section \ref{lf_optimizer} that minimizes PLL output phase noise power, with the BBPD-PLL transfer function and noise spectral density (from section \ref{bbpd_theory}) defined using the input value for $\sigma^2_{\Phi_e}$.
+		\item Integrate the phase noise power based on $\sigma^2_{\Phi_e}$ and $\hat{\mathrm{T}}_{opt}(s)$, to yield $\hat{\sigma}^2_{\Phi_n}$.
+		\item Compute the error between the expected phase noise power from $\Phi^2_e$ and that from the phase noise integration, i.e. $\sigma^2_{\Phi_n}$ - $\hat{\sigma}^2_{\Phi_n}$ = $\mathrm{N}\sigma^2_{\Phi_e}$ - $\hat{\sigma}^2_{\Phi_n}$
+	\end{enumerate}
+
+Golden section search is then used with the aforementioned cost function varying parameter $\sigma^2_{\Phi_e}$ to find the optimal $\hat{\mathrm{T}}_{opt}(s)$ for which the PLL is self-consistent, i.e. $\sigma^2_{\Phi_n}$-$\hat{\sigma}^2_{\Phi_n}$ = 0 in the cost function. 
+
+\subsection{Optimization of Settling Time}
+The algorithm  for optimization of settling time is based on a user specified target value for phase margin PM and a value $\delta$ for lock tolerance. $\delta$ is given as $f_{tol}/|f_{osc}-\Delta f_i|$, where $f_{tol}$ is frequency tolerance range for lock, $f_{osc}$ is the oscillator frequency, and $f_i$ is the initial frequency error. A PI-controller loop filter is used for the prototype design due to the predictable relationship between the damping ratio $\zeta$ of the PLL closed loop response and the PLL phase margin, given in equation \ref{eq:pm_pi_pll}. A constraint is upheld that closed loop PLL bandwidth $\leq 20$ times the PLL loop sampling rate $f_s=f_{ref}$, a conservative increase from the 10 times factor previously mentioned from \cite{gardner_1980}, to reduce the risk of instability due to discrete time-conversion effects. Using the PI-controller theory of section \ref{cont_pi_filt_des}, the normalized PLL response $\hat{\mathrm{T}}(s)$ in terms of $\delta$, damping ratio $\zeta$ and settling time $t_s$ is:
+\begin{equation}
+\hat{\mathrm{T}}(s, \zeta, \delta, t_s) = \frac{-2s\frac{\ln(\delta)}{\zeta^2t_s}+\frac{\ln^2(\delta)}{\zeta^2t^2_s}}{s^2-2s\frac{\ln(\delta)}{\zeta^2t_s}+\frac{\ln^2(\delta)}{\zeta^2t^2_s}}
+\end{equation}
+The optimal selection of $\zeta$ for the specified phase margin can be determined from equation \ref{eq:pm_pi_pll} with numerical root finding. The following two equations are then used to determine the optimizal settling time $t_{s_{opt}}$. Equation \ref{eq:loop_bw} determines the PLL closed loop half-power bandwidth, and equation \ref{eq:tset_opt} determines the settling time based corresponding settling time $t_{s_{opt}}$ for the maximum allowed bandwidth of $f_{ref}/20$. The optimal values of $t_{s_{opt}}$ and $\zeta$ may be translated to PI-controller parameters in equations \ref{eq:omega_z_pi}-\ref{eq:kp_pi}, which is discretized using section \ref{disc_lf_comp_pi}.
+\begin{align}
+\text{BW}(\zeta, t_s, \delta) &= \underset{f}{\arg\min}\left|\frac{1}{2}-\left|\hat{\mathrm{T}}(f,\zeta, t_s, \delta)\right|^2\right|\label{eq:loop_bw}\\
+t_{s_{opt}}(\zeta, t_s, \delta) &= \underset{f}{\arg\min}\left|\frac{f_{ref}}{20}-\text{BW}(\zeta, t_s, \delta)\right|\label{eq:tset_opt}
+\end{align}
+
+\subsection{Fast Estimation of PLL Settling Time}\label{est_set}
 	The following is the method implemented to estimate settling time from the PLL closed loop phase transfer function $\mathrm{\hat{T}}(s)$. $\mathrm{\hat{T}}(s)$ can be represented as a rational function of two polynomial functions of s, with P poles and Z zeros. Such a transfer function is computationally represented with arrays A and B, containing the denominator and numerator polynomial coefficients.
 	\begin{equation}\label{eq:pll_cl_tf}
 	\mathrm{\hat{T}}(s) = \frac{\sum_{j=0}^Z b_js^j}{\sum_{k=0}^P a_ns^n}
 	\end{equation}
-	An estimate of the step response settling time of $\mathrm{T}(s)$ can by utilizing its representation in state space. This is given in \ref{eq:ss_rep}, with input vector $\mathrm{U}(s)$, state vector $\mathbf{X}(s)$, and output $Y(s)$. The state-space representation from a s-domain transfer function can be quickly solved computationally with available signal processing packages such as \texttt{scipy.signal} \cite{scipy.signal} given the coefficient arrays A and B.
+	An estimate of the step response settling time of $\mathrm{T}(s)$ can by utilizing its representation in state space \cite{ogata_2010_ss}. This is given in equations \ref{eq:ss_rep} and \ref{eq:ss_rep2}, with input vector $\mathrm{U}(s)$, state vector $\mathbf{X}(s)$, and output $Y(s)$. The state-space representation from a s-domain transfer function can be quickly solved computationally with available signal processing packages, such as \texttt{scipy.signal}\footnote{Signal processing (scipy.signal) - SciPy v1.3.3 Reference Guide, \url{https://docs.scipy.org/doc/scipy/reference/signal.html}.} used in this work, given the coefficient arrays A and B.
 	% https://lpsa.swarthmore.edu/Representations/SysRepTransformations/TF2SS.html
 	\begin{align} \label{eq:ss_rep}
 		s\mathbf{X}(s) &= \mathbf{AX}(s) +\mathbf{B}\mathrm{U}(s)\\
-		Y(s) &= \mathbf{CX}(s) +\mathbf{D}\mathrm{U}(s)
+		Y(s) &= \mathbf{CX}(s) +\mathbf{D}\mathrm{U}(s)\label{eq:ss_rep2}
 	\end{align}
-	The set of k eigenvalues $\{\lambda_1, ... , \lambda_{N}\}$ corresponding to poles for the system are found as the roots of \ref{eq:ss_eigenvals} \cite{brockett_1965}. Matrix $\mathbf{A}$ is referred to as the state matrix.% The associated eigenvectors are found with \ref{eq:ss_eigenvecs}.
+	The set of k eigenvalues $\{\lambda_1, ... , \lambda_{N}\}$ corresponding to poles for the system are found as the roots of equation \ref{eq:ss_eigenvals} \cite{brockett_1965}. Matrix $\mathbf{A}$ is referred to as the state matrix.% The associated eigenvectors are found with \ref{eq:ss_eigenvecs}.
 	\begin{align}
 		|\mathbf{A} - \lambda \mathbf{I}| = 0\label{eq:ss_eigenvals}%\\
 		%\mathbf{A} \mathbf{v}_k = \lambda_k\mathbf{v}_k \label{eq:ss_eigenvecs}
@@ -480,10 +524,10 @@ K_i=\frac{\mathrm{M}}{\mathrm{N}}\frac{K}{K_{DCO}}
 	\begin{equation}
 		t_s = \tau\ln(\delta_{tol}) = \frac{\ln(\delta_{tol})}{\min(|\Re(\{\lambda_1, ... , \lambda_k\})|)}
 	\end{equation}
-	This settling time estimate is computationally fast, as it requires only (a) computation of state matrix $\mathbf{A}$ from $\mathrm{\hat{T}}(s)$, (b) computation of the eigenvalues of $\mathbf{A}$, and (c) computation of settling time from the eigenvalue with minimum real component.
+	This settling time estimate is computationally fast, as it requires only (a) computation of state matrix $\mathbf{A}$ from the coefficients of $\mathrm{\hat{T}}(s)$, (b) computation of the eigenvalues of $\mathbf{A}$, and (c) computation of settling time from the eigenvalue with minimum real component.
 
-\subsection{Estimation of PLL phase noise}\label{est_pn}
-	The following is the method implemented to estimate total integrated phase noise power from the PLL closed loop phase transfer function $\mathrm{\hat{T}}(s)$, and PLL parameters $\{\mathrm{M}$, $\mathrm{N}$, $K_{DCO}$, $S_{0\Phi n_{DCO}}\}$. As has been stated, this optimizer assumes the dominant output-referred phase noise contributions of the PLL are due to the DCO thermal noise and TDC quantization. If $S_{TDC}$ and $S_{DCO}$ are the PLL output-referred noise PSD respectively for the TDC and DCO noise sources from section \ref{pn_theory}, the total PLL output noise PSD $S_{\Sigma}(f)$ is estimated as \ref{eq:tot_pn_est}.
+\subsection{Fast Estimation of PLL Phase Noise}\label{est_pn}
+	The following is the method implemented to estimate total integrated phase noise power from the PLL closed loop phase transfer function $\mathrm{\hat{T}}(s)$, and PLL parameters $\{\mathrm{M}$, $\mathrm{N}$, $K_{DCO}$, $S_{0\Phi n_{DCO}}\}$. As has been stated, this optimizer assumes the dominant output-referred phase noise contributions of the PLL are due to the DCO thermal noise and TDC quantization. If $S_{TDC}$ and $S_{DCO}$ are the PLL output-referred noise PSD respectively for the TDC and DCO noise sources from section \ref{pn_theory}, the total PLL output noise PSD $S_{\Sigma}(f)$ is estimated as equation \ref{eq:tot_pn_est}.
 	\begin{align}\label{eq:tot_pn_est}
 		S_{\Sigma}(f) &= S_{\Phi n_{TDC,out}}(f) + S_{\Phi n_{DCO,out}}(f)\\
 		 &= \frac{1}{12f_{ref}}\left|2\pi\frac{\mathrm{N}}{\mathrm{M}}\hat{\mathrm{T}}(f)\right|^2 + \frac{S_{0\Phi n_{DCO}}}{f^2}\left|1-\hat{\mathrm{T}}(f)\right|^2
@@ -496,25 +540,71 @@ K_i=\frac{\mathrm{M}}{\mathrm{N}}\frac{K}{K_{DCO}}
 	This can be computed via numerical integration on a grid of K values in the interval $\Delta f$, where each point represents a frequency bin $f_{bin}$ = $\Delta f$/K. The Romberg method for numerical integration \cite{numerical_methods_2011} is utilized in this work as it has high accuracy for smooth integrands.
 
 
-\subsection{Loop filter optimization - finite word effects}
-Once a filter design has been optimized in the continuous domain following the algorithm of section \ref{lf_opt}, second order optimization is carried out to ensure the digitized, discrete implementation performs as expected in the presence of finite word effects. The optimized digital implementation provided here utilized fixed-point words for equal resolution throughout the datapath. The implemented second order optimization considers both the effect of loop filter quantization noise and transfer function error.
+\subsection{Loop Filter Optimization - Finite Word Effects}
+Once a filter design has been optimized in the continuous domain following the algorithm of section \ref{lf_opt}, post-filter design optimization is carried out to ensure the digitized, discrete implementation performs as expected in the presence of finite word effects. The implemented post-optimization considers both the effect of loop filter quantization noise and transfer function error due to quantization.
 
-This optimizer works by converting the ideal discrete filter design into a fixed point implementation with direct form-I structure. All components of the data path in the optimization are constrained to have the same signed fixed point format, in twos complement format with 1 sign bit, a number of integer bits \texttt{int\_bits}, and a number of fraction bits \texttt{frac\_bits}. Thus the total data word representation bits is \texttt{B} = 1 + \texttt{int\_bits} + \texttt{frac\_bits}.
+This optimizer works by converting the ideal discrete filter design into a fixed point implementation with direct form-I structure. All components of the data path in the optimization are constrained to have the same signed fixed point format, in two's complement format with 1 sign bit, a number of integer bits \texttt{int\_bits}, and a number of fraction bits \texttt{frac\_bits}. Thus the total data word representation bits is \texttt{B} = 1 + \texttt{int\_bits} + \texttt{frac\_bits}. The optimization is constrained to a range of bits for data word size specified by the user, for which the number of bits will be found that yields the minimum mean squared error (MMSE) for filter accuracy and quantization noise.
 
-Representation of data throughout the digital implementation here
+Selection of \texttt{int\_bits} is determined by considering the integer part of the discrete filter coefficients $\{a_1$, $a_2$, $b_0$, $b_1\}$. If the integer portions are divided into positive and negative valued sets \texttt{pos\_ints} and \texttt{neg\_ints}, the number of integer bits is therefore:
+\begin{align}
+	\mathtt{pos\_int\_bits} &= \left\lfloor \log_2\left(\max\left(\left\lfloor \mathtt{pos\_ints} \right\rfloor\right)\right) \right\rfloor +1\\
+	\mathtt{neg\_int\_bits} &= \left\lceil \log_2\left(\max\left(\left\lfloor \mathtt{neg\_ints} \right\rfloor\right)\right) \right\rceil
+\end{align}
+\begin{equation}
+	\mathtt{int\_bits} = \max(\mathtt{\{pos\_int\_bits}, \mathtt{neg\_int\_bits}\})
+\end{equation}
 
-optimum = min number of bits that meets users accuracy and noise spec.
+\subsubsection{Loop Filter Quantization Noise Optimization}\label{lf_quant_noise_opt}
+Quantization noise for the loop filter design is determined by discrete-time simulation with of the unquantized representation and the quantized representations of the filter for a range of data word bits constrained by the user. The input signal w[n] used is a Gaussian-distributed white noise signal, whose variance is significantly larger than the maximum loop filter LSB size tested. The quantization error signal q[n] is then computed for each quantized realization utilizing the approach in figure \ref{fig:lf_quant_noise_model}. The power (variance) of the quantization noise signal q[n] for each  filter realization is then computed. Figure \ref{fig:lf_quant_mse} shows the result of the aforementioned for a hypothetical loop filter design; quantization power is seen to decrease significantly with data word resolution.
 
-\subsubsection{Loop filter quantization noise optimization}
+% \begin{figure}[htb!]
+% 	\center\include{figs/lf_quant_noise_model}
+% 	\caption{Model for determining quantization noise of loop filter.}
+% 	\label{fig:lf_quant_noise_model}
+% \end{figure}
 
-\begin{figure}[htb!]
-	\center\includegraphics[width=0.5\textwidth, angle=0]{figs/lf_quant_noise.pdf}
-	\caption{Quantization noise power power out of an example loop filter versus data word resolution.}
-	\label{fig:lf_quant_mse}
-\end{figure}
+	\begin{figure}[htb!]
+	    \centering
+	    \begin{subfigure}{0.5\textwidth}
+	        \centering
+	        \center\include{figs/lf_quant_noise_model}
+	        \caption{ }
+	        \label{fig:lf_quant_noise_model}
+	    \end{subfigure}%
+	    \begin{subfigure}{0.5\textwidth}
+	        \centering
+	       \center\includegraphics[width=1\textwidth, angle=0]{figs/lf_quant_noise.pdf}
+	        \caption{ }
+	        \label{fig:lf_quant_mse}
+	    \end{subfigure}
+	    % \caption{Approximate model for ring oscillator inverter delay cell.}
+	    \label{fig:lf_quant_noise_opt}
+	    \caption{\textbf{(a)} Model for determining quantization noise of loop filter, \textbf{(b)} Quantization noise power power out of an example loop filter versus data word resolution.}
+	\end{figure}
+The optimal number of bits is chosen on a constraint that loop filter noise components should be less than the detector noise components. It was observed in figure \ref{fig:ex_pll_pn_comps} that for the loop filter prototype design used in this work, the phase noise spectral densities of the detector (TDC in the figure) and the loop filter are both low pass shaped at the PLL output. Thus as the loop filter noise is reduced by increasing the number of data word bits, it is possible to reduce the loop filter entirely noise below that of the detector noise. The strategy employed here to calculate this is to refer the detector noise via closed loop transfer function calculation to the loop filter output node, and then to integrate the total TDC phase noise power observed at that node. The spectral density of TDC noise at the loop filter output node is in equation \ref{eq:tdc_noise_lf_referred}, and for the BBPD noise it is equation \ref{eq:bbpd_noise_lf_referred}.
+\begin{align}\label{eq:tdc_noise_lf_referred}
+	S_{\Phi n_{TDC,LF out}}(f) & = \frac{1}{12f_{ref}}\left|\frac{\mathrm{N}}{\mathrm{M}}\frac{2\pi f}{K_{DCO}}\hat{\mathrm{T}}(f)\right|^2
+\end{align}
+\begin{align}\label{eq:bbpd_noise_lf_referred}
+	S_{\Phi n_{BBPD,LF out}}(f) & = \frac{\left(\frac{\pi}{2}-1\right)}{f_{ref}}\left|\sigma_{\Phi_e}\mathrm{N}\frac{f}{K_{DCO}}\hat{\mathrm{T}}(f)\right|^2
+\end{align}
+Evaluation of the phase noise in this work is using the Romberg method for numerical integration within a bandwidth defined by the PLL reference frequency $f_{ref}$. The resulting TDC noise power at the loop filter output $\sigma^2_{n_{TDC,LF out}}$ can then be used to define a cutoff threshold for maximum loop filter output noise. If a maximum degredation of of the phase noise is given by a loop filter noise figure NF$_{LF}$ in dB, then the cutoff threshold for loop filter quantization noise power $\sigma^2_{cutoff}$ is equation \ref{eq:lf_cutoff_power}. The minimum number of filter realization bits from the quantization error simulation meeting this cutoff requirement is the optimal word size selection.
+\begin{equation}\label{eq:lf_cutoff_power}
+	\sigma^2_{cutoff} = \sigma^2_{n_{TDC,LF out}}\cdot\left(10^{\text{NF}_{LF}/10}-1\right)
+\end{equation}
 
 
-\subsubsection{Loop filter transfer function error optimization}
+
+% \begin{figure}[htb!]
+% 	\center\includegraphics[width=0.5\textwidth, angle=0]{figs/lf_quant_noise.pdf}
+% 	\caption{Quantization noise power power out of an example loop filter versus data word resolution.}
+% 	\label{fig:lf_quant_mse}
+% \end{figure}
+
+
+\subsubsection{Loop Filter Transfer Function Error Optimization}
+Rounding of the discrete PLL filter coefficients changes the response of the implemented digital filter. Figure \ref{fig:tf_curves_quant_error} demonstrates this effect for a hypothetical selection of parameters, where filter error increases with decreasing number of bits used for the digital data word size. Optimization here is based on minimum mean square error (MMSE) optimization of the filter response for a range of quantized filter realizations defined by the user (in terms of minimum and maximum number of data word bits). Given a target value for MMSE by the user, the optimizer computes each quantized transfer function realization having B bit data words, and the frequency domain response $\hat{\text{H}}_{LF}(f|\text{B})$ within a bandwidth equal to $f_{ref}/2$. Then then ideal ideal, unquantized $\text{H}_{LF}(f)$ is used to compute the mean squared error for each realization, i.e. $\mathbb{E}[(\text{H}_{LF}(f)-\hat{\text{H}}_{LF}(f|\text{B}))^2]$. Figure \ref{fig:tf_mse} illustrates such a computation for hypothetical loop filter parameters. The optimal loop filter selection is then the minimum number of bits which satisfies the user's specified MMSE value.
+
 \begin{figure}[htb!]
     \centering
     \begin{subfigure}{0.5\textwidth}
@@ -533,3 +623,7 @@ optimum = min number of bits that meets users accuracy and noise spec.
     \label{fig:tf_quant_error}
     \caption{\textbf{(a)} Example filter error due to coefficient quantization, \textbf{(b)} Example MSE error of filter design due to coefficient quantization.}
 \end{figure}
+\FloatBarrier
+
+\subsubsection{Final Optimal Loop Filter Digital Word Size}
+Once the optimal word size for both quantization and filter error has been computed, the largest of the two is taken as the final value for optimal word size. 

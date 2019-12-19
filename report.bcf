@@ -131,7 +131,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortingtemplatename</bcf:key>
-      <bcf:value>nty</bcf:value>
+      <bcf:value>none</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortsets</bcf:key>
@@ -1923,82 +1923,79 @@
     <bcf:datasource type="file" datatype="bibtex">mybib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">Razavi1996DesignOM</bcf:citekey>
-    <bcf:citekey order="2">gardner_1980</bcf:citekey>
-    <bcf:citekey order="3">proakis_1993_bilinear</bcf:citekey>
-    <bcf:citekey order="4">proakis_1993</bcf:citekey>
-    <bcf:citekey order="5">perrott_2002</bcf:citekey>
-    <bcf:citekey order="6">leeson_1966</bcf:citekey>
-    <bcf:citekey order="7">lee_hajimiri_2000</bcf:citekey>
-    <bcf:citekey order="8">perrott_2002</bcf:citekey>
-    <bcf:citekey order="9">ogata_2010</bcf:citekey>
-    <bcf:citekey order="10">gardner_2005</bcf:citekey>
-    <bcf:citekey order="11">ogata_2010_pid</bcf:citekey>
-    <bcf:citekey order="12">razavi_2017</bcf:citekey>
-    <bcf:citekey order="13">vannicola_varshney_1983</bcf:citekey>
-    <bcf:citekey order="14">numpy.fft</bcf:citekey>
-    <bcf:citekey order="15">proakis_1993_psd</bcf:citekey>
-    <bcf:citekey order="16">press_2007</bcf:citekey>
-    <bcf:citekey order="17">barzilai_borwein_1988</bcf:citekey>
-    <bcf:citekey order="18">scipy.signal</bcf:citekey>
-    <bcf:citekey order="19">brockett_1965</bcf:citekey>
-    <bcf:citekey order="20">numerical_methods_2011</bcf:citekey>
-    <bcf:citekey order="21">kratyuk_2007</bcf:citekey>
-    <bcf:citekey order="22">safwat_ghoneima_ismail_2011</bcf:citekey>
+    <bcf:citekey order="1">regulagadda_2018</bcf:citekey>
+    <bcf:citekey order="2">shi_2019</bcf:citekey>
+    <bcf:citekey order="3">chen_2019</bcf:citekey>
+    <bcf:citekey order="4">pengg_2013</bcf:citekey>
+    <bcf:citekey order="5">Razavi1996DesignOM</bcf:citekey>
+    <bcf:citekey order="6">proakis_1993_bilinear</bcf:citekey>
+    <bcf:citekey order="7">gardner_1980</bcf:citekey>
+    <bcf:citekey order="8">hsu_straayer_perrott_2008</bcf:citekey>
+    <bcf:citekey order="9">temporiti_2009</bcf:citekey>
+    <bcf:citekey order="10">weste_harris_2011</bcf:citekey>
+    <bcf:citekey order="11">machado_cabral_alves_2019</bcf:citekey>
+    <bcf:citekey order="12">proakis_1993_bilinear</bcf:citekey>
+    <bcf:citekey order="13">proakis_1993_z</bcf:citekey>
+    <bcf:citekey order="14">proakis_1993</bcf:citekey>
+    <bcf:citekey order="15">shen_2014</bcf:citekey>
+    <bcf:citekey order="16">takinami_2011</bcf:citekey>
+    <bcf:citekey order="17">lu_andreani_2010</bcf:citekey>
+    <bcf:citekey order="18">widrow_1961</bcf:citekey>
+    <bcf:citekey order="19">leeson_1966</bcf:citekey>
+    <bcf:citekey order="20">lee_hajimiri_2000</bcf:citekey>
+    <bcf:citekey order="21">proakis_1993_fwe</bcf:citekey>
+    <bcf:citekey order="22">perrott_2002</bcf:citekey>
     <bcf:citekey order="23">zanuso_2009</bcf:citekey>
     <bcf:citekey order="24">xu_abidi_2017</bcf:citekey>
-    <bcf:citekey order="25">kumm_klingbeil_zipf_2010</bcf:citekey>
-    <bcf:citekey order="26">chau_chen_2009</bcf:citekey>
-    <bcf:citekey order="27">kratyuk_2007</bcf:citekey>
-    <bcf:citekey order="28">kumm_klingbeil_zipf_2010</bcf:citekey>
-    <bcf:citekey order="29">chau_chen_2009</bcf:citekey>
-    <bcf:citekey order="30">safwat_ghoneima_ismail_2011</bcf:citekey>
-    <bcf:citekey order="31">kratyuk_2007</bcf:citekey>
-    <bcf:citekey order="32">kumm_klingbeil_zipf_2010</bcf:citekey>
-    <bcf:citekey order="33">safwat_ghoneima_ismail_2011</bcf:citekey>
-    <bcf:citekey order="34">chau_chen_2009</bcf:citekey>
-    <bcf:citekey order="35">safwat_ghoneima_ismail_2011</bcf:citekey>
-    <bcf:citekey order="36">kumm_klingbeil_zipf_2010</bcf:citekey>
-    <bcf:citekey order="37">zanuso_2009</bcf:citekey>
-    <bcf:citekey order="38">xu_abidi_2017</bcf:citekey>
-    <bcf:citekey order="39">kumm_klingbeil_zipf_2010</bcf:citekey>
-    <bcf:citekey order="40">perrott_2002_sim</bcf:citekey>
-    <bcf:citekey order="41">proakis_1993_psd</bcf:citekey>
+    <bcf:citekey order="25">staszewski_balsara_2007</bcf:citekey>
+    <bcf:citekey order="26">ogata_2010</bcf:citekey>
+    <bcf:citekey order="27">ogata_2010_pid</bcf:citekey>
+    <bcf:citekey order="28">razavi_2017</bcf:citekey>
+    <bcf:citekey order="29">ogata_2010_stability</bcf:citekey>
+    <bcf:citekey order="30">vannicola_varshney_1983</bcf:citekey>
+    <bcf:citekey order="31">proakis_1993_psd</bcf:citekey>
+    <bcf:citekey order="32">press_2007</bcf:citekey>
+    <bcf:citekey order="33">barzilai_borwein_1988</bcf:citekey>
+    <bcf:citekey order="34">gardner_1980</bcf:citekey>
+    <bcf:citekey order="35">ogata_2010_ss</bcf:citekey>
+    <bcf:citekey order="36">brockett_1965</bcf:citekey>
+    <bcf:citekey order="37">numerical_methods_2011</bcf:citekey>
+    <bcf:citekey order="38">zanuso_2009</bcf:citekey>
+    <bcf:citekey order="39">xu_abidi_2017</bcf:citekey>
+    <bcf:citekey order="40">kratyuk_2007</bcf:citekey>
+    <bcf:citekey order="41">safwat_ghoneima_ismail_2011</bcf:citekey>
+    <bcf:citekey order="42">kumm_klingbeil_zipf_2010</bcf:citekey>
+    <bcf:citekey order="43">chau_chen_2009</bcf:citekey>
+    <bcf:citekey order="44">kratyuk_2007</bcf:citekey>
+    <bcf:citekey order="45">kumm_klingbeil_zipf_2010</bcf:citekey>
+    <bcf:citekey order="46">chau_chen_2009</bcf:citekey>
+    <bcf:citekey order="47">safwat_ghoneima_ismail_2011</bcf:citekey>
+    <bcf:citekey order="48">kratyuk_2007</bcf:citekey>
+    <bcf:citekey order="49">kumm_klingbeil_zipf_2010</bcf:citekey>
+    <bcf:citekey order="50">safwat_ghoneima_ismail_2011</bcf:citekey>
+    <bcf:citekey order="51">chau_chen_2009</bcf:citekey>
+    <bcf:citekey order="52">safwat_ghoneima_ismail_2011</bcf:citekey>
+    <bcf:citekey order="53">kumm_klingbeil_zipf_2010</bcf:citekey>
+    <bcf:citekey order="54">zanuso_2009</bcf:citekey>
+    <bcf:citekey order="55">xu_abidi_2017</bcf:citekey>
+    <bcf:citekey order="56">xu_abidi_2017</bcf:citekey>
+    <bcf:citekey order="57">xu_abidi_2017</bcf:citekey>
+    <bcf:citekey order="58">kumm_klingbeil_zipf_2010</bcf:citekey>
+    <bcf:citekey order="59">proakis_1993_x</bcf:citekey>
+    <bcf:citekey order="60">perrott_2002_sim</bcf:citekey>
+    <bcf:citekey order="61">proakis_1993_psd</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
-  <bcf:sortingtemplate name="nty">
+  <bcf:sortingtemplate name="none">
     <bcf:sort order="1">
-      <bcf:sortitem order="1">presort</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="2" final="1">
-      <bcf:sortitem order="1">sortkey</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="3">
-      <bcf:sortitem order="1">sortname</bcf:sortitem>
-      <bcf:sortitem order="2">author</bcf:sortitem>
-      <bcf:sortitem order="3">editor</bcf:sortitem>
-      <bcf:sortitem order="4">translator</bcf:sortitem>
-      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="6">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="4">
-      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="2">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="5">
-      <bcf:sortitem order="1">sortyear</bcf:sortitem>
-      <bcf:sortitem order="2">year</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="6">
-      <bcf:sortitem order="1">volume</bcf:sortitem>
-      <bcf:sortitem order="2">0</bcf:sortitem>
+      <bcf:sortitem order="1">citeorder</bcf:sortitem>
     </bcf:sort>
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
   <bcf:datalist section="0"
-                name="nty/global//global/global"
+                name="none/global//global/global"
                 type="entry"
-                sortingtemplatename="nty"
+                sortingtemplatename="none"
                 sortingnamekeytemplatename="global"
                 labelprefix=""
                 uniquenametemplatename="global"

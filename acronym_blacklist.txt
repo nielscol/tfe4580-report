@@ -14,3 +14,6 @@ NN
 N=1
 TF2SS
 XX
+&&K=
+MK
+BB

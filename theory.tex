@@ -14,16 +14,16 @@
 	\begin{equation}\label{mult_by_n}
 		\frac{\Phi_{out}(s)}{\Phi_{ref}(s)} \approx \frac{A(s)}{A(s)B(s)} = \frac{1}{B(s)} = N
 	\end{equation}
-	We see that the phase through the PLL is multiplied by a factor of N. If the input phase signal is a sinusoid with frequency $\omega_{ref}$, and likewise the output with $\omega_{out}$, then $\phi_{ref}(t)=\omega_{ref}t$ and $\phi_{out}(t)=\omega_{out}t$. Thus:
+	We see that the phase through the PLL is multiplied by a factor of N. If the input phase signal is a sinusoid with frequency $\omega_{ref}$, and likewise the output with $\omega_{out}$, then $\phi_{ref}(t)=\omega_{ref}t$ and $\phi_{out}(t)=\omega_{out}t$. Accordingly:
 	\begin{equation}
 		\frac{\Phi_{out}(t)}{\Phi_{ref}(t)} = \frac{\omega_{out}t}{\omega_{ref}t} \approx N \hspace{1em} \rightarrow \hspace{1em} \omega_{out} \approx N\omega_{ref}
 	\end{equation}
 	Therefore, it is observed that a PLL allows for the generation, i.e. synthesis, of a new frequency from a reference frequency signal. Given a feedback divider ratio of 1/N, the PLL multiplies the reference frequency by a factor of N. In the following sections, more advanced models for PLL will be developed, extending the concept introduced here. Specifically, the theory of digital, discrete-time PLLs will be developed and extended from a continuous phase model of a basic PLL.
 
 	\subsection{Continuous PLL Model}
-		Although this work is interested in discrete time sampling PLL design, as will later be seen continuous models can still be of use in the analysis and design of such systems. Thus a continuous PLL model is developed in this section.
+		Although this work is interested in discrete time sampling PLL design, it will later be seen that continuous models can still be of use in the analysis and design of such systems. Thus a continuous PLL model is developed in this section.
 
-		\subsubsection{PLL Synthesizer architecture}
+		\subsubsection{PLL Synthesizer Architecture}
 			The traditional architecture for implementing a PLL frequency synthesizer \cite{Razavi1996DesignOM} is shown in figure \ref{fig:basic_pll}. This basic PLL is comprised of four components: (1) a phase detector, denoted by PD, (2) a loop filter, denoted by H$_{LF}$(s), (3) a voltage controlled oscillator, denoted by VCO, and (4) and phase divider, denoted by "$\div$ N" in the figure. These components are explained in the following sections.
 			\begin{figure}[htb!]
 				\center\include{./figs/basic_pll}
@@ -33,12 +33,12 @@
 			\FloatBarrier
 
 		\subsubsection{Divider}
-			The phase divider is used as the feedback path in the PLL, where the division ratio N controls the phase and consequent frequency multiplication of the PLL. The transfer function of the divider is:
+			The phase divider is used as the feedback path in the PLL, where the division ratio N controls the phase and associated frequency multiplication of the PLL. The transfer function of the divider is:
 			\begin{equation}
 				\mathrm{H}_{div}(s) = \frac{\Phi_{div}(s)}{\Phi_{out}(s)} = \frac{1}{\mathrm{N}}
 			\end{equation}
 
-			\subsubsection{Phase detector}
+			\subsubsection{Phase Detector}
 			The phase detector is used to measure the phase of the feedback signal (i.e. divider output) in relation to the reference phase, in order to establish a phase error signal $\Phi_e$ used to control the tuning of the PLL.
 			\begin{equation}
 				\Phi_e(s) = \Phi_{ref}(s) - \Phi_{div}(s)
@@ -50,18 +50,18 @@
 				\textnormal{H}_{LF}(s) = \frac{\sum_{j=0}^Z b_js^j}{\sum_{k=0}^P a_ks^k}
 			\end{equation}
 			
-		\subsubsection{VCO}
-			The voltage controlled oscillator is an oscillator with frequency controlled by an input signal V$_{ctrl}$. The VCO is characterized by its gain $K_{DCO} = \partial f/\partial \textnormal{V}_{ctrl}$, and the nominal oscillation frequency $f_0$. Analyzed in terms of phase, an oscillator can be seen as a time-phase integrator:
+		\subsubsection{Voltage Controlled Oscillator}
+			The voltage controlled oscillator (VCO) is an oscillator with frequency controlled by an input signal V$_{ctrl}$. The VCO is characterized by its gain $K_{VCO} = \partial f/\partial \textnormal{V}_{ctrl}$, and the nominal oscillation frequency $f_0$. Analyzed in terms of phase, an oscillator can be seen as a time-phase integrator:
 			\begin{equation}
-				\Phi_{VCO}(t) = \Phi_{out}(t) = \int2\pi(K_{DCO}\textnormal{V}_{ctrl}(t) + f_0)\mathrm{dt}
+				\Phi_{VCO}(t) = \Phi_{out}(t) = \int2\pi(K_{VCO}\textnormal{V}_{ctrl}(t) + f_0)\mathrm{dt}
 			\end{equation}
-			In the s-domain, where frequency offsets will be represented via initial conditions for modeling purposes, the VCO transfer function is therefore:
+			In the s-domain, frequency offsets from steady state can be represented via initial conditions for modeling purposes. The VCO transfer function is therefore:
 			\begin{equation}
-				\mathrm{H}_{VCO}(s) = \frac{\Phi_{VCO}(s)}{\textnormal{V}_{ctrl}(s)} = \frac{\Phi_{out}(s)}{\textnormal{V}_{ctrl}(s)} = \frac{2\pi K_{DCO}}{s}
+				\mathrm{H}_{VCO}(s) = \frac{\Phi_{VCO}(s)}{\textnormal{V}_{ctrl}(s)} = \frac{\Phi_{out}(s)}{\textnormal{V}_{ctrl}(s)} = \frac{2\pi K_{VCO}}{s}
 			\end{equation}
 
-		\subsubsection{Continuous PLL Transfer function}\label{cont_pll_tf}
-			Now that the continuous PLL synthesizer is understood at a component level, the closed loop dynamics of the PLL can be analyzed. First the PLL loop gain is determined:
+		\subsubsection{Continuous PLL Transfer Function}\label{cont_pll_tf}
+			Now that the continuous PLL synthesizer is understood at a component level, the closed loop dynamics of the PLL can be analyzed. First the PLL loop gain L(s) is determined:
 			\begin{equation}
 				\mathrm{L}(s) = \textnormal{H}_{LF}(s)\textnormal{H}_{VCO}(s)\textnormal{H}_{div}(s) = \frac{2\pi K_{VCO}}{\mathrm{N}}\frac{1}{s}\frac{\sum_{j=0}^Z b_js^j}{\sum_{k=0}^P a_ks^k}
 			\end{equation}

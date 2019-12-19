@@ -55,3 +55,6 @@ INPUT /home/cole/Documents/pll/report/./figs/direct_type_1_quant.tex
 OUTPUT /home/cole/Documents/pll/report/./figs/discrete_pll_full_noise.aux
 INPUT /home/cole/Documents/pll/report/./figs/discrete_pll_full_noise.tex
 INPUT /home/cole/Documents/pll/report/./figs/discrete_pll_full_noise.tex
+OUTPUT /home/cole/Documents/pll/report/./figs/bbpll.aux
+INPUT /home/cole/Documents/pll/report/./figs/bbpll.tex
+INPUT /home/cole/Documents/pll/report/./figs/bbpll.tex

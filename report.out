@@ -1,62 +1,69 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Theory}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Continuous PLL Model}{section.2}% 3
-\BOOKMARK [3][-]{subsubsection.2.1.1}{PLL Synthesizer architecture}{subsection.2.1}% 4
+\BOOKMARK [3][-]{subsubsection.2.1.1}{PLL Synthesizer Architecture}{subsection.2.1}% 4
 \BOOKMARK [3][-]{subsubsection.2.1.2}{Divider}{subsection.2.1}% 5
-\BOOKMARK [3][-]{subsubsection.2.1.3}{Phase detector}{subsection.2.1}% 6
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Phase Detector}{subsection.2.1}% 6
 \BOOKMARK [3][-]{subsubsection.2.1.4}{Loop Filter}{subsection.2.1}% 7
-\BOOKMARK [3][-]{subsubsection.2.1.5}{VCO}{subsection.2.1}% 8
-\BOOKMARK [3][-]{subsubsection.2.1.6}{Continuous PLL Transfer function}{subsection.2.1}% 9
-\BOOKMARK [2][-]{subsection.2.2}{ADPLL - digital, discretized PLL Model}{section.2}% 10
+\BOOKMARK [3][-]{subsubsection.2.1.5}{Voltage Controlled Oscillator}{subsection.2.1}% 8
+\BOOKMARK [3][-]{subsubsection.2.1.6}{Continuous PLL Transfer Function}{subsection.2.1}% 9
+\BOOKMARK [2][-]{subsection.2.2}{ADPLL - All Digital, Discrete Time PLL Model}{section.2}% 10
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Divider}{subsection.2.2}% 11
-\BOOKMARK [3][-]{subsubsection.2.2.2}{TDC}{subsection.2.2}% 12
-\BOOKMARK [3][-]{subsubsection.2.2.3}{Discrete-time loop filter}{subsection.2.2}% 13
-\BOOKMARK [3][-]{subsubsection.2.2.4}{DCO}{subsection.2.2}% 14
-\BOOKMARK [3][-]{subsubsection.2.2.5}{Discrete-time PLL transfer function}{subsection.2.2}% 15
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Time to Digital Converter}{subsection.2.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Discrete Time Loop Filter}{subsection.2.2}% 13
+\BOOKMARK [3][-]{subsubsection.2.2.4}{Digitally Controlled Oscillator}{subsection.2.2}% 14
+\BOOKMARK [3][-]{subsubsection.2.2.5}{Discrete Time PLL Transfer Function}{subsection.2.2}% 15
 \BOOKMARK [2][-]{subsection.2.3}{ADPLL Noise Model}{section.2}% 16
-\BOOKMARK [3][-]{subsubsection.2.3.1}{TDC noise}{subsection.2.3}% 17
-\BOOKMARK [3][-]{subsubsection.2.3.2}{DCO noise}{subsection.2.3}% 18
-\BOOKMARK [3][-]{subsubsection.2.3.3}{Divider noise}{subsection.2.3}% 19
-\BOOKMARK [3][-]{subsubsection.2.3.4}{Loop filter noise - direct form I}{subsection.2.3}% 20
-\BOOKMARK [3][-]{subsubsection.2.3.5}{PLL noise sensitivity transfer functions}{subsection.2.3}% 21
-\BOOKMARK [3][-]{subsubsection.2.3.6}{PLL phase signal and output PSD relationship for noise}{subsection.2.3}% 22
-\BOOKMARK [3][-]{subsubsection.2.3.7}{PLL output-referred noise PSD}{subsection.2.3}% 23
-\BOOKMARK [2][-]{subsection.2.4}{Modified ADPLL architecture for low TDC resolutions}{section.2}% 24
-\BOOKMARK [1][-]{section.3}{Loop Filter Design Automation}{}% 25
-\BOOKMARK [2][-]{subsection.3.1}{Design sequence}{section.3}% 26
-\BOOKMARK [2][-]{subsection.3.2}{Loop filter Prototype}{section.3}% 27
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Continuous PI-loop filter design}{subsection.3.2}% 28
-\BOOKMARK [3][-]{subsubsection.3.2.2}{PI-controller peaking compensation}{subsection.3.2}% 29
-\BOOKMARK [3][-]{subsubsection.3.2.3}{Alternative PID controller permutations}{subsection.3.2}% 30
-\BOOKMARK [3][-]{subsubsection.3.2.4}{Discretized Loop Filter Prototype}{subsection.3.2}% 31
-\BOOKMARK [3][-]{subsubsection.3.2.5}{Prototype PLL response}{subsection.3.2}% 32
-\BOOKMARK [1][-]{section.4}{Behavioral ADPLL simulation}{}% 33
-\BOOKMARK [2][-]{subsection.4.1}{Simulation engine}{section.4}% 34
-\BOOKMARK [2][-]{subsection.4.2}{Clock behavioral model}{section.4}% 35
-\BOOKMARK [2][-]{subsection.4.3}{TDC behavioral model}{section.4}% 36
-\BOOKMARK [2][-]{subsection.4.4}{Loop filter behavioral model}{section.4}% 37
-\BOOKMARK [2][-]{subsection.4.5}{DCO behavioral model}{section.4}% 38
-\BOOKMARK [2][-]{subsection.4.6}{Divider behavioral model}{section.4}% 39
-\BOOKMARK [2][-]{subsection.4.7}{Post processing: lock time detection}{section.4}% 40
-\BOOKMARK [2][-]{subsection.4.8}{Post processing: phase noise power spectrum estimate}{section.4}% 41
-\BOOKMARK [2][-]{subsection.4.9}{Monte-Carlo sampling}{section.4}% 42
-\BOOKMARK [1][-]{section.5}{Loop filter optimization}{}% 43
-\BOOKMARK [2][-]{subsection.5.1}{Optimization rationale}{section.5}% 44
-\BOOKMARK [2][-]{subsection.5.2}{Loop filter optimization algorithm}{section.5}% 45
-\BOOKMARK [2][-]{subsection.5.3}{Fast estimation of PLL settling time}{section.5}% 46
-\BOOKMARK [2][-]{subsection.5.4}{Estimation of PLL phase noise}{section.5}% 47
-\BOOKMARK [2][-]{subsection.5.5}{Loop filter optimization - finite word effects}{section.5}% 48
-\BOOKMARK [3][-]{subsubsection.5.5.1}{Loop filter quantization noise optimization}{subsection.5.5}% 49
-\BOOKMARK [3][-]{subsubsection.5.5.2}{Loop filter transfer function error optimization}{subsection.5.5}% 50
-\BOOKMARK [1][-]{section.6}{Discussion and results}{}% 51
-\BOOKMARK [2][-]{subsection.6.1}{Design exercise using this work}{section.6}% 52
-\BOOKMARK [3][-]{subsubsection.6.1.1}{Result of filter optimization.}{subsection.6.1}% 53
-\BOOKMARK [3][-]{subsubsection.6.1.2}{Result of transient and phase noise simulation.}{subsection.6.1}% 54
-\BOOKMARK [3][-]{subsubsection.6.1.3}{Result of parametric sweep and variation analysis.}{subsection.6.1}% 55
-\BOOKMARK [3][-]{subsubsection.6.1.4}{Design method 2}{subsection.6.1}% 56
-\BOOKMARK [2][-]{subsection.6.2}{Comparison to existing solutions}{section.6}% 57
-\BOOKMARK [2][-]{subsection.6.3}{Design choices and areas of improvement}{section.6}% 58
-\BOOKMARK [3][-]{subsubsection.6.3.1}{Divider noise constraint}{subsection.6.3}% 59
-\BOOKMARK [1][-]{section.7}{Conclusion}{}% 60
-\BOOKMARK [1][-]{appendix.A}{Estimating PSD with autoregressive model}{}% 61
-\BOOKMARK [1][-]{appendix.B}{Oscillator phase noise due to thermal noise}{}% 62
+\BOOKMARK [3][-]{subsubsection.2.3.1}{TDC Noise}{subsection.2.3}% 17
+\BOOKMARK [3][-]{subsubsection.2.3.2}{DCO Noise}{subsection.2.3}% 18
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Divider Noise}{subsection.2.3}% 19
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Loop Filter Noise - Direct Form I}{subsection.2.3}% 20
+\BOOKMARK [3][-]{subsubsection.2.3.5}{PLL Noise Sensitivity Transfer Functions}{subsection.2.3}% 21
+\BOOKMARK [3][-]{subsubsection.2.3.6}{PLL Phase Signal and Output PSD Relationship for Noise}{subsection.2.3}% 22
+\BOOKMARK [3][-]{subsubsection.2.3.7}{PLL Output-Referred Noise PSD}{subsection.2.3}% 23
+\BOOKMARK [2][-]{subsection.2.4}{Bang-bang phase detector PLL}{section.2}% 24
+\BOOKMARK [1][-]{section.3}{Proposed ADPLL Architecture}{}% 25
+\BOOKMARK [1][-]{section.4}{Loop Filter Design Automation}{}% 26
+\BOOKMARK [2][-]{subsection.4.1}{Design Sequence}{section.4}% 27
+\BOOKMARK [2][-]{subsection.4.2}{Loop Filter Prototype}{section.4}% 28
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Continuous PI-loop filter design}{subsection.4.2}% 29
+\BOOKMARK [3][-]{subsubsection.4.2.2}{PI-controller phase margin}{subsection.4.2}% 30
+\BOOKMARK [3][-]{subsubsection.4.2.3}{PI-Controller Peaking Compensation}{subsection.4.2}% 31
+\BOOKMARK [3][-]{subsubsection.4.2.4}{Alternative PID Controller Permutations}{subsection.4.2}% 32
+\BOOKMARK [3][-]{subsubsection.4.2.5}{Discretized Loop Filter Prototype}{subsection.4.2}% 33
+\BOOKMARK [3][-]{subsubsection.4.2.6}{Prototype PLL Response}{subsection.4.2}% 34
+\BOOKMARK [1][-]{section.5}{Behavioral ADPLL Simulation}{}% 35
+\BOOKMARK [2][-]{subsection.5.1}{Simulation engine}{section.5}% 36
+\BOOKMARK [2][-]{subsection.5.2}{Clock Behavioral Model}{section.5}% 37
+\BOOKMARK [2][-]{subsection.5.3}{TDC Behavioral Model}{section.5}% 38
+\BOOKMARK [2][-]{subsection.5.4}{Loop Filter Behavioral Model}{section.5}% 39
+\BOOKMARK [2][-]{subsection.5.5}{DCO Behavioral Model}{section.5}% 40
+\BOOKMARK [2][-]{subsection.5.6}{Divider Behavioral Model}{section.5}% 41
+\BOOKMARK [2][-]{subsection.5.7}{Post-Processing: Lock Time Detection}{section.5}% 42
+\BOOKMARK [2][-]{subsection.5.8}{Post Processing: Phase Noise Power Spectrum Estimate}{section.5}% 43
+\BOOKMARK [2][-]{subsection.5.9}{Monte-Carlo Sampling}{section.5}% 44
+\BOOKMARK [1][-]{section.6}{Loop Filter Optimization}{}% 45
+\BOOKMARK [2][-]{subsection.6.1}{Phase Noise Optimization Rationale}{section.6}% 46
+\BOOKMARK [2][-]{subsection.6.2}{Loop Filter Optimization Algorithm - Phase Noise}{section.6}% 47
+\BOOKMARK [2][-]{subsection.6.3}{Optimization of Phase Noise with BBPD}{section.6}% 48
+\BOOKMARK [2][-]{subsection.6.4}{Optimization of Settling Time}{section.6}% 49
+\BOOKMARK [2][-]{subsection.6.5}{Fast Estimation of PLL Settling Time}{section.6}% 50
+\BOOKMARK [2][-]{subsection.6.6}{Fast Estimation of PLL Phase Noise}{section.6}% 51
+\BOOKMARK [2][-]{subsection.6.7}{Loop Filter Optimization - Finite Word Effects}{section.6}% 52
+\BOOKMARK [3][-]{subsubsection.6.7.1}{Loop Filter Quantization Noise Optimization}{subsection.6.7}% 53
+\BOOKMARK [3][-]{subsubsection.6.7.2}{Loop Filter Transfer Function Error Optimization}{subsection.6.7}% 54
+\BOOKMARK [3][-]{subsubsection.6.7.3}{Final Optimal Loop Filter Digital Word Size}{subsection.6.7}% 55
+\BOOKMARK [1][-]{section.7}{Results and Discussion}{}% 56
+\BOOKMARK [2][-]{subsection.7.1}{Design Exercise Using This Work}{section.7}% 57
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Approach 1: Results of Filter Optimization.}{subsection.7.1}% 58
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Approach 1: Results of Transient and Phase Noise Simulation.}{subsection.7.1}% 59
+\BOOKMARK [3][-]{subsubsection.7.1.3}{Approach 1: Results of Parameter Sweep and Variational Analysis.}{subsection.7.1}% 60
+\BOOKMARK [3][-]{subsubsection.7.1.4}{Approach 2: Results of Filter Optimization}{subsection.7.1}% 61
+\BOOKMARK [3][-]{subsubsection.7.1.5}{Approach 2: Results of Transient and Phase Noise Simulation}{subsection.7.1}% 62
+\BOOKMARK [3][-]{subsubsection.7.1.6}{Approach 2: Results of Parameter Sweep and Variational Analysis}{subsection.7.1}% 63
+\BOOKMARK [3][-]{subsubsection.7.1.7}{Results Comparison of Design Approaches}{subsection.7.1}% 64
+\BOOKMARK [2][-]{subsection.7.2}{Comparison to Existing Solutions}{section.7}% 65
+\BOOKMARK [2][-]{subsection.7.3}{Design Choices and Areas of Improvement}{section.7}% 66
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 67
+\BOOKMARK [1][-]{appendix.A}{Estimating PSD with Autoregressive Model}{}% 68
+\BOOKMARK [1][-]{appendix.B}{Divider Noise Constraint}{}% 69
